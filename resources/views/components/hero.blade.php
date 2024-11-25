@@ -9,7 +9,7 @@
                 from your favorite and most trusted blogs, YouTube channels, and podcasts, all presented in a simple and beautiful design.
             </p>
             <button class="btn btn-lg bg-[#EF5A6F] font-bold text-white border-none hover:bg-[#EF5A6F] hover:brightness-90">
-                Feeling behind? Join Now →
+                Falling behind? Join now, it's free →
             </button>
         </div>
     </div>

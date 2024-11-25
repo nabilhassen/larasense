@@ -1,4 +1,4 @@
-<div class="navbar bg-white rounded-box w-auto mx-4 sm:mx-0 shadow-md">
+<div class="navbar bg-white rounded-box w-auto mx-4 sm:mx-0 shadow-md shadow-[#EF5A6F]">
     <div class="navbar-start">
         <div class="dropdown">
             <div
@@ -47,8 +47,8 @@
             <li><a class="hover:bg-[#FFF1DB] active:!bg-[#FFF1DB] active:!text-inherit">FAQ</a></li>
         </ul>
     </div>
-    <div class="navbar-end">
-        <a class="btn btn-ghost text-[#EF5A6F] hover:bg-inherit hidden sm:inline-flex">Login</a>
+    <div class="navbar-end gap-x-2">
+        <a class="btn btn-outline text-[#EF5A6F] hidden hover:bg-[#EF5A6F] hover:border-[#EF5A6F] sm:inline-flex">Login</a>
         <a class="btn bg-[#EF5A6F] font-bold text-white border-none hover:bg-[#EF5A6F] hover:brightness-90">Join Now</a>
     </div>
 </div>
