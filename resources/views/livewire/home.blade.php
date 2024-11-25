@@ -2,10 +2,10 @@
     <div class="container mx-auto">
         <x-navbar />
         <x-hero />
-        <figure>
+        <figure class="mx-4 sm:mx-0">
             <img
                 src="{{ asset('/img/dashboard.png') }}"
-                class="rounded-box shadow-xl scale-95"
+                class="rounded-box shadow-md"
                 alt="Dashboard"
             >
         </figure>
