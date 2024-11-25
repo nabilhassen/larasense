@@ -39,7 +39,7 @@
         </a>
     </div>
     <div class="navbar-center hidden lg:flex">
-        <ul class="menu menu-horizontal px-1">
+        <ul class="menu menu-horizontal px-1 font-semibold">
             <li><a class="hover:bg-[#FFF1DB] active:!bg-[#FFF1DB] active:!text-inherit">Home</a></li>
             <li><a class="hover:bg-[#FFF1DB] active:!bg-[#FFF1DB] active:!text-inherit">Features</a></li>
             <li><a class="hover:bg-[#FFF1DB] active:!bg-[#FFF1DB] active:!text-inherit">Benefits</a></li>
