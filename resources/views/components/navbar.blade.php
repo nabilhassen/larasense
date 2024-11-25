@@ -1,4 +1,4 @@
-<div class="navbar bg-white rounded-box w-auto mx-4 shadow-md">
+<div class="navbar bg-white rounded-box w-auto mx-4 sm:mx-0 shadow-md">
     <div class="navbar-start">
         <div class="dropdown">
             <div
