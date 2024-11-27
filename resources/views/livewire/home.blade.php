@@ -13,4 +13,5 @@
         </div>
     </div>
     <x-sources />
+    <x-benefits />
 </div>
