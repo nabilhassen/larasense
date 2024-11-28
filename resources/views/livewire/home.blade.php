@@ -1,4 +1,4 @@
-<div>
+<div class="space-y-20">
     <div class="bg-gradient-to-b from-[#FFF1DB] pt-4">
         <div class="container mx-auto">
             <x-navbar />
@@ -14,4 +14,5 @@
     </div>
     <x-sources />
     <x-benefits />
+    <x-comparison />
 </div>

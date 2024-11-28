@@ -1,7 +1,7 @@
-<div class="py-20">
+<div>
     <div class="container mx-auto space-y-12">
         <div>
-            <h2 class="text-black font-extrabold text-center">
+            <h2 class="text-black font-extrabold text-center opacity-50">
                 Curated content from blogs, YouTube channels, podcasts we all know and love
             </h2>
         </div>
