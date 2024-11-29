@@ -44,6 +44,7 @@
                 <a
                     class="hover:bg-[#FFF1DB] active:!bg-[#FFF1DB] focus:!bg-[#FFF1DB] active:!text-inherit"
                     href="{{ route('home') }}"
+                    wire:navigate
                 >
                     Home
                 </a>
