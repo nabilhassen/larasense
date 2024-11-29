@@ -1,4 +1,7 @@
-<div class="container mx-auto">
+<div
+    id="faq"
+    class="container mx-auto scroll-m-20"
+>
     <div class="grid sm:grid-cols-2 mx-4 sm:space-y-0 space-y-12">
         <h2 class="text-black font-extrabold sm:text-8xl text-6xl sm:text-left text-center sm:space-y-4 opacity-50">
             <div> Frequently </div>

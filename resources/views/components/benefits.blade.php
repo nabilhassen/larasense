@@ -1,4 +1,7 @@
-<div class="container mx-auto">
+<div
+    id="benefits"
+    class="container mx-auto scroll-m-20"
+>
     <div class="mx-4 bg-[#FFF1DB] rounded-badge sm:px-20 px-6 py-16 space-y-20">
         <h2 class="text-5xl text-center font-bold">
             Be the first to know, <span class="text-[#EF5A6F]">beat FOMO</span>

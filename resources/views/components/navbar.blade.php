@@ -40,11 +40,38 @@
     </div>
     <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal px-1 font-semibold">
-            <li><a class="hover:bg-[#FFF1DB] active:!bg-[#FFF1DB] active:!text-inherit">Home</a></li>
-            <li><a class="hover:bg-[#FFF1DB] active:!bg-[#FFF1DB] active:!text-inherit">Features</a></li>
-            <li><a class="hover:bg-[#FFF1DB] active:!bg-[#FFF1DB] active:!text-inherit">Benefits</a></li>
-            <li><a class="hover:bg-[#FFF1DB] active:!bg-[#FFF1DB] active:!text-inherit">Sources</a></li>
-            <li><a class="hover:bg-[#FFF1DB] active:!bg-[#FFF1DB] active:!text-inherit">FAQ</a></li>
+            <li>
+                <a
+                    class="hover:bg-[#FFF1DB] active:!bg-[#FFF1DB] focus:!bg-[#FFF1DB] active:!text-inherit"
+                    href="{{ route('home') }}"
+                >
+                    Home
+                </a>
+            </li>
+            <li>
+                <a
+                    class="hover:bg-[#FFF1DB] active:!bg-[#FFF1DB] focus:!bg-[#FFF1DB] active:!text-inherit"
+                    href="#sources"
+                >
+                    Sources
+                </a>
+            </li>
+            <li>
+                <a
+                    class="hover:bg-[#FFF1DB] active:!bg-[#FFF1DB] focus:!bg-[#FFF1DB] active:!text-inherit"
+                    href="#benefits"
+                >
+                    Benefits
+                </a>
+            </li>
+            <li>
+                <a
+                    class="hover:bg-[#FFF1DB] active:!bg-[#FFF1DB] focus:!bg-[#FFF1DB] active:!text-inherit"
+                    href="#faq"
+                >
+                    FAQ
+                </a>
+            </li>
         </ul>
     </div>
     <div class="navbar-end gap-x-2">
