@@ -15,4 +15,5 @@
     <x-sources />
     <x-benefits />
     <x-comparison />
+    <x-faq />
 </div>

@@ -1,5 +1,5 @@
 <div class="container mx-auto">
-    <div class="mx-4 bg-green-50 rounded-badge sm:px-20 px-6 py-16 space-y-20">
+    <div class="mx-4 bg-stone-50 rounded-badge sm:px-20 px-6 py-16 space-y-20">
         <h2 class="text-5xl text-center font-bold">
             Stay informed like <span class="text-emerald-500">a PRO</span>
         </h2>
