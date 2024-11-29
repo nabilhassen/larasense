@@ -8,7 +8,7 @@
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5"
+                    class="h-5 w-5 stroke-[#EF5A6F]"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -32,10 +32,12 @@
                 <li><a>FAQ</a></li>
             </ul>
         </div>
-        <a class="btn btn-ghost text-xl">
-            <span>
-                the<span class="text-[#EF5A6F]">LaravelFeed</span>
-            </span>
+        <a class="btn btn-ghost text-xl hover:!bg-inherit">
+            <img
+                class="sm:w-52 w-48"
+                src="{{ asset('img/logo.png') }}"
+                alt="Larasense logo"
+            >
         </a>
     </div>
     <div class="navbar-center hidden lg:flex">
