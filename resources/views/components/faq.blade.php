@@ -88,8 +88,8 @@
                         class="opacity-80"
                     >
                         Just like how the Laravel framework is elegant, organized, and beautiful, the Laravel community deserves to have a home
-                        where they can access and consume quality content from the best in a distraction-free environment. When we say Laravel-focused
-                        content we mean the entire ecosystem including PHP, Livewire, Filament, and 3rd party Laravel packages.
+                        where they can learn, and grow accessing high-quality content from the best in a distraction-free environment. When we say
+                        Laravel-focused content we mean the whole ecosystem including PHP, Livewire, Filament, and 3rd party Laravel packages.
                     </div>
                 </div>
                 <div class="grow text-right">
