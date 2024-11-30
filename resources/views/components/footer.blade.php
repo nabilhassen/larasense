@@ -66,7 +66,7 @@
         <hr class="mt-8 mb-4 bg-stone-100">
         <div class="flex max-sm:flex-col max-sm:space-y-4 justify-between text-sm">
             <p>
-                Built with <x-heroicon-o-heart class="size-4 inline-block stroke-none" /> by <a
+                Built with <x-heroicon-o-heart class="size-6 inline-block stroke-[#EF5A6F]" /> by <a
                     class="underline font-bold"
                     href="https://x.com/nabilhassen08"
                     target="_blank"
