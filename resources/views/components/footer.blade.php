@@ -1,4 +1,4 @@
-<footer class="bg-stone-50 text-stone-700">
+<footer class="text-stone-700">
     <div class="container mx-auto p-8 pl-4">
         <div class="flex sm:flex-row flex-col justify-between sm:items-center">
             <figure>
@@ -66,7 +66,7 @@
         <hr class="mt-8 mb-4 bg-stone-100">
         <div class="flex max-sm:flex-col max-sm:space-y-4 justify-between text-sm">
             <p>
-                Built with <x-heroicon-o-heart class="size-4 inline-block" /> by <a
+                Built with <x-heroicon-o-heart class="size-4 inline-block stroke-none" /> by <a
                     class="underline font-bold"
                     href="https://x.com/nabilhassen08"
                     target="_blank"
