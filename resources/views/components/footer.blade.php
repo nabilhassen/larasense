@@ -69,6 +69,7 @@
                 Built with <x-heroicon-o-heart class="size-4 inline-block" /> by <a
                     class="underline font-bold"
                     href="https://x.com/nabilhassen08"
+                    target="_blank"
                 >Nabil Hassen</a>
             </p>
             <div>

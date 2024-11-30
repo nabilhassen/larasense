@@ -1,4 +1,4 @@
-<div class="bg-[#FFF1DB]">
+<div class="bg-gradient-to-b from-[#FFF1DB] space-y-20">
     <div class="container mx-auto pt-4 space-y-20">
         <x-navbar />
         <div class="sm:mx-[20%] mx-4 space-y-8 text-stone-500">
@@ -124,4 +124,5 @@
             </div>
         </div>
     </div>
+    <x-footer />
 </div>
