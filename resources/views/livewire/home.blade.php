@@ -17,4 +17,5 @@
     <x-comparison />
     <x-faq />
     <x-cta />
+    <x-footer />
 </div>

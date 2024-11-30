@@ -20,8 +20,6 @@
 <body class="antialiased">
     {{ $slot }}
 
-    <div class="mb-96"></div>
-
     @livewireScriptConfig
     @vite('resources/js/app.js')
     @stack('scripts')
