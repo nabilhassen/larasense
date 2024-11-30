@@ -6,7 +6,7 @@
             <figure class="ml-4 sm:mx-0 overflow-hidden">
                 <img
                     src="{{ asset('/img/dashboard.png') }}"
-                    class="sm:rounded-badge rounded-tl-badge max-w-2xl sm:max-w-full"
+                    class="sm:rounded-badge rounded-tl-badge max-w-2xl sm:max-w-6xl sm:mx-auto"
                     alt="Dashboard"
                 >
             </figure>
