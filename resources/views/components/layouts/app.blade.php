@@ -11,7 +11,7 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>{{ $title ?? 'Page Title' }}</title>
+    <title>Larasense - {{ $title ?? '' }}</title>
 
     @livewireStyles
     @vite('resources/css/app.css')
