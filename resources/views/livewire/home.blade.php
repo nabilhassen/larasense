@@ -16,4 +16,5 @@
     <x-benefits />
     <x-comparison />
     <x-faq />
+    <x-cta />
 </div>
