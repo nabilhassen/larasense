@@ -1,5 +1,5 @@
 <div class="space-y-20">
-    <div class="bg-gradient-to-b from-[#FFF1DB]">
+    <div class="bg-gradient-to-b from-secondary">
         <x-navbar />
         <x-hero />
     </div>

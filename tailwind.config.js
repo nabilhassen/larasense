@@ -18,6 +18,14 @@ export default {
     },
     plugins: [require("daisyui")],
     daisyui: {
-        themes: ["light"],
+        themes: [
+            {
+                light: {
+                    ...require("daisyui/src/theming/themes")["light"],
+                    primary: "#EF5A6F",
+                    secondary: "#FFF1DB",
+                },
+            },
+        ],
     },
 };

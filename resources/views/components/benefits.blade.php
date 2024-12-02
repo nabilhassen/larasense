@@ -1,15 +1,15 @@
 <section
     id="benefits"
-    class="container mx-auto scroll-m-20"
+    class="container mx-auto scroll-m-20 text-stone-700"
 >
-    <div class="bg-[#FFF1DB] rounded-badge sm:px-20 px-6 py-16 space-y-20 max-sm:mx-4">
+    <div class="bg-secondary rounded-badge sm:px-20 px-6 py-16 space-y-20 max-sm:mx-4">
         <h2 class="text-5xl text-center font-bold">
-            Be the first to know, <span class="text-[#EF5A6F]">beat FOMO</span>
+            Be the first to know, <span class="text-primary">beat FOMO</span>
         </h2>
         <div class="grid sm:grid-cols-3 sm:gap-x-16 max-sm:gap-y-16">
             <div class="flex flex-col items-center bg-white p-8 rounded-badge space-y-6 shadow-sm">
                 <div>
-                    <x-heroicon-o-window class="size-28 stroke-[#EF5A6F]" />
+                    <x-heroicon-o-window class="size-28 stroke-primary" />
                 </div>
                 <div class="space-y-1 text-center">
                     <h3 class="font-bold text-xl">
@@ -22,7 +22,7 @@
             </div>
             <div class="flex flex-col items-center bg-white p-8 rounded-badge space-y-6 shadow-sm">
                 <div>
-                    <x-heroicon-o-question-mark-circle class="size-28 stroke-[#EF5A6F]" />
+                    <x-heroicon-o-question-mark-circle class="size-28 stroke-primary" />
                 </div>
                 <div class="space-y-1 text-center">
                     <h3 class="font-bold text-xl">
@@ -35,7 +35,7 @@
             </div>
             <div class="flex flex-col items-center bg-white p-8 rounded-badge space-y-6 shadow-sm">
                 <div>
-                    <x-heroicon-o-clock class="size-28 stroke-[#EF5A6F]" />
+                    <x-heroicon-o-clock class="size-28 stroke-primary" />
                 </div>
                 <div class="space-y-1 text-center">
                     <h3 class="font-bold text-xl">

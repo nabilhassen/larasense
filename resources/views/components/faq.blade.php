@@ -1,12 +1,12 @@
 <section
     id="faq"
-    class="container mx-auto scroll-m-20"
+    class="container mx-auto scroll-m-20 text-stone-700"
 >
     <div class="grid sm:grid-cols-2 max-sm:space-y-12 max-sm:mx-4">
-        <h2 class="text-black font-extrabold sm:text-8xl text-6xl sm:text-left text-center sm:space-y-4 opacity-50">
+        <h2 class="font-extrabold sm:text-8xl text-6xl max-sm:text-center sm:space-y-4 opacity-65">
             <div> Frequently </div>
             <div> Asked </div>
-            <div class="text-[#EF5A6F]"> Questions </div>
+            <div class="text-primary"> Questions </div>
         </h2>
         <aside class="space-y-6 sm:!mt-3 max-sm:mx-2">
             <div
@@ -14,14 +14,14 @@
                 x-on:click="isActive = !isActive"
                 class="flex pb-3 border-b border-b-black cursor-pointer"
             >
-                <div class="text-black">
+                <div>
                     <div class="font-bold">
                         What is Larasense?
                     </div>
                     <div
                         x-cloak
                         x-show="isActive"
-                        class="opacity-80"
+                        class="opacity-90"
                     >
                         Larasense is a dedicated, Laravel-focused content aggregation website. We curate content from the most trusted and credible sources
                         in the Laravel community. The ultimate goal is to keep Laravel developers updated with the latest news, and updates in an organized manner.
@@ -45,17 +45,17 @@
                 x-on:click="isActive = !isActive"
                 class="flex pb-3 border-b border-b-black cursor-pointer"
             >
-                <div class="text-black">
+                <div>
                     <div class="font-bold">
                         Is the platform free to use?
                     </div>
                     <div
                         x-cloak
                         x-show="isActive"
-                        class="opacity-80"
+                        class="opacity-90"
                     >
                         Yes. 100% free. <a
-                            class="link text-[#EF5A6F] font-bold"
+                            class="link text-primary font-bold"
                             href="#"
                         >Sign up</a> and enjoy!
                     </div>
@@ -78,14 +78,14 @@
                 x-on:click="isActive = !isActive"
                 class="flex pb-3 border-b border-b-black cursor-pointer"
             >
-                <div class="text-black">
+                <div>
                     <div class="font-bold">
                         Why focus specifically on Laravel?
                     </div>
                     <div
                         x-cloak
                         x-show="isActive"
-                        class="opacity-80"
+                        class="opacity-90"
                     >
                         Just like how the Laravel framework is elegant, organized, and beautiful, the Laravel community deserves to have a home
                         where they can learn, and grow accessing high-quality content from the best in a distraction-free environment. When we say
@@ -110,14 +110,14 @@
                 x-on:click="isActive = !isActive"
                 class="flex pb-3 border-b border-b-black cursor-pointer"
             >
-                <div class="text-black">
+                <div>
                     <div class="font-bold">
                         Can I save or bookmark content for later?
                     </div>
                     <div
                         x-cloak
                         x-show="isActive"
-                        class="opacity-80"
+                        class="opacity-90"
                     >
                         Absolutely. You can bookmark any content and access it whenever you like.
                     </div>
@@ -140,14 +140,14 @@
                 x-on:click="isActive = !isActive"
                 class="flex pb-3 border-b border-b-black cursor-pointer"
             >
-                <div class="text-black">
+                <div>
                     <div class="font-bold">
                         How often is the content updated?
                     </div>
                     <div
                         x-cloak
                         x-show="isActive"
-                        class="opacity-80"
+                        class="opacity-90"
                     >
                         The moment new content is out, it will be available on Larasense immediately.
                     </div>
@@ -170,14 +170,14 @@
                 x-on:click="isActive = !isActive"
                 class="flex pb-3 border-b border-b-black cursor-pointer"
             >
-                <div class="text-black">
+                <div>
                     <div class="font-bold">
                         Can I search for specific topics or articles?
                     </div>
                     <div
                         x-cloak
                         x-show="isActive"
-                        class="opacity-80"
+                        class="opacity-90"
                     >
                         Yes. You can search for any topic and you will get relevant results from sources in multiple formats;
                         Blog posts, YouTube videos, and Podcast episodes.
@@ -201,21 +201,21 @@
                 x-on:click="isActive = !isActive"
                 class="flex pb-3 border-b border-b-black cursor-pointer"
             >
-                <div class="text-black">
+                <div>
                     <div class="font-bold">
                         Who can I contact for further questions, support, bug reports, etc?
                     </div>
                     <div
                         x-cloak
                         x-show="isActive"
-                        class="opacity-80"
+                        class="opacity-90"
                     >
                         You can contact me on X (formerly twitter) <a
-                            class="text-[#EF5A6F] font-bold"
+                            class="text-primary font-bold"
                             href="https://x.com/nabilhassen08"
                             target="_blank"
                         >@nabilhassen08</a> or <a
-                            class="link text-[#EF5A6F] font-bold"
+                            class="link text-primary font-bold"
                             href="mailto:nabil@larasense.com"
                         >email me</a>.
                     </div>

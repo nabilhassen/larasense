@@ -1,9 +1,9 @@
 <section
     id="sources"
-    class="container mx-auto scroll-m-20"
+    class="container mx-auto scroll-m-20 text-stone-700"
 >
     <div class="space-y-12">
-        <h2 class="text-black font-extrabold text-center opacity-50">
+        <h2 class="text-center opacity-50">
             Curated content from blogs, YouTube channels, podcasts we all know and love
         </h2>
         <div class="grid sm:grid-cols-5 grid-cols-3 gap-y-12 gap-x-6 items-center justify-items-center max-sm:mx-4">

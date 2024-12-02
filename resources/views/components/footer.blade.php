@@ -1,5 +1,5 @@
-<footer class="container mx-auto">
-    <div class="py-8 text-stone-700 max-sm:mx-4">
+<footer class="container mx-auto text-stone-700">
+    <div class="py-8 max-sm:mx-4">
         <div class="flex max-sm:flex-col justify-between sm:items-center">
             <figure>
                 <img
@@ -11,7 +11,7 @@
             <ul class="menu menu-vertical sm:menu-horizontal">
                 <li>
                     <a
-                        class="hover:bg-[#FFF1DB] active:!bg-[#FFF1DB] focus:!bg-[#FFF1DB] active:!text-inherit max-sm:pl-0"
+                        class="hover:bg-secondary active:!bg-secondary focus:!bg-secondary active:!text-inherit max-sm:pl-0"
                         href="{{ route('home') }}"
                         wire:navigate
                     >
@@ -20,7 +20,7 @@
                 </li>
                 <li>
                     <a
-                        class="hover:bg-[#FFF1DB] active:!bg-[#FFF1DB] focus:!bg-[#FFF1DB] active:!text-inherit max-sm:pl-0"
+                        class="hover:bg-secondary active:!bg-secondary focus:!bg-secondary active:!text-inherit max-sm:pl-0"
                         href="#sources"
                     >
                         Sources
@@ -28,7 +28,7 @@
                 </li>
                 <li>
                     <a
-                        class="hover:bg-[#FFF1DB] active:!bg-[#FFF1DB] focus:!bg-[#FFF1DB] active:!text-inherit max-sm:pl-0"
+                        class="hover:bg-secondary active:!bg-secondary focus:!bg-secondary active:!text-inherit max-sm:pl-0"
                         href="#benefits"
                     >
                         Benefits
@@ -36,7 +36,7 @@
                 </li>
                 <li>
                     <a
-                        class="hover:bg-[#FFF1DB] active:!bg-[#FFF1DB] focus:!bg-[#FFF1DB] active:!text-inherit max-sm:pl-0"
+                        class="hover:bg-secondary active:!bg-secondary focus:!bg-secondary active:!text-inherit max-sm:pl-0"
                         href="#faq"
                     >
                         FAQ
@@ -44,7 +44,7 @@
                 </li>
                 <li>
                     <a
-                        class="hover:bg-[#FFF1DB] active:!bg-[#FFF1DB] focus:!bg-[#FFF1DB] active:!text-inherit max-sm:pl-0"
+                        class="hover:bg-secondary active:!bg-secondary focus:!bg-secondary active:!text-inherit max-sm:pl-0"
                         href="#faq"
                     >
                         Login
@@ -52,7 +52,7 @@
                 </li>
                 <li>
                     <a
-                        class="hover:bg-[#FFF1DB] active:!bg-[#FFF1DB] focus:!bg-[#FFF1DB] active:!text-inherit max-sm:pl-0"
+                        class="hover:bg-secondary active:!bg-secondary focus:!bg-secondary active:!text-inherit max-sm:pl-0"
                         href="#faq"
                     >
                         Sign up
@@ -66,7 +66,7 @@
         <hr class="mt-8 mb-4 bg-stone-100">
         <div class="flex max-sm:flex-col max-sm:space-y-4 justify-between text-sm">
             <p>
-                Built with <x-heroicon-o-heart class="size-6 inline-block stroke-[#EF5A6F]" /> by <a
+                Built with <x-heroicon-o-heart class="size-6 inline-block stroke-primary" /> by <a
                     class="underline font-bold"
                     href="https://x.com/nabilhassen08"
                     target="_blank"
