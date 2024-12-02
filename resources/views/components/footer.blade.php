@@ -1,6 +1,6 @@
-<footer class="text-stone-700">
-    <div class="container mx-auto p-8 pl-4">
-        <div class="flex sm:flex-row flex-col justify-between sm:items-center">
+<footer class="container mx-auto">
+    <div class="py-8 text-stone-700 max-sm:mx-4">
+        <div class="flex max-sm:flex-col justify-between sm:items-center">
             <figure>
                 <img
                     class="w-52"

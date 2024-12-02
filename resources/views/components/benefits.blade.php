@@ -1,12 +1,12 @@
-<div
+<section
     id="benefits"
     class="container mx-auto scroll-m-20"
 >
-    <div class="mx-4 bg-[#FFF1DB] rounded-badge sm:px-20 px-6 py-16 space-y-20">
+    <div class="bg-[#FFF1DB] rounded-badge sm:px-20 px-6 py-16 space-y-20 max-sm:mx-4">
         <h2 class="text-5xl text-center font-bold">
             Be the first to know, <span class="text-[#EF5A6F]">beat FOMO</span>
         </h2>
-        <div class="grid sm:grid-cols-3 sm:gap-x-16 gap-y-16 sm:gap-y-0">
+        <div class="grid sm:grid-cols-3 sm:gap-x-16 max-sm:gap-y-16">
             <div class="flex flex-col items-center bg-white p-8 rounded-badge space-y-6 shadow-sm">
                 <div>
                     <x-heroicon-o-window class="size-28 stroke-[#EF5A6F]" />
@@ -48,4 +48,4 @@
             </div>
         </div>
     </div>
-</div>
+</section>

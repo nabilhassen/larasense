@@ -1,14 +1,14 @@
-<div
+<section
     id="faq"
     class="container mx-auto scroll-m-20"
 >
-    <div class="grid sm:grid-cols-2 mx-4 sm:space-y-0 space-y-12">
+    <div class="grid sm:grid-cols-2 max-sm:space-y-12 max-sm:mx-4">
         <h2 class="text-black font-extrabold sm:text-8xl text-6xl sm:text-left text-center sm:space-y-4 opacity-50">
             <div> Frequently </div>
             <div> Asked </div>
             <div class="text-[#EF5A6F]"> Questions </div>
         </h2>
-        <aside class="space-y-6 sm:!mt-3 sm:mx-0 mx-2">
+        <aside class="space-y-6 sm:!mt-3 max-sm:mx-2">
             <div
                 x-data="{ 'isActive': true }"
                 x-on:click="isActive = !isActive"
@@ -235,4 +235,4 @@
             </div>
         </aside>
     </div>
-</div>
+</section>
