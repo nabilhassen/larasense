@@ -1,7 +1,7 @@
 <div class="bg-gradient-to-b from-[#FFF1DB] space-y-20">
-    <div class="container mx-auto pt-4 space-y-20">
-        <x-navbar />
-        <div class="sm:mx-[20%] mx-4 space-y-8 text-stone-500">
+    <x-navbar />
+    <div class="container mx-auto">
+        <div class="sm:max-w-3xl sm:mx-auto mx-4 space-y-8 text-stone-500">
             <h1 class="text-stone-700 font-semibold text-2xl">
                 Terms and Conditions
             </h1>
