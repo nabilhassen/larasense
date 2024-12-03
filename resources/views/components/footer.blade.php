@@ -77,7 +77,7 @@
                     <li>
                         <a
                             class="link link-hover"
-                            href="#faq"
+                            href="{{ route('terms') }}"
                         >
                             Terms & Conditions
                         </a>
