@@ -85,7 +85,7 @@
                     <li>
                         <a
                             class="link link-hover"
-                            href="#faq"
+                            href="{{ route('privacy') }}"
                         >
                             Privacy Policy
                         </a>
