@@ -9,10 +9,13 @@
                     We will help you stay on top of the latest news, updates, and trends in the Laravel ecosystem by curating content
                     from your favorite and most trusted blogs, YouTube channels, and podcasts, all presented in a simple and beautiful design.
                 </p>
-                <button class="btn btn-lg bg-primary font-bold text-white border-none hover:bg-primary hover:brightness-90">
+                <a
+                    class="btn btn-lg bg-primary font-bold text-white border-none hover:bg-primary hover:brightness-90"
+                    href="{{ route('register') }}"
+                >
                     Falling behind? Join now, it's free
                     <x-heroicon-o-arrow-long-right class="inline size-8" />
-                </button>
+                </a>
             </div>
         </div>
     </div>

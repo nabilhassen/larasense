@@ -8,9 +8,12 @@
                 Curated content, beautifully presented from the best developers in the Laravel community.
             </h3>
         </div>
-        <button class="btn bg-primary font-bold text-white border-none hover:bg-primary hover:brightness-90">
+        <a
+            class="btn bg-primary font-bold text-white border-none hover:bg-primary hover:brightness-90"
+            href="{{ route('register') }}"
+        >
             Join now, it's free
             <x-heroicon-o-arrow-long-right class="inline size-8" />
-        </button>
+        </a>
     </div>
 </section>

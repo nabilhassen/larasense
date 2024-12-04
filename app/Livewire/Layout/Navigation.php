@@ -14,7 +14,7 @@ class Navigation extends Component
     {
         $logout();
 
-        $this->redirect('/', navigate: true);
+        $this->redirectRoute('home');
     }
 
     public function render()

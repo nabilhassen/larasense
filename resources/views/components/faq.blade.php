@@ -56,7 +56,7 @@
                     >
                         Yes. 100% free. <a
                             class="link text-primary font-bold"
-                            href="#"
+                            href="{{ route('register') }}"
                         >Sign up</a> and enjoy!
                     </div>
                 </div>
