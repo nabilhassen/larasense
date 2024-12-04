@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "413cd179c99a2867e6d32b4907af3fb4",
+    "content-hash": "2b137d62b8ca2d8719ee355019ef7ed2",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -6445,6 +6445,67 @@
             "time": "2024-11-18T16:19:46+00:00"
         },
         {
+            "name": "laravel/breeze",
+            "version": "v2.2.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/breeze.git",
+                "reference": "907b12160d1b8b8213e7e2e011987fffb5567edc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/breeze/zipball/907b12160d1b8b8213e7e2e011987fffb5567edc",
+                "reference": "907b12160d1b8b8213e7e2e011987fffb5567edc",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "^11.0",
+                "illuminate/filesystem": "^11.0",
+                "illuminate/support": "^11.0",
+                "illuminate/validation": "^11.0",
+                "php": "^8.2.0",
+                "symfony/console": "^7.0"
+            },
+            "require-dev": {
+                "laravel/framework": "^11.0",
+                "orchestra/testbench-core": "^9.0",
+                "phpstan/phpstan": "^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Laravel\\Breeze\\BreezeServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Breeze\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "Minimal Laravel authentication scaffolding with Blade and Tailwind.",
+            "keywords": [
+                "auth",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/laravel/breeze/issues",
+                "source": "https://github.com/laravel/breeze"
+            },
+            "time": "2024-11-20T15:01:15+00:00"
+        },
+        {
             "name": "laravel/pail",
             "version": "v1.2.1",
             "source": {
@@ -7216,72 +7277,6 @@
                 }
             ],
             "time": "2024-09-08T23:32:52+00:00"
-        },
-        {
-            "name": "pestphp/pest-plugin-livewire",
-            "version": "v3.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/pestphp/pest-plugin-livewire.git",
-                "reference": "e2f2edb0a7d414d6837d87908a0e148256d3bf89"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/pestphp/pest-plugin-livewire/zipball/e2f2edb0a7d414d6837d87908a0e148256d3bf89",
-                "reference": "e2f2edb0a7d414d6837d87908a0e148256d3bf89",
-                "shasum": ""
-            },
-            "require": {
-                "livewire/livewire": "^3.5.6",
-                "pestphp/pest": "^3.0.0",
-                "php": "^8.1"
-            },
-            "require-dev": {
-                "orchestra/testbench": "^9.4.0",
-                "pestphp/pest-dev-tools": "^3.0.0"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "src/Autoload.php"
-                ],
-                "psr-4": {
-                    "Pest\\Livewire\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "The Pest Livewire Plugin",
-            "keywords": [
-                "framework",
-                "livewire",
-                "pest",
-                "php",
-                "plugin",
-                "test",
-                "testing",
-                "unit"
-            ],
-            "support": {
-                "source": "https://github.com/pestphp/pest-plugin-livewire/tree/v3.0.0"
-            },
-            "funding": [
-                {
-                    "url": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=66BYDWAT92N6L",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/nunomaduro",
-                    "type": "github"
-                },
-                {
-                    "url": "https://www.patreon.com/nunomaduro",
-                    "type": "patreon"
-                }
-            ],
-            "time": "2024-09-09T00:05:59+00:00"
         },
         {
             "name": "pestphp/pest-plugin-mutate",
