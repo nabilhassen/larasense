@@ -1,11 +1,13 @@
 <div class="min-h-screen flex justify-center items-center text-stone-700">
     <div class="sm:max-w-sm sm:mx-auto mx-4 py-8 space-y-6">
         <figure>
-            <img
-                class="w-48 mx-auto"
-                src="{{ asset('img/logo.png') }}"
-                alt="Larasense logo"
-            >
+            <a href="{{ route('home') }}">
+                <img
+                    class="w-48 mx-auto"
+                    src="{{ asset('img/logo.png') }}"
+                    alt="Larasense logo"
+                >
+            </a>
         </figure>
         <h1 class="text-center text-xl font-semibold">
             Sign Up
@@ -143,7 +145,7 @@
             </label>
 
             <div class="flex items-center justify-end !mt-8">
-                <button class="btn bg-primary text-white hover:bg-primary hover:brightness-90 w-full">
+                <button class="btn bg-primary text-white hover:bg-primary hover:brightness-90 w-full disabled:bg-primary disabled:opacity-70 disabled:text-white">
                     Sign up
                 </button>
             </div>
