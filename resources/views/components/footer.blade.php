@@ -45,7 +45,7 @@
                 <li>
                     <a
                         class="hover:bg-secondary active:!bg-secondary focus:!bg-secondary active:!text-inherit max-sm:pl-0"
-                        href="#faq"
+                        href="{{ route('login') }}"
                     >
                         Login
                     </a>
@@ -53,7 +53,7 @@
                 <li>
                     <a
                         class="hover:bg-secondary active:!bg-secondary focus:!bg-secondary active:!text-inherit max-sm:pl-0"
-                        href="#faq"
+                        href="{{ route('register') }}"
                     >
                         Sign up
                     </a>

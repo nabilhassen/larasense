@@ -79,8 +79,14 @@
             </ul>
         </div>
         <div class="navbar-end gap-x-2">
-            <a class="btn btn-outline text-primary hidden hover:bg-primary hover:border-primary sm:inline-flex">Login</a>
-            <a class="btn bg-primary font-bold text-white border-none hover:bg-primary hover:brightness-90">Join Now</a>
+            <a
+                class="btn btn-outline text-primary hidden hover:bg-primary hover:border-primary sm:inline-flex"
+                href="{{ route('login') }}"
+            >Login</a>
+            <a
+                class="btn bg-primary font-bold text-white border-none hover:bg-primary hover:brightness-90"
+                href="{{ route('register') }}"
+            >Join Now</a>
         </div>
     </div>
 </section>

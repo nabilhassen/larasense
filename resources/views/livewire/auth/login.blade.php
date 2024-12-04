@@ -120,12 +120,12 @@
                         class="checkbox checkbox-sm checkbox-primary"
                         name="remember"
                     >
-                    <span class="ms-2 text-sm text-stone-500">Remember me</span>
+                    <span class="ms-2 text-sm opacity-60">Remember me</span>
                 </label>
 
                 @if (Route::has('password.request'))
                     <a
-                        class="link text-sm text-stone-500"
+                        class="link text-sm opacity-60"
                         href="{{ route('password.request') }}"
                         wire:navigate
                     >
