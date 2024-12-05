@@ -5,10 +5,10 @@ namespace App\Livewire\Auth;
 use App\Livewire\Actions\Logout;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
-use Livewire\Attributes\Layout;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
-#[Layout('layouts.guest')]
+#[Title('Verify Email')]
 class VerifyEmail extends Component
 {
     /**

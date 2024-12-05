@@ -1,25 +1,39 @@
-<div>
-    <div class="mb-4 text-sm text-gray-600">
-        {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
-    </div>
-
-    @if (session('status') == 'verification-link-sent')
-        <div class="mb-4 font-medium text-sm text-green-600">
-            {{ __('A new verification link has been sent to the email address you provided during registration.') }}
+<div class="min-h-screen flex justify-center items-center text-stone-700">
+    <div class="sm:max-w-sm sm:mx-auto mx-4 py-8 space-y-6 border-2 border-secondary p-8 rounded-box shadow-lg">
+        <figure>
+            <a href="{{ route('home') }}">
+                <img
+                    class="w-48 mx-auto"
+                    src="{{ asset('img/logo.png') }}"
+                    alt="Larasense logo"
+                >
+            </a>
+        </figure>
+        <div class="text-sm">
+            Thanks for signing up! Before getting started, could you verify your email address by clicking
+            on the link we just emailed to you? If you didn't receive the email, we will gladly send you another.
         </div>
-    @endif
 
-    <div class="mt-4 flex items-center justify-between">
-        <x-primary-button wire:click="sendVerification">
-            {{ __('Resend Verification Email') }}
-        </x-primary-button>
+        @if (session('status') === 'verification-link-sent')
+            <div class="rounded-md font-bold p-4 bg-secondary text-primary text-sm">
+                A new verification link has been sent to the email address you provided during registration.
+            </div>
+        @endif
 
-        <button
-            wire:click="logout"
-            type="submit"
-            class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-        >
-            {{ __('Log Out') }}
-        </button>
+        <div class="flex items-center justify-between !mt-8">
+            <button
+                class="btn bg-primary text-white hover:bg-primary hover:brightness-90 disabled:bg-primary disabled:opacity-70 disabled:text-white"
+                wire:click="sendVerification"
+            >
+                Resend Verification Email
+            </button>
+            <button
+                wire:click="logout"
+                type="submit"
+                class="link text-sm opacity-60"
+            >
+                Log Out
+            </button>
+        </div>
     </div>
 </div>
