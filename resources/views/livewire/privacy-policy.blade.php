@@ -110,16 +110,9 @@
                 </p>
                 <ul class="list-disc list-inside mt-4 opacity-70">
                     <li>
-                        If you delete your account, we will retain your information for [X] period before it is permanently removed.
+                        If you delete your account, we will retain your information for one week before it is permanently removed.
                     </li>
                 </ul>
-            </div>
-
-            <div>
-                <h2 class="font-semibold text-lg mb-4"> International Data Transfers </h2>
-                <p class="opacity-70">
-                    If you are accessing our website from outside [Country], please note that your data may be transferred to and stored on servers located in other countries. We will ensure that your data is treated with the same level of protection in accordance with this Privacy Policy.
-                </p>
             </div>
 
             <div>
