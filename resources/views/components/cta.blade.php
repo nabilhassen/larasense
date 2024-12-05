@@ -5,7 +5,7 @@
                 Get Your Laravel Updates On Time<span class="sm:text-5xl text-3xl">.</span>
             </h2>
             <h3 class="sm:mt-2 mt-4">
-                Curated content, beautifully presented from the best developers in the Laravel community.
+                Curated content, beautifully presented from the best content creators in the Laravel community.
             </h3>
         </div>
         <a

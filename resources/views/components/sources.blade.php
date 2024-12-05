@@ -4,7 +4,7 @@
 >
     <div class="space-y-12">
         <h2 class="text-center opacity-50">
-            Curated content from blogs, YouTube channels, podcasts we all know and love
+            Curated content from blogs, YouTube channels, podcasts <span class="text-primary font-bold">we all know and love</span>
         </h2>
         <div class="grid sm:grid-cols-5 grid-cols-3 gap-y-12 gap-x-6 items-center justify-items-center max-sm:mx-4">
             <div>
