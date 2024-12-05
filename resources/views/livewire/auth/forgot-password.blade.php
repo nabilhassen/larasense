@@ -51,6 +51,13 @@
                     </button>
                 </div>
             </form>
+            <div class="text-sm text-center">
+                <span>Just remembered?</span>
+                <a
+                    class="link text-primary font-bold"
+                    href="{{ route('login') }}"
+                >Login</a>
+            </div>
         @endif
     </div>
 </div>
