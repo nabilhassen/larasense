@@ -1,83 +1,81 @@
-<section>
-    <header>
-        <h2 class="text-lg font-medium text-gray-900">
-            {{ __('Update Password') }}
-        </h2>
-
-        <p class="mt-1 text-sm text-gray-600">
-            {{ __('Ensure your account is using a long, random password to stay secure.') }}
-        </p>
-    </header>
-
+<section class="text-stone-700 space-y-4">
+    <div>
+        <h1 class="text-xl font-semibold">
+            Update Password
+        </h1>
+        <h2 class="text-sm">
+            Ensure your account is using a long, random password to stay secure.
+    </div>
     <form
         wire:submit="updatePassword"
-        class="mt-6 space-y-6"
+        class="space-y-2"
     >
-        <div>
-            <x-input-label
-                for="update_password_current_password"
-                :value="__('Current Password')"
-            />
-            <x-text-input
+        <label class="form-control w-full">
+            <div class="label">
+                <span class="label-text">Current Password</span>
+            </div>
+            <input
                 wire:model="current_password"
                 id="update_password_current_password"
                 name="current_password"
                 type="password"
-                class="mt-1 block w-full"
+                class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10"
                 autocomplete="current-password"
             />
-            <x-input-error
-                :messages="$errors->get('current_password')"
-                class="mt-2"
-            />
-        </div>
+            @error('current_password')
+                <div class="text-sm text-red-500 mt-2">
+                    {{ $message }}
+                </div>
+            @enderror
+        </label>
 
-        <div>
-            <x-input-label
-                for="update_password_password"
-                :value="__('New Password')"
-            />
-            <x-text-input
+        <label class="form-control w-full">
+            <div class="label">
+                <span class="label-text">New Password</span>
+            </div>
+            <input
                 wire:model="password"
                 id="update_password_password"
                 name="password"
                 type="password"
-                class="mt-1 block w-full"
+                class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10"
                 autocomplete="new-password"
             />
-            <x-input-error
-                :messages="$errors->get('password')"
-                class="mt-2"
-            />
-        </div>
+            @error('password')
+                <div class="text-sm text-red-500 mt-2">
+                    {{ $message }}
+                </div>
+            @enderror
+        </label>
 
-        <div>
-            <x-input-label
-                for="update_password_password_confirmation"
-                :value="__('Confirm Password')"
-            />
-            <x-text-input
+        <label class="form-control w-full">
+            <div class="label">
+                <span class="label-text">Confirm Password</span>
+            </div>
+            <input
                 wire:model="password_confirmation"
                 id="update_password_password_confirmation"
                 name="password_confirmation"
                 type="password"
-                class="mt-1 block w-full"
+                class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10"
                 autocomplete="new-password"
             />
-            <x-input-error
-                :messages="$errors->get('password_confirmation')"
-                class="mt-2"
-            />
-        </div>
+            @error('password_confirmation')
+                <div class="text-sm text-red-500 mt-2">
+                    {{ $message }}
+                </div>
+            @enderror
+        </label>
 
-        <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
-
+        <div class="flex items-center gap-4 !mt-8">
+            <button class="btn bg-primary text-white hover:bg-primary hover:brightness-90 disabled:bg-primary disabled:opacity-70 disabled:text-white">
+                Save
+            </button>
             <x-action-message
                 class="me-3"
                 on="password-updated"
             >
-                {{ __('Saved.') }}
+                Saved.
             </x-action-message>
         </div>
     </form>
