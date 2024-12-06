@@ -39,7 +39,7 @@ class SocialiteController
         return redirect('/dashboard');
     }
 
-    protected function validate($data): void
+    protected function validate(array $data): void
     {
         Validator::make($data, [
             'provider' => ['required', 'string', 'in:github,google'],
