@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Livewire\Auth as Auth;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +19,12 @@ Route::domain('app.larasense.test')->group(function () {
 
         Route::get('reset-password/{token}', Auth\ResetPassword::class)
             ->name('password.reset');
+
+        Route::get('/auth/{provider}/redirect', [SocialiteController::class, 'redirect'])
+            ->name('socialite.redirect');
+
+        Route::get('/auth/{provider}/callback', [SocialiteController::class, 'handleCallback'])
+            ->name('socialite.callback');
     });
 
     Route::middleware('auth')->group(function () {
