@@ -1,12 +1,12 @@
 <div class="space-y-20">
     <div class="bg-gradient-to-b from-secondary">
         <x-navbar />
-        <x-hero />
+        <x-home.hero />
     </div>
-    <x-sources />
-    <x-benefits />
-    <x-comparison />
-    <x-faq />
-    <x-cta />
+    <x-home.sources />
+    <x-home.benefits />
+    <x-home.comparison />
+    <x-home.faq />
+    <x-home.cta />
     <x-footer />
 </div>
