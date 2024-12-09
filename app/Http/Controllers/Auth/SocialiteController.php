@@ -36,7 +36,7 @@ class SocialiteController
                 'avatar_url' => $user->avatar,
             ]);
         } catch (UniqueConstraintViolationException $exception) {
-            return redirect()->back()->with('socialite_error', 'This email is already taken.');
+            return redirect()->intended(route('login'))->with('socialite_error', 'This email is already taken.');
         }
 
         Auth::login($user);
