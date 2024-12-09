@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Auth;
 
-use App\Livewire\Actions\Logout;
+use App\Actions\Logout;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Livewire\Attributes\Title;

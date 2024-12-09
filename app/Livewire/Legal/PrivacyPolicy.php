@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Legal;
 
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -10,6 +10,6 @@ class PrivacyPolicy extends Component
 {
     public function render()
     {
-        return view('livewire.privacy-policy');
+        return view('livewire.legal.privacy-policy');
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Legal;
 
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -10,6 +10,6 @@ class Terms extends Component
 {
     public function render()
     {
-        return view('livewire.terms');
+        return view('livewire.legal.terms');
     }
 }

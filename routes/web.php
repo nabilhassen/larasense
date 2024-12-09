@@ -17,6 +17,6 @@ Route::domain('app.larasense.test')->group(function () {
 
 Route::domain(config('app.url'))->group(function () {
     Route::get('/', Livewire\Home::class)->name('home');
-    Route::get('terms-and-conditions', Livewire\Terms::class)->name('terms');
-    Route::get('privacy-policy', Livewire\PrivacyPolicy::class)->name('privacy');
+    Route::get('terms-and-conditions', Livewire\Legal\Terms::class)->name('terms');
+    Route::get('privacy-policy', Livewire\Legal\PrivacyPolicy::class)->name('privacy');
 });

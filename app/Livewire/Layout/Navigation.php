@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Layout;
 
-use App\Livewire\Actions\Logout;
+use App\Actions\Logout;
 use Livewire\Component;
 
 class Navigation extends Component
