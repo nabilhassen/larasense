@@ -14,13 +14,13 @@
             password reset link that will allow you to choose a new one.
         </div>
 
-        @if (request()->session()->has('status'))
+        @if (session()->has('status'))
             <div class="rounded-md font-bold p-4 bg-secondary text-primary text-sm">
                 We have emailed your password reset link.
             </div>
         @endif
 
-        @if (!request()->session()->has('status'))
+        @if (!session()->has('status'))
             <form
                 wire:submit="sendPasswordResetLink"
                 class="space-y-2"

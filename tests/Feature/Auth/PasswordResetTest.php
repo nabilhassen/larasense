@@ -36,7 +36,7 @@ test('reset password screen can be rendered', function () {
         ->call('sendPasswordResetLink');
 
     Notification::assertSentTo($user, ResetPassword::class, function ($notification) {
-        Livewire::test(ResetPassword::class, ['token' => $notification->token])
+        Livewire::test(ResetPasswordComponent::class, ['token' => $notification->token])
             ->assertStatus(200);
 
         return true;
