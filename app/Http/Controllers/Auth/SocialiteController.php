@@ -28,20 +28,20 @@ class SocialiteController
         try {
             $user = User::updateOrCreate([
                 'provider' => $provider,
-                'provider_id' => $user->getId(),
+                'provider_id' => $user->id,
             ], [
-                'name' => $user->getName(),
-                'email' => $user->getEmail(),
+                'name' => $user->name,
+                'email' => $user->email,
                 'password' => Str::random(),
-                'avatar_url' => $user->getAvatar(),
+                'avatar_url' => $user->avatar,
             ]);
         } catch (UniqueConstraintViolationException $exception) {
-            return redirect()->back(route('login'))->with('socialite_error', 'This email is already taken.');
+            return redirect()->back()->with('socialite_error', 'This email is already taken.');
         }
 
         Auth::login($user);
 
-        return redirect('/dashboard');
+        return redirect(route('dashboard'));
     }
 
     protected function validate(array $data): void
