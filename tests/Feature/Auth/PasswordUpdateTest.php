@@ -4,20 +4,17 @@ namespace Tests\Feature\Auth;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-use Livewire\Volt\Volt;
+use Livewire\Livewire;
 
 test('password can be updated', function () {
     $user = User::factory()->create();
 
-    $this->actingAs($user);
-
-    $component = Volt::test('profile.update-password-form')
+    Livewire::actingAs($user)
+        ->test('profile.update-password-form')
         ->set('current_password', 'password')
         ->set('password', 'new-password')
         ->set('password_confirmation', 'new-password')
-        ->call('updatePassword');
-
-    $component
+        ->call('updatePassword')
         ->assertHasNoErrors()
         ->assertNoRedirect();
 
@@ -27,15 +24,12 @@ test('password can be updated', function () {
 test('correct password must be provided to update password', function () {
     $user = User::factory()->create();
 
-    $this->actingAs($user);
-
-    $component = Volt::test('profile.update-password-form')
+    $component = Livewire::actingAs($user)
+        ->test('profile.update-password-form')
         ->set('current_password', 'wrong-password')
         ->set('password', 'new-password')
         ->set('password_confirmation', 'new-password')
-        ->call('updatePassword');
-
-    $component
+        ->call('updatePassword')
         ->assertHasErrors(['current_password'])
         ->assertNoRedirect();
 });
