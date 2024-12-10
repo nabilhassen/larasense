@@ -100,6 +100,13 @@
                     alt=""
                 >
             </div>
+            <div class="flex">
+                <img
+                    class="w-40 rounded"
+                    src="{{ asset('sources/codecourse.png') }}"
+                    alt=""
+                >
+            </div>
         </div>
     </div>
 </section>
