@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('publisher_id')->nullable()->constrained()->nullOnDelete()->cascadeOnUpdate();
             $table->string('url');
             $table->string('type');
+            $table->string('default_author');
             $table->boolean('is_tracked');
             $table->boolean('is_displayed');
             $table->timestamp('last_checked_at')->nullable();

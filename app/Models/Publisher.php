@@ -6,6 +6,7 @@ use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 class Publisher extends Model
 {
@@ -23,6 +24,11 @@ class Publisher extends Model
     public function sources(): HasMany
     {
         return $this->hasMany(Source::class);
+    }
+
+    public function materials(): HasManyThrough
+    {
+        return $this->hasManyThrough(Material::class, Source::class);
     }
 
     public function scopeTracked(Builder $query): void
