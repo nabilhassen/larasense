@@ -2,14 +2,15 @@
 
 namespace App\Models;
 
+use App\Enums\SourceType;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Publisher extends Model
+class Source extends Model
 {
-    /** @use HasFactory<\Database\Factories\PublisherFactory> */
+    /** @use HasFactory<\Database\Factories\SourceFactory> */
     use HasFactory;
 
     protected function casts(): array
@@ -17,12 +18,14 @@ class Publisher extends Model
         return [
             'is_tracked' => 'boolean',
             'is_displayed' => 'boolean',
+            'type' => SourceType::class,
+            'last_checked_at' => 'timestamp',
         ];
     }
 
-    public function sources(): HasMany
+    public function publisher(): BelongsTo
     {
-        return $this->hasMany(Source::class);
+        return $this->belongsTo(Publisher::class);
     }
 
     public function scopeTracked(Builder $query): void
