@@ -22,6 +22,9 @@ return new class extends Migration
             $table->string('slug');
             $table->string('url');
             $table->string('image_url');
+            $table->unsignedBigInteger('views');
+            $table->unsignedBigInteger('clicks');
+            $table->unsignedBigInteger('redirects');
             $table->timestamps();
         });
     }
