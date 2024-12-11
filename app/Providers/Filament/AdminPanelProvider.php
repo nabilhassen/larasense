@@ -26,9 +26,13 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('admin')
+            ->brandLogo(asset('/img/logo.png'))
+            ->brandLogoHeight('2.5rem')
+            ->favicon(asset('/img/logo.png'))
             ->login()
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => '#EF5A6F',
+                'secondary' => '#FFF1DB',
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
@@ -53,6 +57,8 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-            ]);
+            ])
+            ->spa()
+            ->databaseTransactions();
     }
 }
