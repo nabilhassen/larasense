@@ -71,13 +71,7 @@ class SourceResource extends Resource
                 TextColumn::make('publisher.name')
                     ->numeric()
                     ->sortable()
-                    ->description(fn(Source $record): string => $record->url),
-
-                TextColumn::make('type')
-                    ->searchable(),
-
-                TextColumn::make('default_author')
-                    ->searchable(),
+                    ->description(fn(Source $record): string => str($record->url)->limit(50)),
 
                 ToggleColumn::make('is_tracked')
                     ->alignCenter()
@@ -91,6 +85,14 @@ class SourceResource extends Resource
                     ->label('Last Check')
                     ->dateTime()
                     ->sortable(),
+
+                TextColumn::make('type')
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+
+                TextColumn::make('default_author')
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
 
                 TextColumn::make('created_at')
                     ->dateTime()

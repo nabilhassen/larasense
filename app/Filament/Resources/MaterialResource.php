@@ -70,11 +70,12 @@ class MaterialResource extends Resource
                 ImageColumn::make('image_url'),
 
                 TextColumn::make('source.publisher.name')
-                    ->searchable(),
+                    ->searchable()
+                    ->description(fn(Material $record): string => str($record->url)->limit(50)),
 
                 TextColumn::make('title')
                     ->searchable()
-                    ->description(fn(Material $record): string => $record->description),
+                    ->description(fn(Material $record): string => str($record->description)->limit(50)),
 
                 ToggleColumn::make('is_displayed')
                     ->alignCenter()
@@ -85,24 +86,23 @@ class MaterialResource extends Resource
                     ->placeholder('N/A')
                     ->toggleable(isToggledHiddenByDefault: true),
 
-                TextColumn::make('url')
-                    ->label('URL')
-                    ->searchable(),
-
                 TextColumn::make('views')
                     ->alignCenter()
                     ->numeric()
-                    ->sortable(),
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
 
                 TextColumn::make('clicks')
                     ->alignCenter()
                     ->numeric()
-                    ->sortable(),
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
 
                 TextColumn::make('redirects')
                     ->alignCenter()
                     ->numeric()
-                    ->sortable(),
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
 
                 TextColumn::make('created_at')
                     ->dateTime()
