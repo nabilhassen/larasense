@@ -2,9 +2,11 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\PublisherResource\Pages\ManagePublishers;
-use App\Models\Publisher;
-use Filament\Forms\Components\FileUpload;
+use App\Enums\SourceType;
+use App\Filament\Resources\SourceResource\Pages\ManageSources;
+use App\Models\Source;
+use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
@@ -14,14 +16,13 @@ use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
-use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
 
-class PublisherResource extends Resource
+class SourceResource extends Resource
 {
-    protected static ?string $model = Publisher::class;
+    protected static ?string $model = Source::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -29,20 +30,30 @@ class PublisherResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('name')
-                    ->required(),
+                Select::make('publisher_id')
+                    ->relationship('publisher', 'name'),
 
-                FileUpload::make('logo')
-                    ->directory('publishers')
-                    ->required(),
+                TextInput::make('url')
+                    ->required()
+                    ->url(),
 
-                Toggle::make('is_displayed')
-                    ->label('Allow Publisher')
+                Select::make('type')
+                    ->required()
+                    ->enum(SourceType::class)
+                    ->options(SourceType::class),
+
+                TextInput::make('default_author')
                     ->required(),
 
                 Toggle::make('is_tracked')
-                    ->label('Track Publisher')
+                    ->label('Track Source')
                     ->required(),
+
+                Toggle::make('is_displayed')
+                    ->label('Allow Source')
+                    ->required(),
+
+                DateTimePicker::make('last_checked_at'),
 
             ]);
     }
@@ -51,17 +62,29 @@ class PublisherResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('logo')
-                    ->circular(),
+                TextColumn::make('publisher.name')
+                    ->numeric()
+                    ->sortable(),
 
-                TextColumn::make('name')
+                TextColumn::make('url')
                     ->searchable(),
 
-                ToggleColumn::make('is_displayed')
-                    ->label('Allow Publisher'),
+                TextColumn::make('type')
+                    ->searchable(),
+
+                TextColumn::make('default_author')
+                    ->searchable(),
 
                 ToggleColumn::make('is_tracked')
-                    ->label('Track Publisher'),
+                    ->label('Track Source'),
+
+                ToggleColumn::make('is_displayed')
+                    ->label('Allow Source'),
+
+                TextColumn::make('last_checked_at')
+                    ->label('Last Check')
+                    ->dateTime()
+                    ->sortable(),
 
                 TextColumn::make('created_at')
                     ->dateTime()
@@ -93,7 +116,7 @@ class PublisherResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ManagePublishers::route('/'),
+            'index' => ManageSources::route('/'),
 
         ];
     }
