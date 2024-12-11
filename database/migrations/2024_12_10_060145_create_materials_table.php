@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('source_id')->nullable()->constrained()->nullOnDelete()->cascadeOnUpdate();
             $table->string('title');
             $table->string('description');
-            $table->longText('body');
+            $table->longText('body')->nullable();
             $table->string('author')->nullable();
             $table->boolean('is_displayed');
             $table->string('slug')->unique();

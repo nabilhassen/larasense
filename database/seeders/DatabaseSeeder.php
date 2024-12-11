@@ -2,9 +2,13 @@
 
 namespace Database\Seeders;
 
+use App\Models\Material;
+use App\Models\Publisher;
+use App\Models\Source;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,11 +17,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
+        // Local admin
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => 'Nabil Hassen',
+            'email' => 'nabil@nabil.com',
+            'password' => Hash::make('nabilnabil'),
         ]);
+
+        Publisher::factory(5)
+            ->has(
+                Source::factory(2)
+                    ->has(Material::factory(5))
+            )
+            ->create();
     }
 }

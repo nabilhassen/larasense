@@ -25,7 +25,6 @@ class MaterialFactory extends Factory
             'body' => $this->faker->paragraph(),
             'author' => $this->faker->name(),
             'is_displayed' => 1,
-            'slug' => Str::random(),
             'url' => $this->faker->url(),
             'image_url' => $this->faker->imageUrl(),
         ];

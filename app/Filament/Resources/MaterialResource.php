@@ -43,8 +43,7 @@ class MaterialResource extends Resource
                 TextInput::make('description')
                     ->required(),
 
-                TextInput::make('body')
-                    ->required(),
+                TextInput::make('body'),
 
                 TextInput::make('author'),
 
@@ -53,6 +52,8 @@ class MaterialResource extends Resource
                     ->required(),
 
                 TextInput::make('url')
+                    ->label('URL')
+                    ->url()
                     ->required(),
 
                 TextInput::make('image_url')
@@ -68,37 +69,38 @@ class MaterialResource extends Resource
             ->columns([
                 ImageColumn::make('image_url'),
 
-                TextColumn::make('source.id')
-                    ->numeric()
-                    ->sortable(),
+                TextColumn::make('source.publisher.name')
+                    ->searchable(),
 
                 TextColumn::make('title')
-                    ->searchable(),
-
-                TextColumn::make('description')
-                    ->searchable(),
-
-                TextColumn::make('body')
-                    ->searchable(),
-
-                TextColumn::make('author')
-                    ->searchable(),
+                    ->searchable()
+                    ->description(fn(Material $record): string => $record->description),
 
                 ToggleColumn::make('is_displayed')
+                    ->alignCenter()
                     ->label('Allow Material'),
 
+                TextColumn::make('author')
+                    ->searchable()
+                    ->placeholder('N/A')
+                    ->toggleable(isToggledHiddenByDefault: true),
+
                 TextColumn::make('url')
+                    ->label('URL')
                     ->searchable(),
 
                 TextColumn::make('views')
+                    ->alignCenter()
                     ->numeric()
                     ->sortable(),
 
                 TextColumn::make('clicks')
+                    ->alignCenter()
                     ->numeric()
                     ->sortable(),
 
                 TextColumn::make('redirects')
+                    ->alignCenter()
                     ->numeric()
                     ->sortable(),
 
