@@ -2,10 +2,8 @@
 
 namespace App\Filament\Resources;
 
-use App\Enums\SourceType;
-use App\Filament\Resources\SourceResource\Pages\ManageSources;
-use App\Models\Source;
-use Filament\Forms\Components\DateTimePicker;
+use App\Filament\Resources\MaterialResource\Pages\ManageMaterials;
+use App\Models\Material;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -16,13 +14,14 @@ use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
 
-class SourceResource extends Resource
+class MaterialResource extends Resource
 {
-    protected static ?string $model = Source::class;
+    protected static ?string $model = Material::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -30,31 +29,31 @@ class SourceResource extends Resource
     {
         return $form
             ->schema([
-                Select::make('publisher_id')
+                Select::make('source_id')
                     ->required()
-                    ->relationship('publisher', 'name'),
+                    ->relationship('source', 'url'),
 
-                TextInput::make('url')
-                    ->required()
-                    ->url(),
-
-                Select::make('type')
-                    ->required()
-                    ->enum(SourceType::class)
-                    ->options(SourceType::class),
-
-                TextInput::make('default_author')
+                TextInput::make('title')
                     ->required(),
 
-                Toggle::make('is_tracked')
-                    ->label('Track Source')
+                TextInput::make('description')
                     ->required(),
+
+                TextInput::make('body')
+                    ->required(),
+
+                TextInput::make('author'),
 
                 Toggle::make('is_displayed')
-                    ->label('Allow Source')
+                    ->label('Allow Material')
                     ->required(),
 
-                DateTimePicker::make('last_checked_at'),
+                TextInput::make('url')
+                    ->required(),
+
+                TextInput::make('image_url')
+                    ->url()
+                    ->required(),
 
             ]);
     }
@@ -63,28 +62,40 @@ class SourceResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('publisher.name')
+                ImageColumn::make('image_url'),
+
+                TextColumn::make('source.id')
                     ->numeric()
                     ->sortable(),
+
+                TextColumn::make('title')
+                    ->searchable(),
+
+                TextColumn::make('description')
+                    ->searchable(),
+
+                TextColumn::make('body')
+                    ->searchable(),
+
+                TextColumn::make('author')
+                    ->searchable(),
+
+                ToggleColumn::make('is_displayed')
+                    ->label('Allow Material'),
 
                 TextColumn::make('url')
                     ->searchable(),
 
-                TextColumn::make('type')
-                    ->searchable(),
+                TextColumn::make('views')
+                    ->numeric()
+                    ->sortable(),
 
-                TextColumn::make('default_author')
-                    ->searchable(),
+                TextColumn::make('clicks')
+                    ->numeric()
+                    ->sortable(),
 
-                ToggleColumn::make('is_tracked')
-                    ->label('Track Source'),
-
-                ToggleColumn::make('is_displayed')
-                    ->label('Allow Source'),
-
-                TextColumn::make('last_checked_at')
-                    ->label('Last Check')
-                    ->dateTime()
+                TextColumn::make('redirects')
+                    ->numeric()
                     ->sortable(),
 
                 TextColumn::make('created_at')
@@ -117,7 +128,7 @@ class SourceResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ManageSources::route('/'),
+            'index' => ManageMaterials::route('/'),
 
         ];
     }

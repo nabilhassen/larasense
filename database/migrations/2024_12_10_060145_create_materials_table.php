@@ -16,15 +16,15 @@ return new class extends Migration
             $table->foreignId('source_id')->nullable()->constrained()->nullOnDelete()->cascadeOnUpdate();
             $table->string('title');
             $table->string('description');
-            $table->string('body');
+            $table->longText('body');
             $table->string('author')->nullable();
             $table->boolean('is_displayed');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->string('url');
-            $table->string('image_url');
-            $table->unsignedBigInteger('views');
-            $table->unsignedBigInteger('clicks');
-            $table->unsignedBigInteger('redirects');
+            $table->string('image_url')->nullable();
+            $table->unsignedBigInteger('views')->default(0);
+            $table->unsignedBigInteger('clicks')->default(0);
+            $table->unsignedBigInteger('redirects')->default(0);
             $table->timestamps();
         });
     }
