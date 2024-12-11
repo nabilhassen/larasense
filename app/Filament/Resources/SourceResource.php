@@ -39,6 +39,7 @@ class SourceResource extends Resource
                     ->relationship('publisher', 'name'),
 
                 TextInput::make('url')
+                    ->label('URL')
                     ->required()
                     ->url(),
 
@@ -69,10 +70,8 @@ class SourceResource extends Resource
             ->columns([
                 TextColumn::make('publisher.name')
                     ->numeric()
-                    ->sortable(),
-
-                TextColumn::make('url')
-                    ->searchable(),
+                    ->sortable()
+                    ->description(fn(Source $record): string => $record->url),
 
                 TextColumn::make('type')
                     ->searchable(),
@@ -81,9 +80,11 @@ class SourceResource extends Resource
                     ->searchable(),
 
                 ToggleColumn::make('is_tracked')
+                    ->alignCenter()
                     ->label('Track Source'),
 
                 ToggleColumn::make('is_displayed')
+                    ->alignCenter()
                     ->label('Allow Source'),
 
                 TextColumn::make('last_checked_at')

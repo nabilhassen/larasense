@@ -62,15 +62,16 @@ class PublisherResource extends Resource
                     ->searchable(),
 
                 ToggleColumn::make('is_displayed')
+                    ->alignCenter()
                     ->label('Allow Publisher'),
 
                 ToggleColumn::make('is_tracked')
+                    ->alignCenter()
                     ->label('Track Publisher'),
 
                 TextColumn::make('created_at')
                     ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->sortable(),
 
                 TextColumn::make('updated_at')
                     ->dateTime()
