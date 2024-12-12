@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('sources', function (Blueprint $table) {
             $table->id();
             $table->foreignId('publisher_id')->nullable()->constrained()->nullOnDelete()->cascadeOnUpdate();
-            $table->string('url');
+            $table->string('url')->unique();
             $table->string('type');
             $table->string('default_author');
             $table->boolean('is_tracked');

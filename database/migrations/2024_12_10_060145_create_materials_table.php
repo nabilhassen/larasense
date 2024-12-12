@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('author')->nullable();
             $table->boolean('is_displayed');
             $table->string('slug')->unique();
-            $table->string('url');
+            $table->string('url')->unique();
             $table->string('image_url')->nullable();
             $table->unsignedBigInteger('views')->default(0);
             $table->unsignedBigInteger('clicks')->default(0);
