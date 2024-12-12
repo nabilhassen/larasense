@@ -4,6 +4,8 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\MaterialResource\Pages\ManageMaterials;
 use App\Models\Material;
+use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -40,10 +42,14 @@ class MaterialResource extends Resource
                 TextInput::make('title')
                     ->required(),
 
-                TextInput::make('description')
+                RichEditor::make('description')
                     ->required(),
 
-                TextInput::make('body'),
+                RichEditor::make('body'),
+
+                TextInput::make('duration')
+                    ->integer()
+                    ->required(),
 
                 TextInput::make('author'),
 
@@ -60,6 +66,9 @@ class MaterialResource extends Resource
                     ->url()
                     ->required(),
 
+                DateTimePicker::make('published_at')
+                    ->required(),
+
             ]);
     }
 
@@ -67,7 +76,9 @@ class MaterialResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('image_url'),
+                ImageColumn::make('image_url')
+                    ->square()
+                    ->placeholder('N/A'),
 
                 TextColumn::make('source.publisher.name')
                     ->searchable()
@@ -80,6 +91,12 @@ class MaterialResource extends Resource
                 ToggleColumn::make('is_displayed')
                     ->alignCenter()
                     ->label('Allow Material'),
+
+                TextColumn::make('duration')
+                    ->numeric()
+                    ->sortable()
+                    ->placeholder('N/A')
+                    ->toggleable(isToggledHiddenByDefault: true),
 
                 TextColumn::make('author')
                     ->searchable()
@@ -101,6 +118,11 @@ class MaterialResource extends Resource
                 TextColumn::make('redirects')
                     ->alignCenter()
                     ->numeric()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+
+                TextColumn::make('published_at')
+                    ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
 

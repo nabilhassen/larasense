@@ -14,17 +14,20 @@ return new class extends Migration
         Schema::create('materials', function (Blueprint $table) {
             $table->id();
             $table->foreignId('source_id')->nullable()->constrained()->nullOnDelete()->cascadeOnUpdate();
+            $table->string('feed_id')->nullable();
             $table->string('title');
             $table->string('description');
             $table->longText('body')->nullable();
             $table->string('author')->nullable();
-            $table->boolean('is_displayed');
+            $table->boolean('is_displayed')->default(0);
             $table->string('slug')->unique();
             $table->string('url')->unique();
+            $table->unsignedBigInteger('duration');
             $table->string('image_url')->nullable();
             $table->unsignedBigInteger('views')->default(0);
             $table->unsignedBigInteger('clicks')->default(0);
             $table->unsignedBigInteger('redirects')->default(0);
+            $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });
     }

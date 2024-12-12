@@ -24,9 +24,10 @@ class MaterialFactory extends Factory
             'description' => $this->faker->sentence(),
             'body' => $this->faker->paragraph(),
             'author' => $this->faker->name(),
-            'is_displayed' => 1,
             'url' => $this->faker->url(),
             'image_url' => $this->faker->imageUrl(),
+            'published_at' => now(),
+            'duration' => $this->faker->randomNumber(6),
         ];
     }
 }

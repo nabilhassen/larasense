@@ -20,7 +20,7 @@ class Source extends Model
             'is_tracked' => 'boolean',
             'is_displayed' => 'boolean',
             'type' => SourceType::class,
-            'last_checked_at' => 'timestamp',
+            'last_checked_at' => 'datetime',
         ];
     }
 
@@ -52,5 +52,10 @@ class Source extends Model
     public function scopeNotDisplayed(Builder $query): void
     {
         $query->where('is_displayed', 0);
+    }
+
+    public function updateLastCheckedAt(): void
+    {
+        $this->last_checked_at = now();
     }
 }

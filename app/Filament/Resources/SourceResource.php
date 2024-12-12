@@ -39,7 +39,7 @@ class SourceResource extends Resource
                     ->relationship('publisher', 'name'),
 
                 TextInput::make('url')
-                    ->label('URL')
+                    ->label('RSS URL')
                     ->required()
                     ->url(),
 
@@ -83,6 +83,7 @@ class SourceResource extends Resource
 
                 TextColumn::make('last_checked_at')
                     ->label('Last Check')
+                    ->placeholder('N/A')
                     ->dateTime()
                     ->sortable(),
 

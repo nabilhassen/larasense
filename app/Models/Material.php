@@ -23,6 +23,8 @@ class Material extends Model
     {
         return [
             'is_displayed' => 'boolean',
+            'published_at' => 'datetime',
+            'duration' => 'integer'
         ];
     }
 
