@@ -10,7 +10,7 @@ class CreateMaterial
 {
     public function handle(int $sourceId, array $data): Material
     {
-        $source = Source::find($sourceId);
+        $source = Source::find($sourceId, ['id']);
 
         $material = $source
             ->materials()

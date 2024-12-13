@@ -11,7 +11,7 @@ class CheckSourceForNewContentAction
 {
     public function handle(int $sourceId): void
     {
-        $source = Source::find($sourceId);
+        $source = Source::find($sourceId, ['id', 'url']);
 
         $items = FeedsFacade::make([$source->url], 20, true)->get_items();
 

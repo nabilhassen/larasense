@@ -24,7 +24,7 @@ class ProcessFeedItemJob implements ShouldQueue
      */
     public function handle(TransformItem $transformItem, CreateMaterial $createMaterial): void
     {
-        $source = Source::find($this->sourceId);
+        $source = Source::find($this->sourceId, ['id', 'type', 'last_checked_at']);
 
         $createMaterial->handle(
             $source->id,
