@@ -7,7 +7,7 @@ use App\Models\Source;
 use Illuminate\Support\Carbon;
 use willvincent\Feeds\Facades\FeedsFacade;
 
-class ProcessFeedItems
+class CheckSourceForNewContentAction
 {
     public static function handle(int $sourceId): void
     {

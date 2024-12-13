@@ -2,11 +2,11 @@
 
 namespace App\Jobs;
 
-use App\Actions\ProcessFeedItems;
+use App\Actions\CheckSourceForNewContentAction;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
 
-class PullMaterialsJob implements ShouldQueue
+class CheckSourceForNewContentJob implements ShouldQueue
 {
     use Queueable;
 
@@ -21,6 +21,6 @@ class PullMaterialsJob implements ShouldQueue
      */
     public function handle(): void
     {
-        ProcessFeedItems::handle($this->sourceId);
+        CheckSourceForNewContentAction::handle($this->sourceId);
     }
 }
