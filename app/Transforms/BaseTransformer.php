@@ -35,7 +35,7 @@ class BaseTransformer
         return $this->item->get_title();
     }
 
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->item->get_description();
     }
@@ -45,7 +45,7 @@ class BaseTransformer
         return $this->item->get_content();
     }
 
-    public function getAuthor(): string
+    public function getAuthor(): ?string
     {
         return $this->item->get_author()->get_name();
     }

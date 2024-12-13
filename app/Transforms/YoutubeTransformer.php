@@ -4,13 +4,8 @@ namespace App\Transforms;
 
 class YoutubeTransformer extends BaseTransformer
 {
-    public function getImageUrl(): ?string
+    public function getDescription(): ?string
     {
-        return $this->item->get_enclosure()->get_thumbnail();
-    }
-
-    public function getDescription(): string
-    {
-        return $this->item->get_enclosure()->get_description();
+        return $this->item->get_enclosure()->get_description() ?? parent::getDescription();
     }
 }

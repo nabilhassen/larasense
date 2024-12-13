@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use App\Models\Material;
+use Exception;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
 use Illuminate\Support\Facades\Http;
@@ -30,21 +31,21 @@ class FetchMaterialImageJob implements ShouldQueue
 
         $material = Material::find($this->materialId);
 
-        $response = Http::get($this->imageUrl);
+        try {
+            $response = Http::retry(3, 100)->timeout(10)->get($this->imageUrl);
 
-        $path = $this->getPath($response->header('Content-Type'));
+            $path = $this->getPath($response->header('Content-Type'));
 
-        $content = file_get_contents($response->body());
+            Storage::disk('public')->put($path, $response->body());
 
-        if (!$content) {
-            $this->fail();
+            $material->image_url = $path;
+
+            $material->save();
+        } catch (Exception $ex) {
+            report($ex);
+
+            $this->release();
         }
-
-        Storage::disk('public')->put($path, $content);
-
-        $material->image_url = $path;
-
-        $material->save();
     }
 
     protected function getPath(string $contentType): string

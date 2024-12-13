@@ -25,9 +25,9 @@ class ArticleTransformer extends BaseTransformer
         $this->openGraphData = Arr::where($this->openGraphData, fn($value, $key) => filled($value));
     }
 
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
-        return $this->openGraphData['description'] ?? $this->openGraphData['og:description'] ?? null;
+        return $this->openGraphData['description'] ?? $this->openGraphData['og:description'] ?? parent::getDescription();
     }
 
     public function getImageUrl(): ?string

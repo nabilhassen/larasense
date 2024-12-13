@@ -20,11 +20,16 @@ class PodcastTransformer extends BaseTransformer
     {
         return $this
             ->item
-            ->get_item_tags(SimplePie::NAMESPACE_ITUNES, $tag);
+            ->get_item_tags(SimplePie::NAMESPACE_ITUNES, $tag) ?? [];
     }
 
     public function getDuration(): int
     {
         return $this->getItunesTags('duration')[0]['data'] ?? 0;
+    }
+
+    public function getAuthor(): ?string
+    {
+        return $this->getItunesTags('author')[0]['data'] ?? parent::getAuthor();
     }
 }
