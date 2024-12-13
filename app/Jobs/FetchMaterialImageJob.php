@@ -5,6 +5,7 @@ namespace App\Jobs;
 use App\Models\Material;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -29,9 +30,11 @@ class FetchMaterialImageJob implements ShouldQueue
 
         $material = Material::find($this->materialId);
 
-        $path = str('materials/')->append(Str::random(), '/', str($this->imageUrl)->afterLast('.')->toString());
+        $response = Http::get($this->imageUrl);
 
-        $content = file_get_contents($this->imageUrl);
+        $path = $this->getPath($response->header('Content-Type'));
+
+        $content = file_get_contents($response->body());
 
         if (!$content) {
             $this->fail();
@@ -42,5 +45,18 @@ class FetchMaterialImageJob implements ShouldQueue
         $material->image_url = $path;
 
         $material->save();
+    }
+
+    protected function getPath(string $contentType): string
+    {
+        $imageExtension = str($contentType)
+            ->afterLast('/')
+            ->prepend('.')
+            ->toString();
+
+        return str('materials/')
+            ->append(Str::random())
+            ->append($imageExtension)
+            ->toString();
     }
 }
