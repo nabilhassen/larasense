@@ -2,6 +2,8 @@
 
 namespace App\Transforms;
 
+use App\Transforms\BaseTransformer;
+use Illuminate\Support\Arr;
 use shweshi\OpenGraph\Facades\OpenGraphFacade;
 use SimplePie\Item;
 
@@ -13,7 +15,14 @@ class ArticleTransformer extends BaseTransformer
     {
         parent::__construct($item);
 
-        $this->openGraphData = OpenGraphFacade::fetch($this->getLink());
+        $this->initOpenGraph();
+    }
+
+    public function initOpenGraph(): void
+    {
+        $this->openGraphData = OpenGraphFacade::fetch($this->getLink(), true);
+
+        $this->openGraphData = Arr::where($this->openGraphData, fn($value, $key) => filled($value));
     }
 
     public function getDescription(): string

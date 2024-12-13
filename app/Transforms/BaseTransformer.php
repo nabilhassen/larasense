@@ -40,7 +40,7 @@ class BaseTransformer
         return $this->item->get_description();
     }
 
-    public function getContent(): string
+    public function getContent(): ?string
     {
         return $this->item->get_content();
     }

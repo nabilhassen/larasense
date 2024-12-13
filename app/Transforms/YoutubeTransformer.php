@@ -8,4 +8,9 @@ class YoutubeTransformer extends BaseTransformer
     {
         return $this->item->get_enclosure()->get_thumbnail();
     }
+
+    public function getDescription(): string
+    {
+        return $this->item->get_enclosure()->get_description();
+    }
 }

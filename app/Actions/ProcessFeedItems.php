@@ -2,17 +2,18 @@
 
 namespace App\Actions;
 
-use App\Actions\CreateMaterial;
-use App\Actions\TransformItems;
-use App\Jobs\FetchMaterialImageJob;
+use App\Jobs\ProcessFeedItemJob;
 use App\Models\Source;
 use Illuminate\Support\Carbon;
+use willvincent\Feeds\Facades\FeedsFacade;
 
 class ProcessFeedItems
 {
-    public static function handle(int $sourceId, array $items): void
+    public static function handle(int $sourceId): void
     {
         $source = Source::find($sourceId);
+
+        $items = FeedsFacade::make($source->url, true)->get_items();
 
         $latestMaterialBySourcePublishedAt = $source->materials()->latest('published_at')->first()?->published_at;
 
@@ -24,11 +25,7 @@ class ProcessFeedItems
                 return;
             }
 
-            $data = TransformItems::handle($source->type, $item);
-
-            $material = CreateMaterial::handle($source->id, $data);
-
-            FetchMaterialImageJob::dispatch($material->id, $data['image_url']);
+            ProcessFeedItemJob::dispatch($source->id, $item);
         }
     }
 }

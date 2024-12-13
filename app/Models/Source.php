@@ -57,5 +57,7 @@ class Source extends Model
     public function updateLastCheckedAt(): void
     {
         $this->last_checked_at = now();
+
+        $this->save();
     }
 }

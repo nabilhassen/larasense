@@ -29,7 +29,7 @@ class FetchMaterialImageJob implements ShouldQueue
 
         $material = Material::find($this->materialId);
 
-        $path = str('materials/')->append(Str::random());
+        $path = str('materials/')->append(Str::random(), '/', str($this->imageUrl)->afterLast('.')->toString());
 
         $content = file_get_contents($this->imageUrl);
 
