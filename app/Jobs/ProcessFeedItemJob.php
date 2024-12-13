@@ -4,7 +4,6 @@ namespace App\Jobs;
 
 use App\Actions\CreateMaterial;
 use App\Actions\TransformItems;
-use App\Jobs\FetchMaterialImageJob;
 use App\Models\Source;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
@@ -27,11 +26,10 @@ class ProcessFeedItemJob implements ShouldQueue
     {
         $source = Source::find($this->sourceId);
 
-        $data = TransformItems::handle($source->type, $this->item);
-
-        $material = CreateMaterial::handle($source->id, $data);
-
-        FetchMaterialImageJob::dispatch($material->id, $data['image_url']);
+        CreateMaterial::handle(
+            $source->id,
+            TransformItems::handle($source->type, $this->item)
+        );
 
         $source->updateLastCheckedAt();
     }

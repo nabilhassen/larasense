@@ -2,6 +2,7 @@
 
 namespace App\Actions;
 
+use App\Jobs\FetchMaterialImageJob;
 use App\Models\Material;
 use App\Models\Source;
 
@@ -11,7 +12,7 @@ class CreateMaterial
     {
         $source = Source::find($sourceId);
 
-        return $source
+        $material = $source
             ->materials()
             ->firstOrCreate([
                 'feed_id' => $data['feed_id'],
@@ -24,5 +25,9 @@ class CreateMaterial
                 'published_at' => $data['published_at'],
                 'duration' => $data['duration'],
             ]);
+
+        FetchMaterialImageJob::dispatch($material->id, $data['image_url']);
+
+        return $material;
     }
 }
