@@ -19,8 +19,8 @@ class CheckSourceForNewContentJob implements ShouldQueue
     /**
      * Execute the job.
      */
-    public function handle(): void
+    public function handle(CheckSourceForNewContentAction $checkSourceForNewContentAction): void
     {
-        CheckSourceForNewContentAction::handle($this->sourceId);
+        $checkSourceForNewContentAction->handle($this->sourceId);
     }
 }

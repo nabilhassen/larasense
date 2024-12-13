@@ -8,7 +8,7 @@ use App\Models\Source;
 
 class CreateMaterial
 {
-    public static function handle(int $sourceId, array $data): Material
+    public function handle(int $sourceId, array $data): Material
     {
         $source = Source::find($sourceId);
 

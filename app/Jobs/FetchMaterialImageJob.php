@@ -23,7 +23,7 @@ class FetchMaterialImageJob implements ShouldQueue
      */
     public function handle(): void
     {
-        if (is_null($this->imageUrl)) {
+        if (blank($this->imageUrl)) {
             return;
         }
 
