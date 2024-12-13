@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -24,7 +25,7 @@ class Material extends Model
         return [
             'is_displayed' => 'boolean',
             'published_at' => 'datetime',
-            'duration' => 'integer'
+            'duration' => 'integer',
         ];
     }
 
@@ -35,11 +36,20 @@ class Material extends Model
 
     public function scopeDisplayed(Builder $query): void
     {
-        $query->where('is_displayed', 1);
+        $query
+            ->where('is_displayed', 1)
+            ->whereHas('source', fn(Builder $q) => $q->displayed());
     }
 
     public function scopeNotDisplayed(Builder $query): void
     {
         $query->where('is_displayed', 0);
+    }
+
+    public function display(): void
+    {
+        $this->is_displayed = 1;
+
+        $this->save();
     }
 }
