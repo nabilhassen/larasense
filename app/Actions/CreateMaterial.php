@@ -26,7 +26,7 @@ class CreateMaterial
                 'duration' => $data['duration'],
             ]);
 
-        FetchMaterialImageJob::dispatch($material->id, $data['image_url']);
+        FetchMaterialImageJob::dispatch($material->id, $data['image_url'])->afterCommit();
 
         return $material;
     }

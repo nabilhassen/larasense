@@ -22,6 +22,7 @@ class CheckSourceForNewContentAction
                 !is_null($latestMaterialBySourcePublishedAt) &&
                 $latestMaterialBySourcePublishedAt->greaterThanOrEqualTo(Carbon::parse($item->get_date()))
             ) {
+                $source->updateLastCheckedAt();
                 return;
             }
 

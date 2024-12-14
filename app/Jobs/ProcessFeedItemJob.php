@@ -7,6 +7,7 @@ use App\Actions\TransformItem;
 use App\Models\Source;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
+use Illuminate\Support\Facades\DB;
 use SimplePie\Item;
 
 class ProcessFeedItemJob implements ShouldQueue
@@ -24,13 +25,15 @@ class ProcessFeedItemJob implements ShouldQueue
      */
     public function handle(TransformItem $transformItem, CreateMaterial $createMaterial): void
     {
-        $source = Source::find($this->sourceId, ['id', 'type', 'last_checked_at']);
+        DB::transaction(function () use ($transformItem, $createMaterial) {
+            $source = Source::find($this->sourceId, ['id', 'type', 'last_checked_at']);
 
-        $createMaterial->handle(
-            $source->id,
-            $transformItem->handle($source->type, $this->item)
-        );
+            $createMaterial->handle(
+                $source->id,
+                $transformItem->handle($source->type, $this->item)
+            );
 
-        $source->updateLastCheckedAt();
+            $source->updateLastCheckedAt();
+        });
     }
 }
