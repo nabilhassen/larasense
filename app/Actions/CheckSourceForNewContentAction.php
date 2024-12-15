@@ -5,6 +5,7 @@ namespace App\Actions;
 use App\Jobs\ProcessFeedItemJob;
 use App\Models\Source;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Context;
 use willvincent\Feeds\Facades\FeedsFacade;
 
 class CheckSourceForNewContentAction
@@ -25,6 +26,8 @@ class CheckSourceForNewContentAction
                 $source->updateLastCheckedAt();
                 return;
             }
+
+            Context::add('material_url', $item->get_link() ?? $this->item->get_enclosure()->get_link());
 
             ProcessFeedItemJob::dispatch($source->id, $item);
         }
