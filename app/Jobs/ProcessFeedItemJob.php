@@ -3,7 +3,7 @@
 namespace App\Jobs;
 
 use App\Actions\CreateMaterial;
-use App\Actions\TransformItem;
+use App\Data\MaterialData;
 use App\Models\Source;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
@@ -23,14 +23,14 @@ class ProcessFeedItemJob implements ShouldQueue
     /**
      * Execute the job.
      */
-    public function handle(TransformItem $transformItem, CreateMaterial $createMaterial): void
+    public function handle(CreateMaterial $createMaterial): void
     {
-        DB::transaction(function () use ($transformItem, $createMaterial) {
+        DB::transaction(function () use ($createMaterial) {
             $source = Source::find($this->sourceId, ['id', 'type', 'last_checked_at']);
 
             $createMaterial->handle(
                 $source->id,
-                $transformItem->handle($source->type, $this->item)
+                MaterialData::create($source->type, $this->item),
             );
 
             $source->updateLastCheckedAt();

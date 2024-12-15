@@ -2,32 +2,33 @@
 
 namespace App\Actions;
 
+use App\Data\MaterialData;
 use App\Jobs\FetchMaterialImageJob;
 use App\Models\Material;
 use App\Models\Source;
 
 class CreateMaterial
 {
-    public function handle(int $sourceId, array $data): Material
+    public function handle(int $sourceId, MaterialData $materialData): Material
     {
         $source = Source::find($sourceId, ['id']);
 
         $material = $source
             ->materials()
             ->firstOrCreate([
-                'feed_id' => $data['feed_id'],
+                'feed_id' => $materialData->id,
             ], [
-                'title' => $data['title'],
-                'description' => $data['description'],
-                'body' => $data['body'],
-                'author' => $data['author'],
-                'url' => $data['url'],
-                'published_at' => $data['published_at'],
-                'duration' => $data['duration'],
+                'title' => $materialData->title,
+                'description' => $materialData->description,
+                'body' => $materialData->body,
+                'author' => $materialData->author,
+                'url' => $materialData->url,
+                'published_at' => $materialData->publishedAt,
+                'duration' => $materialData->duration,
                 'is_displayed' => 1,
             ]);
 
-        FetchMaterialImageJob::dispatch($material->id, $data['image_url'])->afterCommit();
+        FetchMaterialImageJob::dispatch($material->id, $materialData->imageUrl)->afterCommit();
 
         return $material;
     }

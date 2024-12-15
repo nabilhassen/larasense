@@ -27,7 +27,7 @@ class CheckSourceForNewContentAction
                 return;
             }
 
-            Context::add('material_url', $item->get_link() ?? $this->item->get_enclosure()->get_link());
+            Context::add('material_url', $item->get_link() ?? $item->get_enclosure()->get_link());
 
             ProcessFeedItemJob::dispatch($source->id, $item);
         }
