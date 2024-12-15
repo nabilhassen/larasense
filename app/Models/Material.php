@@ -45,11 +45,4 @@ class Material extends Model
     {
         $query->where('is_displayed', 0);
     }
-
-    public function display(): void
-    {
-        $this->is_displayed = 1;
-
-        $this->save();
-    }
 }
