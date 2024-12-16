@@ -20,14 +20,16 @@ class MaterialFactory extends Factory
     {
         return [
             'source_id' => Source::factory(),
+            'feed_id' => Str::random(),
             'title' => $this->faker->words(asText: true),
             'description' => $this->faker->sentence(),
             'body' => $this->faker->paragraph(),
             'author' => $this->faker->name(),
+            'is_displayed' => 1,
             'url' => $this->faker->url(),
+            'duration' => $this->faker->randomNumber(6),
             'image_url' => $this->faker->imageUrl(),
             'published_at' => now(),
-            'duration' => $this->faker->randomNumber(6),
         ];
     }
 }

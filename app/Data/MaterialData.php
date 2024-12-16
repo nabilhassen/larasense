@@ -15,13 +15,13 @@ class MaterialData
         public string $title,
         public string $url,
         public Carbon $publishedAt,
-        public int $duration = 0,
         public ?string $description,
         public ?string $body,
         public ?string $author,
         public ?string $imageUrl,
-        public ?string $feedId = null,
         public bool $isDisplayed = true,
+        public ?int $duration = null,
+        public ?string $feedId = null,
 
     ) {}
 
@@ -46,8 +46,7 @@ class MaterialData
             url: $item->get_link(),
             publishedAt: Carbon::parse($item->get_date()),
             feedId: $item->get_id(true),
-            imageUrl: $openGraphData['image:secure_url'] ?? $openGraphData['image'] ?? $openGraphData['twitter:image'] ?? $item->get_enclosure()->get_thumbnail(),
-            duration: $item->get_enclosure()->get_duration() ?? 0
+            imageUrl: $openGraphData['image:secure_url'] ?? $openGraphData['image'] ?? $openGraphData['twitter:image'] ?? $item->get_enclosure()?->get_thumbnail(),
         );
     }
 
@@ -55,14 +54,14 @@ class MaterialData
     {
         return new static(
             title: $item->get_title(),
-            description: $item->get_enclosure()->get_description() ?? $item->get_description(),
+            description: $item->get_enclosure()?->get_description() ?? $item->get_description(),
             body: $item->get_content(),
             author: $item->get_author(),
             url: $item->get_link(),
             publishedAt: Carbon::parse($item->get_date()),
             feedId: $item->get_id(true),
-            imageUrl: $item->get_enclosure()->get_thumbnail(),
-            duration: $item->get_enclosure()->get_duration() ?? 0
+            imageUrl: $item->get_enclosure()?->get_thumbnail(),
+            duration: $item->get_enclosure()?->get_duration()
         );
     }
 
@@ -73,11 +72,11 @@ class MaterialData
             description: $item->get_description(),
             body: $item->get_content(),
             author: static::getItunesTags($item, 'author')[0]['data'] ?? $item->get_author(),
-            url: $item->get_enclosure()->get_link() ?? $item->get_link(),
+            url: $item->get_enclosure()?->get_link() ?? $item->get_link(),
             publishedAt: Carbon::parse($item->get_date()),
             feedId: $item->get_id(true),
-            imageUrl: static::getItunesTags($item, 'image')[0]['attribs']['']['href'] ?? $item->get_enclosure()->get_thumbnail(),
-            duration: static::getItunesTags($item, 'duration')[0]['data'] ?? $item->get_enclosure()->get_duration() ?? 0
+            imageUrl: static::getItunesTags($item, 'image')[0]['attribs']['']['href'] ?? $item->get_enclosure()?->get_thumbnail(),
+            duration: static::getItunesTags($item, 'duration')[0]['data'] ?? $item->get_enclosure()?->get_duration()
         );
     }
 

@@ -20,7 +20,7 @@ class ManageMaterials extends ManageRecords
                 ->using(function (array $data, CreateMaterial $createMaterial): Material {
                     $materialData = MaterialData::fromRequest($data);
 
-                    return $createMaterial->handle($materialData->sourceId, $materialData);
+                    return $createMaterial->handle($data['source_id'], $materialData);
                 }),
         ];
     }

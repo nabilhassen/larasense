@@ -13,11 +13,13 @@ class CreateMaterial
     {
         $source = Source::find($sourceId, ['id']);
 
+        if ($material = Material::where('url', $materialData->url)->first()) {
+            return $material;
+        }
+
         $material = $source
             ->materials()
-            ->firstOrCreate([
-                'url' => $materialData->url,
-            ], [
+            ->create([
                 'title' => $materialData->title,
                 'description' => $materialData->description,
                 'body' => $materialData->body,
@@ -26,6 +28,7 @@ class CreateMaterial
                 'feed_id' => $materialData->feedId,
                 'duration' => $materialData->duration,
                 'is_displayed' => $materialData->isDisplayed,
+                'url' => $materialData->url,
             ]);
 
         FetchMaterialImageJob::dispatch($material->id, $materialData->imageUrl)->afterCommit();

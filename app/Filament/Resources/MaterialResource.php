@@ -42,14 +42,9 @@ class MaterialResource extends Resource
                 TextInput::make('title')
                     ->required(),
 
-                RichEditor::make('description')
-                    ->required(),
+                RichEditor::make('description'),
 
                 RichEditor::make('body'),
-
-                TextInput::make('duration')
-                    ->integer()
-                    ->required(),
 
                 TextInput::make('author'),
 
@@ -60,7 +55,12 @@ class MaterialResource extends Resource
                 TextInput::make('url')
                     ->label('URL')
                     ->url()
-                    ->required(),
+                    ->required()
+                    ->unique(ignoreRecord: true),
+
+                TextInput::make('duration')
+                    ->integer()
+                    ->default(0),
 
                 TextInput::make('image_url')
                     ->url(),
