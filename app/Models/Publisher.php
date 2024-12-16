@@ -50,4 +50,11 @@ class Publisher extends Model
     {
         $query->where('is_displayed', 0);
     }
+
+    public function untrack(): void
+    {
+        $this->is_tracked = 0;
+
+        $this->save();
+    }
 }
