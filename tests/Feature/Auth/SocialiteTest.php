@@ -1,7 +1,9 @@
 <?php
 
 use App\Models\User;
+use Illuminate\Auth\Events\Verified;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Str;
 use Laravel\Socialite\Contracts\Provider;
 use Laravel\Socialite\Contracts\User as SocialiteUser;
@@ -23,7 +25,9 @@ test('provider is invalid', function () {
 
 test('handles callback from auth provider and creates a user', function () {
     $provider = Arr::random(['github', 'google']);
-    $user = User::factory()->make();
+    $user = User::factory()->unverified()->make();
+
+    Event::fake();
 
     $socialiteUser = $this->mock(SocialiteUser::class, function (MockInterface $mock) use ($user) {
         $mock->id = fake()->randomNumber(3);
@@ -44,6 +48,8 @@ test('handles callback from auth provider and creates a user', function () {
         ->get(route('socialite.callback', $provider))
         ->assertRedirect(route('dashboard'));
 
+    Event::assertDispatched(Verified::class);
+
     $this
         ->assertAuthenticated()
         ->assertDatabaseCount('users', 1)
@@ -53,7 +59,8 @@ test('handles callback from auth provider and creates a user', function () {
             'name' => $socialiteUser->name,
             'email' => $socialiteUser->email,
             'avatar_url' => $socialiteUser->avatar,
-        ]);
+        ])
+        ->assertTrue(User::firstWhere('email', $user->email)->hasVerifiedEmail());
 });
 
 test('user will not be created if already regisitered via registration form', function () {

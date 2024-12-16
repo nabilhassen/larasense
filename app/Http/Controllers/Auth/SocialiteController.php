@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
+use Illuminate\Auth\Events\Verified;
 use Illuminate\Database\UniqueConstraintViolationException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
@@ -39,7 +40,12 @@ class SocialiteController
             return redirect()->intended(route('login'))->with('socialite_error', 'This email is already taken.');
         }
 
-        Auth::login($user);
+        if (!$user->hasVerifiedEmail()) {
+            $user->markEmailAsVerified();
+            event(new Verified($user));
+        }
+
+        Auth::login($user, true);
 
         return redirect(route('dashboard'));
     }
