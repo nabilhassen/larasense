@@ -16,16 +16,16 @@ class CreateMaterial
         $material = $source
             ->materials()
             ->firstOrCreate([
-                'feed_id' => $materialData->id,
+                'url' => $materialData->url,
             ], [
                 'title' => $materialData->title,
                 'description' => $materialData->description,
                 'body' => $materialData->body,
                 'author' => $materialData->author,
-                'url' => $materialData->url,
                 'published_at' => $materialData->publishedAt,
+                'feed_id' => $materialData->feedId,
                 'duration' => $materialData->duration,
-                'is_displayed' => 1,
+                'is_displayed' => $materialData->isDisplayed,
             ]);
 
         FetchMaterialImageJob::dispatch($material->id, $materialData->imageUrl)->afterCommit();

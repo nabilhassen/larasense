@@ -5,7 +5,6 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\MaterialResource\Pages\ManageMaterials;
 use App\Models\Material;
 use Filament\Forms\Components\DateTimePicker;
-use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -63,8 +62,8 @@ class MaterialResource extends Resource
                     ->url()
                     ->required(),
 
-                FileUpload::make('image_url')
-                    ->image(),
+                TextInput::make('image_url')
+                    ->url(),
 
                 DateTimePicker::make('published_at')
                     ->required(),
