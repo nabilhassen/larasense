@@ -3,6 +3,7 @@
 use App\Enums\SourceType;
 use App\Jobs\FetchMaterialImageJob;
 use App\Jobs\ProcessFeedItemJob;
+use App\Models\Material;
 use App\Models\Source;
 use Illuminate\Support\Facades\Queue;
 use willvincent\Feeds\Facades\FeedsFacade;
@@ -67,6 +68,35 @@ test('podcast feed item is processed and stored in the database as a material', 
     Queue::assertPushed(FetchMaterialImageJob::class);
     $this->assertDatabaseCount('materials', 1);
     $this->assertDatabaseHas('materials', [
+        'feed_id' => $item->get_id(true),
+    ]);
+    expect($source->last_checked_at->lessThan($source->refresh()->last_checked_at))->toBeTrue();
+
+});
+
+test('duplicate article feed item will not be stored', function () {
+    $material = Material::factory()->create(['published_at' => now()->subYears(10)]);
+    Queue::fake(FetchMaterialImageJob::class);
+
+    $this->assertDatabaseCount('materials', 1);
+
+    $source = Source::factory()->create([
+        'url' => 'https://www.reddit.com/r/laravel.rss',
+        'type' => SourceType::Article,
+        'last_checked_at' => now()->subDay(),
+    ]);
+
+    $item = FeedsFacade::make([$source->url], 1, true)->get_item();
+    $material->url = $item->get_link();
+    $material->feed_id = $item->get_id(true);
+    $material->save();
+
+    ProcessFeedItemJob::dispatch($source->id, $item);
+
+    Queue::assertNothingPushed();
+    $this->assertDatabaseCount('materials', 1);
+    $this->assertDatabaseHas('materials', [
+        'url' => $item->get_link(),
         'feed_id' => $item->get_id(true),
     ]);
     expect($source->last_checked_at->lessThan($source->refresh()->last_checked_at))->toBeTrue();
