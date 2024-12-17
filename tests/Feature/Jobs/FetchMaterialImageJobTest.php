@@ -13,11 +13,3 @@ test('material images are fetched and stored in disk', function () {
 
     Storage::disk('public')->assertExists($material->fresh()->image_url);
 });
-
-test('material has no image to be fetched', function () {
-    $material = Material::factory()->create(['image_url' => null]);
-
-    FetchMaterialImageJob::dispatch($material->id);
-
-    expect($material->fresh()->image_url)->toBeNull();
-});

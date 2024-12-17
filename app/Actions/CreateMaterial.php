@@ -31,7 +31,9 @@ class CreateMaterial
                 'url' => $materialData->url,
             ]);
 
-        FetchMaterialImageJob::dispatch($material->id, $materialData->imageUrl)->afterCommit();
+        if (filled($materialData->imageUrl)) {
+            FetchMaterialImageJob::dispatch($material->id, $materialData->imageUrl)->afterCommit();
+        }
 
         return $material;
     }
