@@ -50,17 +50,7 @@
 
     @livewireScriptConfig
     @vite('resources/js/app.js')
-    <script>
-        window.onload = function() {
-            const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-
-            if (timezone !== '{{ auth()->user()->timezone }}') {
-                axios.post('{{ route('timezone.update') }}', {
-                    timezone
-                });
-            }
-        }
-    </script>
+    <x-update-timezone current-timezone="{{ auth()->user()->timezone }}" />
     @stack('scripts')
 </body>
 
