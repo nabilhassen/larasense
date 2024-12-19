@@ -16,6 +16,7 @@ use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Support\Facades\Hash;
 
 class UserResource extends Resource
 {
@@ -37,16 +38,16 @@ class UserResource extends Resource
                     ->required()
                     ->unique(ignoreRecord: true),
 
-                // TextInput::make('password')
-                //     ->password()
-                //     ->required(fn($record) => !$record)
-                //     ->maxLength(255)
-                //     ->revealable()
-                //     ->dehydrateStateUsing(static function ($state, $record) {
-                //         return !empty($state)
-                //         ? Hash::make($state)
-                //         : $record->password;
-                //     }),
+                TextInput::make('password')
+                    ->password()
+                    ->required(fn(string $operation) => $operation === 'create')
+                    ->maxLength(255)
+                    ->revealable()
+                    ->dehydrateStateUsing(static function (?string $state, ?User $record) {
+                        return filled($state)
+                        ? Hash::make($state)
+                        : $record->password;
+                    }),
 
                 DateTimePicker::make('email_verified_at'),
 
