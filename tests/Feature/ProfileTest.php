@@ -79,24 +79,3 @@ test('correct password must be provided to delete account', function () {
 
     $this->assertNotNull($user->fresh());
 });
-
-test('logged in user timezone can be updated', function () {
-    $user = User::factory()->create();
-    $newTimezone = 'Africa/Nairobi';
-
-    $response = $this->actingAs($user)->post(route('timezone.update'), [
-        'timezone' => $newTimezone,
-    ]);
-
-    $response->assertStatus(204);
-
-    expect($user->fresh()->timezone)->toBe($newTimezone);
-});
-
-test('timezone must be valid', function () {
-    $response = $this->post(route('timezone.update'), [
-        'timezone' => 'nowhere/nowhere',
-    ]);
-
-    $response->assertStatus(302);
-});

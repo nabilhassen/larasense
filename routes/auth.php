@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\Auth\VerifyEmailController;
-use App\Http\Controllers\UpdateUserTimezone;
 use App\Livewire\Auth as Auth;
 use Illuminate\Support\Facades\Route;
 
