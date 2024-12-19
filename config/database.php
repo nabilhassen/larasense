@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mariadb'),
+    'default' => env('DB_CONNECTION', 'sqlite'),
 
     /*
     |--------------------------------------------------------------------------
@@ -33,12 +33,12 @@ return [
 
         'sqlite' => [
             'driver' => 'sqlite',
-            'url' => env('SECONDARY_DB_URL'),
-            'database' => env('SECONDARY_DB_DATABASE', database_path('database.sqlite')),
+            'url' => env('DB_URL'),
+            'database' => env('DB_DATABASE', database_path('database.sqlite')),
             'prefix' => '',
-            'foreign_key_constraints' => env('SECONDARY_DB_FOREIGN_KEYS', true),
+            'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
             'busy_timeout' => null,
-            'journal_mode' => null,
+            'journal_mode' => 'WAL',
             'synchronous' => null,
         ],
 
