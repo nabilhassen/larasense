@@ -38,8 +38,15 @@ class UserResource extends Resource
                     ->unique(ignoreRecord: true),
 
                 // TextInput::make('password')
-                //     ->required()
-                //     ->password(),
+                //     ->password()
+                //     ->required(fn($record) => !$record)
+                //     ->maxLength(255)
+                //     ->revealable()
+                //     ->dehydrateStateUsing(static function ($state, $record) {
+                //         return !empty($state)
+                //         ? Hash::make($state)
+                //         : $record->password;
+                //     }),
 
                 DateTimePicker::make('email_verified_at'),
 
