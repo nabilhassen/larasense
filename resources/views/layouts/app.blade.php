@@ -50,8 +50,6 @@
 
     @livewireScriptConfig
     @vite('resources/js/app.js')
-    @stack('scripts')
-
     <script>
         window.onload = function() {
             const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -63,6 +61,7 @@
             }
         }
     </script>
+    @stack('scripts')
 </body>
 
 </html>

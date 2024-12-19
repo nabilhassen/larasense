@@ -30,6 +30,7 @@ class Register extends Component
         ]);
 
         $validated['password'] = Hash::make($validated['password']);
+        $validated['timezone'] = session()->get('timezone', 'UTC');
 
         event(new Registered($user = User::create($validated)));
 

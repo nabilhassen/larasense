@@ -38,9 +38,6 @@ Route::domain('app.larasense.test')->group(function () {
 
         Route::get('confirm-password', Auth\ConfirmPassword::class)
             ->name('password.confirm');
-
-        Route::post('update-timezone', UpdateUserTimezone::class)
-            ->name('timezone.update');
     });
 
 });

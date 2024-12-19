@@ -1,9 +1,13 @@
 <?php
 
+use App\Http\Controllers\UpdateUserTimezoneController;
 use App\Livewire as Livewire;
 use Illuminate\Support\Facades\Route;
 
 require __DIR__ . '/auth.php';
+
+Route::post('update-timezone', UpdateUserTimezoneController::class)
+    ->name('timezone.update');
 
 Route::domain('app.larasense.test')->group(function () {
     Route::view('dashboard', 'dashboard')

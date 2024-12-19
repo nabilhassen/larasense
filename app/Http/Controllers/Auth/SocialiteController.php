@@ -35,6 +35,7 @@ class SocialiteController
                 'email' => $user->email,
                 'password' => Str::random(),
                 'avatar_url' => $user->avatar,
+                'timezone' => session()->get('timezone', 'UTC'),
             ]);
         } catch (UniqueConstraintViolationException $exception) {
             return redirect()->intended(route('login'))->with('socialite_error', 'This email is already taken.');

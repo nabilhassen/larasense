@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
-class UpdateUserTimezone
+class UpdateUserTimezoneController
 {
     /**
      * Handle the incoming request.
@@ -16,9 +16,12 @@ class UpdateUserTimezone
             'timezone' => ['required', 'string', Rule::in(timezone_identifiers_list())],
         ]);
 
-        auth()->user()->timezone = $validated['timezone'];
-        
-        auth()->user()->save();
+        if (auth()->check()) {
+            auth()->user()->timezone = $validated['timezone'];
+            auth()->user()->save();
+        } else {
+            session()->put('timezone', $validated['timezone']);
+        }
 
         return response()->noContent();
     }
