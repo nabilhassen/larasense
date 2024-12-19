@@ -21,7 +21,7 @@
                 <li>
                     <a
                         class="hover:bg-secondary active:!bg-secondary focus:!bg-secondary active:!text-inherit max-sm:pl-0"
-                        href="#sources"
+                        href="{{ route('home') }}#sources"
                     >
                         Sources
                     </a>
@@ -29,7 +29,7 @@
                 <li>
                     <a
                         class="hover:bg-secondary active:!bg-secondary focus:!bg-secondary active:!text-inherit max-sm:pl-0"
-                        href="#benefits"
+                        href="{{ route('home') }}#benefits"
                     >
                         Benefits
                     </a>
@@ -37,7 +37,7 @@
                 <li>
                     <a
                         class="hover:bg-secondary active:!bg-secondary focus:!bg-secondary active:!text-inherit max-sm:pl-0"
-                        href="#faq"
+                        href="{{ route('home') }}#faq"
                     >
                         FAQ
                     </a>
