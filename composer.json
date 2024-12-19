@@ -15,6 +15,7 @@
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.4",
         "shweshi/opengraph": "^1.1",
+        "torann/geoip": "^3.0",
         "willvincent/feeds": "^2.6"
     },
     "require-dev": {
