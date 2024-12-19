@@ -12,7 +12,7 @@
         <h1 class="text-center text-xl font-semibold">
             Login
         </h1>
-        <x-socialite-auth label="Login" />
+        <x-socialite-auth />
         <div class="divider text-sm">OR</div>
         <form
             wire:submit="login"
