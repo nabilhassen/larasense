@@ -1,11 +1,13 @@
 <div class="w-1/5">
     <div class="fixed space-y-12">
         <figure>
-            <img
-                class="sm:w-52 w-48"
-                src="{{ asset('img/logo.png') }}"
-                alt="Larasense logo"
-            >
+            <a href="{{ route('dashboard') }}">
+                <img
+                    class="sm:w-52 w-48"
+                    src="{{ asset('img/logo.png') }}"
+                    alt="Larasense logo"
+                >
+            </a>
         </figure>
         <div class="space-y-4">
             <a
