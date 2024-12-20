@@ -10,7 +10,7 @@ Route::post('update-timezone', UpdateUserTimezoneController::class)
     ->name('timezone.update');
 
 Route::domain('app.larasense.test')->group(function () {
-    Route::view('dashboard', 'dashboard')
+    Route::get('dashboard', Livewire\Dashboard::class)
         ->middleware(['auth', 'verified'])
         ->name('dashboard');
 

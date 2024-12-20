@@ -25,22 +25,15 @@
 </head>
 
 <body class="antialiased">
-    <div class="min-h-screen bg-gray-100">
-        <livewire:layout.navigation />
 
-        <!-- Page Heading -->
-        @if (isset($header))
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
-        @endif
+    <div class="flex text-stone-800 p-9">
+        <x-sidemenu />
 
-        <!-- Page Content -->
-        <main>
+        <div class="min-h-screen space-y-12 w-4/5">
+            <x-topnavbar />
+
             {{ $slot }}
-        </main>
+        </div>
     </div>
 
     @livewireScriptConfig
