@@ -1,4 +1,4 @@
-<div class="w-1/5">
+<div class="w-1/5 max-lg:hidden">
     <div class="fixed space-y-12">
         <figure>
             <a href="{{ route('dashboard') }}">

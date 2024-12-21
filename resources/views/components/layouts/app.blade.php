@@ -26,13 +26,15 @@
 
 <body class="antialiased">
 
-    <div class="flex text-stone-800 p-9">
-        <x-sidemenu />
+    <div class="lg:container lg:mx-auto">
+        <div class="flex text-stone-800 lg:m-9 mx-4">
+            <x-sidemenu />
 
-        <div class="min-h-screen space-y-12 w-4/5">
-            <x-topnavbar />
+            <div class="min-h-screen space-y-12 lg:w-4/5 w-full">
+                <x-topnavbar />
 
-            {{ $slot }}
+                {{ $slot }}
+            </div>
         </div>
     </div>
 
