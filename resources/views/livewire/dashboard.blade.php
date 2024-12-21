@@ -1,4 +1,4 @@
-<div class="grid lg:grid-cols-3 lg:gap-x-4 gap-y-8">
+<div class="grid xl:grid-cols-3 lg:grid-cols-2 lg:gap-x-4 gap-y-8">
     @foreach (range(1, 6) as $item)
         <div class="border-2 border-secondary hover:border-primary cursor-pointer p-4 rounded-xl space-y-4">
             <div>
