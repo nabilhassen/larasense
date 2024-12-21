@@ -1,4 +1,4 @@
-<div class="max-lg:h-10">
+<div class="max-lg:h-10 lg:h-fit lg:sticky lg:top-0 lg:pt-6 lg:pb-12 lg:bg-white lg:z-10">
     <div class="max-lg:h-fit max-lg:fixed max-lg:bg-white max-lg:inset-x-4 max-lg:z-10 max-lg:py-4">
         <div class="flex justify-between items-center">
             <figure class="lg:hidden">
