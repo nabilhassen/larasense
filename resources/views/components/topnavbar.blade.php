@@ -4,7 +4,7 @@
             <figure class="lg:hidden">
                 <a href="{{ route('dashboard') }}">
                     <img
-                        class="w-10"
+                        class="w-8"
                         src="{{ asset('favicon.png') }}"
                         alt="Larasense logo"
                     >
@@ -44,12 +44,12 @@
                         class="flex items-center gap-x-2"
                     >
                         <div class="avatar">
-                            <div class="w-10 rounded-full">
+                            <div class="w-8 rounded-full">
                                 <img src="{{ asset('storage/' . auth()->user()->avatar_url) }}" />
                             </div>
                         </div>
                         <div class="flex items-center">
-                            <x-heroicon-o-chevron-down class="inline-flex size-6" />
+                            <x-heroicon-o-chevron-down class="inline-flex size-5" />
                         </div>
                     </div>
                     <ul
