@@ -56,8 +56,8 @@
                         tabindex="0"
                         class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
                     >
-                        <li><a></a></li>
-                        <li><a>Item 2</a></li>
+                        <li><a class="hover:bg-secondary active:!bg-secondary focus:!bg-secondary active:!text-inherit">Profile</a></li>
+                        <li><a class="hover:bg-secondary active:!bg-secondary focus:!bg-secondary active:!text-inherit">Logout</a></li>
                     </ul>
                 </div>
             </div>
