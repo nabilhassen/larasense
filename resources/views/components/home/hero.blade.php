@@ -19,7 +19,7 @@
             </div>
         </div>
     </div>
-    <div class="mockup-window max-sm:ml-4 shadow-lg bg-white border border-stone-100 max-sm:rounded-none max-sm:rounded-tl-box sm:max-w-6xl sm:mx-auto">
+    <div class="mockup-window overflow-hidden max-sm:ml-4 shadow-sm shadow-primary/30 bg-white border border-stone-100 max-sm:rounded-none max-sm:rounded-tl-box sm:max-w-6xl sm:mx-auto">
         <figure class="border-t border-stone-100">
             <img
                 src="{{ asset('/img/dashboard.png') }}"

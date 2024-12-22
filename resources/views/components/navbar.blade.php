@@ -1,5 +1,5 @@
 <section class="container mx-auto pt-4 text-stone-700">
-    <div class="navbar bg-white rounded-box w-auto max-sm:mx-4 shadow-md shadow-primary">
+    <div class="navbar bg-white rounded-box w-auto max-sm:mx-4 shadow-sm shadow-primary/30">
         <div class="navbar-start">
             <div class="dropdown">
                 <div

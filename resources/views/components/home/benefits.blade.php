@@ -3,7 +3,7 @@
     class="container mx-auto scroll-m-20 text-stone-700"
 >
     <div class="bg-secondary rounded-badge sm:px-20 px-6 py-16 space-y-20 max-sm:mx-4">
-        <h2 class="text-5xl text-center font-bold">
+        <h2 class="text-5xl text-center">
             Be the first to know, <span class="text-primary">beat FOMO</span>
         </h2>
         <div class="grid sm:grid-cols-3 sm:gap-x-16 max-sm:gap-y-16">

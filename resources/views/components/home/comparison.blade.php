@@ -1,6 +1,6 @@
 <section class="container mx-auto text-stone-700">
     <div class="border-4 border-secondary rounded-badge sm:px-20 px-6 py-16 space-y-20 shadow-xl max-sm:mx-4">
-        <h2 class="text-5xl text-center font-bold">
+        <h2 class="text-5xl text-center">
             Stay informed like <span class="text-primary">a PRO</span>
         </h2>
         <div class="grid sm:grid-cols-2 sm:gap-x-16 max-sm:gap-y-16 sm:px-24">

@@ -1,5 +1,5 @@
 <div class="space-y-20">
-    <div class="bg-gradient-to-b from-secondary">
+    <div class="bg-gradient-to-b from-secondary to-65%">
         <x-navbar />
         <x-home.hero />
     </div>
