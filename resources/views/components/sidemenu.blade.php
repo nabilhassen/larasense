@@ -1,6 +1,6 @@
-<div class="w-1/5 lg:px-9 lg:py-6 max-lg:hidden">
+<div class="w-1/5 lg:pt-6 max-lg:hidden">
     <div class="fixed space-y-12">
-        <figure>
+        <figure class="h-12 flex items-center">
             <a href="{{ route('dashboard') }}">
                 <img
                     class="sm:w-52 w-48"

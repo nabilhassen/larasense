@@ -1,65 +1,63 @@
-<div class="max-lg:h-10 lg:h-fit lg:sticky lg:top-0 lg:pt-6 lg:pb-12 lg:bg-white lg:z-10">
-    <div class="max-lg:h-fit max-lg:fixed max-lg:bg-white max-lg:inset-x-4 max-lg:z-10 max-lg:py-4">
-        <div class="flex justify-between items-center">
-            <figure class="lg:hidden">
-                <a href="{{ route('dashboard') }}">
-                    <img
-                        class="w-8"
-                        src="{{ asset('favicon.png') }}"
-                        alt="Larasense logo"
-                    >
-                </a>
-            </figure>
-            <div class="w-3/5">
-                <label class="input input-bordered h-10 flex items-center gap-2 bg-stone-50 border-0 focus:border focus-within:border !outline-none">
-                    <input
-                        type="text"
-                        class="grow"
-                        placeholder="Search"
+<div class="sticky z-10 bg-white top-0 py-4 lg:py-6">
+    <div class="flex justify-between items-center">
+        <figure class="lg:hidden">
+            <a href="{{ route('dashboard') }}">
+                <img
+                    class="w-8"
+                    src="{{ asset('favicon.png') }}"
+                    alt="Larasense logo"
+                >
+            </a>
+        </figure>
+        <div class="w-8/12">
+            <label class="input input-bordered flex items-center gap-2 bg-stone-50 border-0 focus:border focus-within:border !outline-none">
+                <input
+                    type="text"
+                    class="grow"
+                    placeholder="Search"
+                />
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 16 16"
+                    fill="currentColor"
+                    class="h-4 w-4 opacity-70"
+                >
+                    <path
+                        fill-rule="evenodd"
+                        d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+                        clip-rule="evenodd"
                     />
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 16 16"
-                        fill="currentColor"
-                        class="h-4 w-4 opacity-70"
-                    >
-                        <path
-                            fill-rule="evenodd"
-                            d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
-                            clip-rule="evenodd"
-                        />
-                    </svg>
-                </label>
+                </svg>
+            </label>
+        </div>
+        <div class="flex items-center gap-x-6">
+            <div class="flex items-center max-lg:hidden">
+                <button>
+                    <x-heroicon-o-moon class="inline-flex size-8" />
+                </button>
             </div>
-            <div class="flex items-center gap-x-6">
-                <div class="flex items-center max-lg:hidden">
-                    <button>
-                        <x-heroicon-o-moon class="inline-flex size-8" />
-                    </button>
-                </div>
-                <div class="dropdown dropdown-bottom dropdown-end">
-                    <div
-                        tabindex="0"
-                        role="button"
-                        class="flex items-center gap-x-2"
-                    >
-                        <div class="avatar">
-                            <div class="w-8 rounded-full">
-                                <img src="{{ asset('storage/' . auth()->user()->avatar_url) }}" />
-                            </div>
-                        </div>
-                        <div class="flex items-center">
-                            <x-heroicon-o-chevron-down class="inline-flex size-5" />
+            <div class="dropdown dropdown-bottom dropdown-end">
+                <div
+                    tabindex="0"
+                    role="button"
+                    class="flex items-center gap-x-2"
+                >
+                    <div class="avatar">
+                        <div class="w-8 rounded-full">
+                            <img src="{{ asset('storage/' . auth()->user()->avatar_url) }}" />
                         </div>
                     </div>
-                    <ul
-                        tabindex="0"
-                        class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
-                    >
-                        <li><a class="hover:bg-secondary active:!bg-secondary focus:!bg-secondary active:!text-inherit">Profile</a></li>
-                        <li><a class="hover:bg-secondary active:!bg-secondary focus:!bg-secondary active:!text-inherit">Logout</a></li>
-                    </ul>
+                    <div class="flex items-center">
+                        <x-heroicon-o-chevron-down class="inline-flex size-5" />
+                    </div>
                 </div>
+                <ul
+                    tabindex="0"
+                    class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
+                >
+                    <li><a class="hover:bg-secondary active:!bg-secondary focus:!bg-secondary active:!text-inherit">Profile</a></li>
+                    <li><a class="hover:bg-secondary active:!bg-secondary focus:!bg-secondary active:!text-inherit">Logout</a></li>
+                </ul>
             </div>
         </div>
     </div>

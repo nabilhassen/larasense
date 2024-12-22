@@ -26,11 +26,11 @@
 
 <body class="antialiased">
 
-    <div class="lg:container lg:mx-auto">
-        <div class="flex lg:gap-x-16 text-stone-800 max-lg:mx-4">
+    <div class="container mx-auto">
+        <div class="flex justify-center lg:gap-x-16 text-stone-800 max-lg:mx-4">
             <x-sidemenu />
 
-            <div class="min-h-screen lg:w-4/5 w-full">
+            <div class="lg:w-4/5">
                 <x-topnavbar />
 
                 {{ $slot }}
