@@ -19,11 +19,13 @@
             </div>
         </div>
     </div>
-    <figure class="max-sm:ml-4 overflow-hidden">
-        <img
-            src="{{ asset('/img/dashboard.png') }}"
-            class="sm:rounded-badge rounded-tl-badge max-w-2xl sm:max-w-6xl sm:mx-auto"
-            alt="Dashboard"
-        >
-    </figure>
+    <div class="mockup-window max-sm:ml-4 shadow-lg bg-white border border-stone-100 max-sm:rounded-none max-sm:rounded-tl-box sm:max-w-6xl sm:mx-auto">
+        <figure class="border-t border-stone-100">
+            <img
+                src="{{ asset('/img/dashboard.png') }}"
+                alt="Dashboard"
+                class="max-sm:max-w-4xl"
+            >
+        </figure>
+    </div>
 </section>
