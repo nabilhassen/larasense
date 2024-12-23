@@ -53,7 +53,11 @@
                     </button>
                 </div>
                 <div class="flex gap-x-2">
-                    <button class="btn btn-sm btn-primary btn-outline text-white text-xs">
+                    <button
+                        class="btn btn-sm btn-primary btn-outline text-xs hover:!text-white"
+                        x-data
+                        x-on:click="$dispatch('open_modal')"
+                    >
                         Expand
                     </button>
                     <button class="btn btn-sm btn-primary btn-circle">

@@ -40,6 +40,8 @@
         <x-bottomnavbar />
     </div>
 
+    <x-material-modal />
+
     @livewireScriptConfig
     @vite('resources/js/app.js')
     <x-update-timezone current-timezone="{{ auth()->user()->timezone }}" />
