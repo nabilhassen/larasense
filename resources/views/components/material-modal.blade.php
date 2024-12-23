@@ -52,9 +52,9 @@
                         <x-heroicon-o-link class="inline-flex lg:size-8 size-6 stroke-stone-800" />
                     </button>
                 </div>
-                <div class="flex gap-x-2">
+                <div>
                     <button class="btn max-lg:btn-sm max-lg:text-xs btn-primary text-white">
-                        <x-heroicon-o-arrow-top-right-on-square class="lg:size-8 size-6" />
+                        <x-heroicon-o-arrow-top-right-on-square class="lg:size-6 size-4" />
                         <span>
                             Read Post
                         </span>
@@ -97,9 +97,9 @@
                         <x-heroicon-o-link class="inline-flex lg:size-8 size-6 stroke-stone-800" />
                     </button>
                 </div>
-                <div class="flex gap-x-2">
+                <div>
                     <button class="btn max-lg:btn-sm max-lg:text-xs btn-primary text-white">
-                        <x-heroicon-o-arrow-top-right-on-square class="lg:size-8 size-6" />
+                        <x-heroicon-o-arrow-top-right-on-square class="lg:size-6 size-4" />
                         <span>
                             Read Post
                         </span>
