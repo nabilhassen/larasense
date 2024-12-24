@@ -23,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
     {
         Model::unguard();
 
+        Model::preventLazyLoading(!$this->app->isProduction());
+
         Carbon::macro('inUserTimezone', function () {
             return $this->timezone(auth()->user()->timezone ?? config('app.timezone'));
         });

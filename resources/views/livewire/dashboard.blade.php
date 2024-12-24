@@ -1,40 +1,52 @@
-<div class="grid xl:grid-cols-3 lg:grid-cols-2 lg:gap-x-4 gap-y-8 pb-24 max-lg:pt-8">
-    @foreach (range(1, 6) as $item)
-        <div class="border-2 border-secondary hover:border-primary cursor-pointer p-4 rounded-xl space-y-4">
-            <div>
-                <span class="inline-flex items-center justify-center mx-0 size-7 rounded-full bg-stone-700">
-                    <x-heroicon-o-pencil-square class="inline size-5 stroke-white" />
-                </span>
+<div class="grid xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 lg:gap-x-4 gap-y-8 pb-24 max-lg:pt-8">
+    @foreach ($materials as $material)
+        <div class="flex flex-col border-2 border-secondary hover:border-primary cursor-pointer p-4 rounded-xl space-y-4">
+            <div class="flex justify-between items-center">
+                <div class="avatar">
+                    <div class="w-8 rounded-full">
+                        <img src="{{ asset('storage/' . $material->source->publisher->logo) }}" />
+                    </div>
+                </div>
+                <div>
+                    @if ($material->isArticle())
+                        <span class="inline-flex items-center justify-center mx-0 size-8 rounded-full bg-stone-700">
+                            <x-heroicon-o-pencil-square class="inline size-4 stroke-white" />
+                        </span>
+                    @elseif ($material->isYoutube())
+                        <span class="inline-flex items-center justify-center mx-0 size-8 rounded-full bg-red-500">
+                            <x-heroicon-o-video-camera class="inline size-4 stroke-white fill-white" />
+                        </span>
+                    @elseif ($material->isPodcast())
+                        <span class="inline-flex items-center justify-center mx-0 size-8 rounded-full bg-purple-500">
+                            <x-heroicon-o-microphone class="inline size-4 stroke-white" />
+                        </span>
+                    @endif
+                </div>
             </div>
             <figure>
                 <img
-                    src="https://picsum.photos/600/320"
+                    src="{{ asset('storage/' . ($material->image_url ?? $material->source->publisher->logo)) }}"
                     alt=""
-                    class="aspect-video w-full rounded"
+                    class="rounded-box w-full h-40 object-cover"
                 >
-
             </figure>
-            <div class="flex justify-between items-center text-sm">
-                <div class="flex items-center gap-x-2 mr-4">
-                    <div class="avatar">
-                        <div class="w-6 rounded-full">
-                            <img src="{{ asset('storage/' . auth()->user()->avatar_url) }}" />
-                        </div>
-                    </div>
-                    <div>
-                        {{ auth()->user()->name }}
-                    </div>
+            <div class="flex gap-x-1 text-xs opacity-70">
+                <div>
+                    {{ $material->published_at->inUserTimezone()->toFormattedDateString() }}
                 </div>
-                <div class="opacity-70">
-                    2h ago
+                <div>
+                    ·
+                </div>
+                <div>
+                    5mins
                 </div>
             </div>
-            <div>
-                <h1 class="font-bold text-sm">
-                    The Request Object in Laravel
+            <div class="flex-1">
+                <h1 class="font-bold text-sm line-clamp-2">
+                    {!! $material->title !!}
                 </h1>
-                <h2 class="text-xs">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem adipisci, repudiandae distinctio harum.
+                <h2 class="text-xs line-clamp-2">
+                    {!! $material->description !!}
                 </h2>
             </div>
             <div class="flex justify-between items-center">

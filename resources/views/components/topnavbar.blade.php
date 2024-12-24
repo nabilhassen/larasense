@@ -1,4 +1,4 @@
-<div class="sticky z-10 bg-white top-0 py-4 lg:py-6">
+<div class="sticky z-10 bg-white border border-white top-0 py-4 lg:py-6">
     <div class="flex justify-between items-center">
         <figure class="lg:hidden">
             <a href="{{ route('dashboard') }}">

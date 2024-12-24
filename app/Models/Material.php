@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\SourceType;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -44,5 +45,20 @@ class Material extends Model
     public function scopeNotDisplayed(Builder $query): void
     {
         $query->where('is_displayed', 0);
+    }
+
+    public function isArticle(): bool
+    {
+        return $this->source->type === SourceType::Article;
+    }
+
+    public function isYoutube(): bool
+    {
+        return $this->source->type === SourceType::Youtube;
+    }
+
+    public function isPodcast(): bool
+    {
+        return $this->source->type === SourceType::Podcast;
     }
 }
