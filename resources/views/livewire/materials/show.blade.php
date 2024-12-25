@@ -21,12 +21,23 @@
             @endif
         </div>
     </div>
-    <figure>
+    <figure class="relative rounded-box overflow-hidden flex justify-center items-center">
         <img
             src="{{ asset('storage/' . ($material->image_url ?? $material->source->publisher->logo)) }}"
             alt=""
             class="rounded-box w-full h-40 object-cover"
         >
+        @if ($material->isYoutube() || $material->isPodcast())
+            <span class="absolute size-full bg-[#00000052] hover:bg-inherit"></span>
+            <div class="absolute size-full flex justify-center items-center">
+                <button
+                    class="btn btn-primary btn-circle"
+                    x-on:click="$dispatch('open_modal')"
+                >
+                    <x-heroicon-s-play class="size-6 stroke-white fill-white" />
+                </button>
+            </div>
+        @endif
     </figure>
     <div class="flex gap-x-1 text-xs opacity-70">
         <div>
@@ -70,9 +81,9 @@
             >
                 Expand
             </button>
-            <button class="btn btn-sm btn-primary btn-circle">
+            {{-- <button class="btn btn-sm btn-primary btn-circle">
                 <x-heroicon-s-play class="size-4 stroke-white fill-white" />
-            </button>
+            </button> --}}
         </div>
     </div>
 </div>
