@@ -8,6 +8,7 @@ use Illuminate\Foundation\Queue\Queueable;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Intervention\Image\Laravel\Facades\Image;
 
 class FetchMaterialImageJob implements ShouldQueue
 {
@@ -35,6 +36,12 @@ class FetchMaterialImageJob implements ShouldQueue
         $material->image_url = $path;
 
         $material->save();
+
+        $image = Image::read(Storage::disk('public')->path($material->image_url));
+
+        $image->scale(height: 160);
+
+        $image->save();
     }
 
     protected function getPath(string $contentType): string

@@ -46,7 +46,7 @@ class MaterialData
             url: $item->get_link(),
             publishedAt: Carbon::parse($item->get_date()),
             feedId: $item->get_id(true),
-            imageUrl: $openGraphData['image:secure_url'] ?? $openGraphData['image'] ?? $openGraphData['twitter:image'] ?? $item->get_enclosure()?->get_thumbnail(),
+            imageUrl: $openGraphData['image:secure_url'] ?? $openGraphData['image'] ?? $openGraphData['twitter:image'] ?? $item->get_enclosure()?->get_thumbnail() ?? str($item->get_content())->betweenFirst('img src="', '"')->toString(),
         );
     }
 

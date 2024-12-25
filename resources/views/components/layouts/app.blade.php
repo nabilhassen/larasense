@@ -30,7 +30,7 @@
         <div class="flex justify-center lg:gap-x-16 text-stone-800 max-lg:mx-4">
             <x-sidemenu />
 
-            <div class="lg:w-4/5">
+            <div class="lg:w-4/5 w-full">
                 <x-topnavbar />
 
                 {{ $slot }}
