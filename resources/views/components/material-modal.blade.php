@@ -1,37 +1,54 @@
+@props(['material'])
+
 <dialog
-    id="modal1"
     class="modal lg:modal-top text-stone-800"
     x-data
-    @open_modal.window="$el.showModal()"
+    x-on:open-modal.window="$event.detail.slug === 'material.{{ $material->slug }}' ? $el.showModal() : null"
 >
     <div class="modal-box lg:max-w-6xl lg:mx-auto lg:h-full">
         <form method="dialog">
             <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
         </form>
-        <div class="lg:w-8/12 mx-auto space-y-6">
+        <div class="lg:w-8/12 mx-auto space-y-8">
             <div class="flex justify-between items-center">
-                <div class="flex items-center gap-x-2 mr-4">
-                    <div class="avatar">
-                        <div class="w-12 rounded-full">
-                            <img src="{{ asset('storage/' . auth()->user()->avatar_url) }}" />
-                        </div>
+                <div class="avatar">
+                    <div class="w-12 rounded-full">
+                        <img src="{{ asset('storage/' . $material->source->publisher->logo) }}" />
                     </div>
-                    <div class="flex flex-col">
-                        <div>
-                            {{ auth()->user()->name }}
-                        </div>
-                        <div class="text-sm opacity-70">
-                            2h ago
-                        </div>
-                    </div>
+                </div>
+                <div>
+                    @if ($material->isArticle())
+                        <span class="inline-flex items-center justify-center mx-0 size-12 rounded-full bg-stone-700">
+                            <x-heroicon-o-pencil-square class="inline size-6 stroke-white" />
+                        </span>
+                    @elseif ($material->isYoutube())
+                        <span class="inline-flex items-center justify-center mx-0 size-12 rounded-full bg-red-500">
+                            <x-heroicon-o-video-camera class="inline size-6 stroke-white fill-white" />
+                        </span>
+                    @elseif ($material->isPodcast())
+                        <span class="inline-flex items-center justify-center mx-0 size-12 rounded-full bg-purple-500">
+                            <x-heroicon-o-microphone class="inline size-6 stroke-white" />
+                        </span>
+                    @endif
                 </div>
             </div>
             <div>
+                <div class="flex items-center gap-x-1 text-sm opacity-70 mb-2">
+                    <div>
+                        {{ $material->source->publisher->name }}
+                    </div>
+                    <div>
+                        ·
+                    </div>
+                    <div>
+                        {{ $material->published_at->inUserTimezone()->toFormattedDateString() }}
+                    </div>
+                </div>
                 <h1 class="font-bold text-2xl lg:text-3xl">
-                    The Request Object in Laravel
+                    {{ $material->title }}
                 </h1>
-                <h2 class="opacity-70">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem adipisci, repudiandae distinctio harum.
+                <h2 class="opacity-85">
+                    {{ $material->description }}
                 </h2>
             </div>
             <div class="flex justify-between items-center">
@@ -62,21 +79,15 @@
                 </div>
             </div>
             <hr class="!my-12">
-            <figure class="flex justify-center rounded-box p-6 shadow-2xl">
+            <figure>
                 <img
-                    src="https://picsum.photos/600/320"
+                    src="{{ asset('storage/' . $material->image_url) }}"
                     alt=""
-                    class="object-scale-down"
+                    class="rounded-box size-full shadow-2xl"
                 >
             </figure>
             <div>
-                <p>Laravel provides AsArrayObject and AsCollection casts to handle complex JSON attributes more effectively, enabling intuitive manipulation of nested data structures.</p>
-                <p>These casts enable seamless manipulation of JSON data while maintaining clean, maintainable code. AsArrayObject provides array-like access, while AsCollection offers Laravel's powerful collection methods.</p>
-
-                <hr>
-                <p>The post <a href="https://laravel-news.com/json-attributes-array-casts">Working with JSON Attributes Using Laravel&#039;s Array Casts</a> appeared first on <a href="https://laravel-news.com">Laravel News</a>.</p>
-                <p>Join the <a href="https://laravelnewsletter.com">Laravel Newsletter</a> to get all the latest
-                    Laravel articles like this directly in your inbox.</p>
+                {!! $material->body !!}
             </div>
             <hr class="!my-12">
             <div class="flex justify-between items-center">
