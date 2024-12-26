@@ -29,10 +29,11 @@ class CreateMaterial
                 'duration' => $materialData->duration,
                 'is_displayed' => $materialData->isDisplayed,
                 'url' => $materialData->url,
+                'image_url' => $materialData->imageUrl,
             ]);
 
-        if (filled($materialData->imageUrl) && $material->isArticle()) {
-            FetchMaterialImageJob::dispatch($material->id, $materialData->imageUrl)->afterCommit();
+        if (filled($material->image_url) && $material->isArticle()) {
+            FetchMaterialImageJob::dispatch($material->id)->afterCommit();
         }
 
         return $material;

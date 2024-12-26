@@ -16,7 +16,7 @@ test('article material images are fetched and stored in disk', function () {
         )
         ->create();
 
-    FetchMaterialImageJob::dispatch($material->id, 'https://picsum.photos/600/480');
+    FetchMaterialImageJob::dispatch($material->id);
 
     Storage::disk('public')->assertExists($material->fresh()->image_url);
 });

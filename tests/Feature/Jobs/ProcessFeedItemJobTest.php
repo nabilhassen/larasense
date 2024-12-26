@@ -12,7 +12,7 @@ test('article feed item is processed and stored in the database as a material', 
     Queue::fake(FetchMaterialImageJob::class);
 
     $source = Source::factory()->create([
-        'url' => 'https://www.reddit.com/r/laravel.rss',
+        'url' => 'https://www.aljazeera.com/xml/rss/all.xml',
         'type' => SourceType::Article,
         'last_checked_at' => now()->subDay(),
     ]);

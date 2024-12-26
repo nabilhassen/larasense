@@ -17,7 +17,7 @@ class FetchMaterialImageJob implements ShouldQueue
     /**
      * Create a new job instance.
      */
-    public function __construct(public int $materialId, public string $imageUrl)
+    public function __construct(public int $materialId)
     {}
 
     /**
@@ -27,7 +27,7 @@ class FetchMaterialImageJob implements ShouldQueue
     {
         $material = Material::find($this->materialId, ['id', 'image_url']);
 
-        $response = Http::retry(3, 100)->timeout(10)->get($this->imageUrl);
+        $response = Http::retry(3, 100)->timeout(10)->get($material->image_url);
 
         $path = $this->getPath($response->header('Content-Type'));
 
