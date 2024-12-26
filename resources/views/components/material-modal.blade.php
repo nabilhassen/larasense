@@ -2,13 +2,16 @@
 
 <dialog
     class="modal lg:modal-top text-stone-800"
-    x-data
-    x-on:open-modal.window="$event.detail.slug === 'material.{{ $material->slug }}' ? $el.showModal() : null"
+    x-data="{ isMaterialModalOpen: false }"
+    x-bind:class="{ 'modal-open': isMaterialModalOpen }"
+    x-on:open-modal.window="$event.detail.slug === 'material.{{ $material->slug }}' ? isMaterialModalOpen = true : isMaterialModalOpen = false"
+    x-on:keyup.escape.window="isMaterialModalOpen = false"
 >
     <div class="modal-box lg:max-w-6xl lg:mx-auto lg:h-full">
-        <form method="dialog">
-            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-        </form>
+        <button
+            class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+            x-on:click="isMaterialModalOpen = false"
+        >✕</button>
         <div class="lg:w-8/12 mx-auto space-y-8">
             <div class="flex justify-between items-center">
                 <div class="avatar">
@@ -119,10 +122,8 @@
             </div>
         </div>
     </div>
-    <form
-        method="dialog"
-        class="modal-backdrop backdrop-blur-sm"
-    >
-        <button>close</button>
-    </form>
+    <div
+        class="modal-backdrop"
+        x-on:click="isMaterialModalOpen = false"
+    ></div>
 </dialog>
