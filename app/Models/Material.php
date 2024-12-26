@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Enums\SourceType;
 use Illuminate\Contracts\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -28,6 +29,13 @@ class Material extends Model
             'published_at' => 'datetime',
             'duration' => 'integer',
         ];
+    }
+
+    public function thumbnail(): Attribute
+    {
+        return Attribute::make(
+            fn() => $this->image_url ?? $this->loadMissing('source.publisher')->source->publisher->logo
+        )->shouldCache();
     }
 
     public function source(): BelongsTo
