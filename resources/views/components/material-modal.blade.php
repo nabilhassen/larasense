@@ -47,8 +47,8 @@
                 <h1 class="font-bold text-2xl lg:text-3xl">
                     {{ $material->title }}
                 </h1>
-                <h2 class="opacity-85">
-                    {{ $material->description }}
+                <h2 class="opacity-85 line-clamp-2">
+                    {{ str($material->description)->stripTags() }}
                 </h2>
             </div>
             <div class="flex justify-between items-center">
