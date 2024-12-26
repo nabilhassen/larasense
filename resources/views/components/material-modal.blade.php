@@ -86,7 +86,7 @@
                     class="rounded-box size-full shadow-2xl"
                 >
             </figure>
-            <div>
+            <div class="prose prose-img:hidden prose-figure:hidden prose-video:hidden">
                 {!! $material->body !!}
             </div>
             <hr class="!my-12">
