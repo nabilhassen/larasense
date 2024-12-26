@@ -43,7 +43,7 @@ test('youtube feed item is processed and stored in the database as a material', 
 
     ProcessFeedItemJob::dispatch($source->id, $item);
 
-    Queue::assertPushed(FetchMaterialImageJob::class);
+    Queue::assertNotPushed(FetchMaterialImageJob::class);
     $this->assertDatabaseCount('materials', 1);
     $this->assertDatabaseHas('materials', [
         'feed_id' => $item->get_id(true),
@@ -65,7 +65,7 @@ test('podcast feed item is processed and stored in the database as a material', 
 
     ProcessFeedItemJob::dispatch($source->id, $item);
 
-    Queue::assertPushed(FetchMaterialImageJob::class);
+    Queue::assertNotPushed(FetchMaterialImageJob::class);
     $this->assertDatabaseCount('materials', 1);
     $this->assertDatabaseHas('materials', [
         'feed_id' => $item->get_id(true),
@@ -93,7 +93,7 @@ test('duplicate article feed item will not be stored', function () {
 
     ProcessFeedItemJob::dispatch($source->id, $item);
 
-    Queue::assertNothingPushed();
+    Queue::assertNotPushed(FetchMaterialImageJob::class);
     $this->assertDatabaseCount('materials', 1);
     $this->assertDatabaseHas('materials', [
         'url' => $item->get_link(),

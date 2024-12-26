@@ -81,7 +81,7 @@
             <hr class="!my-12">
             <figure>
                 <img
-                    src="{{ asset('storage/' . $material->image_url) }}"
+                    src="{{ $material->isArticle() ? asset(str('storage/')->append($material->image_url)) : $material->image_url }}"
                     alt=""
                     class="rounded-box size-full shadow-2xl"
                 >

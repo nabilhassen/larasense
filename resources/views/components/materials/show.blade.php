@@ -29,7 +29,7 @@
     </div>
     <figure class="relative rounded-box overflow-hidden flex justify-center items-center">
         <img
-            src="{{ asset('storage/' . ($material->image_url ?? $material->source->publisher->logo)) }}"
+            src="{{ $material->isArticle() ? asset(str('storage/')->append($material->image_url)) : $material->image_url }}"
             alt=""
             class="rounded-box w-full h-40 object-cover"
         >
