@@ -1,17 +1,15 @@
 @props(['material'])
 
 <dialog
+    wire:ignore.self
     class="modal lg:modal-top text-stone-800"
-    x-data="{ isMaterialModalOpen: false }"
-    x-bind:class="{ 'modal-open': isMaterialModalOpen }"
-    x-on:open-modal.window="$event.detail.slug === 'material.{{ $material->slug }}' ? isMaterialModalOpen = true : isMaterialModalOpen = false"
-    x-on:keyup.escape.window="isMaterialModalOpen = false"
+    x-data
+    x-on:open-modal.window="$event.detail.slug === 'material.{{ $material->slug }}' ? $el.showModal() : null"
 >
     <div class="modal-box lg:max-w-6xl lg:mx-auto lg:h-full">
-        <button
-            class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
-            x-on:click="isMaterialModalOpen = false"
-        >✕</button>
+        <form method="dialog">
+            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+        </form>
         <div class="lg:w-8/12 mx-auto space-y-8">
             <div class="flex justify-between items-center">
                 <div class="avatar">
@@ -48,7 +46,7 @@
                     </div>
                 </div>
                 <h1 class="font-bold text-2xl lg:text-3xl">
-                    {{ $material->title }}
+                    {!! $material->title !!}
                 </h1>
                 <h2 class="opacity-85 line-clamp-2">
                     {{ str($material->description)->stripTags() }}
@@ -122,8 +120,10 @@
             </div>
         </div>
     </div>
-    <div
-        class="modal-backdrop"
-        x-on:click="isMaterialModalOpen = false"
-    ></div>
+    <form
+        method="dialog"
+        class="modal-backdrop backdrop-blur-sm"
+    >
+        <button>close</button>
+    </form>
 </dialog>
