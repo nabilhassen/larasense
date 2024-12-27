@@ -1,11 +1,14 @@
 @props(['material'])
 
-<article>
-    <div
-        class="flex flex-col border-2 border-secondary hover:border-primary cursor-pointer p-4 rounded-xl space-y-4"
+<article
+    class="relative flex flex-col border-2 border-secondary hover:border-primary cursor-pointer p-4 rounded-xl"
+    wire:key="material-{{ $material->slug }}"
+>
+    <a
+        class="absolute size-full inset-0"
         x-on:click="$dispatch('open-modal', { slug: 'material.{{ $material->slug }}' })"
-        wire:key="material-{{ $material->slug }}"
-    >
+    ></a>
+    <div class="flex flex-col h-full space-y-4">
         <div class="flex justify-between items-center">
             <div class="avatar">
                 <div class="w-8 rounded-full">
@@ -28,7 +31,7 @@
                 @endif
             </div>
         </div>
-        <figure class="relative rounded-box overflow-hidden flex justify-center items-center">
+        <figure class="relative rounded-box overflow-hidden flex justify-center items-center pointer-events-none ">
             <img
                 src="{{ $material->isArticle() ? asset(str('storage/')->append($material->thumbnail)) : $material->thumbnail }}"
                 alt=""
@@ -46,7 +49,7 @@
                 </div>
             @endif
         </figure>
-        <div class="flex gap-x-1 text-xs opacity-70">
+        <div class="flex gap-x-1 text-xs opacity-70 pointer-events-none">
             <div>
                 {{ $material->published_at->inUserTimezone()->toFormattedDateString() }}
             </div>
@@ -66,28 +69,60 @@
             </h2>
         </div>
         <div class="flex justify-between items-center">
-            <div class="flex gap-x-2">
+            <div
+                class="tooltip"
+                data-tip="Like this post"
+            >
                 <button class="inline-flex items-center gap-x-1">
                     <x-heroicon-o-hand-thumb-up class="inline-flex size-6 stroke-primary fill-primary" />
                     <span class="opacity-70 text-sm">
                         120
                     </span>
                 </button>
+            </div>
+            <div
+                class="tooltip"
+                data-tip="Disike this post"
+            >
                 <button class="inline-flex">
                     <x-heroicon-o-hand-thumb-down class="inline-flex size-6 stroke-stone-800" />
                 </button>
+            </div>
+            <div
+                class="tooltip"
+                data-tip="Bookmark"
+            >
                 <button class="inline-flex">
                     <x-heroicon-o-bookmark class="inline-flex size-6 stroke-stone-800" />
                 </button>
             </div>
-            <div class="flex gap-x-2">
-                <button
-                    class="btn btn-sm btn-primary btn-outline text-xs hover:!text-white"
-                    x-on:click="$dispatch('open-modal', { slug: 'material.{{ $material->slug }}' })"
-                >
-                    Expand
+            <div
+                class="tooltip"
+                data-tip="Copy Link"
+            >
+                <button class="inline-flex">
+                    <x-heroicon-o-link class="inline-flex size-6 stroke-stone-800" />
                 </button>
             </div>
+            @if ($material->isYoutube() || $material->isPodcast())
+                <div
+                    class="tooltip tooltip-left "
+                    data-tip="Play"
+                >
+                    <button class="inline-flex">
+                        <x-heroicon-o-play class="inline-flex size-6 stroke-stone-800" />
+                    </button>
+                </div>
+            @else
+                <div
+                    class="tooltip tooltip-left"
+                    data-tip="Redirect to source"
+                >
+                    <button class="inline-flex">
+                        <x-heroicon-o-arrow-top-right-on-square class="inline-flex size-6 stroke-stone-800" />
+                    </button>
+                </div>
+            @endif
         </div>
     </div>
 
