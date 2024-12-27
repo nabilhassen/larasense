@@ -53,7 +53,7 @@
                 </h2>
             </div>
             <div class="flex justify-between items-center">
-                <div class="flex gap-x-4">
+                <div class="flex gap-x-6">
                     <button class="inline-flex items-center gap-x-1">
                         <x-heroicon-o-hand-thumb-up class="inline-flex lg:size-8 size-6 stroke-primary fill-primary" />
                         <span class="opacity-70">
@@ -71,12 +71,21 @@
                     </button>
                 </div>
                 <div>
-                    <button class="btn max-lg:btn-sm max-lg:text-xs btn-primary text-white">
-                        <x-heroicon-o-arrow-top-right-on-square class="lg:size-6 size-4" />
-                        <span>
-                            Read Post
-                        </span>
-                    </button>
+                    @if ($material->isYoutube() || $material->isPodcast())
+                        <button class="btn max-lg:btn-sm max-lg:text-xs btn-primary text-white">
+                            <x-heroicon-o-play class="lg:size-6 size-4" />
+                            <span>
+                                Play
+                            </span>
+                        </button>
+                    @elseif($material->isArticle())
+                        <button class="btn max-lg:btn-sm max-lg:text-xs btn-primary text-white">
+                            <x-heroicon-o-arrow-top-right-on-square class="lg:size-6 size-4" />
+                            <span>
+                                Read Post
+                            </span>
+                        </button>
+                    @endif
                 </div>
             </div>
             <hr class="!my-12">
@@ -91,33 +100,6 @@
                 {!! $material->body !!}
             </div>
             <hr class="!my-12">
-            <div class="flex justify-between items-center">
-                <div class="flex gap-x-4">
-                    <button class="inline-flex items-center gap-x-1">
-                        <x-heroicon-o-hand-thumb-up class="inline-flex lg:size-8 size-6 stroke-primary fill-primary" />
-                        <span class="opacity-70">
-                            120
-                        </span>
-                    </button>
-                    <button class="inline-flex">
-                        <x-heroicon-o-hand-thumb-down class="inline-flex lg:size-8 size-6 stroke-stone-800" />
-                    </button>
-                    <button class="inline-flex">
-                        <x-heroicon-o-bookmark class="inline-flex lg:size-8 size-6 stroke-stone-800" />
-                    </button>
-                    <button class="inline-flex">
-                        <x-heroicon-o-link class="inline-flex lg:size-8 size-6 stroke-stone-800" />
-                    </button>
-                </div>
-                <div>
-                    <button class="btn max-lg:btn-sm max-lg:text-xs btn-primary text-white">
-                        <x-heroicon-o-arrow-top-right-on-square class="lg:size-6 size-4" />
-                        <span>
-                            Read Post
-                        </span>
-                    </button>
-                </div>
-            </div>
         </div>
     </div>
     <form
