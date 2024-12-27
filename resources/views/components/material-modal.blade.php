@@ -88,17 +88,31 @@
                     @endif
                 </div>
             </div>
-            <hr class="!my-12">
-            <figure>
-                <img
-                    src="{{ $material->isArticle() ? asset(str('storage/')->append($material->thumbnail)) : $material->thumbnail }}"
-                    alt=""
-                    class="rounded-box size-full shadow-2xl"
-                >
-            </figure>
-            <div class="prose prose-img:hidden prose-figure:hidden prose-video:hidden">
-                {!! $material->body !!}
-            </div>
+            @if ($material->isArticle())
+                <hr class="!my-12">
+                <figure>
+                    <img
+                        src="{{ $material->isArticle() ? asset(str('storage/')->append($material->thumbnail)) : $material->thumbnail }}"
+                        alt=""
+                        class="rounded-box size-full shadow-2xl"
+                    >
+                </figure>
+                <div class="prose prose-img:hidden prose-figure:hidden prose-video:hidden">
+                    {!! $material->body !!}
+                </div>
+            @elseif ($material->isYoutube())
+                <div class="overflow-hidden rounded-btn aspect-video">
+                    <iframe
+                        class="size-full"
+                        src="https://www.youtube.com/embed/{{ str($material->url)->afterLast('?v=') }}?mute=0"
+                        title="{{ $material->title }}"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+            @endif
             <hr class="!my-12">
         </div>
     </div>
