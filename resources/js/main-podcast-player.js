@@ -62,6 +62,10 @@ export const mainPodcastPlayer = () => ({
             return this.player;
         }
 
+        this.player?.destroy();
+
+        this.init();
+
         this.setSource(title, url, thumbnail, currentTime);
 
         this.player.play();

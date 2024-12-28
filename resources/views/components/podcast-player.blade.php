@@ -1,6 +1,8 @@
 @props(['material'])
 
 <div
+    wire:ignore
+    x-cloak
     x-data="podcastPlayer"
     x-on:close-podcast-modal.window="continueOnMainPodcastPlayer($event.detail)"
     class="flex items-center bg-secondary rounded-btn p-4"

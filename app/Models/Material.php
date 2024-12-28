@@ -38,7 +38,17 @@ class Material extends Model
     public function thumbnail(): Attribute
     {
         return Attribute::make(
-            get: fn() => $this->image_url ?? $this->loadMissing('source.publisher')->source->publisher->logo
+            get: function () {
+                if (blank($this->image_url)) {
+                    return str($this->loadMissing('source.publisher')->source->publisher->logo)->prepend('storage/');
+                }
+
+                if ($this->isYoutube() || $this->isPodcast()) {
+                    return $this->image_url;
+                }
+
+                return str($this->image_url)->prepend('storage/');
+            }
         )->shouldCache();
     }
 

@@ -33,7 +33,7 @@
         </div>
         <figure class="relative rounded-box overflow-hidden flex justify-center items-center pointer-events-none">
             <img
-                src="{{ $material->isArticle() ? asset(str('storage/')->append($material->thumbnail)) : $material->thumbnail }}"
+                src="{{ $material->thumbnail }}"
                 alt=""
                 class="rounded-box w-full h-40 object-cover"
             >
@@ -111,7 +111,7 @@
                 >
                     <button
                         class="inline-flex"
-                        x-on:click="$dispatch('play-podcast', { title: '{{ $material->title }}', url: '{{ $material->url }}', thumbnail: 'https:\/\/img.transistor.fm/efw6V8xans8Vswx7oYw2w4rhx6zXsFPkz12tZn4QrDY/rs:fill:400:400:1/q:60/aHR0cHM6Ly9pbWct/dXBsb2FkLXByb2R1/Y3Rpb24udHJhbnNp/c3Rvci5mbS8yMWY3/ODc1YWY0MTg0MGI4/YjdkNTE5M2MyNWNl/MTM2OC5wbmc.webp' })"
+                        x-on:click="$dispatch('play-podcast', { title: '{{ $material->title }}', url: '{{ $material->url }}', thumbnail: '{{ $material->thumbnail }}' })"
                         x-show="$store.mainPodcastPlayer.url !== '{{ $material->url }}' || !$store.mainPodcastPlayer.isPlaying"
                     >
                         <x-heroicon-o-play class="inline-flex size-6 stroke-stone-800" />
