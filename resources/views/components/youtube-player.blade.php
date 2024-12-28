@@ -2,7 +2,7 @@
 
 <div
     wire:ignore
-    x-bind:class="{ 'overflow-hidden rounded-btn aspect-video': true }"
+    x-bind:class="{ 'overflow-hidden rounded-btn aspect-video cursor-pointer': true }"
     x-data="youtubePlayer"
     x-on:close-youtube-modal.window="player.pause()"
 >

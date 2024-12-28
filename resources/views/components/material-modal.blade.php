@@ -71,29 +71,22 @@
                         <x-heroicon-o-link class="inline-flex lg:size-8 size-6 stroke-stone-800" />
                     </button>
                 </div>
-                <div>
-                    @if ($material->isYoutube() || $material->isPodcast())
-                        <button class="btn max-lg:btn-sm max-lg:text-xs btn-primary text-white">
-                            <x-heroicon-o-play class="lg:size-6 size-4" />
-                            <span>
-                                Play
-                            </span>
-                        </button>
-                    @elseif($material->isArticle())
+                @if ($material->isArticle())
+                    <div>
                         <button class="btn max-lg:btn-sm max-lg:text-xs btn-primary text-white">
                             <x-heroicon-o-arrow-top-right-on-square class="lg:size-6 size-4" />
                             <span>
                                 Read Post
                             </span>
                         </button>
-                    @endif
-                </div>
+                    </div>
+                @endif
             </div>
             @if ($material->isArticle())
                 <hr class="!my-12">
                 <figure>
                     <img
-                        src="{{ asset(str('storage/')->append($material->thumbnail)) }}"
+                        src="{{ $material->thumbnail }}"
                         alt=""
                         class="rounded-box size-full shadow-2xl"
                     >

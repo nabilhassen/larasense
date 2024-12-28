@@ -124,14 +124,30 @@
                         <x-heroicon-o-pause class="inline-flex size-6 stroke-stone-800" />
                     </button>
                 </div>
-            @else
+            @elseif ($material->isYoutube())
+                <div
+                    class="tooltip tooltip-left "
+                    data-tip="Play"
+                >
+                    <button
+                        class="inline-flex"
+                        x-on:click="$dispatch('open-modal', { slug: 'material.{{ $material->slug }}' })"
+                    >
+                        <x-heroicon-o-play class="inline-flex size-6 stroke-stone-800" />
+                    </button>
+                </div>
+            @elseif ($material->isArticle())
                 <div
                     class="tooltip tooltip-left"
                     data-tip="Redirect to source"
                 >
-                    <button class="inline-flex">
+                    <a
+                        class="inline-flex"
+                        href="{{ $material->url }}"
+                        target="_blank"
+                    >
                         <x-heroicon-o-arrow-top-right-on-square class="inline-flex size-6 stroke-stone-800" />
-                    </button>
+                    </a>
                 </div>
             @endif
         </div>
