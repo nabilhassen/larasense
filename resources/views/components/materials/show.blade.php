@@ -74,7 +74,7 @@
                 data-tip="Like this post"
             >
                 <button class="inline-flex items-center gap-x-1">
-                    <x-heroicon-o-hand-thumb-up class="inline-flex size-6 stroke-primary fill-primary" />
+                    <x-heroicon-o-hand-thumb-up class="inline-flex size-6 hover:stroke-primary stroke-primary fill-primary" />
                     <span class="opacity-70 text-sm">
                         120
                     </span>
@@ -85,7 +85,7 @@
                 data-tip="Disike this post"
             >
                 <button class="inline-flex">
-                    <x-heroicon-o-hand-thumb-down class="inline-flex size-6 stroke-stone-800" />
+                    <x-heroicon-o-hand-thumb-down class="inline-flex size-6 hover:stroke-primary stroke-stone-800" />
                 </button>
             </div>
             <div
@@ -93,7 +93,7 @@
                 data-tip="Bookmark"
             >
                 <button class="inline-flex">
-                    <x-heroicon-o-bookmark class="inline-flex size-6 stroke-stone-800" />
+                    <x-heroicon-o-bookmark class="inline-flex size-6 hover:stroke-primary stroke-stone-800" />
                 </button>
             </div>
             <div
@@ -101,7 +101,7 @@
                 data-tip="Copy Link"
             >
                 <button class="inline-flex">
-                    <x-heroicon-o-link class="inline-flex size-6 stroke-stone-800" />
+                    <x-heroicon-o-link class="inline-flex size-6 hover:stroke-primary stroke-stone-800" />
                 </button>
             </div>
             @if ($material->isPodcast())
@@ -114,14 +114,14 @@
                         x-on:click="$dispatch('play-podcast', { title: '{{ $material->title }}', url: '{{ $material->url }}', thumbnail: '{{ $material->thumbnail }}' })"
                         x-show="$store.mainPodcastPlayer.url !== '{{ $material->url }}' || !$store.mainPodcastPlayer.isPlaying"
                     >
-                        <x-heroicon-o-play class="inline-flex size-6 stroke-stone-800" />
+                        <x-heroicon-o-play class="inline-flex size-6 hover:stroke-primary stroke-stone-800" />
                     </button>
                     <button
                         class="inline-flex"
                         x-on:click="$dispatch('pause-podcast')"
                         x-show="$store.mainPodcastPlayer.url === '{{ $material->url }}' && $store.mainPodcastPlayer.isPlaying"
                     >
-                        <x-heroicon-o-pause class="inline-flex size-6 stroke-stone-800" />
+                        <x-heroicon-o-pause class="inline-flex size-6 hover:stroke-primary stroke-stone-800" />
                     </button>
                 </div>
             @elseif ($material->isYoutube())
@@ -133,7 +133,7 @@
                         class="inline-flex"
                         x-on:click="$dispatch('open-modal', { slug: 'material.{{ $material->slug }}' })"
                     >
-                        <x-heroicon-o-play class="inline-flex size-6 stroke-stone-800" />
+                        <x-heroicon-o-play class="inline-flex size-6 hover:stroke-primary stroke-stone-800" />
                     </button>
                 </div>
             @elseif ($material->isArticle())
@@ -146,7 +146,7 @@
                         href="{{ $material->url }}"
                         target="_blank"
                     >
-                        <x-heroicon-o-arrow-top-right-on-square class="inline-flex size-6 stroke-stone-800" />
+                        <x-heroicon-o-arrow-top-right-on-square class="inline-flex size-6 hover:stroke-primary stroke-stone-800" />
                     </a>
                 </div>
             @endif

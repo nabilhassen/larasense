@@ -56,25 +56,25 @@
             <div class="flex justify-between items-center">
                 <div class="flex gap-x-6">
                     <button class="inline-flex items-center gap-x-1">
-                        <x-heroicon-o-hand-thumb-up class="inline-flex lg:size-8 size-6 stroke-primary fill-primary" />
+                        <x-heroicon-o-hand-thumb-up class="inline-flex lg:size-8 size-6 hover:stroke-primary stroke-primary fill-primary" />
                         <span class="opacity-70">
                             120
                         </span>
                     </button>
                     <button class="inline-flex">
-                        <x-heroicon-o-hand-thumb-down class="inline-flex lg:size-8 size-6 stroke-stone-800" />
+                        <x-heroicon-o-hand-thumb-down class="inline-flex lg:size-8 size-6 hover:stroke-primary stroke-stone-800" />
                     </button>
                     <button class="inline-flex">
-                        <x-heroicon-o-bookmark class="inline-flex lg:size-8 size-6 stroke-stone-800" />
+                        <x-heroicon-o-bookmark class="inline-flex lg:size-8 size-6 hover:stroke-primary stroke-stone-800" />
                     </button>
                     <button class="inline-flex">
-                        <x-heroicon-o-link class="inline-flex lg:size-8 size-6 stroke-stone-800" />
+                        <x-heroicon-o-link class="inline-flex lg:size-8 size-6 hover:stroke-primary stroke-stone-800" />
                     </button>
                 </div>
                 @if ($material->isArticle())
                     <div>
                         <a
-                            class="btn max-lg:btn-sm max-lg:text-xs btn-primary text-white"
+                            class="btn max-lg:btn-sm max-lg:text-xs btn-primary btn-outline hover:!text-white"
                             href="{{ $material->url }}"
                             target="_blank"
                         >
