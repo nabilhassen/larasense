@@ -102,17 +102,7 @@
                     {!! $material->body !!}
                 </div>
             @elseif ($material->isYoutube())
-                <div class="overflow-hidden rounded-btn aspect-video">
-                    <iframe
-                        class="size-full"
-                        src="https://www.youtube.com/embed/{{ str($material->url)->afterLast('?v=') }}?mute=0"
-                        title="{{ $material->title }}"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin"
-                        allowfullscreen
-                    ></iframe>
-                </div>
+                <x-youtube-player :$material />
             @elseif ($material->isPodcast())
                 <x-podcast-player :$material />
             @endif
