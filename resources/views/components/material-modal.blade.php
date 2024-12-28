@@ -73,12 +73,16 @@
                 </div>
                 @if ($material->isArticle())
                     <div>
-                        <button class="btn max-lg:btn-sm max-lg:text-xs btn-primary text-white">
+                        <a
+                            class="btn max-lg:btn-sm max-lg:text-xs btn-primary text-white"
+                            href="{{ $material->url }}"
+                            target="_blank"
+                        >
                             <x-heroicon-o-arrow-top-right-on-square class="lg:size-6 size-4" />
                             <span>
                                 Read Post
                             </span>
-                        </button>
+                        </a>
                     </div>
                 @endif
             </div>
