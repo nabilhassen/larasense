@@ -4,9 +4,12 @@ import {
     Alpine,
 } from "../../vendor/livewire/livewire/dist/livewire.esm";
 import "@fontsource/inter";
-import Plyr from "plyr";
 import "plyr/dist/plyr.css";
+import { podcastPlayer } from "./podcast-player";
+import { mainPodcastPlayer } from "./main-podcast-player";
 
-const players = Plyr.setup(".player");
+Alpine.data("mainPodcastPlayer", mainPodcastPlayer);
+
+Alpine.data("podcastPlayer", podcastPlayer);
 
 Livewire.start();

@@ -1,4 +1,4 @@
-<div class="sticky z-10 bg-white border border-white top-0 py-4 lg:py-6">
+<div class="sticky z-10 bg-white border border-white top-0 py-4 lg:py-6 space-y-4">
     <div class="flex justify-between items-center">
         <figure class="lg:hidden">
             <a href="{{ route('dashboard') }}">
@@ -59,6 +59,29 @@
                     <li><a class="hover:bg-secondary active:!bg-secondary focus:!bg-secondary active:!text-inherit">Logout</a></li>
                 </ul>
             </div>
+        </div>
+    </div>
+    <div
+        x-cloak
+        x-data="mainPodcastPlayer"
+        x-show="isSourceSet"
+        x-on:play-podcast.window="play($event.detail)"
+        x-on:pause-podcast.window="player.pause()"
+        class="lg:w-6/12 h-16 flex items-center p-4 rounded-btn bg-secondary"
+    >
+        <figure>
+            <img
+                x-bind:src="thumbnail"
+                alt=""
+                class="rounded max-h-12"
+            >
+        </figure>
+        <div id="main-podcast-player-container">
+            <audio
+                id="main-podcast-player"
+                controls
+            >
+            </audio>
         </div>
     </div>
 </div>

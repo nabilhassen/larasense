@@ -2,9 +2,10 @@
 
 <dialog
     wire:ignore.self
-    class="modal lg:modal-top text-stone-800"
+    class="modal lg:modal-top text-stone-800 cursor-auto"
     x-data
     x-on:open-modal.window="$event.detail.slug === 'material.{{ $material->slug }}' ? $el.showModal() : null"
+    x-on:close="$dispatch('close-{{ $material->source->type }}-modal', { material: @js($material) })"
 >
     <div class="modal-box lg:max-w-6xl lg:mx-auto lg:h-full">
         <form method="dialog">
@@ -113,7 +114,11 @@
                     ></iframe>
                 </div>
             @elseif ($material->isPodcast())
-                <div class="flex items-center border border-stone-100 p-4 rounded-btn bg-stone-50">
+                <div
+                    x-data="podcastPlayer"
+                    x-on:close-podcast-modal.window="continueOnMainPodcastPlayer($event.detail)"
+                    class="flex items-center bg-secondary rounded-btn p-4"
+                >
                     <figure class="w-1/5">
                         <img
                             src="{{ $material->thumbnail }}"
@@ -121,11 +126,10 @@
                             class="rounded-box size-full"
                         >
                     </figure>
-                    <div class="w-full">
+                    <div class="podcast-player w-full">
                         <audio
                             class="player"
                             controls
-                            data-plyr-config='{ "title": "Example Title" }'
                         >
                             <source
                                 src="{{ $material->url }}"

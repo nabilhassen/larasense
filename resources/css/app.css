@@ -6,8 +6,13 @@ body {
     font-family: "Inter";
 }
 
-:root {
-    --plyr-color-main: #ef5a6f;
-    --plyr-control-icon-size: 24px;
-    --plyr-audio-controls-background: #fafaf9;
+.podcast-player {
+    --plyr-color-main: #ef5a6f !important;
+    --plyr-control-icon-size: 24px !important;
+    --plyr-audio-controls-background: #fff1db !important;
+}
+
+#main-podcast-player-container {
+    --plyr-color-main: #ef5a6f !important;
+    --plyr-audio-controls-background: #fff1db !important;
 }

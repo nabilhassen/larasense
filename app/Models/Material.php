@@ -15,6 +15,10 @@ class Material extends Model
     /** @use HasFactory<\Database\Factories\MaterialFactory> */
     use HasFactory;
 
+    protected $appends = [
+        'thumbnail',
+    ];
+
     protected static function booted(): void
     {
         static::creating(function (Material $material) {
@@ -34,7 +38,7 @@ class Material extends Model
     public function thumbnail(): Attribute
     {
         return Attribute::make(
-            fn() => $this->image_url ?? $this->loadMissing('source.publisher')->source->publisher->logo
+            get: fn() => $this->image_url ?? $this->loadMissing('source.publisher')->source->publisher->logo
         )->shouldCache();
     }
 
