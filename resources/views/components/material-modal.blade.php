@@ -92,7 +92,7 @@
                 <hr class="!my-12">
                 <figure>
                     <img
-                        src="{{ $material->isArticle() ? asset(str('storage/')->append($material->thumbnail)) : $material->thumbnail }}"
+                        src="{{ asset(str('storage/')->append($material->thumbnail)) }}"
                         alt=""
                         class="rounded-box size-full shadow-2xl"
                     >
@@ -111,6 +111,28 @@
                         referrerpolicy="strict-origin-when-cross-origin"
                         allowfullscreen
                     ></iframe>
+                </div>
+            @elseif ($material->isPodcast())
+                <div class="flex items-center border border-stone-100 p-4 rounded-btn bg-stone-50">
+                    <figure class="w-1/5">
+                        <img
+                            src="{{ $material->thumbnail }}"
+                            alt=""
+                            class="rounded-box size-full"
+                        >
+                    </figure>
+                    <div class="w-full">
+                        <audio
+                            class="player"
+                            controls
+                            data-plyr-config='{ "title": "Example Title" }'
+                        >
+                            <source
+                                src="{{ $material->url }}"
+                                type="audio/mp3"
+                            />
+                        </audio>
+                    </div>
                 </div>
             @endif
             <hr class="!my-12">

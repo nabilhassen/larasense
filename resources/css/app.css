@@ -5,3 +5,9 @@
 body {
     font-family: "Inter";
 }
+
+:root {
+    --plyr-color-main: #ef5a6f;
+    --plyr-control-icon-size: 24px;
+    --plyr-audio-controls-background: #fafaf9;
+}
