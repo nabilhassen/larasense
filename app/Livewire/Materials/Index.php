@@ -2,13 +2,13 @@
 
 namespace App\Livewire\Materials;
 
-use App\Livewire\Traits\LoadMore;
+use App\Livewire\Traits\CanLoadMore;
 use App\Models\Material;
 use Livewire\Component;
 
 class Index extends Component
 {
-    use LoadMore;
+    use CanLoadMore;
 
     public function render()
     {

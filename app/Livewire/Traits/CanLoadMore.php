@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Traits;
 
-trait LoadMore
+trait CanLoadMore
 {
     public int $perPage = 6;
 
