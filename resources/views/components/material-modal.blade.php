@@ -77,6 +77,7 @@
                             class="btn max-lg:btn-sm max-lg:text-xs btn-primary btn-outline hover:!text-white"
                             href="{{ $material->url }}"
                             target="_blank"
+                            x-on:click="$wire.redirected('{{ $material->slug }}')"
                         >
                             <x-heroicon-o-arrow-top-right-on-square class="lg:size-6 size-4" />
                             <span>

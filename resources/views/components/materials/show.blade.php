@@ -3,10 +3,14 @@
 <article
     class="relative flex flex-col border-2 border-secondary hover:border-primary cursor-pointer p-4 rounded-xl"
     wire:key="material-{{ $material->slug }}"
+    x-intersect.once.full="$wire.viewed('{{ $material->slug }}')"
 >
     <a
         class="absolute size-full inset-0"
-        x-on:click="$dispatch('open-modal', { slug: 'material.{{ $material->slug }}' })"
+        x-on:click="() => {
+            $dispatch('open-modal', { slug: 'material.{{ $material->slug }}' });
+            $wire.expanded('{{ $material->slug }}');
+        }"
     ></a>
     <div class="flex flex-col h-full space-y-4">
         <div class="flex justify-between items-center">
@@ -40,10 +44,7 @@
             @if ($material->isYoutube() || $material->isPodcast())
                 <span class="absolute size-full bg-[#00000052] hover:bg-inherit"></span>
                 <div class="absolute size-full flex justify-center items-center">
-                    <button
-                        class="btn btn-primary btn-circle border-2 border-white"
-                        x-on:click="$dispatch('open-modal', { slug: 'material.{{ $material->slug }}' })"
-                    >
+                    <button class="btn btn-primary btn-circle border-2 border-white">
                         <x-heroicon-s-play class="size-6 stroke-white fill-white" />
                     </button>
                 </div>
@@ -106,12 +107,15 @@
             </div>
             @if ($material->isPodcast())
                 <div
-                    class="tooltip tooltip-left "
-                    data-tip="Play"
+                    class="tooltip tooltip-left"
+                    data-tip="Play/Pause"
                 >
                     <button
                         class="inline-flex"
-                        x-on:click="$dispatch('play-podcast', { title: '{{ $material->title }}', url: '{{ $material->url }}', thumbnail: '{{ $material->thumbnail }}' })"
+                        x-on:click="() => {
+                            $dispatch('play-podcast', { title: '{{ $material->title }}', url: '{{ $material->url }}', thumbnail: '{{ $material->thumbnail }}' });
+                            $wire.played('{{ $material->slug }}');
+                        }"
                         x-show="$store.mainPodcastPlayer.url !== '{{ $material->url }}' || !$store.mainPodcastPlayer.isPlaying"
                     >
                         <x-heroicon-o-play class="inline-flex size-6 hover:stroke-primary stroke-stone-800" />
@@ -126,12 +130,15 @@
                 </div>
             @elseif ($material->isYoutube())
                 <div
-                    class="tooltip tooltip-left "
+                    class="tooltip tooltip-left"
                     data-tip="Play"
                 >
                     <button
                         class="inline-flex"
-                        x-on:click="$dispatch('open-modal', { slug: 'material.{{ $material->slug }}' })"
+                        x-on:click="() => {
+                            $dispatch('open-modal', { slug: 'material.{{ $material->slug }}' });
+                            $wire.expanded('{{ $material->slug }}');
+                        }"
                     >
                         <x-heroicon-o-play class="inline-flex size-6 hover:stroke-primary stroke-stone-800" />
                     </button>
@@ -145,6 +152,7 @@
                         class="inline-flex"
                         href="{{ $material->url }}"
                         target="_blank"
+                        x-on:click="$wire.redirected('{{ $material->slug }}')"
                     >
                         <x-heroicon-o-arrow-top-right-on-square class="inline-flex size-6 hover:stroke-primary stroke-stone-800" />
                     </a>

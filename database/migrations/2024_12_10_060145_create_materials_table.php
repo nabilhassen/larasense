@@ -25,8 +25,9 @@ return new class extends Migration
             $table->unsignedBigInteger('duration')->nullable();
             $table->string('image_url')->nullable();
             $table->unsignedBigInteger('views')->default(0);
-            $table->unsignedBigInteger('clicks')->default(0);
+            $table->unsignedBigInteger('expands')->default(0);
             $table->unsignedBigInteger('redirects')->default(0);
+            $table->unsignedBigInteger('plays')->default(0);
             $table->timestamp('published_at')->nullable()->index();
             $table->timestamps();
         });
