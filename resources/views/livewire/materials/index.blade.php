@@ -1,8 +1,13 @@
-<div class="grid xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 lg:gap-x-4 gap-y-8 pb-24 max-lg:pt-8">
-    @foreach ($materials as $material)
-        <x-materials.show :$material />
-    @endforeach
-
-    <div x-intersect.margin.300px="$wire.loadMore()">
+<div class="max-lg:pb-16 max-lg:pt-8">
+    <div class="grid xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 lg:gap-x-4 gap-y-8">
+        @foreach ($materials as $material)
+            <x-materials.show :$material />
+        @endforeach
     </div>
+
+    <x-load-more
+        :paginator="$materials"
+        :$perPage
+        message="No more content available."
+    />
 </div>

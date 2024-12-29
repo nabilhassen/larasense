@@ -2,17 +2,13 @@
 
 namespace App\Livewire\Materials;
 
+use App\Livewire\Traits\LoadMore;
 use App\Models\Material;
 use Livewire\Component;
 
 class Index extends Component
 {
-    public int $perPage = 6;
-
-    public function loadMore(): void
-    {
-        $this->perPage = $this->perPage > 100 ? 100 : ($this->perPage + 6);
-    }
+    use LoadMore;
 
     public function render()
     {
@@ -20,7 +16,7 @@ class Index extends Component
             'materials' => Material::with(['source.publisher'])
                 ->displayed()
                 ->latest('published_at')
-                ->simplePaginate($this->perPage),
+                ->cursorPaginate($this->perPage),
         ]);
     }
 }

@@ -19,15 +19,15 @@ return new class extends Migration
             $table->longText('description')->nullable();
             $table->longText('body')->nullable();
             $table->string('author')->nullable();
-            $table->boolean('is_displayed')->default(0);
-            $table->string('slug')->unique();
-            $table->string('url')->unique();
+            $table->boolean('is_displayed')->default(0)->index();
+            $table->string('slug')->unique()->index();
+            $table->string('url')->unique()->index();
             $table->unsignedBigInteger('duration')->nullable();
             $table->string('image_url')->nullable();
             $table->unsignedBigInteger('views')->default(0);
             $table->unsignedBigInteger('clicks')->default(0);
             $table->unsignedBigInteger('redirects')->default(0);
-            $table->timestamp('published_at')->nullable();
+            $table->timestamp('published_at')->nullable()->index();
             $table->timestamps();
         });
     }

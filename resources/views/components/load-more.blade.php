@@ -1,0 +1,21 @@
+@props(['paginator', 'perPage', 'message'])
+
+<div class="py-8">
+    @if ($paginator->hasMorePages() && $perPage < 100)
+        <div
+            x-intersect.margin.300px="$wire.loadMore()"
+            class="flex justify-center"
+        >
+            <div
+                wire:loading
+                wire:target="loadMore"
+            >
+                <x-heroicon-o-arrow-path class="size-6 animate-spin stroke-primary" />
+            </div>
+        </div>
+    @else
+        <div class="flex justify-center bg-secondary py-4 px-8 rounded-btn w-fit mx-auto text-primary font-bold">
+            {{ $message }}
+        </div>
+    @endif
+</div>
