@@ -140,10 +140,21 @@
             </div>
             <div
                 class="tooltip"
-                data-tip="Copy Link"
+                x-bind:class="{ 'tooltip-open': isCopied }"
+                x-bind:data-tip="isCopied ? 'Link Copied!' : 'Copy Link'"
+                x-data="copyLink('{{ $material->url }}')"
             >
-                <button class="inline-flex">
-                    <x-heroicon-o-link class="inline-flex size-6 hover:stroke-primary stroke-stone-800" />
+                <button
+                    class="inline-flex"
+                    x-on:click="copy"
+                >
+                    <x-heroicon-o-link
+                        class="inline-flex size-6 hover:stroke-primary"
+                        x-bind:class="{
+                            'stroke-primary': isCopied,
+                            'stroke-stone-800': !isCopied
+                        }"
+                    />
                 </button>
             </div>
             @if ($material->isPodcast())

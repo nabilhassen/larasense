@@ -109,9 +109,25 @@
                             }"
                         />
                     </button>
-                    <button class="inline-flex">
-                        <x-heroicon-o-link class="inline-flex lg:size-8 size-6 hover:stroke-primary stroke-stone-800" />
-                    </button>
+                    <div
+                        class="tooltip"
+                        x-bind:class="{ 'tooltip-open': isCopied }"
+                        x-bind:data-tip="isCopied ? 'Link Copied!' : 'Copy Link'"
+                        x-data="copyLink('{{ $material->url }}')"
+                    >
+                        <button
+                            class="inline-flex"
+                            x-on:click="copy"
+                        >
+                            <x-heroicon-o-link
+                                class="inline-flex lg:size-8 size-6 hover:stroke-primary"
+                                x-bind:class="{
+                                    'stroke-primary': isCopied,
+                                    'stroke-stone-800': !isCopied
+                                }"
+                            />
+                        </button>
+                    </div>
                 </div>
                 @if ($material->isArticle())
                     <div>
