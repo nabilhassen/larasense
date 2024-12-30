@@ -3,13 +3,12 @@
 namespace App\Livewire\Materials;
 
 use App\Livewire\Traits\CanLoadMore;
-use App\Livewire\Traits\HasEngagementMetrics;
 use App\Models\Material;
 use Livewire\Component;
 
 class Index extends Component
 {
-    use CanLoadMore, HasEngagementMetrics;
+    use CanLoadMore;
 
     public function render()
     {

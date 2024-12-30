@@ -3,31 +3,127 @@
 namespace App\Livewire\Traits;
 
 use App\Models\Material;
+use Illuminate\Support\Facades\DB;
+use Livewire\Attributes\Computed;
 use Livewire\Attributes\Renderless;
+use Maize\Markable\Models\Bookmark;
+use Maize\Markable\Models\Like;
+use Maize\Markable\Models\Reaction;
 
 trait HasEngagementMetrics
 {
     #[Renderless]
-    public function viewed(string $slug): void
+    public function viewed(): void
     {
-        Material::slug($slug)->firstOrFail()->increment('views');
+        $this->material->increment('views');
     }
 
     #[Renderless]
-    public function expanded(string $slug): void
+    public function expanded(): void
     {
-        Material::slug($slug)->firstOrFail()->increment('expands');
+        $this->material->increment('expands');
     }
 
     #[Renderless]
-    public function redirected(string $slug): void
+    public function redirected(): void
     {
-        Material::slug($slug)->firstOrFail()->increment('redirects');
+        $this->material->increment('redirects');
     }
 
     #[Renderless]
-    public function played(string $slug): void
+    public function played(): void
     {
-        Material::slug($slug)->firstOrFail()->increment('plays');
+        $this->material->increment('plays');
+    }
+
+    #[Renderless]
+    public function like(): void
+    {
+        $material = $this->material;
+
+        DB::transaction(function () use ($material) {
+            Reaction::remove(
+                $material,
+                auth()->user(),
+                Material::DISLIKE_REACTION,
+            );
+
+            Like::add(
+                $material,
+                auth()->user()
+            );
+        });
+    }
+
+    #[Renderless]
+    public function unlike(): void
+    {
+        Like::remove(
+            $this->material,
+            auth()->user()
+        );
+    }
+
+    #[Computed]
+    public function isLiked(): bool
+    {
+        return Like::has(
+            $this->material,
+            auth()->user()
+        );
+    }
+
+    #[Computed]
+    public function likesCount(): bool
+    {
+        return Like::count($this->material);
+    }
+
+    #[Renderless]
+    public function dislike(): void
+    {
+        $material = $this->material;
+
+        DB::transaction(function () use ($material) {
+            Like::remove(
+                $material,
+                auth()->user()
+            );
+
+            Reaction::add(
+                $material,
+                auth()->user(),
+                Material::DISLIKE_REACTION,
+            );
+        });
+    }
+
+    #[Renderless]
+    public function undislike(): void
+    {
+        Reaction::remove(
+            $this->material,
+            auth()->user(),
+            Material::DISLIKE_REACTION,
+        );
+    }
+
+    #[Computed]
+    public function isDisliked(): bool
+    {
+        return Reaction::has(
+            $this->material,
+            auth()->user(),
+            Material::DISLIKE_REACTION,
+        );
+    }
+
+    #[Renderless]
+    public function bookmark(): void
+    {
+        Bookmark::add(
+            $this->material,
+            auth()->user()
+        );
     }
 }
