@@ -18,6 +18,10 @@ Route::domain('app.larasense.test')->group(function () {
         ->middleware(['auth', 'verified'])
         ->name('likes');
 
+    Route::get('bookmarks', Livewire\Materials\Bookmarks::class)
+        ->middleware(['auth', 'verified'])
+        ->name('bookmarks');
+
     Route::view('profile', 'profile')
         ->middleware(['auth'])
         ->name('profile');
