@@ -72,7 +72,11 @@
             <div
                 class="tooltip"
                 data-tip="Like this post"
-                x-data="likeMaterial('{{ $material->slug }}', {{ $this->isLiked }})"
+                x-data="likeMaterial(
+                    '{{ $material->slug }}',
+                    @js($this->isLiked),
+                    {{ $this->likesCount }}
+                )"
                 x-on:dislike-material.window="unlike($event.detail.slug)"
             >
                 <button
@@ -87,8 +91,10 @@
                             'stroke-stone-800': !isLiked
                         }"
                     />
-                    <span class="opacity-70 text-sm">
-                        {{ $this->likesCount }}
+                    <span
+                        class="opacity-70 text-sm"
+                        x-text="likesCount > 0 ? likesCount : null"
+                    >
                     </span>
                 </button>
             </div>

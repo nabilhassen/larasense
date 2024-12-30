@@ -1,11 +1,14 @@
-export const likeMaterial = (slug, isLiked) => ({
+export const likeMaterial = (slug, isLiked, likesCount) => ({
     slug: null,
     isLiked: null,
+    likesCount: null,
 
     async init() {
         this.slug = slug;
 
         this.isLiked = isLiked;
+
+        this.likesCount = likesCount;
     },
 
     like() {
@@ -15,6 +18,8 @@ export const likeMaterial = (slug, isLiked) => ({
         }
 
         this.isLiked = true;
+
+        this.likesCount++;
 
         this.$dispatch("like-material", {
             slug: this.slug,
@@ -29,6 +34,8 @@ export const likeMaterial = (slug, isLiked) => ({
         }
 
         this.isLiked = false;
+
+        this.likesCount--;
 
         this.$wire.unlike();
     },
