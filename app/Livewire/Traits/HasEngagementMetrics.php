@@ -67,16 +67,13 @@ trait HasEngagementMetrics
     #[Computed]
     public function isLiked(): bool
     {
-        return Like::has(
-            $this->material,
-            auth()->user()
-        );
+        return $this->material->likes_exists;
     }
 
     #[Computed]
     public function likesCount(): bool
     {
-        return Like::count($this->material);
+        return $this->material->likes_count;
     }
 
     #[Renderless]
@@ -111,11 +108,7 @@ trait HasEngagementMetrics
     #[Computed]
     public function isDisliked(): bool
     {
-        return Reaction::has(
-            $this->material,
-            auth()->user(),
-            Material::DISLIKE_REACTION,
-        );
+        return $this->material->dislikes_exists;
     }
 
     #[Renderless]
@@ -139,9 +132,6 @@ trait HasEngagementMetrics
     #[Computed]
     public function isBookmarked(): bool
     {
-        return Bookmark::has(
-            $this->material,
-            auth()->user()
-        );
+        return $this->material->bookmarks_exists;
     }
 }
