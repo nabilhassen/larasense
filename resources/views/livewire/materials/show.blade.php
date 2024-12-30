@@ -77,7 +77,6 @@
                     @js($this->isLiked),
                     {{ $this->likesCount }}
                 )"
-                x-on:dislike-material.window="unlike($event.detail.slug)"
             >
                 <button
                     class="inline-flex items-center gap-x-1"
@@ -102,7 +101,6 @@
                 class="tooltip"
                 data-tip="Disike this post"
                 x-data="dislikeMaterial('{{ $material->slug }}', {{ $this->isDisliked }})"
-                x-on:like-material.window="undislike($event.detail.slug)"
             >
                 <button
                     class="inline-flex"

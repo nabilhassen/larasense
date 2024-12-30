@@ -1,4 +1,4 @@
-export const likeMaterial = (slug, isLiked, likesCount) => ({
+export const likeMaterial = (slug, isLiked, likesCount = 0) => ({
     slug: null,
     isLiked: null,
     likesCount: null,
@@ -9,6 +9,8 @@ export const likeMaterial = (slug, isLiked, likesCount) => ({
         this.isLiked = isLiked;
 
         this.likesCount = likesCount;
+
+        this.registerEventListeners();
     },
 
     toggleLike() {
@@ -21,10 +23,6 @@ export const likeMaterial = (slug, isLiked, likesCount) => ({
     },
 
     like() {
-        this.isLiked = true;
-
-        this.likesCount++;
-
         this.$dispatch("like-material", {
             slug: this.slug,
         });
@@ -32,15 +30,43 @@ export const likeMaterial = (slug, isLiked, likesCount) => ({
         this.$wire.like();
     },
 
-    unlike(slug) {
-        if (!this.isLiked || slug !== this.slug) {
-            return;
-        }
-
-        this.isLiked = false;
-
-        this.likesCount--;
+    unlike() {
+        this.$dispatch("unlike-material", {
+            slug: this.slug,
+        });
 
         this.$wire.unlike();
+    },
+
+    registerEventListeners() {
+        window.addEventListener("like-material", (event) => {
+            if (event.detail.slug !== this.slug) {
+                return;
+            }
+
+            this.isLiked = true;
+
+            this.likesCount++;
+        });
+
+        window.addEventListener("unlike-material", (event) => {
+            if (event.detail.slug !== this.slug) {
+                return;
+            }
+
+            this.isLiked = false;
+
+            this.likesCount--;
+        });
+
+        window.addEventListener("dislike-material", (event) => {
+            if (event.detail.slug !== this.slug) {
+                return;
+            }
+
+            this.isLiked = false;
+
+            this.likesCount--;
+        });
     },
 });

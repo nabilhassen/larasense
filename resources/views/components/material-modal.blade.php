@@ -55,14 +55,42 @@
             </div>
             <div class="flex justify-between items-center">
                 <div class="flex gap-x-6">
-                    <button class="inline-flex items-center gap-x-1">
-                        <x-heroicon-o-hand-thumb-up class="inline-flex lg:size-8 size-6 hover:stroke-primary stroke-primary fill-primary" />
-                        <span class="opacity-70">
-                            120
+                    <button
+                        class="inline-flex items-center gap-x-1"
+                        x-data="likeMaterial(
+                            '{{ $material->slug }}',
+                            @js($this->isLiked),
+                            {{ $this->likesCount }}
+                        )"
+                        x-on:click="toggleLike"
+                    >
+                        <x-heroicon-o-hand-thumb-up
+                            x-cloak
+                            class="inline-flex lg:size-8 size-6 hover:stroke-primary"
+                            x-bind:class="{
+                                'stroke-primary fill-primary': isLiked,
+                                'stroke-stone-800': !isLiked
+                            }"
+                        />
+                        <span
+                            class="opacity-70"
+                            x-text="likesCount > 0 ? likesCount : null"
+                        >
                         </span>
                     </button>
-                    <button class="inline-flex">
-                        <x-heroicon-o-hand-thumb-down class="inline-flex lg:size-8 size-6 hover:stroke-primary stroke-stone-800" />
+                    <button
+                        class="inline-flex"
+                        x-data="dislikeMaterial('{{ $material->slug }}', {{ $this->isDisliked }})"
+                        x-on:click="toggleDislike"
+                    >
+                        <x-heroicon-o-hand-thumb-down
+                            x-cloak
+                            class="inline-flex lg:size-8 size-6 hover:stroke-primary"
+                            x-bind:class="{
+                                'stroke-primary fill-primary': isDisliked,
+                                'stroke-stone-800': !isDisliked
+                            }"
+                        />
                     </button>
                     <button class="inline-flex">
                         <x-heroicon-o-bookmark class="inline-flex lg:size-8 size-6 hover:stroke-primary stroke-stone-800" />
