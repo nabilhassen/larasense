@@ -11,7 +11,7 @@
         </figure>
         <div class="space-y-4">
             <a
-                href="http://"
+                href="{{ route('dashboard') }}"
                 class="flex items-center gap-x-3 p-3 font-semibold {{ request()->routeIs('dashboard') ? 'bg-primary text-white rounded-btn' : 'hover:bg-secondary hover:rounded' }}"
             >
                 <x-heroicon-o-home class="inline-block size-6" />
@@ -43,8 +43,8 @@
                 </span>
             </a>
             <a
-                href="http://"
-                class="flex items-center gap-x-3 p-3 font-semibold hover:bg-secondary hover:rounded"
+                href="{{ route('likes') }}"
+                class="flex items-center gap-x-3 p-3 font-semibold {{ request()->routeIs('likes') ? 'bg-primary text-white rounded-btn' : 'hover:bg-secondary hover:rounded' }}"
             >
                 <x-heroicon-o-hand-thumb-up class="inline-block size-6" />
                 <span>

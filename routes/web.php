@@ -14,6 +14,10 @@ Route::domain('app.larasense.test')->group(function () {
         ->middleware(['auth', 'verified'])
         ->name('dashboard');
 
+    Route::get('likes', Livewire\Materials\Likes::class)
+        ->middleware(['auth', 'verified'])
+        ->name('likes');
+
     Route::view('profile', 'profile')
         ->middleware(['auth'])
         ->name('profile');
