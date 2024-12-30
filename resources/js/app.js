@@ -10,6 +10,7 @@ import { mainPodcastPlayer } from "./main-podcast-player";
 import { youtubePlayer } from "./youtube-player";
 import { likeMaterial } from "./like-material";
 import { dislikeMaterial } from "./dislike-material";
+import { bookmarkMaterial } from "./bookmark-material";
 
 Alpine.data("mainPodcastPlayer", mainPodcastPlayer);
 
@@ -20,5 +21,7 @@ Alpine.data("youtubePlayer", youtubePlayer);
 Alpine.data("likeMaterial", likeMaterial);
 
 Alpine.data("dislikeMaterial", dislikeMaterial);
+
+Alpine.data("bookmarkMaterial", bookmarkMaterial);
 
 Livewire.start();

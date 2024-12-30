@@ -12,7 +12,7 @@ export const dislikeMaterial = (slug, isDisliked) => ({
 
     toggleDislike() {
         if (this.isDisliked) {
-            this.undislike(this.slug);
+            this.undislike();
             return;
         }
 

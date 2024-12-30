@@ -15,7 +15,7 @@ export const likeMaterial = (slug, isLiked, likesCount = 0) => ({
 
     toggleLike() {
         if (this.isLiked) {
-            this.unlike(this.slug);
+            this.unlike();
             return;
         }
 

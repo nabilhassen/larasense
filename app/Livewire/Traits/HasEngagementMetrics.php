@@ -126,4 +126,22 @@ trait HasEngagementMetrics
             auth()->user()
         );
     }
+
+    #[Renderless]
+    public function unbookmark(): void
+    {
+        Bookmark::remove(
+            $this->material,
+            auth()->user()
+        );
+    }
+
+    #[Computed]
+    public function isBookmarked(): bool
+    {
+        return Bookmark::has(
+            $this->material,
+            auth()->user()
+        );
+    }
 }

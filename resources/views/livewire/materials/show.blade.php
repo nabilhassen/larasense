@@ -119,9 +119,23 @@
             <div
                 class="tooltip"
                 data-tip="Bookmark"
+                x-data="bookmarkMaterial(
+                    '{{ $material->slug }}',
+                    {{ $this->isBookmarked }}
+                )"
             >
-                <button class="inline-flex">
-                    <x-heroicon-o-bookmark class="inline-flex size-6 hover:stroke-primary stroke-stone-800" />
+                <button
+                    class="inline-flex"
+                    x-on:click="toggleBookmark"
+                >
+                    <x-heroicon-o-bookmark
+                        x-cloak
+                        class="inline-flex size-6 hover:stroke-primary"
+                        x-bind:class="{
+                            'stroke-primary fill-primary': isBookmarked,
+                            'stroke-stone-800': !isBookmarked
+                        }"
+                    />
                 </button>
             </div>
             <div

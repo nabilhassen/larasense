@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Str;
 use Maize\Markable\Markable;
+use Maize\Markable\Models\Bookmark;
 use Maize\Markable\Models\Like;
 use Maize\Markable\Models\Reaction;
 
@@ -24,6 +25,7 @@ class Material extends Model
 
     protected static $marks = [
         Like::class,
+        Bookmark::class,
         Reaction::class,
     ];
 

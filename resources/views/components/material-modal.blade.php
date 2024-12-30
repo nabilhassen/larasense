@@ -92,8 +92,22 @@
                             }"
                         />
                     </button>
-                    <button class="inline-flex">
-                        <x-heroicon-o-bookmark class="inline-flex lg:size-8 size-6 hover:stroke-primary stroke-stone-800" />
+                    <button
+                        class="inline-flex"
+                        x-data="bookmarkMaterial(
+                            '{{ $material->slug }}',
+                            {{ $this->isBookmarked }}
+                        )"
+                        x-on:click="toggleBookmark"
+                    >
+                        <x-heroicon-o-bookmark
+                            x-cloak
+                            class="inline-flex lg:size-8 size-6 hover:stroke-primary"
+                            x-bind:class="{
+                                'stroke-primary fill-primary': isBookmarked,
+                                'stroke-stone-800': !isBookmarked
+                            }"
+                        />
                     </button>
                     <button class="inline-flex">
                         <x-heroicon-o-link class="inline-flex lg:size-8 size-6 hover:stroke-primary stroke-stone-800" />
