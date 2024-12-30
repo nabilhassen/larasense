@@ -11,12 +11,16 @@ export const likeMaterial = (slug, isLiked, likesCount) => ({
         this.likesCount = likesCount;
     },
 
-    like() {
+    toggleLike() {
         if (this.isLiked) {
             this.unlike(this.slug);
             return;
         }
 
+        this.like();
+    },
+
+    like() {
         this.isLiked = true;
 
         this.likesCount++;

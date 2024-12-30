@@ -8,12 +8,16 @@ export const dislikeMaterial = (slug, isDisliked) => ({
         this.isDisliked = isDisliked;
     },
 
-    dislike() {
+    toggleDislike() {
         if (this.isDisliked) {
             this.undislike(this.slug);
             return;
         }
 
+        this.dislike();
+    },
+
+    dislike() {
         this.isDisliked = true;
 
         this.$dispatch("dislike-material", {

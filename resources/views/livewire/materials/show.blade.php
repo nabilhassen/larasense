@@ -81,7 +81,7 @@
             >
                 <button
                     class="inline-flex items-center gap-x-1"
-                    x-on:click="like"
+                    x-on:click="toggleLike"
                 >
                     <x-heroicon-o-hand-thumb-up
                         x-cloak
@@ -106,7 +106,7 @@
             >
                 <button
                     class="inline-flex"
-                    x-on:click="dislike"
+                    x-on:click="toggleDislike"
                 >
                     <x-heroicon-o-hand-thumb-down
                         x-cloak
