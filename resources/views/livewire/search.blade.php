@@ -11,6 +11,7 @@
             placeholder="Search"
             wire:model.live="query"
             x-on:click="isAutoCompleteVisible = true"
+            x-on:keyup.escape="isAutoCompleteVisible = false;currentMaterialIndex = 0;$el.blur()"
         />
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -27,14 +28,17 @@
         @if (filled($query))
             <div
                 class="absolute inset-x-0 z-10 top-full max-h-fit overflow-y-auto mt-2 rounded-btn bg-stone-50 border border-stone-200"
-                x-on:keyup.escape="isAutoCompleteVisible = false;currentMaterialIndex = 0"
                 x-bind:class="{ 'hidden': !isAutoCompleteVisible }"
             >
                 @forelse ($materials as $materialItem)
                     <div
                         class="flex gap-x-4 items-center p-3 lg:text-sm text-xs cursor-pointer border-b border-b-stone-200 hover:bg-stone-100"
                         wire:click="view('{{ $materialItem->slug }}')"
-                        x-on:keyup.enter.window="@js($loop->index) == currentMaterialIndex ? $wire.view('{{ $materialItem->slug }}') : null"
+                        x-on:keyup.enter.window="() => {
+                            isAutoCompleteVisible && @js($loop->index) === currentMaterialIndex 
+                            ? $wire.view('{{ $materialItem->slug }}') 
+                            : null;
+                        }"
                         x-bind:class="{ 'bg-stone-100': currentMaterialIndex == @js($loop->index) }"
                     >
                         <figure class="flex max-lg:hidden w-2/12">
