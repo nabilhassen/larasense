@@ -26,7 +26,7 @@
                 >
                     <div class="avatar">
                         <div class="w-8 rounded-full">
-                            <img src="{{ asset('storage/' . auth()->user()->avatar_url) }}" />
+                            <livewire:user-avatar />
                         </div>
                     </div>
                     <div class="flex items-center">

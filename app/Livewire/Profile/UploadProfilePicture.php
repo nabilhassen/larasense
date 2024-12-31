@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Profile;
 
+use Livewire\Attributes\On;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
 use Spatie\LivewireFilepond\WithFilePond;
@@ -10,21 +11,26 @@ class UploadProfilePicture extends Component
 {
     use WithFilePond;
 
-    #[Rule('sometimes|required|mimetypes:image/jpg,image/jpeg,image/png|max:3000')]
+    #[Rule('nullable|mimetypes:image/jpg,image/jpeg,image/png|max:3000')]
     public $file;
 
     public function mount()
     {
-        $this->file = 'storage/' . auth()->user()->avatar_url;
+        $this->file = auth()->user()->avatar;
     }
 
+    #[On('FilePond:removefile')]
     public function validateUploadedFile()
     {
         $this->validate();
 
         auth()->user()->update([
-            'avatar_url' => $this->file->store('avatars', 'public'),
+            'avatar_url' => $this->file?->store('avatars', 'public'),
         ]);
+
+        if (auth()->user()->wasChanged('avatar_url')) {
+            $this->dispatch('update-user-profile-picture');
+        }
 
         return true;
     }

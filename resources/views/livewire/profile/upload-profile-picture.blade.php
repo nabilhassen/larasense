@@ -1,4 +1,4 @@
-<div>
+<div class="cursor-pointer">
     @filepondScripts
 
     <x-filepond::upload
