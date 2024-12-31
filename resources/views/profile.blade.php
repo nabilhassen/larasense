@@ -1,28 +1,20 @@
 <x-layouts.app>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
+    <div class="w-1/2 space-y-8 py-4">
+        <h2 class="font-semibold text-xl leading-tight py-3 border-b border-stone-200">
+            Account Settings
         </h2>
-    </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    <livewire:profile.update-profile-information-form />
-                </div>
+        <div class="space-y-12">
+            <div>
+                <livewire:profile.update-profile-information-form />
             </div>
-
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    <livewire:profile.update-password-form />
-                </div>
+            <hr>
+            <div>
+                <livewire:profile.update-password-form />
             </div>
-
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    <livewire:profile.delete-user-form />
-                </div>
+            <hr>
+            <div>
+                <livewire:profile.delete-user-form />
             </div>
         </div>
     </div>

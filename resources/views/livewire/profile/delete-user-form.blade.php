@@ -1,18 +1,19 @@
-<section class="space-y-6">
-    <header>
-        <h2 class="text-lg font-medium text-gray-900">
-            {{ __('Delete Account') }}
+<section class="space-y-4 border border-black p-4 rounded-btn">
+    <div>
+        <h2 class="font-semibold">
+            Delete Account
         </h2>
-
-        <p class="mt-1 text-sm text-gray-600">
-            {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.') }}
+        <p class="text-sm">
+            Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.
         </p>
-    </header>
+    </div>
 
-    <x-danger-button
-        x-data=""
+    <button
+        class="btn bg-stone-700 hover:bg-stone-900 text-white"
         x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')"
-    >{{ __('Delete Account') }}</x-danger-button>
+    >
+        Delete Account
+    </button>
 
     <x-modal
         name="confirm-user-deletion"
@@ -54,14 +55,17 @@
                 />
             </div>
 
-            <div class="mt-6 flex justify-end">
-                <x-secondary-button x-on:click="$dispatch('close')">
+            <div class="mt-6 flex justify-end gap-x-2">
+                <button
+                    class="btn btn-outline"
+                    x-on:click="$dispatch('close')"
+                >
                     {{ __('Cancel') }}
-                </x-secondary-button>
+                </button>
 
-                <x-danger-button class="ms-3">
+                <button class="btn bg-stone-700 hover:bg-stone-900 text-white">
                     {{ __('Delete Account') }}
-                </x-danger-button>
+                </button>
             </div>
         </form>
     </x-modal>

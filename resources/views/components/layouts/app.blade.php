@@ -24,10 +24,10 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="antialiased">
+<body class="antialiased text-stone-800">
 
     <div class="container mx-auto">
-        <div class="flex justify-center lg:gap-x-16 text-stone-800 max-lg:mx-4">
+        <div class="flex justify-center lg:gap-x-16 max-lg:mx-4">
             <x-sidemenu />
 
             <div class="lg:w-4/5 w-full">

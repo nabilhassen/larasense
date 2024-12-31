@@ -23,59 +23,25 @@ class Search extends Component
             return collect();
         }
 
-        return Material::query()
-            ->displayed()
-            ->latest('published_at')
+        $searchQuery = str($this->query)->squish()->replace(' ', '%%');
+
+        return Material::feedQuery()
             ->whereAny([
                 'title',
                 'description',
-            ], 'like', "%$this->query%")
-            ->select([
-                'id',
-                'source_id',
-                'slug',
-                'title',
-                'image_url',
-                'published_at',
-            ])
-            ->with([
-                'source:id,type,publisher_id' => [
-                    'publisher:id,name,logo',
-                ],
-            ])
+            ], 'LIKE', "%$searchQuery%")
+            ->orWhereHas('source', function (Builder $query) use ($searchQuery) {
+                $query->whereLike('type', "%$searchQuery%")
+                    ->orWhereRelation('publisher', 'name', 'LIKE', "%$searchQuery%");
+            })
             ->limit(6)
             ->get();
     }
 
     public function view(string $slug): void
     {
-        $this->material = Material::slug($slug)
-            ->displayed()
-            ->latest('published_at')
-            ->select([
-                'id',
-                'source_id',
-                'title',
-                'description',
-                'body',
-                'slug',
-                'url',
-                'image_url',
-                'published_at',
-            ])
-            ->with([
-                'source:id,type,publisher_id' => [
-                    'publisher:id,name,logo',
-                ],
-            ])
-            ->withExists([
-                'likes',
-                'bookmarks',
-                'reactions AS dislikes_exists' => function (Builder $query) {
-                    $query->where('value', Material::DISLIKE_REACTION);
-                },
-            ])
-            ->withCount(['likes'])
+        $this->material = Material::feedQuery()
+            ->slug($slug)
             ->firstOrFail();
     }
 

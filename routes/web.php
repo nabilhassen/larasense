@@ -9,23 +9,21 @@ require __DIR__ . '/auth.php';
 Route::post('update-timezone', UpdateUserTimezoneController::class)
     ->name('timezone.update');
 
-Route::domain('app.larasense.test')->group(function () {
-    Route::get('dashboard', Livewire\Dashboard::class)
-        ->middleware(['auth', 'verified'])
-        ->name('dashboard');
+Route::domain('app.larasense.test')
+    ->middleware(['auth', 'verified'])
+    ->group(function () {
+        Route::get('dashboard', Livewire\Dashboard::class)
+            ->name('dashboard');
 
-    Route::get('likes', Livewire\Materials\Likes::class)
-        ->middleware(['auth', 'verified'])
-        ->name('likes');
+        Route::get('likes', Livewire\Materials\Likes::class)
+            ->name('likes');
 
-    Route::get('bookmarks', Livewire\Materials\Bookmarks::class)
-        ->middleware(['auth', 'verified'])
-        ->name('bookmarks');
+        Route::get('bookmarks', Livewire\Materials\Bookmarks::class)
+            ->name('bookmarks');
 
-    Route::view('profile', 'profile')
-        ->middleware(['auth'])
-        ->name('profile');
-});
+        Route::view('settings', 'profile')
+            ->name('settings');
+    });
 
 Route::domain(config('app.url'))->group(function () {
     Route::get('/', Livewire\Home::class)->name('home');

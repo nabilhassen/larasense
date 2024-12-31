@@ -55,8 +55,9 @@
                 </span>
             </a>
             <a
-                href="http://"
-                class="flex items-center gap-x-3 p-3 font-semibold hover:bg-secondary hover:rounded"
+                wire:navigate
+                href="{{ route('settings') }}"
+                class="flex items-center gap-x-3 p-3 font-semibold {{ request()->routeIs('settings') ? 'bg-primary text-white rounded-btn' : 'hover:bg-secondary hover:rounded' }}"
             >
                 <x-heroicon-o-cog-6-tooth class="inline-block size-6" />
                 <span>

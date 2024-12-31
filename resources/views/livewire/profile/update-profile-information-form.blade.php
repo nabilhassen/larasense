@@ -1,10 +1,11 @@
-<section class="text-stone-700 space-y-4">
+<section class="space-y-4">
     <div>
-        <h1 class="text-xl font-semibold">
+        <h1 class="font-semibold">
             Profile Information
         </h1>
         <h2 class="text-sm">
             Update your account's profile information and email address.
+        </h2>
     </div>
     @if (auth()->user() instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && !auth()->user()->hasVerifiedEmail())
         <div class="rounded-md p-4 bg-secondary text-primary text-sm">

@@ -1,10 +1,11 @@
-<section class="text-stone-700 space-y-4">
+<section class="space-y-4">
     <div>
-        <h1 class="text-xl font-semibold">
+        <h1 class="font-semibold">
             Update Password
         </h1>
         <h2 class="text-sm">
             Ensure your account is using a long, random password to stay secure.
+        </h2>
     </div>
     <form
         wire:submit="updatePassword"
