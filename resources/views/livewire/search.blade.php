@@ -1,8 +1,8 @@
 <div
     x-data="{ 'isAutoCompleteVisible': true, 'currentMaterialIndex': 0 }"
     x-on:click.outside="isAutoCompleteVisible = false;currentMaterialIndex = 0"
-    x-on:keydown.up.window="isAutoCompleteVisible = true;currentMaterialIndex == 0 ? currentMaterialIndex = @js($materials->count() - 1) : currentMaterialIndex--"
-    x-on:keydown.down.window="isAutoCompleteVisible = true;currentMaterialIndex == @js($materials->count() - 1) ? currentMaterialIndex = 0 : currentMaterialIndex++"
+    x-on:keydown.up="isAutoCompleteVisible = true;currentMaterialIndex == 0 ? currentMaterialIndex = @js($materials->count() - 1) : currentMaterialIndex--"
+    x-on:keydown.down="isAutoCompleteVisible = true;currentMaterialIndex == @js($materials->count() - 1) ? currentMaterialIndex = 0 : currentMaterialIndex++"
 >
     <label class="relative input input-bordered flex items-center gap-2 bg-stone-50 border border-stone-50 focus:border focus-within:border !outline-none">
         <input
@@ -27,7 +27,7 @@
         @if (filled($query))
             <div
                 class="absolute inset-x-0 z-10 top-full max-h-fit overflow-y-auto mt-2 rounded-btn bg-stone-50 border border-stone-200"
-                x-on:keyup.escape.window="isAutoCompleteVisible = false;currentMaterialIndex = 0"
+                x-on:keyup.escape="isAutoCompleteVisible = false;currentMaterialIndex = 0"
                 x-bind:class="{ 'hidden': !isAutoCompleteVisible }"
             >
                 @forelse ($materials as $materialItem)
