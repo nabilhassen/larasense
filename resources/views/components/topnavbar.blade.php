@@ -37,8 +37,18 @@
                     tabindex="0"
                     class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
                 >
-                    <li><a class="hover:bg-secondary active:!bg-secondary focus:!bg-secondary active:!text-inherit">Profile</a></li>
-                    <li><a class="hover:bg-secondary active:!bg-secondary focus:!bg-secondary active:!text-inherit">Logout</a></li>
+                    <li>
+                        <a
+                            wire:navigate
+                            class="hover:bg-secondary active:!bg-secondary focus:!bg-secondary active:!text-inherit"
+                            href="{{ route('settings') }}"
+                        >
+                            Profile
+                        </a>
+                    </li>
+                    <li>
+                        <livewire:auth.logout-button />
+                    </li>
                 </ul>
             </div>
         </div>
