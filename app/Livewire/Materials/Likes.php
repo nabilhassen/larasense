@@ -15,9 +15,7 @@ class Likes extends Component
     public function render()
     {
         return view('livewire.materials.likes', [
-            'materials' => Material::with(['source.publisher'])
-                ->displayed()
-                ->latest('published_at')
+            'materials' => Material::feedQuery()
                 ->whereHasLike(auth()->user())
                 ->cursorPaginate($this->perPage),
         ]);

@@ -56,7 +56,7 @@ export const likeMaterial = (slug, isLiked, likesCount = 0) => ({
 
             this.isLiked = false;
 
-            this.likesCount--;
+            this.likesCount > 0 ? this.likesCount-- : 0;
         });
 
         window.addEventListener("dislike-material", (event) => {
@@ -66,7 +66,7 @@ export const likeMaterial = (slug, isLiked, likesCount = 0) => ({
 
             this.isLiked = false;
 
-            this.likesCount--;
+            this.likesCount > 0 ? this.likesCount-- : 0;
         });
     },
 });

@@ -15,9 +15,7 @@ class Bookmarks extends Component
     public function render()
     {
         return view('livewire.materials.bookmarks', [
-            'materials' => Material::with(['source.publisher'])
-                ->displayed()
-                ->latest('published_at')
+            'materials' => Material::feedQuery()
                 ->whereHasBookmark(auth()->user())
                 ->cursorPaginate($this->perPage),
         ]);

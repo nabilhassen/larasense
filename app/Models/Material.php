@@ -100,4 +100,35 @@ class Material extends Model
     {
         return $this->source->type === SourceType::Podcast;
     }
+
+    public static function feedQuery(): Builder
+    {
+        return static::query()
+            ->displayed()
+            ->latest('published_at')
+            ->select([
+                'id',
+                'source_id',
+                'title',
+                'description',
+                'body',
+                'slug',
+                'url',
+                'image_url',
+                'published_at',
+            ])
+            ->with([
+                'source:id,publisher_id,type' => [
+                    'publisher:id,name,logo',
+                ],
+            ])
+            ->withExists([
+                'likes',
+                'bookmarks',
+                'reactions AS dislikes_exists' => function (Builder $query) {
+                    $query->where('value', static::DISLIKE_REACTION);
+                },
+            ])
+            ->withCount(['likes']);
+    }
 }

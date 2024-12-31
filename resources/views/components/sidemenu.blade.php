@@ -41,7 +41,7 @@
             >
                 <x-heroicon-o-hand-thumb-up class="inline-block size-6" />
                 <span>
-                    Upvotes
+                    Likes
                 </span>
             </a>
             <a
