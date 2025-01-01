@@ -1,4 +1,5 @@
 <x-layouts.app>
+    <x-slot:title>Account Settings</x-slot>
     <div class="lg:w-1/2 space-y-8">
         <h2 class="font-semibold text-xl leading-tight py-3 border-b border-stone-200 dark:border-stone-900">
             Account Settings

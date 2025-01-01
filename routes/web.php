@@ -12,7 +12,7 @@ Route::post('update-timezone', UpdateUserTimezoneController::class)
 Route::domain('app.larasense.test')
     ->middleware(['auth', 'verified'])
     ->group(function () {
-        Route::get('dashboard', Livewire\Dashboard::class)
+        Route::get('/', Livewire\Materials\Index::class)
             ->name('dashboard');
 
         Route::get('likes', Livewire\Materials\Likes::class)
