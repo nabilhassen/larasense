@@ -46,7 +46,6 @@ export const mainPodcastPlayer = () => ({
             sources: [
                 {
                     src: this.url,
-                    type: "audio/mp3",
                 },
             ],
         };

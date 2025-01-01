@@ -20,10 +20,7 @@
             controls
             x-on:play="$wire.played('{{ $material->slug }}')"
         >
-            <source
-                src="{{ $material->url }}"
-                type="audio/mp3"
-            />
+            <source src="{{ $material->url }}" />
         </audio>
     </div>
 </div>
