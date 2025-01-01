@@ -1,9 +1,8 @@
-<div
-    x-data="{ 'isAutoCompleteVisible': true, 'currentMaterialIndex': 0 }"
-    x-on:click.outside="isAutoCompleteVisible = false;currentMaterialIndex = 0"
-    x-on:keydown.up="isAutoCompleteVisible = true;currentMaterialIndex == 0 ? currentMaterialIndex = @js($materials->count() - 1) : currentMaterialIndex--"
-    x-on:keydown.down="isAutoCompleteVisible = true;currentMaterialIndex == @js($materials->count() - 1) ? currentMaterialIndex = 0 : currentMaterialIndex++"
->
+<div x-data="{
+    'isAutoCompleteVisible': true,
+    'currentMaterialIndex': 0,
+    'currentSlug': null,
+}">
     <label class="relative input input-bordered flex items-center gap-2 bg-stone-50 border border-stone-50 focus:border focus-within:border !outline-none">
         <input
             type="text"
@@ -11,7 +10,11 @@
             placeholder="Search"
             wire:model.live="query"
             x-on:click="isAutoCompleteVisible = true"
+            x-on:click.outside="isAutoCompleteVisible = false;currentMaterialIndex = 0"
+            x-on:keyup.enter="$wire.view(currentSlug);isAutoCompleteVisible = false;$el.blur();"
             x-on:keyup.escape="isAutoCompleteVisible = false;currentMaterialIndex = 0;$el.blur()"
+            x-on:keydown.up="isAutoCompleteVisible = true;currentMaterialIndex == 0 ? currentMaterialIndex = @js($materials->count() - 1) : currentMaterialIndex--"
+            x-on:keydown.down="isAutoCompleteVisible = true;currentMaterialIndex == @js($materials->count() - 1) ? currentMaterialIndex = 0 : currentMaterialIndex++"
         />
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -34,12 +37,8 @@
                     <div
                         class="flex gap-x-4 items-center p-3 lg:text-sm text-xs cursor-pointer border-b border-b-stone-200 hover:bg-stone-100"
                         wire:click="view('{{ $materialItem->slug }}')"
-                        x-on:keyup.enter.window="() => {
-                            isAutoCompleteVisible && @js($loop->index) === currentMaterialIndex 
-                            ? $wire.view('{{ $materialItem->slug }}') 
-                            : null;
-                        }"
                         x-bind:class="{ 'bg-stone-100': currentMaterialIndex == @js($loop->index) }"
+                        x-effect="currentMaterialIndex === @js($loop->index) && (currentSlug = @js($materialItem->slug))"
                     >
                         <figure class="flex max-lg:hidden w-2/12">
                             <img
