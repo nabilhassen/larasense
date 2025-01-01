@@ -35,14 +35,14 @@
     >
         <label class="form-control w-full">
             <div class="label">
-                <span class="label-text">Name</span>
+                <span>Name</span>
             </div>
             <input
                 wire:model="name"
                 id="name"
                 name="name"
                 type="text"
-                class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10"
+                class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
                 required
                 autofocus
                 autocomplete="name"
@@ -56,12 +56,12 @@
 
         <label class="form-control w-full">
             <div class="label">
-                <span class="label-text">Email</span>
+                <span>Email</span>
             </div>
             <input
                 wire:model="email"
                 id="email"
-                class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10"
+                class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
                 type="email"
                 name="email"
                 required
@@ -75,7 +75,7 @@
         </label>
 
         <div class="flex items-center gap-4 !mt-8">
-            <button class="btn bg-primary text-white hover:bg-primary hover:brightness-90 disabled:bg-primary disabled:opacity-70 disabled:text-white">
+            <button class="btn bg-primary text-white hover:bg-primary border-primary hover:brightness-90 disabled:bg-primary disabled:opacity-70 disabled:text-white">
                 Save
             </button>
             <x-action-message

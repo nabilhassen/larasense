@@ -1,5 +1,5 @@
 <button
-    class="hover:bg-secondary active:!bg-secondary focus:!bg-secondary active:!text-inherit"
+    class="hover:bg-secondary dark:hover:bg-stone-950 active:!bg-secondary dark:active:!bg-stone-950 focus:!bg-secondary dark:focus:!bg-stone-950 active:!text-inherit"
     wire:click="logout"
 >
     Logout

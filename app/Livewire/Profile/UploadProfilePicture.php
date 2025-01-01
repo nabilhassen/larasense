@@ -11,12 +11,12 @@ class UploadProfilePicture extends Component
 {
     use WithFilePond;
 
-    #[Rule('nullable|mimetypes:image/jpg,image/jpeg,image/png|max:3000')]
+    #[Rule('nullable|mimetypes:image/webp,image/jpg,image/jpeg,image/png|max:3000')]
     public $file;
 
     public function mount()
     {
-        $this->file = auth()->user()->avatar;
+        $this->file = blank(auth()->user()->avatar_url) ? auth()->user()->avatar_url : auth()->user()->avatar;
     }
 
     #[On('FilePond:removefile')]

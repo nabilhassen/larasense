@@ -1,4 +1,4 @@
-<section class="space-y-4 border border-black p-4 rounded-btn">
+<section class="space-y-4 border border-black dark:border-stone-50 p-4 rounded-btn">
     <div>
         <h2 class="font-semibold">
             Delete Account
@@ -9,7 +9,7 @@
     </div>
 
     <button
-        class="btn bg-stone-700 hover:bg-stone-900 text-white"
+        class="btn bg-stone-700 dark:bg-white hover:bg-stone-900 dark:hover:bg-stone-200 text-white dark:text-stone-900"
         x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')"
     >
         Delete Account

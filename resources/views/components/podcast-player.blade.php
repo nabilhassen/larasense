@@ -5,7 +5,7 @@
     x-cloak
     x-data="podcastPlayer"
     x-on:close-podcast-modal.window="continueOnMainPodcastPlayer($event.detail)"
-    class="flex items-center bg-secondary rounded-btn p-4"
+    class="flex items-center bg-secondary dark:bg-stone-900 rounded-btn p-4"
 >
     <figure class="w-1/5">
         <img

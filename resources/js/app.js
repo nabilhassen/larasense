@@ -12,6 +12,9 @@ import { likeMaterial } from "./like-material";
 import { dislikeMaterial } from "./dislike-material";
 import { bookmarkMaterial } from "./bookmark-material";
 import { copyLink } from "./copy-link";
+import { themeMode } from "./theme-mode";
+
+window.Alpine = Alpine;
 
 Alpine.data("mainPodcastPlayer", mainPodcastPlayer);
 
@@ -26,5 +29,7 @@ Alpine.data("dislikeMaterial", dislikeMaterial);
 Alpine.data("bookmarkMaterial", bookmarkMaterial);
 
 Alpine.data("copyLink", copyLink);
+
+Alpine.store("themeMode", themeMode);
 
 Livewire.start();

@@ -15,6 +15,14 @@ body {
     --plyr-audio-controls-background: #fff1db !important;
 }
 
+.dark .podcast-player {
+    --plyr-audio-controls-background: #1c1917 !important;
+}
+
 #main-podcast-player-container {
     --plyr-audio-controls-background: #fff1db !important;
+}
+
+.dark #main-podcast-player-container {
+    --plyr-audio-controls-background: #1c1917 !important;
 }

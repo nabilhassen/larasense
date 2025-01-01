@@ -13,14 +13,14 @@
     >
         <label class="form-control w-full">
             <div class="label">
-                <span class="label-text">Current Password</span>
+                <span>Current Password</span>
             </div>
             <input
                 wire:model="current_password"
                 id="update_password_current_password"
                 name="current_password"
                 type="password"
-                class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10"
+                class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
                 autocomplete="current-password"
             />
             @error('current_password')
@@ -32,14 +32,14 @@
 
         <label class="form-control w-full">
             <div class="label">
-                <span class="label-text">New Password</span>
+                <span>New Password</span>
             </div>
             <input
                 wire:model="password"
                 id="update_password_password"
                 name="password"
                 type="password"
-                class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10"
+                class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
                 autocomplete="new-password"
             />
             @error('password')
@@ -51,14 +51,14 @@
 
         <label class="form-control w-full">
             <div class="label">
-                <span class="label-text">Confirm Password</span>
+                <span>Confirm Password</span>
             </div>
             <input
                 wire:model="password_confirmation"
                 id="update_password_password_confirmation"
                 name="password_confirmation"
                 type="password"
-                class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10"
+                class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
                 autocomplete="new-password"
             />
             @error('password_confirmation')
@@ -69,7 +69,7 @@
         </label>
 
         <div class="flex items-center gap-4 !mt-8">
-            <button class="btn bg-primary text-white hover:bg-primary hover:brightness-90 disabled:bg-primary disabled:opacity-70 disabled:text-white">
+            <button class="btn bg-primary text-white hover:bg-primary border-primary hover:brightness-90 disabled:bg-primary disabled:opacity-70 disabled:text-white">
                 Save
             </button>
             <x-action-message

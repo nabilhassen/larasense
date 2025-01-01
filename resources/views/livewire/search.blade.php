@@ -3,7 +3,7 @@
     'currentMaterialIndex': 0,
     'currentSlug': null,
 }">
-    <label class="relative input input-bordered flex items-center gap-2 bg-stone-50 border border-stone-50 focus:border focus-within:border !outline-none">
+    <label class="relative input input-bordered flex items-center gap-2 bg-stone-50 dark:bg-stone-900 border border-stone-50 dark:border-stone-900 focus:border focus-within:border !outline-none">
         <input
             type="text"
             class="grow"
@@ -30,14 +30,14 @@
         </svg>
         @if (filled($query))
             <div
-                class="absolute inset-x-0 z-10 top-full max-h-fit overflow-y-auto mt-2 rounded-btn bg-stone-50 border border-stone-200"
+                class="absolute inset-x-0 z-10 top-full max-h-fit overflow-y-auto mt-2 rounded-btn bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-900"
                 x-bind:class="{ 'hidden': !isAutoCompleteVisible }"
             >
                 @forelse ($materials as $materialItem)
                     <div
-                        class="flex gap-x-4 items-center p-3 lg:text-sm text-xs cursor-pointer border-b border-b-stone-200 hover:bg-stone-100"
+                        class="flex gap-x-4 items-center p-3 lg:text-sm text-xs cursor-pointer border-b border-b-stone-200 dark:border-b-stone-950 hover:bg-stone-100 dark:hover:bg-stone-950"
                         wire:click="view('{{ $materialItem->slug }}')"
-                        x-bind:class="{ 'bg-stone-100': currentMaterialIndex == @js($loop->index) }"
+                        x-bind:class="{ 'bg-stone-100 dark:bg-stone-950': currentMaterialIndex == @js($loop->index) }"
                         x-effect="currentMaterialIndex === @js($loop->index) && (currentSlug = @js($materialItem->slug))"
                     >
                         <figure class="flex max-lg:hidden w-2/12">
@@ -83,7 +83,7 @@
 
     @if (filled($material))
         <dialog
-            class="modal lg:modal-top text-stone-800 cursor-auto"
+            class="modal lg:modal-top cursor-auto"
             x-data
             x-init="$el.showModal()"
             x-on:close="() => {
@@ -91,7 +91,7 @@
                 $el.remove();
             }"
         >
-            <div class="modal-box lg:max-w-6xl lg:mx-auto lg:h-full">
+            <div class="modal-box lg:max-w-6xl lg:mx-auto lg:h-full dark:bg-black">
                 <form method="dialog">
                     <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                 </form>
@@ -153,7 +153,7 @@
                                     class="inline-flex lg:size-8 size-6 hover:stroke-primary"
                                     x-bind:class="{
                                         'stroke-primary fill-primary': isLiked,
-                                        'stroke-stone-800': !isLiked
+                                        'stroke-stone-800 dark:stroke-stone-600': !isLiked
                                     }"
                                 />
                                 <span
@@ -172,7 +172,7 @@
                                     class="inline-flex lg:size-8 size-6 hover:stroke-primary"
                                     x-bind:class="{
                                         'stroke-primary fill-primary': isDisliked,
-                                        'stroke-stone-800': !isDisliked
+                                        'stroke-stone-800 dark:stroke-stone-600': !isDisliked
                                     }"
                                 />
                             </button>
@@ -189,7 +189,7 @@
                                     class="inline-flex lg:size-8 size-6 hover:stroke-primary"
                                     x-bind:class="{
                                         'stroke-primary fill-primary': isBookmarked,
-                                        'stroke-stone-800': !isBookmarked
+                                        'stroke-stone-800 dark:stroke-stone-600': !isBookmarked
                                     }"
                                 />
                             </button>
@@ -207,7 +207,7 @@
                                         class="inline-flex lg:size-8 size-6 hover:stroke-primary"
                                         x-bind:class="{
                                             'stroke-primary': isCopied,
-                                            'stroke-stone-800': !isCopied
+                                            'stroke-stone-800 dark:stroke-stone-600': !isCopied
                                         }"
                                     />
                                 </button>
@@ -238,7 +238,7 @@
                                 class="rounded-box size-full shadow-2xl"
                             >
                         </figure>
-                        <div class="prose prose-img:hidden prose-figure:hidden prose-video:hidden">
+                        <div class="prose prose-img:hidden prose-figure:hidden prose-video:hidden dark:text-stone-400 dark:prose-a:text-stone-500 dark:prose-headings:text-stone-300">
                             {!! $material->body !!}
                         </div>
                     @elseif ($material->isYoutube())

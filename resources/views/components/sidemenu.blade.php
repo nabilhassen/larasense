@@ -13,7 +13,7 @@
             <a
                 wire:navigate
                 href="{{ route('dashboard') }}"
-                class="flex items-center gap-x-3 p-3 font-semibold {{ request()->routeIs('dashboard') ? 'bg-primary text-white rounded-btn' : 'hover:bg-secondary hover:rounded' }}"
+                class="flex items-center gap-x-3 p-3 font-semibold {{ request()->routeIs('dashboard') ? 'bg-primary text-white rounded-btn' : 'hover:bg-secondary dark:hover:bg-stone-900 hover:rounded' }}"
             >
                 <x-heroicon-o-home class="inline-block size-6" />
                 <span>
@@ -22,7 +22,7 @@
             </a>
             <a
                 href="http://"
-                class="flex items-center gap-x-3 p-3 font-semibold hover:bg-secondary hover:rounded"
+                class="flex items-center gap-x-3 p-3 font-semibold hover:bg-secondary dark:hover:bg-stone-900 hover:rounded"
             >
                 <div class="indicator">
                     <span class="indicator-item badge badge-primary text-white font-bold text-xs indicator-start">9+</span>
@@ -37,7 +37,7 @@
             <a
                 wire:navigate
                 href="{{ route('likes') }}"
-                class="flex items-center gap-x-3 p-3 font-semibold {{ request()->routeIs('likes') ? 'bg-primary text-white rounded-btn' : 'hover:bg-secondary hover:rounded' }}"
+                class="flex items-center gap-x-3 p-3 font-semibold {{ request()->routeIs('likes') ? 'bg-primary text-white rounded-btn' : 'hover:bg-secondary dark:hover:bg-stone-900 hover:rounded' }}"
             >
                 <x-heroicon-o-hand-thumb-up class="inline-block size-6" />
                 <span>
@@ -47,7 +47,7 @@
             <a
                 wire:navigate
                 href="{{ route('bookmarks') }}"
-                class="flex items-center gap-x-3 p-3 font-semibold {{ request()->routeIs('bookmarks') ? 'bg-primary text-white rounded-btn' : 'hover:bg-secondary hover:rounded' }}"
+                class="flex items-center gap-x-3 p-3 font-semibold {{ request()->routeIs('bookmarks') ? 'bg-primary text-white rounded-btn' : 'hover:bg-secondary dark:hover:bg-stone-900 hover:rounded' }}"
             >
                 <x-heroicon-o-bookmark class="inline-block size-6" />
                 <span>
@@ -57,7 +57,7 @@
             <a
                 wire:navigate
                 href="{{ route('settings') }}"
-                class="flex items-center gap-x-3 p-3 font-semibold {{ request()->routeIs('settings') ? 'bg-primary text-white rounded-btn' : 'hover:bg-secondary hover:rounded' }}"
+                class="flex items-center gap-x-3 p-3 font-semibold {{ request()->routeIs('settings') ? 'bg-primary text-white rounded-btn' : 'hover:bg-secondary dark:hover:bg-stone-900 hover:rounded' }}"
             >
                 <x-heroicon-o-cog-6-tooth class="inline-block size-6" />
                 <span>

@@ -2,6 +2,8 @@ import defaultTheme from "tailwindcss/defaultTheme";
 
 /** @type {import('tailwindcss').Config} */
 export default {
+    darkMode: "selector",
+
     content: [
         "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
         "./storage/framework/views/*.php",
@@ -16,7 +18,7 @@ export default {
         },
     },
 
-    plugins: [require('@tailwindcss/typography'), require("daisyui")],
+    plugins: [require("@tailwindcss/typography"), require("daisyui")],
 
     daisyui: {
         themes: [

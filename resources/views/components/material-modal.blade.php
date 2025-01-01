@@ -2,12 +2,12 @@
 
 <dialog
     wire:ignore.self
-    class="modal lg:modal-top text-stone-800 cursor-auto"
+    class="modal lg:modal-top cursor-auto"
     x-data
     x-on:open-modal.window="$event.detail.slug === 'material.{{ $material->slug }}' ? $el.showModal() : null"
     x-on:close="$dispatch('close-{{ $material->source->type }}-modal', { material: @js($material) })"
 >
-    <div class="modal-box lg:max-w-6xl lg:mx-auto lg:h-full">
+    <div class="modal-box lg:max-w-6xl lg:mx-auto lg:h-full dark:bg-black">
         <form method="dialog">
             <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
         </form>
@@ -69,7 +69,7 @@
                             class="inline-flex lg:size-8 size-6 hover:stroke-primary"
                             x-bind:class="{
                                 'stroke-primary fill-primary': isLiked,
-                                'stroke-stone-800': !isLiked
+                                'stroke-stone-800 dark:stroke-stone-600': !isLiked
                             }"
                         />
                         <span
@@ -88,7 +88,7 @@
                             class="inline-flex lg:size-8 size-6 hover:stroke-primary"
                             x-bind:class="{
                                 'stroke-primary fill-primary': isDisliked,
-                                'stroke-stone-800': !isDisliked
+                                'stroke-stone-800 dark:stroke-stone-600': !isDisliked
                             }"
                         />
                     </button>
@@ -105,7 +105,7 @@
                             class="inline-flex lg:size-8 size-6 hover:stroke-primary"
                             x-bind:class="{
                                 'stroke-primary fill-primary': isBookmarked,
-                                'stroke-stone-800': !isBookmarked
+                                'stroke-stone-800 dark:stroke-stone-600': !isBookmarked
                             }"
                         />
                     </button>
@@ -123,7 +123,7 @@
                                 class="inline-flex lg:size-8 size-6 hover:stroke-primary"
                                 x-bind:class="{
                                     'stroke-primary': isCopied,
-                                    'stroke-stone-800': !isCopied
+                                    'stroke-stone-800 dark:stroke-stone-600': !isCopied
                                 }"
                             />
                         </button>
@@ -154,7 +154,7 @@
                         class="rounded-box size-full shadow-2xl"
                     >
                 </figure>
-                <div class="prose prose-img:hidden prose-figure:hidden prose-video:hidden">
+                <div class="prose prose-img:hidden prose-figure:hidden prose-video:hidden dark:text-stone-400 dark:prose-a:text-stone-500 dark:prose-headings:text-stone-300">
                     {!! $material->body !!}
                 </div>
             @elseif ($material->isYoutube())

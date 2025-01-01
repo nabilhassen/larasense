@@ -1,7 +1,7 @@
 @props(['material'])
 
 <article
-    class="relative flex flex-col border-2 border-secondary hover:border-primary cursor-pointer p-4 rounded-xl"
+    class="relative flex flex-col border-2 border-secondary dark:border-stone-800 hover:border-primary cursor-pointer p-4 rounded-xl"
     x-intersect.once.full="$wire.viewed()"
 >
     <a
@@ -87,7 +87,7 @@
                         class="inline-flex size-6 hover:stroke-primary"
                         x-bind:class="{
                             'stroke-primary fill-primary': isLiked,
-                            'stroke-stone-800': !isLiked
+                            'stroke-stone-800 dark:stroke-stone-600': !isLiked
                         }"
                     />
                     <span
@@ -111,7 +111,7 @@
                         class="inline-flex size-6 hover:stroke-primary"
                         x-bind:class="{
                             'stroke-primary fill-primary': isDisliked,
-                            'stroke-stone-800': !isDisliked
+                            'stroke-stone-800 dark:stroke-stone-600': !isDisliked
                         }"
                     />
                 </button>
@@ -133,7 +133,7 @@
                         class="inline-flex size-6 hover:stroke-primary"
                         x-bind:class="{
                             'stroke-primary fill-primary': isBookmarked,
-                            'stroke-stone-800': !isBookmarked
+                            'stroke-stone-800 dark:stroke-stone-600': !isBookmarked
                         }"
                     />
                 </button>
@@ -152,7 +152,7 @@
                         class="inline-flex size-6 hover:stroke-primary"
                         x-bind:class="{
                             'stroke-primary': isCopied,
-                            'stroke-stone-800': !isCopied
+                            'stroke-stone-800 dark:stroke-stone-600': !isCopied
                         }"
                     />
                 </button>
@@ -170,14 +170,14 @@
                         }"
                         x-show="$store.mainPodcastPlayer.url !== '{{ $material->url }}' || !$store.mainPodcastPlayer.isPlaying"
                     >
-                        <x-heroicon-o-play class="inline-flex size-6 hover:stroke-primary stroke-stone-800" />
+                        <x-heroicon-o-play class="inline-flex size-6 hover:stroke-primary stroke-stone-800 dark:stroke-stone-600" />
                     </button>
                     <button
                         class="inline-flex"
                         x-on:click="$dispatch('pause-podcast')"
                         x-show="$store.mainPodcastPlayer.url === '{{ $material->url }}' && $store.mainPodcastPlayer.isPlaying"
                     >
-                        <x-heroicon-o-pause class="inline-flex size-6 hover:stroke-primary stroke-stone-800" />
+                        <x-heroicon-o-pause class="inline-flex size-6 hover:stroke-primary stroke-stone-800 dark:stroke-stone-600" />
                     </button>
                 </div>
             @elseif ($material->isYoutube())
@@ -192,7 +192,7 @@
                             $wire.expanded();
                         }"
                     >
-                        <x-heroicon-o-play class="inline-flex size-6 hover:stroke-primary stroke-stone-800" />
+                        <x-heroicon-o-play class="inline-flex size-6 hover:stroke-primary stroke-stone-800 dark:stroke-stone-600" />
                     </button>
                 </div>
             @elseif ($material->isArticle())
@@ -206,7 +206,7 @@
                         target="_blank"
                         x-on:click="$wire.redirected()"
                     >
-                        <x-heroicon-o-arrow-top-right-on-square class="inline-flex size-6 hover:stroke-primary stroke-stone-800" />
+                        <x-heroicon-o-arrow-top-right-on-square class="inline-flex size-6 hover:stroke-primary stroke-stone-800 dark:stroke-stone-600" />
                     </a>
                 </div>
             @endif
