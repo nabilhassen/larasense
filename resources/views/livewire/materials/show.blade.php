@@ -53,12 +53,14 @@
             <div>
                 {{ $material->published_at->inUserTimezone()->toFormattedDateString() }}
             </div>
-            <div>
-                ·
-            </div>
-            <div>
-                5mins
-            </div>
+            @if (filled($material->duration))
+                <div>
+                    ·
+                </div>
+                <div>
+                    {{ Carbon\CarbonInterval::seconds($material->duration)->cascade()->forHumans(['short' => true]) }}
+                </div>
+            @endif
         </div>
         <div class="flex-1">
             <h1 class="font-bold text-sm line-clamp-2">

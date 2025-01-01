@@ -129,6 +129,14 @@
                             <div>
                                 {{ $material->published_at->inUserTimezone()->toFormattedDateString() }}
                             </div>
+                            @if (filled($material->duration))
+                                <div>
+                                    ·
+                                </div>
+                                <div>
+                                    {{ Carbon\CarbonInterval::seconds($material->duration)->cascade()->forHumans(['short' => true]) }}
+                                </div>
+                            @endif
                         </div>
                         <h1 class="font-bold text-2xl lg:text-3xl">
                             {!! $material->title !!}

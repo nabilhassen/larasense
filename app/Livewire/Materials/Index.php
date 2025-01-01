@@ -14,6 +14,8 @@ class Index extends Component
     {
         return view('livewire.materials.index', [
             'materials' => Material::feedQuery()
+                ->whereRelation('source', 'type', 'podcast')
+                ->addSelect('duration')
                 ->cursorPaginate($this->perPage),
         ]);
     }

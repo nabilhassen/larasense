@@ -41,6 +41,7 @@ class Search extends Component
     public function view(string $slug): void
     {
         $this->material = Material::feedQuery()
+            ->addSelect('duration')
             ->slug($slug)
             ->firstOrFail();
     }
