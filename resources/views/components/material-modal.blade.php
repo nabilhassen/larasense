@@ -7,7 +7,7 @@
     x-on:open-modal.window="$event.detail.slug === 'material.{{ $material->slug }}' ? $el.showModal() : null"
     x-on:close="$dispatch('close-{{ $material->source->type }}-modal', { material: @js($material) })"
 >
-    <div class="modal-box lg:max-w-6xl lg:mx-auto lg:h-full dark:bg-black">
+    <div class="modal-box lg:max-w-6xl lg:mx-auto lg:h-full dark:bg-black dark:border-2 dark:border-stone-800">
         <form method="dialog">
             <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
         </form>
