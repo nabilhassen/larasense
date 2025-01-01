@@ -11,7 +11,7 @@
             wire:model.live="query"
             x-on:click="isAutoCompleteVisible = true"
             x-on:click.outside="isAutoCompleteVisible = false;currentMaterialIndex = 0"
-            x-on:keyup.enter="$wire.view(currentSlug);isAutoCompleteVisible = false;$el.blur();"
+            x-on:keyup.enter="currentSlug && $wire.view(currentSlug);isAutoCompleteVisible = false;$el.blur();"
             x-on:keyup.escape="isAutoCompleteVisible = false;currentMaterialIndex = 0;$el.blur()"
             x-on:keydown.up="isAutoCompleteVisible = true;currentMaterialIndex == 0 ? currentMaterialIndex = @js($materials->count() - 1) : currentMaterialIndex--"
             x-on:keydown.down="isAutoCompleteVisible = true;currentMaterialIndex == @js($materials->count() - 1) ? currentMaterialIndex = 0 : currentMaterialIndex++"
