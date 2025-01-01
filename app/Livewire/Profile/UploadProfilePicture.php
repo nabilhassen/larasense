@@ -14,11 +14,6 @@ class UploadProfilePicture extends Component
     #[Rule('nullable|mimetypes:image/webp,image/jpg,image/jpeg,image/png|max:3000')]
     public $file;
 
-    public function mount()
-    {
-        $this->file = blank(auth()->user()->avatar_url) ? auth()->user()->avatar_url : auth()->user()->avatar;
-    }
-
     #[On('FilePond:removefile')]
     public function validateUploadedFile()
     {
