@@ -60,6 +60,13 @@
                     <li>
                         <livewire:auth.logout-button />
                     </li>
+                    <li class="lg:hidden">
+                        <button
+                            class="hover:bg-secondary dark:hover:bg-stone-950 active:!bg-secondary dark:active:!bg-stone-950 focus:!bg-secondary dark:focus:!bg-stone-950 active:!text-inherit"
+                            x-text="$store.themeMode.isDark() ? 'Light Mode' : 'Dark Mode'"
+                            x-on:click="$store.themeMode.toggle()"
+                        ></button>
+                    </li>
                 </ul>
             </div>
         </div>

@@ -1,6 +1,6 @@
 <x-layouts.app>
-    <div class="lg:w-1/2 space-y-8 py-4">
-        <h2 class="font-semibold text-xl leading-tight py-3 border-b border-stone-200">
+    <div class="lg:w-1/2 space-y-8">
+        <h2 class="font-semibold text-xl leading-tight py-3 border-b border-stone-200 dark:border-stone-900">
             Account Settings
         </h2>
 
@@ -11,11 +11,11 @@
             <div>
                 <livewire:profile.update-profile-information-form />
             </div>
-            <hr>
+            <hr class="dark:border-stone-900">
             <div>
                 <livewire:profile.update-password-form />
             </div>
-            <hr>
+            <hr class="dark:border-stone-900">
             <div>
                 <livewire:profile.delete-user-form />
             </div>

@@ -21,20 +21,6 @@
                 </span>
             </a>
             <a
-                href="http://"
-                class="flex items-center gap-x-3 p-3 font-semibold hover:bg-secondary dark:hover:bg-stone-900 hover:rounded"
-            >
-                <div class="indicator">
-                    <span class="indicator-item badge badge-primary text-white font-bold text-xs indicator-start">9+</span>
-                    <button>
-                        <x-heroicon-o-bell class="size-6" />
-                    </button>
-                </div>
-                <span>
-                    Notifications
-                </span>
-            </a>
-            <a
                 wire:navigate
                 href="{{ route('likes') }}"
                 class="flex items-center gap-x-3 p-3 font-semibold {{ request()->routeIs('likes') ? 'bg-primary text-white rounded-btn' : 'hover:bg-secondary dark:hover:bg-stone-900 hover:rounded' }}"

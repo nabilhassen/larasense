@@ -44,7 +44,9 @@
             <div class="lg:w-4/5 w-full">
                 <x-topnavbar />
 
-                {{ $slot }}
+                <div class="lg:pb-8 pb-24 max-lg:pt-8">
+                    {{ $slot }}
+                </div>
             </div>
         </div>
 
