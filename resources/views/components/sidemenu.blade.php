@@ -1,5 +1,5 @@
-<div class="w-1/5 lg:pt-6 max-lg:hidden">
-    <div class="fixed space-y-12">
+<div class="w-1/5 max-lg:hidden">
+    <div class="fixed py-6 flex flex-col space-y-12 h-screen w-fit">
         <figure class="h-12 flex items-center">
             <a href="{{ route('dashboard') }}">
                 <img
@@ -50,6 +50,14 @@
                     Settings
                 </span>
             </a>
+        </div>
+        <div class="flex-1 flex flex-col justify-end items-start">
+            <button class="btn btn-sm btn-primary btn-link">
+                Suggest sources
+            </button>
+            <button class="btn btn-sm btn-primary btn-link">
+                Report bugs
+            </button>
         </div>
     </div>
 </div>
