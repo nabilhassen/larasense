@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('bug_reports', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->nullable()->constrained('users')->nullOnDelete()->cascadeOnUpdate();
-            $table->string('description');
+            $table->longText('description');
             $table->timestamps();
         });
     }

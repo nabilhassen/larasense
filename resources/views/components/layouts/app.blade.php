@@ -55,6 +55,8 @@
 
     <livewire:suggest-source-modal />
 
+    <livewire:report-bugs-modal />
+
     @livewireScriptConfig
     @vite('resources/js/app.js')
     <x-update-timezone current-timezone="{{ auth()->user()->timezone }}" />

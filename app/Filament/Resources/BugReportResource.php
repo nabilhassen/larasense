@@ -4,8 +4,8 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\BugReportResource\Pages;
 use App\Models\BugReport;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables\Actions\BulkActionGroup;
@@ -30,7 +30,7 @@ class BugReportResource extends Resource
                 Select::make('user_id')
                     ->relationship('user', 'name'),
 
-                TextInput::make('description')
+                RichEditor::make('description')
                     ->required(),
             ]);
     }

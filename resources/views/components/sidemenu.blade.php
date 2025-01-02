@@ -58,7 +58,10 @@
             >
                 Suggest sources
             </button>
-            <button class="btn btn-sm btn-primary btn-link">
+            <button
+                class="btn btn-sm btn-primary btn-link"
+                x-on:click="$dispatch('open-bug-reports-modal')"
+            >
                 Report bugs
             </button>
             <a
