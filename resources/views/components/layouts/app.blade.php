@@ -53,6 +53,8 @@
         <x-bottomnavbar />
     </div>
 
+    <livewire:suggest-source-modal />
+
     @livewireScriptConfig
     @vite('resources/js/app.js')
     <x-update-timezone current-timezone="{{ auth()->user()->timezone }}" />

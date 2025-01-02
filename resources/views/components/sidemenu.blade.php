@@ -52,7 +52,10 @@
             </a>
         </div>
         <div class="flex-1 flex flex-col justify-end items-start">
-            <button class="btn btn-sm btn-primary btn-link">
+            <button
+                class="btn btn-sm btn-primary btn-link"
+                x-on:click="$dispatch('open-source-suggestions-modal')"
+            >
                 Suggest sources
             </button>
             <button class="btn btn-sm btn-primary btn-link">
