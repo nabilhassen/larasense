@@ -123,12 +123,16 @@ class Material extends Model
                 ],
             ])
             ->withExists([
-                'likes',
-                'bookmarks',
+                'likes' => fn(Builder $query) => $query->where('user_id', auth()->id()),
+                'bookmarks' => fn(Builder $query) => $query->where('user_id', auth()->id()),
                 'reactions AS dislikes_exists' => function (Builder $query) {
-                    $query->where('value', static::DISLIKE_REACTION);
+                    $query
+                        ->where('user_id', auth()->id())
+                        ->where('value', static::DISLIKE_REACTION);
                 },
             ])
-            ->withCount(['likes']);
+            ->withCount([
+                'likes' => fn(Builder $query) => $query->where('user_id', auth()->id()),
+            ]);
     }
 }
