@@ -57,8 +57,30 @@
                             Profile
                         </a>
                     </li>
-                    <li>
-                        <livewire:auth.logout-button />
+                    <li class="lg:hidden">
+                        <button
+                            class="hover:bg-secondary dark:hover:bg-stone-950 active:!bg-secondary dark:active:!bg-stone-950 focus:!bg-secondary dark:focus:!bg-stone-950 active:!text-inherit"
+                            x-on:click="$dispatch('open-source-suggestions-modal')"
+                        >
+                            Suggest Sources
+                        </button>
+                    </li>
+                    <li class="lg:hidden">
+                        <button
+                            class="hover:bg-secondary dark:hover:bg-stone-950 active:!bg-secondary dark:active:!bg-stone-950 focus:!bg-secondary dark:focus:!bg-stone-950 active:!text-inherit"
+                            x-on:click="$dispatch('open-bug-reports-modal')"
+                        >
+                            Report Bugs
+                        </button>
+                    </li>
+                    <li class="lg:hidden">
+                        <a
+                            href="https://x.com/nabilhassen08"
+                            class="hover:bg-secondary dark:hover:bg-stone-950 active:!bg-secondary dark:active:!bg-stone-950 focus:!bg-secondary dark:focus:!bg-stone-950 active:!text-inherit"
+                            target="_blank"
+                        >
+                            Roadmap
+                        </a>
                     </li>
                     <li class="lg:hidden">
                         <button
@@ -66,6 +88,9 @@
                             x-text="$store.themeMode.isDark() ? 'Light Mode' : 'Dark Mode'"
                             x-on:click="$store.themeMode.toggle()"
                         ></button>
+                    </li>
+                    <li>
+                        <livewire:auth.logout-button />
                     </li>
                 </ul>
             </div>
