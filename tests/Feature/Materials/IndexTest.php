@@ -1,0 +1,42 @@
+<?php
+
+use App\Livewire\Materials\Index;
+use App\Models\Material;
+use App\Models\User;
+use Livewire\Livewire;
+
+beforeEach(function () {
+    $this->user = User::factory()->create();
+
+    $this->actingAs($this->user);
+});
+
+test('feed renders successfully', function () {
+    $response = $this->get(route('dashboard'));
+
+    $response->assertStatus(200);
+});
+
+test('feed displays materials', function () {
+    Material::factory(10)->create();
+
+    Livewire::test(Index::class)
+        ->assertStatus(200)
+        ->assertViewHas('materials', function ($materials) {
+            return count($materials->items()) === 6;
+        });
+});
+
+test('feed can load more materials', function () {
+    Material::factory(10)->create();
+
+    Livewire::test(Index::class)
+        ->assertStatus(200)
+        ->assertViewHas('materials', function ($materials) {
+            return count($materials->items()) === 6;
+        })
+        ->call('loadMore')
+        ->assertViewHas('materials', function ($materials) {
+            return count($materials->items()) === 10;
+        });
+});
