@@ -4,10 +4,15 @@
     x-on:open-bug-reports-modal.window="$el.showModal()"
     x-on:close="$wire.isSubmitted && ($wire.isSubmitted = false)"
 >
-    <div class="modal-box py-8 dark:bg-black dark:border-2 dark:border-stone-800">
-        <form method="dialog">
-            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-        </form>
+    <div class="modal-box py-8 dark:bg-black dark:border-2 dark:border-stone-800 space-y-4">
+        <div class="flex justify-between items-center">
+            <h2 class="font-bold text-lg">
+                Report Bugs
+            </h2>
+            <form method="dialog">
+                <button class="btn btn-sm btn-circle btn-ghost">✕</button>
+            </form>
+        </div>
         <form
             wire:submit="submit"
             x-show="!$wire.isSubmitted"
@@ -21,8 +26,9 @@
                         autofocus
                         wire:model="description"
                         type="text"
-                        placeholder="..."
-                        class="textarea textarea-bordered focus:outline-none focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
+                        placeholder="Describe the bug here ..."
+                        rows="3"
+                        class="textarea textarea-bordered focus:outline-none focus:border-2 focus:border-primary dark:bg-stone-900"
                     ></textarea>
                 </label>
                 @error('description')

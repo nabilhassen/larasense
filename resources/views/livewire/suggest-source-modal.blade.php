@@ -4,10 +4,15 @@
     x-on:open-source-suggestions-modal.window="$el.showModal()"
     x-on:close="$wire.isSubmitted && ($wire.isSubmitted = false)"
 >
-    <div class="modal-box py-8 dark:bg-black dark:border-2 dark:border-stone-800">
-        <form method="dialog">
-            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-        </form>
+    <div class="modal-box py-8 dark:bg-black dark:border-2 dark:border-stone-800 space-y-4">
+        <div class="flex justify-between items-center">
+            <h2 class="font-bold text-lg">
+                Suggest Sources
+            </h2>
+            <form method="dialog">
+                <button class="btn btn-sm btn-circle btn-ghost">✕</button>
+            </form>
+        </div>
         <form
             wire:submit="submit"
             x-show="!$wire.isSubmitted"
