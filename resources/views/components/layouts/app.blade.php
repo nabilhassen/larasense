@@ -58,6 +58,7 @@
     <livewire:report-bugs-modal />
 
     @livewireScriptConfig
+    @filepondScripts
     @vite('resources/js/app.js')
     <x-update-timezone current-timezone="{{ auth()->user()->timezone }}" />
     @stack('scripts')

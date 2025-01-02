@@ -1,6 +1,4 @@
 <div class="cursor-pointer">
-    @filepondScripts
-
     <x-filepond::upload
         wire:model="file"
         stylePanelLayout="circle"
