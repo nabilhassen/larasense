@@ -1,0 +1,52 @@
+<?php
+
+use App\Livewire\Materials\Likes;
+use App\Livewire\Materials\Show;
+use App\Models\Material;
+use App\Models\User;
+use Livewire\Livewire;
+
+beforeEach(function () {
+    $this->user = User::factory()->create();
+
+    $this->actingAs($this->user);
+});
+
+test('likes page renders successfully', function () {
+    $response = $this->get(route('likes'));
+
+    $response->assertStatus(200);
+});
+
+test('likes feed displays liked materials only', function () {
+    Material::factory(10)->create();
+    $material = Material::feedQuery()->first();
+
+    Livewire::test(Show::class, ['material' => $material])
+        ->call('like');
+
+    Livewire::test(Likes::class)
+        ->assertStatus(200)
+        ->assertViewHas('materials', function ($materials) use ($material) {
+            return $materials->contains($material->id);
+        });
+});
+
+test('likes feed can load more liked materials', function () {
+    Material::factory(20)->create();
+
+    foreach (Material::feedQuery()->limit(10)->get() as $material) {
+        Livewire::test(Show::class, ['material' => $material])
+            ->call('like');
+    }
+
+    Livewire::test(Likes::class)
+        ->assertStatus(200)
+        ->assertViewHas('materials', function ($materials) {
+            return count($materials->items()) === 6;
+        })
+        ->call('loadMore')
+        ->assertViewHas('materials', function ($materials) {
+            return count($materials->items()) === 10;
+        });
+});
