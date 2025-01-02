@@ -19,6 +19,7 @@ class Bookmarks extends Component
         return view('livewire.materials.bookmarks', [
             'materials' => Material::feedQuery()
                 ->whereHasBookmark(auth()->user())
+                ->addSelect('duration')
                 ->cursorPaginate($this->perPage),
         ]);
     }

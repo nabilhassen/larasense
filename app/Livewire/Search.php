@@ -16,13 +16,13 @@ class Search extends Component
 
     public ?Material $material = null;
 
+    public function boot()
+    {
+        $this->material = null;
+    }
+
     public function getMaterials(): Collection
     {
-        if (blank($this->query)) {
-            $this->material = null;
-            return collect();
-        }
-
         $searchQuery = str($this->query)->squish()->replace(' ', '%%');
 
         return Material::feedQuery()

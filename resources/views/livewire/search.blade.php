@@ -11,7 +11,13 @@
             wire:model.live="query"
             x-on:click="isAutoCompleteVisible = true"
             x-on:click.outside="isAutoCompleteVisible = false;currentMaterialIndex = 0"
-            x-on:keyup.enter="currentSlug && $wire.view(currentSlug);isAutoCompleteVisible = false;$el.blur();"
+            x-on:keyup.enter="() => {
+                if (!$el.value.trim()) return;
+
+                $wire.view(currentSlug);
+                isAutoCompleteVisible = false;
+                $el.blur();
+            }"
             x-on:keyup.escape="isAutoCompleteVisible = false;currentMaterialIndex = 0;$el.blur()"
             x-on:keydown.up="isAutoCompleteVisible = true;currentMaterialIndex == 0 ? currentMaterialIndex = @js($materials->count() - 1) : currentMaterialIndex--"
             x-on:keydown.down="isAutoCompleteVisible = true;currentMaterialIndex == @js($materials->count() - 1) ? currentMaterialIndex = 0 : currentMaterialIndex++"
@@ -73,7 +79,7 @@
                         </div>
                     </div>
                 @empty
-                    <div class="flex gap-x-4 items-center p-3 lg:text-sm text-xs cursor-pointer border-b border-b-stone-200">
+                    <div class="flex gap-x-4 items-center p-3 lg:text-sm text-xs cursor-pointer">
                         No results found. Try another search query.
                     </div>
                 @endforelse
@@ -83,6 +89,7 @@
 
     @if (filled($material))
         <dialog
+            wire:ignore
             class="modal lg:modal-top cursor-auto"
             x-data
             x-init="$el.showModal()"
