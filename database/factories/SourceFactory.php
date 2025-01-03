@@ -20,7 +20,7 @@ class SourceFactory extends Factory
     {
         return [
             'publisher_id' => Publisher::factory(),
-            'url' => $this->faker->url(),
+            'url' => $this->faker->unique()->url(),
             'type' => collect(SourceType::cases())->pluck('value')->random(),
             'default_author' => $this->faker->name(),
             'is_tracked' => 1,

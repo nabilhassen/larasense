@@ -10,7 +10,7 @@ test('profile page is displayed', function () {
 
     $this->actingAs($user);
 
-    $response = $this->get(route('profile'));
+    $response = $this->get(route('settings'));
 
     $response
         ->assertStatus(200)

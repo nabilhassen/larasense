@@ -1,7 +1,7 @@
 <?php
 
 use App\Livewire\Auth\Login;
-use App\Livewire\Layout\Navigation;
+use App\Livewire\Auth\LogoutButton;
 use App\Models\User;
 use Livewire\Livewire;
 
@@ -47,13 +47,13 @@ test('users can logout', function () {
 
     $this->actingAs($user);
 
-    $component = Livewire::test(Navigation::class);
+    $component = Livewire::test(LogoutButton::class);
 
     $component->call('logout');
 
     $component
         ->assertHasNoErrors()
-        ->assertRedirect(route('home'));
+        ->assertRedirect(route('login'));
 
     $this->assertGuest();
 });
