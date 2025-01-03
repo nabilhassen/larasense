@@ -25,6 +25,10 @@ class Search extends Component
     {
         $searchQuery = str($this->query)->squish()->replace(' ', '%%');
 
+        if (blank($searchQuery)) {
+            return collect();
+        }
+
         return Material::feedQuery()
             ->whereAny([
                 'title',
