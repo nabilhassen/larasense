@@ -23,11 +23,18 @@
 
     <title>Larasense - {{ $title ?? '' }}</title>
 
+    <script>
+        document.documentElement.classList.toggle(
+            'dark',
+            window.matchMedia('(prefers-color-scheme: dark)').matches
+        )
+    </script>
+
     @livewireStyles
     @vite('resources/css/app.css')
 </head>
 
-<body class="antialiased">
+<body class="antialiased dark:bg-stone-900">
     {{ $slot }}
 
     @livewireScriptConfig

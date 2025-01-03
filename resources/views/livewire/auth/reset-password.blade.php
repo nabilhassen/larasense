@@ -74,7 +74,7 @@
             </label>
 
             <div class="flex items-center justify-end !mt-8">
-                <button class="btn bg-primary text-white hover:bg-primary hover:brightness-90 w-full disabled:bg-primary disabled:opacity-70 disabled:text-white">
+                <button class="btn bg-primary border-primary text-white hover:bg-primary hover:brightness-90 w-full disabled:bg-primary disabled:opacity-70 disabled:text-white">
                     Reset Password
                 </button>
             </div>
