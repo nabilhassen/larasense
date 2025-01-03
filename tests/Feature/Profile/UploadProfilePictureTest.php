@@ -1,0 +1,35 @@
+<?php
+
+use App\Livewire\Profile\UploadProfilePicture;
+use App\Models\User;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
+use Livewire\Livewire;
+
+test('user can upload a profile picture', function () {
+    $user = User::factory()->create();
+    Storage::fake();
+
+    Livewire::actingAs($user)
+        ->test(UploadProfilePicture::class)
+        ->set('file', UploadedFile::fake()->image('photo1.jpg'))
+        ->call('validateUploadedFile')
+        ->assertReturned(true)
+        ->assertDispatched('update-user-profile-picture');
+
+    expect($user->avatar)->not->toBe($user->refresh()->avatar);
+});
+
+test('user can remove a profile picture', function () {
+    $user = User::factory()->create();
+
+    Livewire::actingAs($user)
+        ->test(UploadProfilePicture::class)
+        ->set('file', null)
+        ->call('validateUploadedFile')
+        ->assertReturned(true)
+        ->assertDispatched('update-user-profile-picture');
+
+    expect($user->avatar)->not->toBe($user->refresh()->avatar);
+    expect($user->avatar_url)->toBeNull();
+});
