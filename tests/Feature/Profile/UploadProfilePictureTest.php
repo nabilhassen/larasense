@@ -17,7 +17,19 @@ test('user can upload a profile picture', function () {
         ->assertReturned(true)
         ->assertDispatched('update-user-profile-picture');
 
+    Storage::disk('public')->assertExists($user->refresh()->avatar_url);
+
     expect($user->avatar)->not->toBe($user->refresh()->avatar);
+});
+
+test('user cannot upload unsupported mimetypes profile picture', function () {
+    $user = User::factory()->create();
+
+    Livewire::actingAs($user)
+        ->test(UploadProfilePicture::class)
+        ->set('file', UploadedFile::fake()->create('photo1.svg', mimeType: 'svg'))
+        ->call('validateUploadedFile')
+        ->assertHasErrors('file');
 });
 
 test('user can remove a profile picture', function () {

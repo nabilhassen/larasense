@@ -11,7 +11,7 @@ class UploadProfilePicture extends Component
 {
     use WithFilePond;
 
-    #[Rule('nullable|mimetypes:image/webp,image/jpg,image/jpeg,image/png|max:3000')]
+    #[Rule('nullable|file|mimetypes:image/webp,image/jpg,image/jpeg,image/png|max:3000')]
     public $file;
 
     #[On('FilePond:removefile')]
