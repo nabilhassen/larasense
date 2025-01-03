@@ -2,7 +2,48 @@
     <div class="hero py-20">
         <div class="hero-content text-center">
             <div class="space-y-8">
-                <h1 class="max-w-4xl sm:text-6xl text-5xl font-bold">
+                <div
+                    class="max-w-3xl mx-auto flex justify-center gap-x-4 max-sm:hidden"
+                    x-init="change"
+                    x-data="{
+                        'types': ['podcast', 'youtube', 'article'],
+                        'currentTypeIndex': 0,
+                        change() {
+                            setInterval(() => {
+                                this.currentTypeIndex >= 2 ? this.currentTypeIndex = 0 : this.currentTypeIndex++;
+                            }, 2000);
+                        }
+                    }"
+                >
+                    <div class="flex items-center gap-x-1 rounded-btn w-fit py-2 px-3 border border-primary text-primary text-xs font-semibold">
+                        <x-heroicon-s-microphone
+                            class="size-4"
+                            x-bind:class="{ 'animate-pulse': types[currentTypeIndex] === 'podcast' }"
+                        />
+                        <span>
+                            Listen Podcasts
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-x-1 rounded-btn w-fit py-2 px-3 border border-primary text-primary text-xs font-semibold">
+                        <x-heroicon-s-video-camera
+                            class="size-4"
+                            x-bind:class="{ 'animate-pulse': types[currentTypeIndex] === 'youtube' }"
+                        />
+                        <span>
+                            Watch YouTube
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-x-1 rounded-btn w-fit py-2 px-3 border border-primary text-primary text-xs font-semibold">
+                        <x-heroicon-s-pencil-square
+                            class="size-4"
+                            x-bind:class="{ 'animate-pulse': types[currentTypeIndex] === 'article' }"
+                        />
+                        <span>
+                            Read Articles
+                        </span>
+                    </div>
+                </div>
+                <h1 class="max-w-4xl sm:text-6xl text-5xl font-bold !mt-4">
                     Stay informed. Stay ahead. Laravel news all in one place.
                 </h1>
                 <p class="max-w-3xl mx-auto">
