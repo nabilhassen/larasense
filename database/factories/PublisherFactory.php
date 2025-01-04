@@ -18,7 +18,7 @@ class PublisherFactory extends Factory
     {
         return [
             'name' => $this->faker->company(),
-            'logo' => $this->faker->imageUrl(),
+            'logo' => 'https://picsum.photos/600/480',
             'is_displayed' => 1,
             'is_tracked' => 1,
         ];

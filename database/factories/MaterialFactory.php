@@ -28,7 +28,7 @@ class MaterialFactory extends Factory
             'is_displayed' => 1,
             'url' => $this->faker->unique()->url(),
             'duration' => $this->faker->randomNumber(6),
-            'image_url' => $this->faker->imageUrl(),
+            'image_url' => 'https://picsum.photos/600/480',
             'published_at' => now(),
         ];
     }
