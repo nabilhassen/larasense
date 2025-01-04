@@ -12,17 +12,17 @@ beforeEach(function () {
 
     Material::factory()->create();
 
-    $this->material = Material::feedQuery()->first();
+    $this->material = Material::firstOrFail();
 });
 
 test('material item is render successfully', function () {
-    Livewire::test(Show::class, ['material' => $this->material])
-        ->assertSet('material', $this->material);
+    Livewire::test(Show::class, ['slug' => $this->material->slug])
+        ->assertSet('slug', $this->material->slug);
 });
 
 test('material item views count can increment', function () {
-    Livewire::test(Show::class, ['material' => $this->material])
-        ->assertSet('material', $this->material)
+    Livewire::test(Show::class, ['slug' => $this->material->slug])
+        ->assertSet('slug', $this->material->slug)
         ->call('viewed')
         ->call('viewed');
 
@@ -30,8 +30,8 @@ test('material item views count can increment', function () {
 });
 
 test('material item expands count can increment', function () {
-    Livewire::test(Show::class, ['material' => $this->material])
-        ->assertSet('material', $this->material)
+    Livewire::test(Show::class, ['slug' => $this->material->slug])
+        ->assertSet('slug', $this->material->slug)
         ->call('expanded')
         ->call('expanded');
 
@@ -39,8 +39,8 @@ test('material item expands count can increment', function () {
 });
 
 test('material item redirects count can increment', function () {
-    Livewire::test(Show::class, ['material' => $this->material])
-        ->assertSet('material', $this->material)
+    Livewire::test(Show::class, ['slug' => $this->material->slug])
+        ->assertSet('slug', $this->material->slug)
         ->call('redirected')
         ->call('redirected');
 
@@ -48,8 +48,8 @@ test('material item redirects count can increment', function () {
 });
 
 test('material item plays count can increment', function () {
-    Livewire::test(Show::class, ['material' => $this->material])
-        ->assertSet('material', $this->material)
+    Livewire::test(Show::class, ['slug' => $this->material->slug])
+        ->assertSet('slug', $this->material->slug)
         ->call('played')
         ->call('played');
 
@@ -57,8 +57,8 @@ test('material item plays count can increment', function () {
 });
 
 test('material item expands can increment', function () {
-    Livewire::test(Show::class, ['material' => $this->material])
-        ->assertSet('material', $this->material)
+    Livewire::test(Show::class, ['slug' => $this->material->slug])
+        ->assertSet('slug', $this->material->slug)
         ->call('expanded')
         ->call('expanded');
 
@@ -66,137 +66,81 @@ test('material item expands can increment', function () {
 });
 
 test('user can like a material', function () {
-    Livewire::test(Show::class, ['material' => $this->material])
-        ->assertSet('material', $this->material)
-        ->call('like');
-
-    $this->material = Material::feedQuery()->find($this->material->id);
-
-    Livewire::test(Show::class, ['material' => $this->material])
+    Livewire::test(Show::class, ['slug' => $this->material->slug])
+        ->assertSet('slug', $this->material->slug)
+        ->call('like')
         ->assertSet('isLiked', true);
 });
 
 test('user can unlike a material', function () {
-    Livewire::test(Show::class, ['material' => $this->material])
-        ->assertSet('material', $this->material)
-        ->call('like');
-
-    $this->material = Material::feedQuery()->find($this->material->id);
-
-    Livewire::test(Show::class, ['material' => $this->material])
+    Livewire::test(Show::class, ['slug' => $this->material->slug])
+        ->assertSet('slug', $this->material->slug)
+        ->call('like')
         ->assertSet('isLiked', true)
-        ->call('unlike');
-
-    $this->material = Material::feedQuery()->find($this->material->id);
-
-    Livewire::test(Show::class, ['material' => $this->material])
+        ->call('unlike')
         ->assertSet('isLiked', false);
 });
 
 test('user has liked one material', function () {
-    Livewire::test(Show::class, ['material' => $this->material])
-        ->assertSet('material', $this->material)
+    Livewire::test(Show::class, ['slug' => $this->material->slug])
+        ->assertSet('slug', $this->material->slug)
         ->assertSet('likesCount', 0)
         ->call('like')
-        ->call('like');
-
-    $this->material = Material::feedQuery()->find($this->material->id);
-
-    Livewire::test(Show::class, ['material' => $this->material])
+        ->call('like')
         ->assertSet('likesCount', 1);
 });
 
 test('user can dislike a material', function () {
-    Livewire::test(Show::class, ['material' => $this->material])
-        ->assertSet('material', $this->material)
-        ->call('dislike');
-
-    $this->material = Material::feedQuery()->find($this->material->id);
-
-    Livewire::test(Show::class, ['material' => $this->material])
+    Livewire::test(Show::class, ['slug' => $this->material->slug])
+        ->assertSet('slug', $this->material->slug)
+        ->call('dislike')
         ->assertSet('isDisliked', true);
 });
 
 test('user can undislike a material', function () {
-    Livewire::test(Show::class, ['material' => $this->material])
-        ->assertSet('material', $this->material)
-        ->call('dislike');
-
-    $this->material = Material::feedQuery()->find($this->material->id);
-
-    Livewire::test(Show::class, ['material' => $this->material])
+    Livewire::test(Show::class, ['slug' => $this->material->slug])
+        ->assertSet('slug', $this->material->slug)
+        ->call('dislike')
         ->assertSet('isDisliked', true)
-        ->call('undislike');
-
-    $this->material = Material::feedQuery()->find($this->material->id);
-
-    Livewire::test(Show::class, ['material' => $this->material])
+        ->call('undislike')
         ->assertSet('isDisliked', false);
 });
 
 test('user can like then dislike a material', function () {
-    Livewire::test(Show::class, ['material' => $this->material])
-        ->assertSet('material', $this->material)
-        ->call('like');
-
-    $this->material = Material::feedQuery()->find($this->material->id);
-
-    Livewire::test(Show::class, ['material' => $this->material])
+    Livewire::test(Show::class, ['slug' => $this->material->slug])
+        ->assertSet('slug', $this->material->slug)
+        ->call('like')
         ->assertSet('isLiked', true)
         ->assertSet('isDisliked', false)
-        ->call('dislike');
-
-    $this->material = Material::feedQuery()->find($this->material->id);
-
-    Livewire::test(Show::class, ['material' => $this->material])
+        ->call('dislike')
         ->assertSet('isLiked', false)
         ->assertSet('isDisliked', true);
 });
 
 test('user can dislike then like a material', function () {
-    Livewire::test(Show::class, ['material' => $this->material])
-        ->assertSet('material', $this->material)
-        ->call('dislike');
-
-    $this->material = Material::feedQuery()->find($this->material->id);
-
-    Livewire::test(Show::class, ['material' => $this->material])
+    Livewire::test(Show::class, ['slug' => $this->material->slug])
+        ->assertSet('slug', $this->material->slug)
+        ->call('dislike')
         ->assertSet('isDisliked', true)
         ->assertSet('isLiked', false)
-        ->call('like');
-
-    $this->material = Material::feedQuery()->find($this->material->id);
-
-    Livewire::test(Show::class, ['material' => $this->material])
+        ->call('like')
         ->assertSet('isDisliked', false)
         ->assertSet('isLiked', true);
 });
 
 test('user can bookmark a material', function () {
-    Livewire::test(Show::class, ['material' => $this->material])
-        ->assertSet('material', $this->material)
+    Livewire::test(Show::class, ['slug' => $this->material->slug])
+        ->assertSet('slug', $this->material->slug)
         ->assertSet('isBookmarked', false)
-        ->call('bookmark');
-
-    $this->material = Material::feedQuery()->find($this->material->id);
-
-    Livewire::test(Show::class, ['material' => $this->material])
+        ->call('bookmark')
         ->assertSet('isBookmarked', true);
 });
 
 test('user can unbookmark a material', function () {
-    Livewire::test(Show::class, ['material' => $this->material])
-        ->assertSet('material', $this->material)
-        ->call('bookmark');
-
-    $this->material = Material::feedQuery()->find($this->material->id);
-
-    Livewire::test(Show::class, ['material' => $this->material])
+    Livewire::test(Show::class, ['slug' => $this->material->slug])
+        ->assertSet('slug', $this->material->slug)
+        ->call('bookmark')
         ->assertSet('isBookmarked', true)
-        ->call('unbookmark');
-
-    $this->material = Material::feedQuery()->find($this->material->id);
-
-    Livewire::test(Show::class, ['material' => $this->material])
+        ->call('unbookmark')
         ->assertSet('isBookmarked', false);
 });

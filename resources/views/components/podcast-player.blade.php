@@ -18,7 +18,7 @@
         <audio
             class="player"
             controls
-            x-on:play="$wire.played('{{ $material->slug }}')"
+            x-on:play.once="$wire.played('{{ $material->slug }}')"
         >
             <source src="{{ $material->url }}" />
         </audio>

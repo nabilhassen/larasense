@@ -17,8 +17,12 @@ class Index extends Component
     public function render()
     {
         return view('livewire.materials.index', [
-            'materials' => Material::feedQuery()
-                ->addSelect('duration')
+            'materials' => Material::displayed()
+                ->latest('published_at')
+                ->select([
+                    'id',
+                    'slug',
+                ])
                 ->cursorPaginate($this->perPage),
         ]);
     }

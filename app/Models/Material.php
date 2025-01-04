@@ -116,6 +116,7 @@ class Material extends Model
                 'url',
                 'image_url',
                 'published_at',
+                'duration',
             ])
             ->with([
                 'source:id,publisher_id,type' => [
@@ -132,7 +133,7 @@ class Material extends Model
                 },
             ])
             ->withCount([
-                'likes' => fn(Builder $query) => $query->where('user_id', auth()->id()),
+                'likes',
             ]);
     }
 }

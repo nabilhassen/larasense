@@ -14,7 +14,8 @@
             x-on:keyup.enter="() => {
                 if (!$el.value.trim()) return;
 
-                $wire.view(currentSlug);
+                $wire.slug = currentSlug;
+                $wire.view();
                 isAutoCompleteVisible = false;
                 $el.blur();
             }"
@@ -42,7 +43,10 @@
                 @forelse ($materials as $materialItem)
                     <div
                         class="flex gap-x-4 items-center p-3 lg:text-sm text-xs cursor-pointer border-b border-b-stone-200 dark:border-b-stone-950 hover:bg-stone-100 dark:hover:bg-stone-950"
-                        wire:click="view('{{ $materialItem->slug }}')"
+                        x-on:click="() => {
+                            $wire.slug = '{{ $materialItem->slug }}';
+                            $wire.view();
+                        }"
                         x-bind:class="{ 'bg-stone-100 dark:bg-stone-950': currentMaterialIndex == @js($loop->index) }"
                         x-effect="currentMaterialIndex === @js($loop->index) && (currentSlug = @js($materialItem->slug))"
                     >
@@ -92,9 +96,13 @@
             wire:ignore
             class="modal lg:modal-top cursor-auto"
             x-data
-            x-init="$el.showModal()"
+            x-init="() => {
+                $el.showModal();
+                $wire.expanded();
+            }"
             x-on:close="() => {
                 $dispatch('close-{{ $material->source->type }}-modal', { material: @js($material) });
+                $wire.slug = null;
                 $el.remove();
             }"
         >

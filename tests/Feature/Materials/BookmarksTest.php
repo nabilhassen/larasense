@@ -20,9 +20,9 @@ test('bookmarks page renders successfully', function () {
 
 test('bookmarks feed displays bookmarked materials only', function () {
     Material::factory(10)->create();
-    $material = Material::feedQuery()->first();
+    $material = Material::first();
 
-    Livewire::test(Show::class, ['material' => $material])
+    Livewire::test(Show::class, ['slug' => $material->slug])
         ->call('bookmark');
 
     Livewire::test(Bookmarks::class)
@@ -35,8 +35,8 @@ test('bookmarks feed displays bookmarked materials only', function () {
 test('bookmarks feed can load more bookmarked materials', function () {
     Material::factory(20)->create();
 
-    foreach (Material::feedQuery()->limit(10)->get() as $material) {
-        Livewire::test(Show::class, ['material' => $material])
+    foreach (Material::limit(10)->get() as $material) {
+        Livewire::test(Show::class, ['slug' => $material->slug])
             ->call('bookmark');
     }
 

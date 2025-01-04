@@ -10,10 +10,14 @@ class Show extends Component
 {
     use HasEngagementMetrics;
 
-    public Material $material;
+    public string $slug;
 
     public function render()
     {
-        return view('livewire.materials.show');
+        return view('livewire.materials.show', [
+            'material' => Material::feedQuery()
+                ->slug($this->slug)
+                ->firstOrFail(),
+        ]);
     }
 }

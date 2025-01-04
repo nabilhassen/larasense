@@ -14,12 +14,7 @@ class Search extends Component
 
     public ?string $query = '';
 
-    public ?Material $material = null;
-
-    public function boot()
-    {
-        $this->material = null;
-    }
+    public ?string $slug = '';
 
     public function getMaterials(): Collection
     {
@@ -29,7 +24,21 @@ class Search extends Component
             return collect();
         }
 
-        return Material::feedQuery()
+        return Material::displayed()
+            ->latest('published_at')
+            ->select([
+                'id',
+                'source_id',
+                'slug',
+                'title',
+                'published_at',
+                'image_url',
+            ])
+            ->with([
+                'source:id,publisher_id,type' => [
+                    'publisher:id,name,logo',
+                ],
+            ])
             ->whereAny([
                 'title',
                 'description',
@@ -42,11 +51,14 @@ class Search extends Component
             ->get();
     }
 
-    public function view(string $slug): void
+    public function view(): ?Material
     {
-        $this->material = Material::feedQuery()
-            ->addSelect('duration')
-            ->slug($slug)
+        if (blank($this->slug)) {
+            return null;
+        }
+
+        return Material::feedQuery()
+            ->slug($this->slug)
             ->firstOrFail();
     }
 
@@ -54,6 +66,7 @@ class Search extends Component
     {
         return view('livewire.search', [
             'materials' => $this->getMaterials(),
+            'material' => $this->view(),
         ]);
     }
 }

@@ -20,9 +20,9 @@ test('likes page renders successfully', function () {
 
 test('likes feed displays liked materials only', function () {
     Material::factory(10)->create();
-    $material = Material::feedQuery()->first();
+    $material = Material::firstOrFail();
 
-    Livewire::test(Show::class, ['material' => $material])
+    Livewire::test(Show::class, ['slug' => $material->slug])
         ->call('like');
 
     Livewire::test(Likes::class)
@@ -35,8 +35,8 @@ test('likes feed displays liked materials only', function () {
 test('likes feed can load more liked materials', function () {
     Material::factory(20)->create();
 
-    foreach (Material::feedQuery()->limit(10)->get() as $material) {
-        Livewire::test(Show::class, ['material' => $material])
+    foreach (Material::limit(10)->get() as $material) {
+        Livewire::test(Show::class, ['slug' => $material->slug])
             ->call('like');
     }
 

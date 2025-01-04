@@ -15,31 +15,39 @@ trait HasEngagementMetrics
     #[Renderless]
     public function viewed(): void
     {
-        $this->material->increment('views');
+        Material::slug($this->slug)
+            ->firstOrFail()
+            ->increment('views');
     }
 
     #[Renderless]
     public function expanded(): void
     {
-        $this->material->increment('expands');
+        Material::slug($this->slug)
+            ->firstOrFail()
+            ->increment('expands');
     }
 
     #[Renderless]
     public function redirected(): void
     {
-        $this->material->increment('redirects');
+        Material::slug($this->slug)
+            ->firstOrFail()
+            ->increment('redirects');
     }
 
     #[Renderless]
     public function played(): void
     {
-        $this->material->increment('plays');
+        Material::slug($this->slug)
+            ->firstOrFail()
+            ->increment('plays');
     }
 
     #[Renderless]
     public function like(): void
     {
-        $material = $this->material;
+        $material = Material::slug($this->slug)->firstOrFail();
 
         DB::transaction(function () use ($material) {
             Reaction::remove(
@@ -59,7 +67,7 @@ trait HasEngagementMetrics
     public function unlike(): void
     {
         Like::remove(
-            $this->material,
+            Material::slug($this->slug)->firstOrFail(),
             auth()->user()
         );
     }
@@ -67,19 +75,24 @@ trait HasEngagementMetrics
     #[Computed]
     public function isLiked(): bool
     {
-        return $this->material->likes_exists;
+        return Like::has(
+            Material::slug($this->slug)->firstOrFail(),
+            auth()->user()
+        );
     }
 
     #[Computed]
     public function likesCount(): bool
     {
-        return $this->material->likes_count;
+        return Like::count(
+            Material::slug($this->slug)->firstOrFail()
+        );
     }
 
     #[Renderless]
     public function dislike(): void
     {
-        $material = $this->material;
+        $material = Material::slug($this->slug)->firstOrFail();
 
         DB::transaction(function () use ($material) {
             Like::remove(
@@ -99,7 +112,7 @@ trait HasEngagementMetrics
     public function undislike(): void
     {
         Reaction::remove(
-            $this->material,
+            Material::slug($this->slug)->firstOrFail(),
             auth()->user(),
             Material::DISLIKE_REACTION,
         );
@@ -108,14 +121,18 @@ trait HasEngagementMetrics
     #[Computed]
     public function isDisliked(): bool
     {
-        return $this->material->dislikes_exists;
+        return Reaction::has(
+            Material::slug($this->slug)->firstOrFail(),
+            auth()->user(),
+            Material::DISLIKE_REACTION,
+        );
     }
 
     #[Renderless]
     public function bookmark(): void
     {
         Bookmark::add(
-            $this->material,
+            Material::slug($this->slug)->firstOrFail(),
             auth()->user()
         );
     }
@@ -124,7 +141,7 @@ trait HasEngagementMetrics
     public function unbookmark(): void
     {
         Bookmark::remove(
-            $this->material,
+            Material::slug($this->slug)->firstOrFail(),
             auth()->user()
         );
     }
@@ -132,6 +149,9 @@ trait HasEngagementMetrics
     #[Computed]
     public function isBookmarked(): bool
     {
-        return $this->material->bookmarks_exists;
+        return Bookmark::has(
+            Material::slug($this->slug)->firstOrFail(),
+            auth()->user()
+        );
     }
 }
