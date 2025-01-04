@@ -122,18 +122,6 @@ class Material extends Model
                 'source:id,publisher_id,type' => [
                     'publisher:id,name,logo',
                 ],
-            ])
-            ->withExists([
-                'likes' => fn(Builder $query) => $query->where('user_id', auth()->id()),
-                'bookmarks' => fn(Builder $query) => $query->where('user_id', auth()->id()),
-                'reactions AS dislikes_exists' => function (Builder $query) {
-                    $query
-                        ->where('user_id', auth()->id())
-                        ->where('value', static::DISLIKE_REACTION);
-                },
-            ])
-            ->withCount([
-                'likes',
             ]);
     }
 }

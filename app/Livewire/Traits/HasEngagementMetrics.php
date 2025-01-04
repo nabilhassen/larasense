@@ -12,52 +12,48 @@ use Maize\Markable\Models\Reaction;
 
 trait HasEngagementMetrics
 {
+    #[Computed]
+    public function material(): Material
+    {
+        return Material::slug($this->slug)->firstOrFail();
+    }
+
     #[Renderless]
     public function viewed(): void
     {
-        Material::slug($this->slug)
-            ->firstOrFail()
-            ->increment('views');
+        $this->material->increment('views');
     }
 
     #[Renderless]
     public function expanded(): void
     {
-        Material::slug($this->slug)
-            ->firstOrFail()
-            ->increment('expands');
+        $this->material->increment('expands');
     }
 
     #[Renderless]
     public function redirected(): void
     {
-        Material::slug($this->slug)
-            ->firstOrFail()
-            ->increment('redirects');
+        $this->material->increment('redirects');
     }
 
     #[Renderless]
     public function played(): void
     {
-        Material::slug($this->slug)
-            ->firstOrFail()
-            ->increment('plays');
+        $this->material->increment('plays');
     }
 
     #[Renderless]
     public function like(): void
     {
-        $material = Material::slug($this->slug)->firstOrFail();
-
-        DB::transaction(function () use ($material) {
+        DB::transaction(function () {
             Reaction::remove(
-                $material,
+                $this->material,
                 auth()->user(),
                 Material::DISLIKE_REACTION,
             );
 
             Like::add(
-                $material,
+                $this->material,
                 auth()->user()
             );
         });
@@ -67,7 +63,7 @@ trait HasEngagementMetrics
     public function unlike(): void
     {
         Like::remove(
-            Material::slug($this->slug)->firstOrFail(),
+            $this->material,
             auth()->user()
         );
     }
@@ -76,7 +72,7 @@ trait HasEngagementMetrics
     public function isLiked(): bool
     {
         return Like::has(
-            Material::slug($this->slug)->firstOrFail(),
+            $this->material,
             auth()->user()
         );
     }
@@ -85,23 +81,21 @@ trait HasEngagementMetrics
     public function likesCount(): bool
     {
         return Like::count(
-            Material::slug($this->slug)->firstOrFail()
+            $this->material
         );
     }
 
     #[Renderless]
     public function dislike(): void
     {
-        $material = Material::slug($this->slug)->firstOrFail();
-
-        DB::transaction(function () use ($material) {
+        DB::transaction(function () {
             Like::remove(
-                $material,
+                $this->material,
                 auth()->user()
             );
 
             Reaction::add(
-                $material,
+                $this->material,
                 auth()->user(),
                 Material::DISLIKE_REACTION,
             );
@@ -112,7 +106,7 @@ trait HasEngagementMetrics
     public function undislike(): void
     {
         Reaction::remove(
-            Material::slug($this->slug)->firstOrFail(),
+            $this->material,
             auth()->user(),
             Material::DISLIKE_REACTION,
         );
@@ -122,7 +116,7 @@ trait HasEngagementMetrics
     public function isDisliked(): bool
     {
         return Reaction::has(
-            Material::slug($this->slug)->firstOrFail(),
+            $this->material,
             auth()->user(),
             Material::DISLIKE_REACTION,
         );
@@ -132,7 +126,7 @@ trait HasEngagementMetrics
     public function bookmark(): void
     {
         Bookmark::add(
-            Material::slug($this->slug)->firstOrFail(),
+            $this->material,
             auth()->user()
         );
     }
@@ -141,7 +135,7 @@ trait HasEngagementMetrics
     public function unbookmark(): void
     {
         Bookmark::remove(
-            Material::slug($this->slug)->firstOrFail(),
+            $this->material,
             auth()->user()
         );
     }
@@ -150,7 +144,7 @@ trait HasEngagementMetrics
     public function isBookmarked(): bool
     {
         return Bookmark::has(
-            Material::slug($this->slug)->firstOrFail(),
+            $this->material,
             auth()->user()
         );
     }
