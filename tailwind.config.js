@@ -1,4 +1,6 @@
 import defaultTheme from "tailwindcss/defaultTheme";
+import typography from "@tailwindcss/typography";
+import daisyui from "daisyui";
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -18,13 +20,13 @@ export default {
         },
     },
 
-    plugins: [require("@tailwindcss/typography"), require("daisyui")],
+    plugins: [typography, daisyui],
 
     daisyui: {
         themes: [
             {
                 light: {
-                    ...require("daisyui/src/theming/themes")["light"],
+                    ...daisyui.light,
                     primary: "#EF5A6F",
                     secondary: "#FFF1DB",
                 },
