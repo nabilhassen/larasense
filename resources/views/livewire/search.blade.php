@@ -3,7 +3,7 @@
     'currentMaterialIndex': 0,
     'currentSlug': null,
 }">
-    <label class="relative input input-bordered flex items-center gap-2 bg-stone-50 dark:bg-stone-900 border border-stone-50 dark:border-stone-900 focus:border focus-within:border !outline-none">
+    <label class="relative input input-bordered flex items-center gap-2 bg-stone-50 dark:bg-stone-900 border-stone-50 dark:border-stone-900 focus-within:border-stone-200 dark:focus-within:border-stone-800 !outline-none">
         <input
             type="text"
             class="grow"
@@ -37,7 +37,7 @@
         </svg>
         @if (filled($query))
             <div
-                class="absolute inset-x-0 z-10 top-full max-h-fit overflow-y-auto mt-2 rounded-btn bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-900"
+                class="absolute inset-x-0 z-10 top-full max-h-fit overflow-y-auto mt-2 rounded-btn bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800"
                 x-bind:class="{ 'hidden': !isAutoCompleteVisible }"
             >
                 @forelse ($materials as $materialItem)
