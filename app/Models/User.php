@@ -36,6 +36,7 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser, Has
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'is_admin' => 'boolean',
         ];
     }
 
@@ -59,7 +60,7 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser, Has
 
     public function canAccessPanel(Panel $panel): bool
     {
-        return true;
+        return $this->hasVerifiedEmail() && $this->is_admin;
     }
 
     public function getFilamentAvatarUrl(): ?string
