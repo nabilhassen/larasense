@@ -219,5 +219,5 @@
         </div>
     </div>
 
-    <x-material-modal :$material />
+    {{-- <x-material-modal :$material /> --}}
 </article>
