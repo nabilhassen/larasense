@@ -16,6 +16,7 @@
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.4",
         "maize-tech/laravel-markable": "^2.2",
+        "romanzipp/laravel-queue-monitor": "^5.3",
         "shweshi/opengraph": "^1.1",
         "spatie/livewire-filepond": "^1.4",
         "willvincent/feeds": "^2.6"

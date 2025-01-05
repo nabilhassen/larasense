@@ -19,7 +19,7 @@ class BugReportResource extends Resource
 {
     protected static ?string $model = BugReport::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-bug';
+    protected static ?string $navigationIcon = 'heroicon-o-exclamation-circle';
 
     protected static ?int $navigationSort = 4;
 

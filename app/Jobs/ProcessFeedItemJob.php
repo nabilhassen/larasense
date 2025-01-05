@@ -8,11 +8,12 @@ use App\Models\Source;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
 use Illuminate\Support\Facades\DB;
+use romanzipp\QueueMonitor\Traits\IsMonitored;
 use SimplePie\Item;
 
 class ProcessFeedItemJob implements ShouldQueue
 {
-    use Queueable;
+    use Queueable, IsMonitored;
 
     /**
      * Create a new job instance.

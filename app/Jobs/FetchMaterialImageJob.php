@@ -9,10 +9,11 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Laravel\Facades\Image;
+use romanzipp\QueueMonitor\Traits\IsMonitored;
 
 class FetchMaterialImageJob implements ShouldQueue
 {
-    use Queueable;
+    use Queueable, IsMonitored;
 
     /**
      * Create a new job instance.
