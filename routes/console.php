@@ -6,8 +6,8 @@ Schedule::command('queue-monitor:stale --beforeDays=1')->withoutOverlapping()->d
 
 Schedule::command('queue-monitor:purge --beforeDays=7')->withoutOverlapping()->daily();
 
-Schedule::command('larasense:bot')->withoutOverlapping()->everyMinute();
+Schedule::command('queue:retry all')->withoutOverlapping()->everyTenMinutes();
 
-Schedule::command('queue:work --tries=3')->withoutOverlapping()->everyMinute();
+Schedule::command('larasense:bot')->withoutOverlapping()->everyTenMinutes();
 
-Schedule::command('queue:retry all')->withoutOverlapping()->everyMinute();
+Schedule::command('queue:work --tries=2 --stop-when-emtpy --max-time=300')->withoutOverlapping()->everyTenMinutes();

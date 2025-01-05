@@ -16,7 +16,10 @@
             <div class="flex justify-between items-center">
                 <div class="avatar">
                     <div class="w-12 rounded-full">
-                        <img src="{{ asset('storage/' . $material->source->publisher->logo) }}" />
+                        <img
+                            loading="lazy"
+                            src="{{ asset('storage/' . $material->source->publisher->logo) }}"
+                        />
                     </div>
                 </div>
                 <div>
@@ -158,6 +161,7 @@
                 <hr class="!my-12">
                 <figure>
                     <img
+                        loading="lazy"
                         src="{{ $material->thumbnail }}"
                         alt=""
                         class="rounded-box size-full shadow-2xl"
