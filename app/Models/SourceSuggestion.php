@@ -11,7 +11,7 @@ class SourceSuggestion extends Model
     /** @use HasFactory<\Database\Factories\SourceSuggestionFactory> */
     use HasFactory;
 
-    public function publisher(): BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }

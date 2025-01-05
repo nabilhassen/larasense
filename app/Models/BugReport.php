@@ -11,7 +11,7 @@ class BugReport extends Model
     /** @use HasFactory<\Database\Factories\BugReportFactory> */
     use HasFactory;
 
-    public function publisher(): BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }

@@ -40,7 +40,7 @@ class BugReportResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('user.name')
-                    ->numeric()
+                    ->searchable()
                     ->sortable(),
 
                 TextColumn::make('description')
