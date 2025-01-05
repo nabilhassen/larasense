@@ -5,7 +5,7 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Livewire\Auth as Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::domain('app.larasense.test')->group(function () {
+Route::domain(config('app.subdomain'))->group(function () {
 
     Route::middleware('guest')->group(function () {
         Route::get('register', Auth\Register::class)

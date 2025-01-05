@@ -5,7 +5,7 @@ namespace App\Console\Commands;
 use App\Models\User;
 use Illuminate\Console\Command;
 
-class CreateAdminUser extends Command
+class CreateAdminUserCommand extends Command
 {
     /**
      * The name and signature of the console command.

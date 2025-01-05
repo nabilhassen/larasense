@@ -65,7 +65,7 @@ class AdminPanelProvider extends PanelProvider
                 $panel->navigationItems([
                     NavigationItem::make('Pulse')
                     ->group('Performance')
-                    ->url(config('pulse.path'), shouldOpenInNewTab: true)
+                    ->url(url(config('pulse.path')), shouldOpenInNewTab: true)
                     ->icon('heroicon-o-chart-bar-square')
                     ->sort(2),
                 ]);

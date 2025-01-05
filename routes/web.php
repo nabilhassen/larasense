@@ -9,7 +9,7 @@ require __DIR__ . '/auth.php';
 Route::post('update-timezone', UpdateUserTimezoneController::class)
     ->name('timezone.update');
 
-Route::domain('app.larasense.test')
+Route::domain(config('app.subdomain'))
     ->middleware(['auth', 'verified'])
     ->group(function () {
         Route::get('/', Livewire\Materials\Index::class)
