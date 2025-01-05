@@ -60,12 +60,22 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->spa()
             ->databaseTransactions()
+            ->darkMode()
             ->bootUsing(function (Panel $panel) {
                 $panel->navigationItems([
+                    NavigationItem::make('Pulse')
+                    ->group('Performance')
+                    ->url(config('pulse.path'), shouldOpenInNewTab: true)
+                    ->icon('heroicon-o-chart-bar-square')
+                    ->sort(2),
+                ]);
+
+                $panel->navigationItems([
                     NavigationItem::make('Queue Monitor')
+                    ->group('Performance')
                     ->url(route('queue-monitor::index'), shouldOpenInNewTab: true)
                     ->icon('heroicon-o-queue-list')
-                    ->sort(2),
+                    ->sort(3),
                 ]);
             });
     }
