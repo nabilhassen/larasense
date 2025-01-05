@@ -57,4 +57,9 @@ class FetchMaterialImageJob implements ShouldQueue
             ->append($imageExtension)
             ->toString();
     }
+
+    public static function keepMonitorOnSuccess(): bool
+    {
+        return false;
+    }
 }

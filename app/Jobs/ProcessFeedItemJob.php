@@ -37,4 +37,9 @@ class ProcessFeedItemJob implements ShouldQueue
             $source->updateLastCheckedAt();
         });
     }
+
+    public static function keepMonitorOnSuccess(): bool
+    {
+        return false;
+    }
 }

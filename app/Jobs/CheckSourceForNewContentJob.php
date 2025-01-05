@@ -24,4 +24,9 @@ class CheckSourceForNewContentJob implements ShouldQueue
     {
         $checkSourceForNewContentAction->handle($this->sourceId);
     }
+
+    public static function keepMonitorOnSuccess(): bool
+    {
+        return false;
+    }
 }
