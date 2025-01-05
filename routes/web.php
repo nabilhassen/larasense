@@ -12,7 +12,7 @@ Route::post('update-timezone', UpdateUserTimezoneController::class)
 Route::domain(config('app.subdomain'))
     ->middleware(['auth', 'verified'])
     ->group(function () {
-        Route::get('/', Livewire\Materials\Index::class)
+        Route::get('/home', Livewire\Materials\Index::class)
             ->name('dashboard');
 
         Route::get('likes', Livewire\Materials\Likes::class)
