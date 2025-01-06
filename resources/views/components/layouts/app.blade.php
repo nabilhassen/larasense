@@ -31,6 +31,10 @@
         )
     </script>
 
+    <link
+        rel="stylesheet"
+        href="{{ asset('vendor/livewire-filepond/filepond.css') }}"
+    >
     @livewireStyles
     @vite('resources/css/app.css')
 </head>
@@ -61,7 +65,12 @@
 
     @livewireScriptConfig
     @vite('resources/js/app.js')
-    @filepondScripts
+    <script
+        src="{{ asset('vendor/livewire-filepond/filepond.js') }}"
+        data-navigate-once
+        defer
+        data-navigate-track
+    ></script>
     <x-update-timezone current-timezone="{{ auth()->user()->timezone }}" />
     @stack('scripts')
 </body>
