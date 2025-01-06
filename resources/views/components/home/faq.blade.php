@@ -1,6 +1,6 @@
 <section
     id="faq"
-    class="container mx-auto scroll-m-20 text-stone-700"
+    class="container mx-auto scroll-m-20"
 >
     <div class="grid sm:grid-cols-2 max-sm:space-y-12 max-sm:mx-4">
         <h2 class="font-extrabold sm:text-8xl text-6xl max-sm:text-center sm:space-y-4 opacity-65">

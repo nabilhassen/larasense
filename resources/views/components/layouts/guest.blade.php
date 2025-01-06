@@ -34,7 +34,7 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="antialiased dark:bg-stone-900">
+<body class="antialiased dark:bg-stone-900 text-stone-700 dark:text-stone-300">
     {{ $slot }}
 
     @livewireScriptConfig

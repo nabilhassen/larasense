@@ -1,4 +1,4 @@
-<footer class="container mx-auto text-stone-700">
+<footer class="container mx-auto">
     <div class="py-8 max-sm:mx-4">
         <div class="flex max-sm:flex-col justify-between sm:items-center">
             <figure>

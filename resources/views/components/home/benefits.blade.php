@@ -1,6 +1,6 @@
 <section
     id="benefits"
-    class="container mx-auto scroll-m-20 text-stone-700"
+    class="container mx-auto scroll-m-20"
 >
     <div class="bg-secondary dark:bg-stone-950 rounded-badge sm:px-20 px-6 py-16 space-y-20 max-sm:mx-4">
         <h2 class="text-5xl text-center">

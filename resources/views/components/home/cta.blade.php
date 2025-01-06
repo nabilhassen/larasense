@@ -1,4 +1,4 @@
-<section class="container mx-auto text-stone-700">
+<section class="container mx-auto">
     <div class="bg-secondary dark:bg-stone-950 rounded-badge p-12 max-sm:px-8 space-y-10 max-sm:mx-4">
         <div>
             <h2 class="sm:text-4xl text-3xl font-bold">

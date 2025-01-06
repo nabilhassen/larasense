@@ -1,4 +1,4 @@
-<section class="container mx-auto text-stone-700">
+<section class="container mx-auto">
     <div class="border-4 border-secondary dark:border-primary rounded-badge sm:px-20 px-6 py-16 space-y-20 shadow-xl max-sm:mx-4">
         <h2 class="text-5xl text-center">
             Stay informed like <span class="text-primary">a PRO</span>

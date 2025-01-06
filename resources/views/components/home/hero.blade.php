@@ -1,4 +1,4 @@
-<section class="container mx-auto text-stone-700">
+<section class="container mx-auto">
     <div class="hero py-20">
         <div class="hero-content text-center">
             <div class="space-y-8">

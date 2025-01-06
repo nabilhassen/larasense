@@ -1,6 +1,6 @@
 <section
     id="sources"
-    class="container mx-auto scroll-m-20 text-stone-700"
+    class="container mx-auto scroll-m-20"
 >
     <div class="space-y-12">
         <h2 class="text-center opacity-50">
