@@ -2,7 +2,6 @@
 
 namespace App\Livewire;
 
-use App\Livewire\Traits\HasEngagementMetrics;
 use App\Models\Material;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
@@ -10,11 +9,7 @@ use Livewire\Component;
 
 class Search extends Component
 {
-    use HasEngagementMetrics;
-
     public ?string $query = '';
-
-    public ?string $slug = '';
 
     public function getMaterials(): Collection
     {
@@ -51,22 +46,10 @@ class Search extends Component
             ->get();
     }
 
-    public function view(): ?Material
-    {
-        if (blank($this->slug)) {
-            return null;
-        }
-
-        return Material::feedQuery()
-            ->slug($this->slug)
-            ->firstOrFail();
-    }
-
     public function render()
     {
         return view('livewire.search', [
             'materials' => $this->getMaterials(),
-            'material' => $this->view(),
         ]);
     }
 }

@@ -56,15 +56,6 @@ test('material item plays count can increment', function () {
     expect($this->material->fresh()->plays)->toBe(2);
 });
 
-test('material item expands can increment', function () {
-    Livewire::test(Show::class, ['slug' => $this->material->slug])
-        ->assertSet('slug', $this->material->slug)
-        ->call('expanded')
-        ->call('expanded');
-
-    expect($this->material->fresh()->expands)->toBe(2);
-});
-
 test('user can like a material', function () {
     Livewire::test(Show::class, ['slug' => $this->material->slug])
         ->assertSet('slug', $this->material->slug)

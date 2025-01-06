@@ -57,6 +57,8 @@
 
     <livewire:report-bugs-modal />
 
+    <livewire:materials.modal />
+
     @livewireScriptConfig
     @filepondScripts
     @vite('resources/js/app.js')

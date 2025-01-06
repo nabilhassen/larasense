@@ -1,0 +1,30 @@
+<?php
+
+namespace App\Livewire\Materials;
+
+use App\Livewire\Traits\HasEngagementMetrics;
+use App\Models\Material;
+use Livewire\Attributes\On;
+use Livewire\Component;
+
+class Modal extends Component
+{
+    use HasEngagementMetrics;
+
+    public string $slug = '';
+
+    #[On('open-material-modal')]
+    public function setSlug(string $slug = ''): void
+    {
+        $this->slug = $slug;
+    }
+
+    public function render()
+    {
+        return view('livewire.materials.modal', [
+            'material' => Material::feedQuery()
+                ->slug($this->slug)
+                ->first(),
+        ]);
+    }
+}

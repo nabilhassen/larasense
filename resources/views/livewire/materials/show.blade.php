@@ -7,8 +7,9 @@
     <a
         class="absolute size-full inset-0"
         x-on:click="() => {
-            $dispatch('open-modal', { slug: 'material.{{ $material->slug }}' });
-            $wire.expanded();
+            $wire.dispatch('open-material-modal', {
+                slug: '{{ $material->slug }}'
+            });
         }"
     ></a>
     <div class="flex flex-col h-full space-y-4">
@@ -194,8 +195,9 @@
                     <button
                         class="inline-flex"
                         x-on:click="() => {
-                            $dispatch('open-modal', { slug: 'material.{{ $material->slug }}' });
-                            $wire.expanded();
+                            $wire.dispatch('open-material-modal', {
+                                slug: '{{ $material->slug }}'
+                            });
                         }"
                     >
                         <x-heroicon-o-play class="inline-flex size-6 hover:stroke-primary stroke-stone-800 dark:stroke-stone-600" />
@@ -218,6 +220,4 @@
             @endif
         </div>
     </div>
-
-    <x-material-modal :$material />
 </article>
