@@ -7,18 +7,18 @@ export const themeMode = {
             ? "dark"
             : "light";
 
-        this.mode = localStorage.themeMode ?? systemThemeMode;
+        this.mode = localStorage.getItem("themeMode") ?? systemThemeMode;
     },
 
     toggle() {
         if (this.mode === "light") {
-            localStorage.themeMode = "dark";
-            this.mode = localStorage.themeMode;
+            localStorage.setItem("themeMode", "dark");
+            this.mode = localStorage.getItem("themeMode");
             return;
         }
 
-        localStorage.themeMode = "light";
-        this.mode = localStorage.themeMode;
+        localStorage.setItem("themeMode", "light");
+        this.mode = localStorage.getItem("themeMode");
     },
 
     isDark() {

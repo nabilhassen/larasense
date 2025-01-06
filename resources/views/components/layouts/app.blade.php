@@ -27,7 +27,7 @@
     <script>
         document.documentElement.classList.toggle(
             'dark',
-            localStorage.themeMode === 'dark' || (!('themeMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+            localStorage.getItem('getthemeMode') === 'dark' || (!('themeMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
         )
     </script>
 
