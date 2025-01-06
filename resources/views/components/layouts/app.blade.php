@@ -60,8 +60,8 @@
     <livewire:materials.modal />
 
     @livewireScriptConfig
-    @filepondScripts
     @vite('resources/js/app.js')
+    @filepondScripts
     <x-update-timezone current-timezone="{{ auth()->user()->timezone }}" />
     @stack('scripts')
 </body>
