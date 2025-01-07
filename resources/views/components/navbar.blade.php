@@ -61,7 +61,11 @@
                     </li>
                 </ul>
             </div>
-            <a class="btn btn-ghost text-xl hover:!bg-inherit">
+            <a
+                wire:navigate
+                href="{{ route('home') }}"
+                class="btn btn-ghost text-xl hover:!bg-inherit max-lg:hidden"
+            >
                 <img
                     class="sm:w-52 w-48"
                     src="{{ asset('img/logo.png') }}"
@@ -69,8 +73,8 @@
                 >
             </a>
         </div>
-        <div class="navbar-center hidden lg:flex">
-            <ul class="menu menu-horizontal px-1 font-semibold">
+        <div class="navbar-center">
+            <ul class="menu menu-horizontal px-1 font-semibold hidden lg:flex">
                 <li>
                     <a
                         class="hover:bg-secondary active:!bg-secondary focus:!bg-secondary active:!text-inherit"
@@ -105,6 +109,17 @@
                     </a>
                 </li>
             </ul>
+            <a
+                wire:navigate
+                href="{{ route('home') }}"
+                class="btn btn-ghost text-xl hover:!bg-inherit lg:hidden"
+            >
+                <img
+                    class="sm:w-52 max-w-40"
+                    src="{{ asset('img/logo.png') }}"
+                    alt="Larasense logo"
+                >
+            </a>
         </div>
         <div class="navbar-end gap-x-2">
             <a
@@ -116,7 +131,9 @@
                 wire:navigate
                 class="btn bg-primary font-bold text-white border-none hover:bg-primary hover:brightness-90"
                 href="{{ route('register') }}"
-            >Join Now</a>
+            >
+                Join <span class="max-sm:hidden">Now</span>
+            </a>
         </div>
     </div>
 </section>
