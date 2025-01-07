@@ -1,6 +1,7 @@
 @props(['material'])
 
 <article
+    x-data
     class="relative flex flex-col border-2 border-secondary dark:border-stone-800 hover:border-primary cursor-pointer p-4 rounded-xl"
     x-intersect.once.full="$wire.viewed()"
 >

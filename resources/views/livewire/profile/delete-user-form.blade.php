@@ -9,6 +9,7 @@
     </div>
 
     <button
+        x-data
         class="btn bg-stone-700 dark:bg-white hover:bg-stone-900 dark:hover:bg-stone-200 text-white dark:text-stone-900"
         x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')"
     >
@@ -59,6 +60,7 @@
 
             <div class="mt-6 flex justify-end gap-x-2">
                 <button
+                    x-data
                     class="btn btn-outline"
                     x-on:click="$dispatch('close')"
                 >
