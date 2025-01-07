@@ -1,7 +1,10 @@
 <div class="w-1/5 max-lg:hidden">
     <div class="fixed py-6 flex flex-col space-y-12 h-screen w-fit">
         <figure class="h-12 flex items-center">
-            <a href="{{ route('dashboard') }}">
+            <a
+                wire:navigate
+                href="{{ route('dashboard') }}"
+            >
                 <img
                     class="sm:w-52 w-48"
                     src="{{ asset('img/logo.png') }}"

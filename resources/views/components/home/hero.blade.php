@@ -51,6 +51,7 @@
                     from your favorite and most trusted blogs, YouTube channels, and podcasts, all presented in a simple, beautiful design.
                 </p>
                 <a
+                    wire:navigate
                     class="btn btn-lg bg-primary font-bold text-white border-none hover:bg-primary hover:brightness-90"
                     href="{{ route('register') }}"
                 >

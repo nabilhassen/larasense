@@ -9,6 +9,7 @@
             </h3>
         </div>
         <a
+            wire:navigate
             class="btn bg-primary font-bold text-white border-none hover:bg-primary hover:brightness-90"
             href="{{ route('register') }}"
         >

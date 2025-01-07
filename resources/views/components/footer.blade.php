@@ -44,6 +44,7 @@
                 </li>
                 <li>
                     <a
+                        wire:navigate
                         class="hover:bg-secondary active:!bg-secondary focus:!bg-secondary active:!text-inherit max-sm:pl-0"
                         href="{{ route('login') }}"
                     >
@@ -52,6 +53,7 @@
                 </li>
                 <li>
                     <a
+                        wire:navigate
                         class="hover:bg-secondary active:!bg-secondary focus:!bg-secondary active:!text-inherit max-sm:pl-0"
                         href="{{ route('register') }}"
                     >

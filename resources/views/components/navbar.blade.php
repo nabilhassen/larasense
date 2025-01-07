@@ -26,11 +26,39 @@
                     tabindex="0"
                     class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
                 >
-                    <li><a>Home</a></li>
-                    <li><a>Features</a></li>
-                    <li><a>Benefits</a></li>
-                    <li><a>Sources</a></li>
-                    <li><a>FAQ</a></li>
+                    <li>
+                        <a
+                            class="hover:bg-secondary active:!bg-secondary focus:!bg-secondary active:!text-inherit"
+                            href="{{ route('home') }}"
+                            wire:navigate
+                        >
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            class="hover:bg-secondary active:!bg-secondary focus:!bg-secondary active:!text-inherit"
+                            href="{{ route('home') }}#sources"
+                        >
+                            Sources
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            class="hover:bg-secondary active:!bg-secondary focus:!bg-secondary active:!text-inherit"
+                            href="{{ route('home') }}#benefits"
+                        >
+                            Benefits
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            class="hover:bg-secondary active:!bg-secondary focus:!bg-secondary active:!text-inherit"
+                            href="{{ route('home') }}#faq"
+                        >
+                            FAQ
+                        </a>
+                    </li>
                 </ul>
             </div>
             <a class="btn btn-ghost text-xl hover:!bg-inherit">
@@ -80,10 +108,12 @@
         </div>
         <div class="navbar-end gap-x-2">
             <a
+                wire:navigate
                 class="btn btn-outline text-primary hidden hover:bg-primary hover:border-primary sm:inline-flex"
                 href="{{ route('login') }}"
             >Login</a>
             <a
+                wire:navigate
                 class="btn bg-primary font-bold text-white border-none hover:bg-primary hover:brightness-90"
                 href="{{ route('register') }}"
             >Join Now</a>

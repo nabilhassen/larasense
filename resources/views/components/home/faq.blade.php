@@ -55,6 +55,7 @@
                         class="opacity-90"
                     >
                         Yes. 100% free. <a
+                            wire:navigate
                             class="link text-primary font-bold"
                             href="{{ route('register') }}"
                         >Sign up</a> and enjoy!

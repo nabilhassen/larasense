@@ -24,7 +24,7 @@ Route::middleware(['auth', 'verified'])
             ->name('settings');
     });
 
-Route::get('/', Livewire\Home::class)->name('home');
+Route::get('/', Livewire\Home::class)->middleware('guest')->name('home');
 
 Route::get('terms-and-conditions', Livewire\Legal\Terms::class)->name('terms');
 
