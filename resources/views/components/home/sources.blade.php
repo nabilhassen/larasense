@@ -2,7 +2,7 @@
     id="sources"
     class="container mx-auto scroll-m-20"
 >
-    <div class="space-y-12">
+    <div class="space-y-12 max-sm:mx-4">
         <h2 class="text-center opacity-50">
             Curated content from blogs, YouTube channels, podcasts <span class="text-primary font-bold">we all know and love</span>
         </h2>

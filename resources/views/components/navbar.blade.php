@@ -24,11 +24,11 @@
                 </div>
                 <ul
                     tabindex="0"
-                    class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+                    class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow dark:bg-stone-900"
                 >
                     <li>
                         <a
-                            class="hover:bg-secondary active:!bg-secondary focus:!bg-secondary active:!text-inherit"
+                            class="hover:bg-secondary dark:hover:bg-stone-950 active:!bg-secondary dark:active:!bg-stone-950 focus:!bg-secondary dark:focus:!bg-stone-950 active:!text-inherit"
                             href="{{ route('home') }}"
                             wire:navigate
                         >
@@ -37,7 +37,7 @@
                     </li>
                     <li>
                         <a
-                            class="hover:bg-secondary active:!bg-secondary focus:!bg-secondary active:!text-inherit"
+                            class="hover:bg-secondary dark:hover:bg-stone-950 active:!bg-secondary dark:active:!bg-stone-950 focus:!bg-secondary dark:focus:!bg-stone-950 active:!text-inherit"
                             href="{{ route('home') }}#sources"
                         >
                             Sources
@@ -45,7 +45,7 @@
                     </li>
                     <li>
                         <a
-                            class="hover:bg-secondary active:!bg-secondary focus:!bg-secondary active:!text-inherit"
+                            class="hover:bg-secondary dark:hover:bg-stone-950 active:!bg-secondary dark:active:!bg-stone-950 focus:!bg-secondary dark:focus:!bg-stone-950 active:!text-inherit"
                             href="{{ route('home') }}#benefits"
                         >
                             Benefits
@@ -53,7 +53,7 @@
                     </li>
                     <li>
                         <a
-                            class="hover:bg-secondary active:!bg-secondary focus:!bg-secondary active:!text-inherit"
+                            class="hover:bg-secondary dark:hover:bg-stone-950 active:!bg-secondary dark:active:!bg-stone-950 focus:!bg-secondary dark:focus:!bg-stone-950 active:!text-inherit"
                             href="{{ route('home') }}#faq"
                         >
                             FAQ

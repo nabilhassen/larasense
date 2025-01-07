@@ -1,6 +1,6 @@
 <div class="space-y-2">
     <a
-        class="btn bg-white hover:bg-none hover:bg-stone-50 border border-stone-300 w-full min-h-10 h-10"
+        class="btn bg-white dark:bg-stone-900 hover:bg-stone-50 dark:hover:bg-stone-800 border-none w-full min-h-10 h-10 dark:text-stone-300"
         href="{{ route('socialite.redirect', 'google') }}"
     >
         <svg
@@ -33,14 +33,14 @@
         </span>
     </a>
     <a
-        class="btn bg-white hover:bg-none hover:bg-stone-50 border border-stone-300 w-full min-h-10 h-10"
+        class="btn bg-white dark:bg-stone-900 hover:bg-stone-50 dark:hover:bg-stone-800 border-none w-full min-h-10 h-10 dark:text-stone-300"
         href="{{ route('socialite.redirect', 'github') }}"
     >
         <svg
             viewBox="0 0 128 128"
             class="size-6"
         >
-            <g fill="#181616">
+            <g class="dark:fill-white">
                 <path
                     fill-rule="evenodd"
                     clip-rule="evenodd"
