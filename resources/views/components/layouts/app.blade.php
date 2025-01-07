@@ -18,12 +18,7 @@
     <meta
         name="theme-color"
         media="(prefers-color-scheme: light)"
-        content="#EF5A6F"
-    />
-    <meta
-        name="theme-color"
-        media="(prefers-color-scheme: dark)"
-        content="black"
+        content=""
     />
 
 
@@ -36,10 +31,10 @@
     <title>Larasense - {{ $title ?? '' }}</title>
 
     <script>
-        document.documentElement.classList.toggle(
-            'dark',
-            localStorage.getItem('themeMode') === 'dark' || (!('themeMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-        )
+        let isDark = localStorage.getItem('themeMode') === 'dark' || (!('themeMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+        document.documentElement.classList.toggle('dark', isDark);
+        document.querySelector('meta[name="theme-color"]').setAttribute("content", isDark ? 'black' : '#EF5A6F');
     </script>
 
     @livewireStyles

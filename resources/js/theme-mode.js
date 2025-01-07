@@ -15,6 +15,9 @@ export const themeMode = {
 
         localStorage.setItem("themeMode", this.mode);
         document.documentElement.classList.toggle("dark", this.isDark());
+        document
+            .querySelector('meta[name="theme-color"]')
+            .setAttribute("content", this.isDark() ? "black" : "#EF5A6F");
     },
 
     isDark() {
