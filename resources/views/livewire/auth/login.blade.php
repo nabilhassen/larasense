@@ -16,19 +16,19 @@
             Login
         </h1>
         <x-socialite-auth />
-        <div class="divider text-sm">OR</div>
+        <div class="divider dark:divider-primary text-sm">OR</div>
         <form
             wire:submit="login"
             class="space-y-2"
         >
             <label class="form-control w-full">
                 <div class="label">
-                    <span class="label-text">Email</span>
+                    <span>Email</span>
                 </div>
                 <input
                     wire:model="form.email"
                     id="email"
-                    class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10"
+                    class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
                     type="email"
                     name="email"
                     required
@@ -44,12 +44,12 @@
 
             <label class="form-control w-full">
                 <div class="label">
-                    <span class="label-text">Password</span>
+                    <span>Password</span>
                 </div>
                 <input
                     wire:model="form.password"
                     id="password"
-                    class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10"
+                    class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
                     type="password"
                     name="password"
                     required

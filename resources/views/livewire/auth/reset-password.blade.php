@@ -18,12 +18,12 @@
         >
             <label class="form-control w-full">
                 <div class="label">
-                    <span class="label-text">Email</span>
+                    <span>Email</span>
                 </div>
                 <input
                     wire:model="email"
                     id="email"
-                    class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10"
+                    class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
                     type="email"
                     name="email"
                     required
@@ -38,12 +38,12 @@
 
             <label class="form-control w-full">
                 <div class="label">
-                    <span class="label-text">Password</span>
+                    <span>Password</span>
                 </div>
                 <input
                     wire:model="password"
                     id="password"
-                    class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10"
+                    class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
                     type="password"
                     name="password"
                     required
@@ -58,12 +58,12 @@
 
             <label class="form-control w-full">
                 <div class="label">
-                    <span class="label-text">Confirm Password</span>
+                    <span>Confirm Password</span>
                 </div>
                 <input
                     wire:model="password_confirmation"
                     id="password_confirmation"
-                    class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10"
+                    class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
                     type="password"
                     name="password_confirmation"
                     required

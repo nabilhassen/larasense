@@ -16,19 +16,19 @@
             Sign Up
         </h1>
         <x-socialite-auth />
-        <div class="divider text-sm">OR</div>
+        <div class="divider dark:divider-primary text-sm">OR</div>
         <form
             wire:submit="register"
             class="space-y-2"
         >
             <label class="form-control w-full">
                 <div class="label">
-                    <span class="label-text">Name</span>
+                    <span>Name</span>
                 </div>
                 <input
                     wire:model="name"
                     id="name"
-                    class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10"
+                    class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
                     type="text"
                     name="name"
                     required
@@ -43,12 +43,12 @@
 
             <label class="form-control w-full">
                 <div class="label">
-                    <span class="label-text">Email</span>
+                    <span>Email</span>
                 </div>
                 <input
                     wire:model="email"
                     id="email"
-                    class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10"
+                    class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
                     type="email"
                     name="email"
                     required
@@ -62,12 +62,12 @@
 
             <label class="form-control w-full">
                 <div class="label">
-                    <span class="label-text">Password</span>
+                    <span>Password</span>
                 </div>
                 <input
                     wire:model="password"
                     id="password"
-                    class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10"
+                    class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
                     type="password"
                     name="password"
                     required
@@ -81,12 +81,12 @@
 
             <label class="form-control w-full">
                 <div class="label">
-                    <span class="label-text">Confirm Password</span>
+                    <span>Confirm Password</span>
                 </div>
                 <input
                     wire:model="password_confirmation"
                     id="password_confirmation"
-                    class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10"
+                    class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
                     type="password"
                     name="password_confirmation"
                     required

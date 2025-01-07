@@ -35,9 +35,9 @@
 </head>
 
 <body @class([
-    'antialiased dark:text-stone-300',
-    'text-stone-800 dark:bg-black min-h-screen' => auth()->check(),
-    'dark:bg-stone-900 text-stone-700' => !auth()->check(),
+    'antialiased dark:bg-black dark:text-stone-300',
+    'text-stone-800 min-h-screen' => auth()->check(),
+    'text-stone-700' => !auth()->check(),
 ])>
 
     @auth

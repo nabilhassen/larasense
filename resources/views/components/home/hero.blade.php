@@ -43,7 +43,7 @@
                         </span>
                     </div>
                 </div>
-                <h1 class="max-w-4xl sm:text-6xl text-5xl font-bold !mt-4">
+                <h1 class="max-w-4xl sm:text-6xl text-5xl font-bold !mt-4 dark:text-primary">
                     Stay informed. Stay ahead. Laravel news all in one place.
                 </h1>
                 <p class="max-w-3xl mx-auto">
@@ -52,7 +52,7 @@
                 </p>
                 <a
                     wire:navigate
-                    class="btn btn-lg bg-primary font-bold text-white border-none hover:bg-primary hover:brightness-90"
+                    class="btn lg:btn-lg bg-primary font-bold text-white border-none hover:bg-primary hover:brightness-90"
                     href="{{ route('register') }}"
                 >
                     Falling behind? Join now, it's free

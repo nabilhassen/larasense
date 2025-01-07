@@ -30,12 +30,12 @@
             >
                 <label class="form-control w-full">
                     <div class="label">
-                        <span class="label-text">Email</span>
+                        <span>Email</span>
                     </div>
                     <input
                         wire:model="email"
                         id="email"
-                        class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10"
+                        class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
                         type="email"
                         name="email"
                         required
