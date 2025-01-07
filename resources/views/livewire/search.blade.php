@@ -10,7 +10,7 @@
             placeholder="Search"
             wire:model.live="query"
             x-on:click="isAutoCompleteVisible = true"
-            x-on:click.outside="isAutoCompleteVisible = false;currentMaterialIndex = 0"
+            x-on:click.outside="isAutoCompleteVisible = false;currentMaterialIndex = 0;"
             x-on:keyup.enter="() => {
                 if (!$el.value.trim()) return;
 
@@ -45,7 +45,7 @@
                 @forelse ($materials as $materialItem)
                     <div
                         class="flex gap-x-4 items-center p-3 lg:text-sm text-xs cursor-pointer border-b border-b-stone-200 dark:border-b-stone-950 hover:bg-stone-100 dark:hover:bg-stone-950"
-                        x-on:click="() => {
+                        x-on:click.prevent="() => {
                             $wire.dispatch('open-material-modal', {
                                 slug: '{{ $materialItem->slug }}'
                             });
