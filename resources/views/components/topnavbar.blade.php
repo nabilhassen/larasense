@@ -62,6 +62,7 @@
                     </li>
                     <li class="lg:hidden">
                         <button
+                            x-data
                             class="hover:bg-secondary dark:hover:bg-stone-950 active:!bg-secondary dark:active:!bg-stone-950 focus:!bg-secondary dark:focus:!bg-stone-950 active:!text-inherit"
                             x-on:click="$dispatch('open-source-suggestions-modal')"
                         >
@@ -70,6 +71,7 @@
                     </li>
                     <li class="lg:hidden">
                         <button
+                            x-data
                             class="hover:bg-secondary dark:hover:bg-stone-950 active:!bg-secondary dark:active:!bg-stone-950 focus:!bg-secondary dark:focus:!bg-stone-950 active:!text-inherit"
                             x-on:click="$dispatch('open-bug-reports-modal')"
                         >

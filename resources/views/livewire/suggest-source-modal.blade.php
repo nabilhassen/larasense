@@ -1,6 +1,7 @@
 <dialog
     wire:ignore.self
     class="modal cursor-auto"
+    x-data
     x-on:open-source-suggestions-modal.window="$el.showModal()"
     x-on:close="$wire.isSubmitted && ($wire.isSubmitted = false)"
 >

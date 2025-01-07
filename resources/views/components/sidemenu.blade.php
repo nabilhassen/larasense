@@ -56,12 +56,14 @@
         </div>
         <div class="flex-1 flex flex-col justify-end items-start">
             <button
+                x-data
                 class="btn btn-sm btn-primary btn-link"
                 x-on:click="$dispatch('open-source-suggestions-modal')"
             >
                 Suggest sources
             </button>
             <button
+                x-data
                 class="btn btn-sm btn-primary btn-link"
                 x-on:click="$dispatch('open-bug-reports-modal')"
             >
