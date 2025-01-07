@@ -13,10 +13,12 @@
                 <livewire:profile.update-profile-information-form />
             </div>
             <hr class="dark:border-stone-900">
-            <div>
-                <livewire:profile.update-password-form />
-            </div>
-            <hr class="dark:border-stone-900">
+            @if (!auth()->user()->isRegisteredWithProvider())
+                <div>
+                    <livewire:profile.update-password-form />
+                </div>
+                <hr class="dark:border-stone-900">
+            @endif
             <div>
                 <livewire:profile.delete-user-form />
             </div>

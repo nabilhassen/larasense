@@ -14,6 +14,11 @@ class UpdatePasswordForm extends Component
     public string $password = '';
     public string $password_confirmation = '';
 
+    public function mount()
+    {
+        abort_if(auth()->user()->isRegisteredWithProvider(), 403);
+    }
+
     /**
      * Update the password for the currently authenticated user.
      */

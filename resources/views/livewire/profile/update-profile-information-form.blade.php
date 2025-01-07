@@ -66,6 +66,7 @@
                 name="email"
                 required
                 autocomplete="username"
+                @readonly(auth()->user()->isRegisteredWithProvider())
             />
             @error('email')
                 <div class="text-sm text-red-500 mt-2">

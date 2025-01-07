@@ -4,6 +4,7 @@ namespace App\Livewire\Profile;
 
 use App\Actions\Logout;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 use Livewire\Component;
 
 class DeleteUserForm extends Component
@@ -16,7 +17,7 @@ class DeleteUserForm extends Component
     public function deleteUser(Logout $logout): void
     {
         $this->validate([
-            'password' => ['required', 'string', 'current_password'],
+            'password' => [Rule::requiredIf(!auth()->user()->isRegisteredWithProvider()), 'string', 'current_password'],
         ]);
 
         tap(Auth::user(), $logout(...))->delete();

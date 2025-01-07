@@ -72,4 +72,9 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser, Has
     {
         return $this->is_admin;
     }
+
+    public function isRegisteredWithProvider(): bool
+    {
+        return filled($this->provider) && filled($this->provider_id);
+    }
 }
