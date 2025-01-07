@@ -34,7 +34,7 @@ class VerifyEmail extends Component
     {
         $logout();
 
-        $this->redirectRoute('home');
+        $this->redirectRoute('login', navigate: true);
     }
 
     public function render()

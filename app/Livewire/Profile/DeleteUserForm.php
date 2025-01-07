@@ -22,7 +22,7 @@ class DeleteUserForm extends Component
 
         tap(Auth::user(), $logout(...))->delete();
 
-        $this->redirectRoute('home');
+        $this->redirectRoute('home', navigate: true);
     }
 
     public function render()

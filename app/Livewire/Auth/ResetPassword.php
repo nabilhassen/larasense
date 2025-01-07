@@ -68,7 +68,7 @@ class ResetPassword extends Component
 
         Session::flash('status', __($status));
 
-        $this->redirectRoute('login');
+        $this->redirectRoute('login', navigate:true);
     }
 
     public function render()

@@ -1,7 +1,10 @@
 <div class="sticky z-10 bg-white dark:bg-black border border-white dark:border-black top-0 py-4 lg:py-6 space-y-4">
     <div class="flex justify-between items-center">
         <figure class="lg:hidden">
-            <a href="{{ route('dashboard') }}">
+            <a
+                wire:navigate
+                href="{{ route('dashboard') }}"
+            >
                 <img
                     class="w-8"
                     src="{{ asset('favicon.png') }}"
