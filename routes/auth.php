@@ -5,9 +5,21 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Livewire\Auth as Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::domain(config('app.subdomain'))->group(function () {
+Route::middleware('auth')
+    ->group(function () {
+        Route::get('verify-email', Auth\VerifyEmail::class)
+            ->name('verification.notice');
 
-    Route::middleware('guest')->group(function () {
+        Route::get('verify-email/{id}/{hash}', VerifyEmailController::class)
+            ->middleware(['signed', 'throttle:6,1'])
+            ->name('verification.verify');
+
+        Route::get('confirm-password', Auth\ConfirmPassword::class)
+            ->name('password.confirm');
+    });
+
+Route::middleware('guest')
+    ->group(function () {
         Route::get('register', Auth\Register::class)
             ->name('register');
 
@@ -26,17 +38,3 @@ Route::domain(config('app.subdomain'))->group(function () {
         Route::get('/auth/{provider}/callback', [SocialiteController::class, 'handleCallback'])
             ->name('socialite.callback');
     });
-
-    Route::middleware('auth')->group(function () {
-        Route::get('verify-email', Auth\VerifyEmail::class)
-            ->name('verification.notice');
-
-        Route::get('verify-email/{id}/{hash}', VerifyEmailController::class)
-            ->middleware(['signed', 'throttle:6,1'])
-            ->name('verification.verify');
-
-        Route::get('confirm-password', Auth\ConfirmPassword::class)
-            ->name('password.confirm');
-    });
-
-});

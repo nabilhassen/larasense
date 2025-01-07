@@ -9,8 +9,7 @@ require __DIR__ . '/auth.php';
 Route::post('update-timezone', UpdateUserTimezoneController::class)
     ->name('timezone.update');
 
-Route::domain(config('app.subdomain'))
-    ->middleware(['auth', 'verified'])
+Route::middleware(['auth', 'verified'])
     ->group(function () {
         Route::get('/home', Livewire\Materials\Index::class)
             ->name('dashboard');
@@ -25,8 +24,8 @@ Route::domain(config('app.subdomain'))
             ->name('settings');
     });
 
-Route::domain(config('app.url'))->group(function () {
-    Route::get('/', Livewire\Home::class)->name('home');
-    Route::get('terms-and-conditions', Livewire\Legal\Terms::class)->name('terms');
-    Route::get('privacy-policy', Livewire\Legal\PrivacyPolicy::class)->name('privacy');
-});
+Route::get('/', Livewire\Home::class)->name('home');
+
+Route::get('terms-and-conditions', Livewire\Legal\Terms::class)->name('terms');
+
+Route::get('privacy-policy', Livewire\Legal\PrivacyPolicy::class)->name('privacy');
