@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html
+    class="scroll-smooth"
     lang="{{ str_replace('_', '-', app()->getLocale()) }}"
-    x-data
-    x-bind:class="{ 'dark': $store.themeMode.isDark() }"
 >
 
 <head>
@@ -31,47 +30,50 @@
         )
     </script>
 
-    <link
-        rel="stylesheet"
-        href="{{ asset('vendor/livewire-filepond/filepond.css') }}"
-    >
     @livewireStyles
     @vite('resources/css/app.css')
 </head>
 
-<body class="antialiased text-stone-800 dark:text-stone-300 dark:bg-black min-h-screen">
+<body @class([
+    'antialiased dark:text-stone-300',
+    'text-stone-800 dark:bg-black min-h-screen' => auth()->check(),
+    'dark:bg-stone-900 text-stone-700' => !auth()->check(),
+])>
 
-    <div class="container mx-auto">
-        <div class="flex justify-center lg:gap-x-16 max-lg:mx-4">
-            <x-sidemenu />
+    @auth
+        <div class="container mx-auto">
+            <div class="flex justify-center lg:gap-x-16 max-lg:mx-4">
+                <x-sidemenu />
 
-            <div class="lg:w-4/5 w-full">
-                <x-topnavbar />
+                <div class="lg:w-4/5 w-full">
+                    <x-topnavbar />
 
-                <div class="lg:pb-8 pb-24 max-lg:pt-8">
-                    {{ $slot }}
+                    <div class="lg:pb-8 pb-24 max-lg:pt-8">
+                        {{ $slot }}
+                    </div>
                 </div>
             </div>
+
+            <x-bottomnavbar />
         </div>
 
-        <x-bottomnavbar />
-    </div>
+        <livewire:suggest-source-modal />
 
-    <livewire:suggest-source-modal />
+        <livewire:report-bugs-modal />
 
-    <livewire:report-bugs-modal />
+        <livewire:materials.modal />
+    @endauth
 
-    <livewire:materials.modal />
+    @guest
+        {{ $slot }}
+    @endguest
 
     @livewireScriptConfig
     @vite('resources/js/app.js')
-    <script
-        src="{{ asset('vendor/livewire-filepond/filepond.js') }}"
-        data-navigate-once
-        defer
-        data-navigate-track
-    ></script>
-    <x-update-timezone current-timezone="{{ auth()->user()->timezone }}" />
+    @auth
+        @filepondScripts
+    @endauth
+    <x-update-timezone current-timezone="{{ auth()->check() ? auth()->user()->timezone : session()->get('timezone') }}" />
     @stack('scripts')
 </body>
 
