@@ -70,7 +70,7 @@
                         </h2>
                     </div>
                     <div class="flex justify-between items-center">
-                        <div class="flex gap-x-6">
+                        <div class="flex items-center gap-x-6">
                             <button
                                 class="inline-flex items-center gap-x-1"
                                 x-data="likeMaterial(
@@ -132,7 +132,7 @@
                                 x-data="copyLink('{{ $material->url }}')"
                             >
                                 <button
-                                    class="inline-flex"
+                                    class="flex items-center"
                                     x-on:click="copy"
                                 >
                                     <x-heroicon-o-link
