@@ -126,7 +126,7 @@
                                 />
                             </button>
                             <div
-                                class="lg:tooltip"
+                                class="relative lg:tooltip"
                                 x-bind:class="{ 'lg:tooltip-open': isCopied }"
                                 x-bind:data-tip="isCopied && 'Link Copied!'"
                                 x-data="copyLink('{{ $material->url }}')"

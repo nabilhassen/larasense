@@ -77,7 +77,7 @@
         </div>
         <div class="flex justify-between items-center">
             <div
-                class="lg:tooltip"
+                class="relative lg:tooltip"
                 data-tip="Like this post"
                 x-data="likeMaterial(
                     '{{ $material->slug }}',
@@ -105,7 +105,7 @@
                 </button>
             </div>
             <div
-                class="lg:tooltip"
+                class="relative lg:tooltip"
                 data-tip="Disike this post"
                 x-data="dislikeMaterial('{{ $material->slug }}', {{ $this->isDisliked }})"
             >
@@ -124,7 +124,7 @@
                 </button>
             </div>
             <div
-                class="lg:tooltip"
+                class="relative lg:tooltip"
                 data-tip="Bookmark"
                 x-data="bookmarkMaterial(
                     '{{ $material->slug }}',
@@ -146,7 +146,7 @@
                 </button>
             </div>
             <div
-                class="lg:tooltip"
+                class="relative lg:tooltip"
                 x-bind:class="{ 'lg:tooltip-open': isCopied }"
                 x-bind:data-tip="isCopied ? 'Link Copied!' : 'Copy Link'"
                 x-data="copyLink('{{ $material->url }}')"
@@ -166,7 +166,7 @@
             </div>
             @if ($material->isPodcast())
                 <div
-                    class="lg:tooltip lg:tooltip-left"
+                    class="relative lg:tooltip lg:tooltip-left"
                     data-tip="Play/Pause"
                 >
                     <button
@@ -189,7 +189,7 @@
                 </div>
             @elseif ($material->isYoutube())
                 <div
-                    class="lg:tooltip lg:tooltip-left"
+                    class="relative lg:tooltip lg:tooltip-left"
                     data-tip="Play"
                 >
                     <button
@@ -205,7 +205,7 @@
                 </div>
             @elseif ($material->isArticle())
                 <div
-                    class="lg:tooltip lg:tooltip-left"
+                    class="relative lg:tooltip lg:tooltip-left"
                     data-tip="Redirect to source"
                 >
                     <a
