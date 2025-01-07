@@ -147,7 +147,7 @@
             </div>
             <div
                 class="lg:tooltip"
-                x-bind:class="{ 'tooltip-open': isCopied }"
+                x-bind:class="{ 'lg:tooltip-open': isCopied }"
                 x-bind:data-tip="isCopied ? 'Link Copied!' : 'Copy Link'"
                 x-data="copyLink('{{ $material->url }}')"
             >
@@ -166,7 +166,7 @@
             </div>
             @if ($material->isPodcast())
                 <div
-                    class="lg:tooltip tooltip-left"
+                    class="lg:tooltip lg:tooltip-left"
                     data-tip="Play/Pause"
                 >
                     <button
@@ -189,7 +189,7 @@
                 </div>
             @elseif ($material->isYoutube())
                 <div
-                    class="lg:tooltip tooltip-left"
+                    class="lg:tooltip lg:tooltip-left"
                     data-tip="Play"
                 >
                     <button
@@ -205,7 +205,7 @@
                 </div>
             @elseif ($material->isArticle())
                 <div
-                    class="lg:tooltip tooltip-left"
+                    class="lg:tooltip lg:tooltip-left"
                     data-tip="Redirect to source"
                 >
                     <a
