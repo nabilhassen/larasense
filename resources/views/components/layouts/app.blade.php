@@ -15,6 +15,18 @@
         content="{{ csrf_token() }}"
     >
 
+    <meta
+        name="theme-color"
+        media="(prefers-color-scheme: light)"
+        content="#EF5A6F"
+    />
+    <meta
+        name="theme-color"
+        media="(prefers-color-scheme: dark)"
+        content="black"
+    />
+
+
     <link
         rel="shortcut icon"
         href="favicon.png"
