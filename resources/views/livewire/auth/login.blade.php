@@ -1,7 +1,10 @@
 <div class="min-h-screen flex justify-center items-center">
     <div class="sm:max-w-sm sm:mx-auto mx-4 py-8 space-y-6">
         <figure>
-            <a href="{{ route('home') }}">
+            <a
+                wire:navigate
+                href="{{ route('home') }}"
+            >
                 <img
                     class="w-48 mx-auto"
                     src="{{ asset('img/logo.png') }}"
@@ -93,6 +96,7 @@
         <div class="text-sm text-center">
             <span>Don't have an account?</span>
             <a
+                wire:navigate
                 class="link text-primary font-bold"
                 href="{{ route('register') }}"
             >Sign up</a>
