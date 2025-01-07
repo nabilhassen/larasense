@@ -85,7 +85,7 @@
                                     class="inline-flex lg:size-8 size-6 hover:stroke-primary"
                                     x-bind:class="{
                                         'stroke-primary fill-primary': isLiked,
-                                        'stroke-stone-800 dark:stroke-stone-600': !isLiked
+                                        'stroke-stone-800 dark:stroke-stone-300': !isLiked
                                     }"
                                 />
                                 <span
@@ -104,7 +104,7 @@
                                     class="inline-flex lg:size-8 size-6 hover:stroke-primary"
                                     x-bind:class="{
                                         'stroke-primary fill-primary': isDisliked,
-                                        'stroke-stone-800 dark:stroke-stone-600': !isDisliked
+                                        'stroke-stone-800 dark:stroke-stone-300': !isDisliked
                                     }"
                                 />
                             </button>
@@ -121,7 +121,7 @@
                                     class="inline-flex lg:size-8 size-6 hover:stroke-primary"
                                     x-bind:class="{
                                         'stroke-primary fill-primary': isBookmarked,
-                                        'stroke-stone-800 dark:stroke-stone-600': !isBookmarked
+                                        'stroke-stone-800 dark:stroke-stone-300': !isBookmarked
                                     }"
                                 />
                             </button>
@@ -139,7 +139,7 @@
                                         class="inline-flex lg:size-8 size-6 hover:stroke-primary"
                                         x-bind:class="{
                                             'stroke-primary': isCopied,
-                                            'stroke-stone-800 dark:stroke-stone-600': !isCopied
+                                            'stroke-stone-800 dark:stroke-stone-300': !isCopied
                                         }"
                                     />
                                 </button>
