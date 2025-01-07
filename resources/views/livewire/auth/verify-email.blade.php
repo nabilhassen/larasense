@@ -25,7 +25,7 @@
 
         <div class="flex items-center justify-between !mt-8">
             <button
-                class="btn bg-primary border-primary text-white hover:bg-primary hover:brightness-90 disabled:bg-primary disabled:opacity-70 disabled:text-white"
+                class="btn bg-primary border-none text-white hover:bg-primary hover:brightness-90 disabled:bg-primary disabled:opacity-70 disabled:text-white"
                 wire:click="sendVerification"
             >
                 Resend Verification Email

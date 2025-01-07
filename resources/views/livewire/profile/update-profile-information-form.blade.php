@@ -76,7 +76,7 @@
         </label>
 
         <div class="flex items-center gap-4 !mt-8">
-            <button class="btn bg-primary text-white hover:bg-primary border-primary hover:brightness-90 disabled:bg-primary disabled:opacity-70 disabled:text-white">
+            <button class="btn bg-primary text-white hover:bg-primary border-none hover:brightness-90 disabled:bg-primary disabled:opacity-70 disabled:text-white">
                 Save
             </button>
             <x-action-message
