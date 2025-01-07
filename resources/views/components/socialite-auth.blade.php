@@ -1,6 +1,6 @@
 <div class="space-y-2">
     <a
-        class="btn bg-white dark:bg-stone-900 hover:bg-stone-50 dark:hover:bg-stone-800 border-none w-full min-h-10 h-10 dark:text-stone-300"
+        class="btn bg-white dark:bg-stone-900 hover:bg-stone-50 dark:hover:bg-stone-800 border border-stone-300 dark:border-none w-full min-h-10 h-10 dark:text-stone-300"
         href="{{ route('socialite.redirect', 'google') }}"
     >
         <svg
@@ -33,7 +33,7 @@
         </span>
     </a>
     <a
-        class="btn bg-white dark:bg-stone-900 hover:bg-stone-50 dark:hover:bg-stone-800 border-none w-full min-h-10 h-10 dark:text-stone-300"
+        class="btn bg-white dark:bg-stone-900 hover:bg-stone-50 dark:hover:bg-stone-800 border border-stone-300 dark:border-none w-full min-h-10 h-10 dark:text-stone-300"
         href="{{ route('socialite.redirect', 'github') }}"
     >
         <svg
