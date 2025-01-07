@@ -69,10 +69,10 @@
     @endguest
 
     @livewireScriptConfig
-    @vite('resources/js/app.js')
     @auth
         @filepondScripts
     @endauth
+    @vite('resources/js/app.js')
     <x-update-timezone current-timezone="{{ auth()->check() ? auth()->user()->timezone : session()->get('timezone') }}" />
     @stack('scripts')
 </body>
