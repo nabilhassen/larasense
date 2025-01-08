@@ -26,7 +26,7 @@ class AdminPanelProvider extends PanelProvider
         return $panel
             ->default()
             ->id('admin')
-            ->path(config('services.filament.path'))
+            ->path('admin')
             ->brandLogo(asset('/img/logo.png'))
             ->brandLogoHeight('2.5rem')
             ->favicon(asset('favicon.png'))
@@ -62,21 +62,21 @@ class AdminPanelProvider extends PanelProvider
             ->databaseTransactions()
             ->darkMode()
             ->bootUsing(function (Panel $panel) {
-                $panel->navigationItems([
-                    NavigationItem::make('Pulse')
-                    ->group('Performance')
-                    ->url(url(config('pulse.path')), shouldOpenInNewTab: true)
-                    ->icon('heroicon-o-chart-bar-square')
-                    ->sort(2),
-                ]);
-
-                $panel->navigationItems([
-                    NavigationItem::make('Queue Monitor')
-                    ->group('Performance')
-                    ->url(route('queue-monitor::index'), shouldOpenInNewTab: true)
-                    ->icon('heroicon-o-queue-list')
-                    ->sort(3),
-                ]);
+                $panel
+                    ->navigationItems([
+                        NavigationItem::make('Pulse')
+                        ->group('Performance')
+                        ->url(url(config('pulse.path')), shouldOpenInNewTab: true)
+                        ->icon('heroicon-o-chart-bar-square')
+                        ->sort(2),
+                    ])
+                    ->navigationItems([
+                        NavigationItem::make('Queue Monitor')
+                        ->group('Performance')
+                        ->url(route('queue-monitor::index'), shouldOpenInNewTab: true)
+                        ->icon('heroicon-o-queue-list')
+                        ->sort(3),
+                    ]);
             });
     }
 }

@@ -27,7 +27,7 @@ return [
 
         // Accepts route group configuration
         'route' => [
-            'prefix' => env('FILAMENT_PATH', 'admin') . '/jobs',
+            'prefix' => 'admin/jobs',
             'middleware' => ['web', 'auth', 'verified'],
         ],
 
