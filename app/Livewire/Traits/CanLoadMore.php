@@ -7,7 +7,7 @@ use Livewire\Attributes\Locked;
 trait CanLoadMore
 {
     #[Locked]
-    public int $perPage = 6;
+    public int $perPage = 12;
 
     public function loadMore(): void
     {

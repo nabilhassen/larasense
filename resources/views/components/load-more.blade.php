@@ -3,7 +3,7 @@
 <div class="py-8">
     @if ($paginator->hasMorePages() && $perPage < 100)
         <div
-            x-intersect.margin.300px="$wire.loadMore()"
+            x-intersect.margin.75%="$wire.loadMore()"
             class="flex justify-center"
         >
             <div
