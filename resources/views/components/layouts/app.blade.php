@@ -21,6 +21,7 @@
         content=""
     />
 
+    <title>Larasense - {{ $title ?? '' }}</title>
 
     <link
         rel="shortcut icon"
@@ -28,7 +29,23 @@
         type="image/x-png"
     >
 
-    <title>Larasense - {{ $title ?? '' }}</title>
+    <link
+        rel="preload"
+        href="{{ asset('img/logo.png') }}"
+        as="image"
+    >
+
+    <link
+        rel="preload"
+        href="{{ asset('img/light_screenshot.webp') }}"
+        as="image"
+    >
+
+    <link
+        rel="preload"
+        href="{{ asset('img/dark_screenshot.webp') }}"
+        as="image"
+    >
 
     <script>
         let isDark = localStorage.getItem('themeMode') === 'dark' || (!('themeMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);

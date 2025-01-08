@@ -26,7 +26,7 @@
                 <img
                     loading="lazy"
                     class="size-24"
-                    src="{{ asset('sources/1.jpg') }}"
+                    src="{{ asset('sources/the_business_of_laravel.webp') }}"
                     alt=""
                 >
             </div>
@@ -41,7 +41,7 @@
                 <img
                     loading="lazy"
                     class="size-24"
-                    src="{{ asset('sources/4.jpg') }}"
+                    src="{{ asset('sources/the_laravel_podcast.webp') }}"
                     alt=""
                 >
             </div>
@@ -64,7 +64,7 @@
                 <img
                     loading="lazy"
                     class="size-24"
-                    src="{{ asset('sources/2.jpg') }}"
+                    src="{{ asset('sources/notes_on_work.webp') }}"
                     alt=""
                 >
             </div>
@@ -72,7 +72,7 @@
                 <img
                     loading="lazy"
                     class="size-24"
-                    src="{{ asset('sources/3.jpg') }}"
+                    src="{{ asset('sources/mostly_technical.webp') }}"
                     alt=""
                 >
             </div>
@@ -87,7 +87,7 @@
                 <img
                     loading="lazy"
                     class="w-40"
-                    src="{{ asset('sources/securinglaravel.png') }}"
+                    src="{{ asset('sources/securinglaravel.webp') }}"
                     alt=""
                 >
             </div>
@@ -102,7 +102,7 @@
                 <img
                     loading="lazy"
                     class="size-24"
-                    src="{{ asset('sources/php_foundation.png') }}"
+                    src="{{ asset('sources/php_foundation.webp') }}"
                     alt=""
                 >
             </div>
@@ -110,7 +110,7 @@
                 <img
                     loading="lazy"
                     class="w-40"
-                    src="{{ asset('sources/laravelio.png') }}"
+                    src="{{ asset('sources/laravelio.webp') }}"
                     alt=""
                 >
             </div>

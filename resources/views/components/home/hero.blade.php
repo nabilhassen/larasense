@@ -65,14 +65,14 @@
         <figure class="border-t border-stone-100 dark:border-none">
             <img
                 loading="lazy"
-                src="{{ asset('/img/light_screenshot.png') }}"
+                src="{{ asset('/img/light_screenshot.webp') }}"
                 alt="Dashboard"
                 class="max-sm:max-w-4xl dark:hidden"
             >
 
             <img
                 loading="lazy"
-                src="{{ asset('/img/dark_screenshot.png') }}"
+                src="{{ asset('/img/dark_screenshot.webp') }}"
                 alt="Dashboard"
                 class="max-sm:max-w-4xl hidden dark:block"
             >
