@@ -68,7 +68,7 @@
                             {!! $material->title !!}
                         </h1>
                         <h2 class="opacity-85 line-clamp-2">
-                            {{ str($material->description)->stripTags() }}
+                            {!! str($material->description)->stripTags() !!}
                         </h2>
                     </div>
                     <div class="flex justify-between items-center">
