@@ -8,7 +8,7 @@
             type="text"
             class="grow"
             placeholder="Search"
-            wire:model.live="query"
+            wire:model.live.debounce.500ms="query"
             x-on:click="isAutoCompleteVisible = true"
             x-on:click.outside="isAutoCompleteVisible = false;currentMaterialIndex = 0;"
             x-on:keyup.enter="() => {
