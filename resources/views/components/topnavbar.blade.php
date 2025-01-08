@@ -6,6 +6,7 @@
                 href="{{ route('dashboard') }}"
             >
                 <img
+                    loading="lazy"
                     class="w-8"
                     src="{{ asset('favicon.png') }}"
                     alt="Larasense logo"

@@ -9,6 +9,7 @@
 >
     <figure class="w-1/5">
         <img
+            loading="lazy"
             src="{{ $material->thumbnail }}"
             alt=""
             class="rounded-box size-full"

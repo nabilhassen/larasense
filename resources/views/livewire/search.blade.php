@@ -55,6 +55,7 @@
                     >
                         <figure class="flex max-lg:hidden w-2/12">
                             <img
+                                loading="lazy"
                                 src="{{ $materialItem->thumbnail }}"
                                 class="h-10 w-full object-cover rounded"
                             >

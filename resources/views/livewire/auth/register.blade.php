@@ -6,6 +6,7 @@
                 href="{{ route('home') }}"
             >
                 <img
+                    loading="lazy"
                     class="w-48 mx-auto"
                     src="{{ asset('img/logo.png') }}"
                     alt="Larasense logo"

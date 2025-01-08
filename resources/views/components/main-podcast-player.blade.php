@@ -8,6 +8,7 @@
 >
     <figure>
         <img
+            loading="lazy"
             x-bind:src="thumbnail"
             alt=""
             class="rounded max-h-12"

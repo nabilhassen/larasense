@@ -64,6 +64,7 @@
     <div class="mockup-window overflow-hidden max-sm:ml-4 shadow-sm shadow-primary/30 bg-white dark:bg-stone-950 border border-stone-100 dark:border-none max-sm:rounded-none max-sm:rounded-tl-box sm:max-w-6xl sm:mx-auto">
         <figure class="border-t border-stone-100 dark:border-none">
             <img
+                loading="lazy"
                 src="{{ asset('/img/dashboard.png') }}"
                 alt="Dashboard"
                 class="max-sm:max-w-4xl"
