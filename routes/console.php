@@ -10,4 +10,4 @@ Schedule::command('queue:retry all')->withoutOverlapping()->everyTenMinutes();
 
 Schedule::command('larasense:bot')->withoutOverlapping()->everyTenMinutes();
 
-Schedule::command('queue:work --tries=2 --stop-when-emtpy --max-time=300')->withoutOverlapping()->everyTenMinutes();
+// Schedule::command('queue:work --tries=2 --stop-when-emtpy --max-time=300')->withoutOverlapping()->everyTenMinutes();

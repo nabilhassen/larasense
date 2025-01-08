@@ -47,4 +47,8 @@ return [
         'redirect' => '/auth/google/callback',
     ],
 
+    'filament' => [
+        'path' => env('FILAMENT_PATH', 'admin'),
+    ],
+
 ];

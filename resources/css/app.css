@@ -12,7 +12,7 @@ body {
 
 .podcast-player {
     --plyr-control-icon-size: 24px !important;
-    --plyr-audio-controls-background: #fff1db !important;
+    --plyr-audio-controls-background: #ffd0d2 !important;
 }
 
 .dark .podcast-player {
@@ -20,7 +20,7 @@ body {
 }
 
 #main-podcast-player-container {
-    --plyr-audio-controls-background: #fff1db !important;
+    --plyr-audio-controls-background: #ffd0d2 !important;
 }
 
 .dark #main-podcast-player-container {

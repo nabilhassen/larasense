@@ -46,7 +46,7 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser, Has
             get: function () {
                 if (blank($this->avatar_url)) {
                     $name = str($this->name)->squish()->words(2);
-                    return "https://ui-avatars.com/api/?name={$name}&background=FFF1DB&color=EF5A6F&rounded=true&bold=true";
+                    return "https://ui-avatars.com/api/?name={$name}&background=ffd0d2&color=EF5A6F&rounded=true&bold=true";
                 }
 
                 if (isset(parse_url($this->avatar_url)['host'])) {
