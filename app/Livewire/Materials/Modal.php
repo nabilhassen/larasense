@@ -4,6 +4,7 @@ namespace App\Livewire\Materials;
 
 use App\Livewire\Traits\HasEngagementMetrics;
 use App\Models\Material;
+use Livewire\Attributes\Locked;
 use Livewire\Attributes\On;
 use Livewire\Component;
 
@@ -11,6 +12,7 @@ class Modal extends Component
 {
     use HasEngagementMetrics;
 
+    #[Locked]
     public string $slug = '';
 
     #[On('open-material-modal')]

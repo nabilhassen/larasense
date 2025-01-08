@@ -10,7 +10,6 @@
             }"
             x-on:close="() => {
                 $dispatch('close-{{ $material->source->type }}-modal', { material: @js($material) });
-                $wire.slug = null;
                 $el.remove();
             }"
         >

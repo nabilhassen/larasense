@@ -2,8 +2,11 @@
 
 namespace App\Livewire\Traits;
 
+use Livewire\Attributes\Locked;
+
 trait CanLoadMore
 {
+    #[Locked]
     public int $perPage = 6;
 
     public function loadMore(): void
