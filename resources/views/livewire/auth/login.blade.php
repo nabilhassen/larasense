@@ -1,4 +1,4 @@
-<div class="min-h-screen flex justify-center items-center">
+<div class="min-h-screen flex justify-center">
     <div class="sm:max-w-sm sm:mx-auto mx-4 py-8 space-y-6">
         <figure>
             <a
