@@ -46,10 +46,10 @@
                 <h1 class="max-w-4xl sm:text-6xl text-5xl font-bold !mt-4 dark:text-primary">
                     Stay informed. Stay ahead. Laravel news all in one place.
                 </h1>
-                <p class="max-w-3xl mx-auto">
+                <h2 class="max-w-3xl mx-auto">
                     Stay on top of the latest news, updates, and trends in the Laravel ecosystem with our curated content
                     from your favorite and most trusted blogs, YouTube channels, and podcasts, all presented in a simple, beautiful design.
-                </p>
+                </h2>
                 <a
                     wire:navigate
                     class="btn lg:btn-lg bg-primary font-bold text-white border-none hover:bg-primary hover:brightness-90"
@@ -66,14 +66,14 @@
             <img
                 loading="lazy"
                 src="{{ asset('/img/light_screenshot.webp') }}"
-                alt="Dashboard"
+                alt="Larasense feed screenshoot"
                 class="max-sm:max-w-4xl dark:hidden"
             >
 
             <img
                 loading="lazy"
                 src="{{ asset('/img/dark_screenshot.webp') }}"
-                alt="Dashboard"
+                alt="Larasense feed screenshoot"
                 class="max-sm:max-w-4xl hidden dark:block"
             >
         </figure>

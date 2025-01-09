@@ -11,7 +11,7 @@
                 <img
                     loading="lazy"
                     src="{{ asset('sources/logotype.min.svg') }}"
-                    alt=""
+                    alt="Laravel's logo"
                 >
             </div>
             <div>
@@ -19,7 +19,7 @@
                     loading="lazy"
                     class="scale-75"
                     src="{{ asset('sources/secondary-logo.svg') }}"
-                    alt=""
+                    alt="Laracast's logo"
                 >
             </div>
             <div>
@@ -27,14 +27,14 @@
                     loading="lazy"
                     class="size-24"
                     src="{{ asset('sources/the_business_of_laravel.webp') }}"
-                    alt=""
+                    alt="The business of laravel's logo"
                 >
             </div>
             <div>
                 <img
                     loading="lazy"
                     src="{{ asset('sources/freek.dev.png') }}"
-                    alt=""
+                    alt="Freek.dev"
                 >
             </div>
             <div>
@@ -42,7 +42,7 @@
                     loading="lazy"
                     class="size-24"
                     src="{{ asset('sources/the_laravel_podcast.webp') }}"
-                    alt=""
+                    alt="The laravel podcast's logo"
                 >
             </div>
             <div>
@@ -50,14 +50,14 @@
                     loading="lazy"
                     class="size-24"
                     src="{{ asset('sources/logo.svg') }}"
-                    alt=""
+                    alt="Laravel news logo"
                 >
             </div>
             <div>
                 <img
                     loading="lazy"
                     src="{{ asset('sources/harris.png') }}"
-                    alt=""
+                    alt="Harris Raftopoulos"
                 >
             </div>
             <div>
@@ -65,7 +65,7 @@
                     loading="lazy"
                     class="size-24"
                     src="{{ asset('sources/notes_on_work.webp') }}"
-                    alt=""
+                    alt="Notes on work's logo"
                 >
             </div>
             <div>
@@ -73,14 +73,14 @@
                     loading="lazy"
                     class="size-24"
                     src="{{ asset('sources/mostly_technical.webp') }}"
-                    alt=""
+                    alt="Mostly technical's logo"
                 >
             </div>
             <div>
                 <img
                     loading="lazy"
                     src="{{ asset('sources/laraveldaily.png') }}"
-                    alt=""
+                    alt="LaravelDaily"
                 >
             </div>
             <div>
@@ -88,14 +88,14 @@
                     loading="lazy"
                     class="w-40"
                     src="{{ asset('sources/securinglaravel.webp') }}"
-                    alt=""
+                    alt="Securing laravel's logo"
                 >
             </div>
             <div>
                 <img
                     loading="lazy"
                     src="{{ asset('sources/benjamincrozat.com.png') }}"
-                    alt=""
+                    alt="Benjamin Crozat"
                 >
             </div>
             <div>
@@ -103,7 +103,7 @@
                     loading="lazy"
                     class="size-24"
                     src="{{ asset('sources/php_foundation.webp') }}"
-                    alt=""
+                    alt="PHP foundation's logo"
                 >
             </div>
             <div>
@@ -111,7 +111,7 @@
                     loading="lazy"
                     class="w-40"
                     src="{{ asset('sources/laravelio.webp') }}"
-                    alt=""
+                    alt="Laravel.io's logo"
                 >
             </div>
             <div class="flex">
@@ -119,7 +119,7 @@
                     loading="lazy"
                     class="w-40 rounded"
                     src="{{ asset('sources/codecourse.png') }}"
-                    alt=""
+                    alt="codecourse's logo"
                 >
             </div>
         </div>
