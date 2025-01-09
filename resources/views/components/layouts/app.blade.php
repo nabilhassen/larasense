@@ -64,7 +64,7 @@
     'text-stone-700' => !auth()->check(),
 ])>
 
-    @auth
+    @if (auth()->check() && auth()->user()->hasVerifiedEmail())
         <div class="container mx-auto">
             <div class="flex justify-center lg:gap-x-16 max-lg:mx-4">
                 <x-sidemenu />
@@ -86,11 +86,9 @@
         <livewire:report-bugs-modal />
 
         <livewire:materials.modal />
-    @endauth
-
-    @guest
+    @else
         {{ $slot }}
-    @endguest
+    @endif
 
     @livewireScriptConfig
     @auth
