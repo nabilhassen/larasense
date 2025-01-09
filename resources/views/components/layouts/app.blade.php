@@ -15,11 +15,7 @@
         content="{{ csrf_token() }}"
     >
 
-    <meta
-        name="theme-color"
-        media="(prefers-color-scheme: light)"
-        content=""
-    />
+    <meta name="theme-color" />
 
     <title>Larasense - {{ $title ?? '' }}</title>
 
@@ -33,25 +29,38 @@
         rel="preload"
         href="{{ asset('img/logo.png') }}"
         as="image"
+        fetchpriority="high"
     >
 
-    <link
-        rel="preload"
-        href="{{ asset('img/light_screenshot.webp') }}"
-        as="image"
-    >
+    @if (request()->routeIs('home'))
+        <link
+            rel="preload"
+            href="{{ asset('img/light_screenshot.webp') }}"
+            as="image"
+            fetchpriority="high"
+        >
 
-    <link
-        rel="preload"
-        href="{{ asset('img/dark_screenshot.webp') }}"
-        as="image"
-    >
+        <link
+            rel="preload"
+            href="{{ asset('img/dark_screenshot.webp') }}"
+            as="image"
+            fetchpriority="high"
+        >
+    @endif
 
     <script>
-        let isDark = localStorage.getItem('themeMode') === 'dark' || (!('themeMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        const isThemeDark = () => localStorage.getItem('themeMode') === 'dark' || (!('themeMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
 
-        document.documentElement.classList.toggle('dark', isDark);
-        document.querySelector('meta[name="theme-color"]').setAttribute("content", isDark ? 'black' : '#EF5A6F');
+        document.documentElement.classList.toggle('dark', isThemeDark());
+
+        document.addEventListener('livewire:navigated', () => {
+            document
+                .querySelector('meta[name="theme-color"]')
+                .setAttribute(
+                    "content",
+                    isThemeDark() ? 'black' : '#EF5A6F'
+                );
+        });
     </script>
 
     @livewireStyles
