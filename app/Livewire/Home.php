@@ -5,7 +5,7 @@ namespace App\Livewire;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-#[Title('Home of Laravel Developers')]
+#[Title('Your Hub for Laravel News, Trends & Updates')]
 class Home extends Component
 {
     public function render()
