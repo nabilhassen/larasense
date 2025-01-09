@@ -72,7 +72,7 @@
                         </h2>
                     </div>
                     <div class="flex justify-between items-center">
-                        <div class="flex items-center gap-x-6">
+                        <div class="flex items-center gap-x-2 lg:gap-x-6">
                             <button
                                 class="inline-flex items-center gap-x-1"
                                 x-data="likeMaterial(
