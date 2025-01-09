@@ -19,9 +19,11 @@ class CheckSourceForNewContentAction
         $latestMaterialBySourcePublishedAt = $source->latestMaterial?->published_at;
 
         foreach ($items as $item) {
+            $itemPublishedAt = Carbon::parse($item->get_date())->timezone(config('app.timezone'));
+
             if (
                 !is_null($latestMaterialBySourcePublishedAt) &&
-                $latestMaterialBySourcePublishedAt->greaterThanOrEqualTo(Carbon::parse($item->get_date()))
+                $latestMaterialBySourcePublishedAt->greaterThanOrEqualTo($itemPublishedAt)
             ) {
                 $source->updateLastCheckedAt();
                 return;

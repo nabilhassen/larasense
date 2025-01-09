@@ -44,7 +44,7 @@ class MaterialData
             body: $item->get_content(),
             author: $item->get_author(),
             url: $item->get_link(),
-            publishedAt: Carbon::parse($item->get_date()),
+            publishedAt: Carbon::parse($item->get_date())->timezone(config('app.timezone')),
             feedId: $item->get_id(true),
             imageUrl: $openGraphData['image:secure_url'] ?? $openGraphData['image'] ?? $openGraphData['twitter:image'] ?? $item->get_enclosure()?->get_thumbnail() ?? str($item->get_content())->betweenFirst('img src="', '"')->toString(),
         );
@@ -58,7 +58,7 @@ class MaterialData
             body: $item->get_content(),
             author: $item->get_author(),
             url: $item->get_link(),
-            publishedAt: Carbon::parse($item->get_date()),
+            publishedAt: Carbon::parse($item->get_date())->timezone(config('app.timezone')),
             feedId: $item->get_id(true),
             imageUrl: $item->get_enclosure()?->get_thumbnail(),
             duration: $item->get_enclosure()?->get_duration()
@@ -73,7 +73,7 @@ class MaterialData
             body: $item->get_content(),
             author: static::getItunesTags($item, 'author')[0]['data'] ?? $item->get_author(),
             url: $item->get_enclosure()?->get_link() ?? $item->get_link(),
-            publishedAt: Carbon::parse($item->get_date()),
+            publishedAt: Carbon::parse($item->get_date())->timezone(config('app.timezone')),
             feedId: $item->get_id(true),
             imageUrl: static::getItunesTags($item, 'image')[0]['attribs']['']['href'] ?? $item->get_enclosure()?->get_thumbnail(),
             duration: static::getItunesTags($item, 'duration')[0]['data'] ?? $item->get_enclosure()?->get_duration()
@@ -88,7 +88,7 @@ class MaterialData
             body: $data['body'],
             author: $data['author'],
             url: $data['url'],
-            publishedAt: Carbon::parse($data['published_at']),
+            publishedAt: Carbon::parse($data['published_at'])->timezone(config('app.timezone')),
             imageUrl: $data['image_url'],
             duration: $data['duration'],
             isDisplayed: $data['is_displayed'],
