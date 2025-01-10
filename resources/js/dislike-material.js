@@ -2,7 +2,7 @@ export const dislikeMaterial = (slug, isDisliked) => ({
     slug: null,
     isDisliked: null,
 
-    async init() {
+    init() {
         this.slug = slug;
 
         this.isDisliked = isDisliked;

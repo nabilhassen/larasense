@@ -3,7 +3,7 @@ export const likeMaterial = (slug, isLiked, likesCount = 0) => ({
     isLiked: null,
     likesCount: null,
 
-    async init() {
+    init() {
         this.slug = slug;
 
         this.isLiked = isLiked;

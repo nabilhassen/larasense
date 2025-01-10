@@ -2,7 +2,7 @@ export const bookmarkMaterial = (slug, isBookmarked) => ({
     slug: null,
     isBookmarked: null,
 
-    async init() {
+    init() {
         this.slug = slug;
 
         this.isBookmarked = isBookmarked;

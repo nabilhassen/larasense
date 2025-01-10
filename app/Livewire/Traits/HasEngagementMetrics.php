@@ -78,7 +78,7 @@ trait HasEngagementMetrics
     }
 
     #[Computed]
-    public function likesCount(): bool
+    public function likesCount(): int
     {
         return Like::count(
             $this->material
