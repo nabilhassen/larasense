@@ -105,5 +105,7 @@
         </div>
     </div>
 
-    <x-main-podcast-player />
+    @persist('main-podcast-player')
+        <x-main-podcast-player />
+    @endpersist
 </div>

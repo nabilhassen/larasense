@@ -1,10 +1,14 @@
 import Plyr from "plyr";
+import plyrSvg from "plyr/dist/plyr.svg";
 
 export const podcastPlayer = () => ({
     player: {},
 
     init() {
-        this.player = new Plyr(this.$el.querySelector(".player"));
+        this.player = new Plyr(this.$el.querySelector(".player"), {
+            loadSprite: false,
+            iconUrl: plyrSvg,
+        });
 
         this.player.on("play", () => this.$dispatch("pause-podcast"));
     },
