@@ -13,7 +13,7 @@
                     url: '{{ $material->url }}',
                     thumbnail: '{{ $material->thumbnail }}',
                     publisherName: '{{ $material->source->publisher->name }}',
-                    materialTitle: '{{ $material->title }}',
+                    materialTitle: '{!! $material->title !!}',
                     publishedAt: '{{ $material->published_at->inUserTimezone()->toFormattedDateString() }}',
                     duration: '{{ Carbon\CarbonInterval::seconds($material->duration)->cascade()->forHumans(['short' => true]) }}',
                 });
