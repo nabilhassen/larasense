@@ -45,21 +45,21 @@
                         </div>
                     </div>
                     <div>
-                        <div class="flex items-center gap-x-1 text-sm opacity-70 mb-2">
+                        <div class="flex max-sm:flex-col sm:items-center gap-x-1 text-sm opacity-70 mb-2">
                             <div>
                                 {{ $material->source->publisher->name }}
                             </div>
-                            <div>
+                            <div class="max-sm:hidden">
                                 ·
                             </div>
-                            <div>
+                            <div class="max-sm:opacity-60">
                                 {{ $material->published_at->inUserTimezone()->toFormattedDateString() }}
                             </div>
                             @if (filled($material->duration))
-                                <div>
+                                <div class="max-sm:hidden">
                                     ·
                                 </div>
-                                <div>
+                                <div class="max-sm:hidden">
                                     {{ Carbon\CarbonInterval::seconds($material->duration)->cascade()->forHumans(['short' => true]) }}
                                 </div>
                             @endif
