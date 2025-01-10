@@ -15,7 +15,14 @@ export const mainPodcastPlayer = () => ({
         this.initMainPodcastPlayerStore();
     },
 
-    setup({
+    initMainPodcastPlayerStore() {
+        Alpine.store("mainPodcastPlayer", {
+            isPlaying: this.player.playing,
+            url: this.url,
+        });
+    },
+
+    play({
         url,
         thumbnail,
         publisherName,
@@ -24,11 +31,32 @@ export const mainPodcastPlayer = () => ({
         duration,
         currentTime = 0,
     }) {
-        if (this.isSourceSet && this.url === url) {
-            this.player.play();
-            return;
+        if (!this.isSourceSet || this.url !== url) {
+            this.setup(
+                url,
+                thumbnail,
+                publisherName,
+                materialTitle,
+                publishedAt,
+                duration,
+                currentTime
+            );
         }
 
+        this.player.play();
+
+        Alpine.store("mainPodcastPlayer").url = this.url;
+    },
+
+    setup(
+        url,
+        thumbnail,
+        publisherName,
+        materialTitle,
+        publishedAt,
+        duration,
+        currentTime = 0
+    ) {
         this.initPlyr();
 
         this.registerEventListeners();
@@ -42,8 +70,6 @@ export const mainPodcastPlayer = () => ({
             duration,
             currentTime
         );
-
-        this.play();
     },
 
     initPlyr() {
@@ -52,13 +78,6 @@ export const mainPodcastPlayer = () => ({
         this.player = new Plyr("#main-podcast-player", {
             loadSprite: false,
             iconUrl: "vendor/plyr/plyr.svg",
-        });
-    },
-
-    initMainPodcastPlayerStore() {
-        Alpine.store("mainPodcastPlayer", {
-            isPlaying: this.player.playing,
-            url: this.url,
         });
     },
 
@@ -72,16 +91,6 @@ export const mainPodcastPlayer = () => ({
             "play",
             () => (Alpine.store("mainPodcastPlayer").isPlaying = true)
         );
-    },
-
-    setCurrentTime(time) {
-        if (time <= 0) {
-            return this.player;
-        }
-
-        this.player.on("loadeddata", () => (this.player.currentTime = time));
-
-        return this.player;
     },
 
     setSource(
@@ -114,8 +123,13 @@ export const mainPodcastPlayer = () => ({
         this.isSourceSet = true;
     },
 
-    play() {
-        this.player.play();
-        Alpine.store("mainPodcastPlayer").url = this.url;
+    setCurrentTime(time) {
+        if (time <= 0) {
+            return this.player;
+        }
+
+        this.player.on("loadeddata", () => (this.player.currentTime = time));
+
+        return this.player;
     },
 });

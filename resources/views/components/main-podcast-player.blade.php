@@ -2,7 +2,7 @@
     x-cloak
     x-data="mainPodcastPlayer"
     x-show="isSourceSet"
-    x-on:play-podcast.window="setup($event.detail)"
+    x-on:play-podcast.window="play($event.detail)"
     x-on:pause-podcast.window="player.pause()"
     class="lg:w-2/3 rounded-btn bg-accent dark:bg-stone-900 space-y-2 px-2 border-2 border-secondary"
 >
