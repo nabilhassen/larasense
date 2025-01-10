@@ -55,17 +55,13 @@
     "file": "assets/inter-vietnamese-400-normal-DMkecbls.woff2",
     "src": "node_modules/@fontsource/inter/files/inter-vietnamese-400-normal.woff2"
   },
-  "node_modules/plyr/dist/plyr.svg": {
-    "file": "assets/plyr-rJqi93NC.svg",
-    "src": "node_modules/plyr/dist/plyr.svg"
-  },
   "resources/css/app.css": {
     "file": "assets/app-Bn-8G_gC.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
   "resources/js/app.js": {
-    "file": "assets/app-DoIScQTS.js",
+    "file": "assets/app-DPdf2vQ-.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -73,7 +69,6 @@
       "assets/app-CNdjPV9C.css"
     ],
     "assets": [
-      "assets/plyr-rJqi93NC.svg",
       "assets/inter-cyrillic-ext-400-normal-Dc4VJyIJ.woff2",
       "assets/inter-cyrillic-ext-400-normal-BPnxn4xp.woff",
       "assets/inter-cyrillic-400-normal-BLGc9T1a.woff2",
