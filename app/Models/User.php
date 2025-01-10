@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Notifications\QueueableVerifyEmailNotificaition;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Models\Contracts\HasAvatar;
 use Filament\Panel;
@@ -27,10 +28,21 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser, Has
     ];
 
     /**
+     * Send the email verification notification.
+     *
+     * @return void
+     */
+    public function sendEmailVerificationNotification()
+    {
+        $this->notify(new QueueableVerifyEmailNotificaition);
+    }
+
+    /**
      * Get the attributes that should be cast.
      *
      * @return array<string, string>
      */
+
     protected function casts(): array
     {
         return [
