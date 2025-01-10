@@ -5,21 +5,64 @@ export const mainPodcastPlayer = () => ({
     player: {},
     isSourceSet: false,
     url: "",
-    material: {},
+    thumbnail: "",
+    publisherName: "",
+    materialTitle: "",
     publishedAt: "",
     duration: "",
 
     init() {
+        this.initMainPodcastPlayerStore();
+    },
+
+    setup({
+        url,
+        thumbnail,
+        publisherName,
+        materialTitle,
+        publishedAt,
+        duration,
+        currentTime = 0,
+    }) {
+        if (this.isSourceSet && this.url === url) {
+            this.player.play();
+            return;
+        }
+
+        this.initPlyr();
+
+        this.registerEventListeners();
+
+        this.setSource(
+            url,
+            thumbnail,
+            publisherName,
+            materialTitle,
+            publishedAt,
+            duration,
+            currentTime
+        );
+
+        this.play();
+    },
+
+    initPlyr() {
+        this.isSourceSet && this.player.destroy();
+
         this.player = new Plyr("#main-podcast-player", {
             loadSprite: false,
             iconUrl: "vendor/plyr/plyr.svg",
         });
+    },
 
+    initMainPodcastPlayerStore() {
         Alpine.store("mainPodcastPlayer", {
             isPlaying: this.player.playing,
             url: this.url,
         });
+    },
 
+    registerEventListeners() {
         this.player.on(
             "pause",
             () => (Alpine.store("mainPodcastPlayer").isPlaying = false)
@@ -41,18 +84,27 @@ export const mainPodcastPlayer = () => ({
         return this.player;
     },
 
-    setSource(material, publishedAt, duration, currentTime) {
-        this.material = material;
+    setSource(
+        url,
+        thumbnail,
+        publisherName,
+        materialTitle,
+        publishedAt,
+        duration,
+        currentTime
+    ) {
+        this.url = url;
+        this.thumbnail = thumbnail;
+        this.publisherName = publisherName;
+        this.materialTitle = materialTitle;
         this.publishedAt = publishedAt;
         this.duration = duration;
-        this.url = material.url;
 
         this.player.source = {
             type: "audio",
-            title: material.title,
             sources: [
                 {
-                    src: material.url,
+                    src: this.url,
                 },
             ],
         };
@@ -62,22 +114,8 @@ export const mainPodcastPlayer = () => ({
         this.isSourceSet = true;
     },
 
-    play({ material, publishedAt, duration, currentTime = 0 }) {
-        if (this.isSourceSet && this.url === material.url) {
-            this.player.play();
-            return this.player;
-        }
-
-        this.player?.destroy();
-
-        this.init();
-
-        this.setSource(material, publishedAt, duration, currentTime);
-
+    play() {
         this.player.play();
-
         Alpine.store("mainPodcastPlayer").url = this.url;
-
-        return this.player;
     },
 });

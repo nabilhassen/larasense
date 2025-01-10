@@ -2,7 +2,7 @@
     x-cloak
     x-data="mainPodcastPlayer"
     x-show="isSourceSet"
-    x-on:play-podcast.window="play($event.detail)"
+    x-on:play-podcast.window="setup($event.detail)"
     x-on:pause-podcast.window="player.pause()"
     class="lg:w-2/3 rounded-btn bg-accent dark:bg-stone-900 space-y-2 px-2 border-2 border-secondary"
 >
@@ -10,19 +10,19 @@
         <figure>
             <img
                 loading="lazy"
-                x-bind:src="material.thumbnail"
+                x-bind:src="thumbnail"
                 class="rounded max-h-12"
             >
         </figure>
         <div>
             <div
                 class="font-bold line-clamp-1"
-                x-text="material.source?.publisher.name"
+                x-text="publisherName"
             >
             </div>
             <div
                 class="line-clamp-1"
-                x-html="material.title"
+                x-html="materialTitle"
             >
             </div>
             <div class="flex gap-x-1 line-clamp-1">

@@ -12,7 +12,14 @@ export const podcastPlayer = () => ({
         this.player.on("play", () => this.$dispatch("pause-podcast"));
     },
 
-    continueOnMainPodcastPlayer({ material, publishedAt, duration }) {
+    continueOnMainPodcastPlayer({
+        url,
+        thumbnail,
+        publisherName,
+        materialTitle,
+        publishedAt,
+        duration,
+    }) {
         if (!this.player.playing || this.player.ended) {
             return;
         }
@@ -20,7 +27,10 @@ export const podcastPlayer = () => ({
         this.player.pause();
 
         this.$dispatch("play-podcast", {
-            material: material,
+            url: url,
+            thumbnail: thumbnail,
+            publisherName: publisherName,
+            materialTitle: materialTitle,
             publishedAt: publishedAt,
             duration: duration,
             currentTime: this.player.currentTime,

@@ -10,7 +10,10 @@
             }"
             x-on:close="() => {
                 $dispatch('close-{{ $material->source->type }}-modal', { 
-                    material: @js($material),
+                    url: '{{ $material->url }}',
+                    thumbnail: '{{ $material->thumbnail }}',
+                    publisherName: '{{ $material->source->publisher->name }}',
+                    materialTitle: '{{ $material->title }}',
                     publishedAt: '{{ $material->published_at->inUserTimezone()->toFormattedDateString() }}',
                     duration: '{{ Carbon\CarbonInterval::seconds($material->duration)->cascade()->forHumans(['short' => true]) }}',
                 });
