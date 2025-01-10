@@ -4,9 +4,11 @@ import plyrSvg from "plyr/dist/plyr.svg";
 
 export const mainPodcastPlayer = () => ({
     player: {},
-    thumbnail: "",
     isSourceSet: false,
     url: "",
+    material: {},
+    publishedAt: "",
+    duration: "",
 
     init() {
         this.player = new Plyr("#main-podcast-player", {
@@ -40,16 +42,18 @@ export const mainPodcastPlayer = () => ({
         return this.player;
     },
 
-    setSource(title, url, thumbnail, currentTime) {
-        this.thumbnail = thumbnail;
-        this.url = url;
+    setSource(material, publishedAt, duration, currentTime) {
+        this.material = material;
+        this.publishedAt = publishedAt;
+        this.duration = duration;
+        this.url = material.url;
 
         this.player.source = {
             type: "audio",
-            title: title,
+            title: material.title,
             sources: [
                 {
-                    src: this.url,
+                    src: material.url,
                 },
             ],
         };
@@ -59,8 +63,8 @@ export const mainPodcastPlayer = () => ({
         this.isSourceSet = true;
     },
 
-    play({ title, url, thumbnail, currentTime = 0 }) {
-        if (this.isSourceSet && this.url === url) {
+    play({ material, publishedAt, duration, currentTime = 0 }) {
+        if (this.isSourceSet && this.url === material.url) {
             this.player.play();
             return this.player;
         }
@@ -69,7 +73,7 @@ export const mainPodcastPlayer = () => ({
 
         this.init();
 
-        this.setSource(title, url, thumbnail, currentTime);
+        this.setSource(material, publishedAt, duration, currentTime);
 
         this.player.play();
 

@@ -10,27 +10,25 @@
         <figure>
             <img
                 loading="lazy"
-                x-bind:src="thumbnail"
+                x-bind:src="material.thumbnail"
                 class="rounded max-h-12"
             >
         </figure>
         <div>
-            <div class="font-bold line-clamp-1">
-                The Laravel Podcast
+            <div
+                class="font-bold line-clamp-1"
+                x-text="material.source?.publisher.name"
+            >
             </div>
-            <div class="line-clamp-1">
-                Laracon AU Update & Nightwatch Q&A
+            <div
+                class="line-clamp-1"
+                x-html="material.title"
+            >
             </div>
             <div class="flex gap-x-1 line-clamp-1">
-                <div>
-                    Dec 23, 2024
-                </div>
-                <div>
-                    ·
-                </div>
-                <div>
-                    34m
-                </div>
+                <div x-text="publishedAt"></div>
+                <div>·</div>
+                <div x-text="duration"></div>
             </div>
         </div>
     </div>

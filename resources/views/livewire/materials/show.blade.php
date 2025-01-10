@@ -173,7 +173,12 @@
                     <button
                         class="inline-flex"
                         x-on:click="() => {
-                            $dispatch('play-podcast', { title: '{{ $material->title }}', url: '{{ $material->url }}', thumbnail: '{{ $material->thumbnail }}' });
+                            $dispatch('play-podcast', { 
+                                material: @js($material),
+                                publishedAt: '{{ $material->published_at->inUserTimezone()->toFormattedDateString() }}',
+                                duration: '{{ Carbon\CarbonInterval::seconds($material->duration)->cascade()->forHumans(['short' => true]) }}',
+                            });
+                            
                             $wire.played();
                         }"
                         x-show="$store.mainPodcastPlayer.url !== '{{ $material->url }}' || !$store.mainPodcastPlayer.isPlaying"

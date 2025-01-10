@@ -9,7 +9,12 @@
                 $wire.expanded();
             }"
             x-on:close="() => {
-                $dispatch('close-{{ $material->source->type }}-modal', { material: @js($material) });
+                $dispatch('close-{{ $material->source->type }}-modal', { 
+                    material: @js($material),
+                    publishedAt: '{{ $material->published_at->inUserTimezone()->toFormattedDateString() }}',
+                    duration: '{{ Carbon\CarbonInterval::seconds($material->duration)->cascade()->forHumans(['short' => true]) }}',
+                });
+                
                 $el.remove();
             }"
         >

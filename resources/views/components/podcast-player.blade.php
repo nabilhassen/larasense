@@ -26,20 +26,20 @@
                 </figure>
                 <div>
                     <div class="font-bold line-clamp-1">
-                        The Laravel Podcast
+                        {{ $material->source->publisher->name }}
                     </div>
                     <div class="line-clamp-1">
-                        Laracon AU Update & Nightwatch Q&A
+                        {!! $material->title !!}
                     </div>
                     <div class="flex gap-x-1 line-clamp-1">
                         <div>
-                            Dec 23, 2024
+                            {{ $material->published_at->inUserTimezone()->toFormattedDateString() }}
                         </div>
                         <div>
                             ·
                         </div>
                         <div>
-                            34m
+                            {{ Carbon\CarbonInterval::seconds($material->duration)->cascade()->forHumans(['short' => true]) }}
                         </div>
                     </div>
                 </div>
