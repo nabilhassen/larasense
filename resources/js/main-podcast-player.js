@@ -13,6 +13,10 @@ export const mainPodcastPlayer = () => ({
 
     init() {
         this.initMainPodcastPlayerStore();
+
+        window.addEventListener("play-podcast", (event) =>
+            this.play(event.detail)
+        );
     },
 
     initMainPodcastPlayerStore() {
@@ -82,6 +86,8 @@ export const mainPodcastPlayer = () => ({
     },
 
     registerEventListeners() {
+        window.addEventListener("pause-podcast", () => this.player.pause());
+
         this.player.on(
             "pause",
             () => (Alpine.store("mainPodcastPlayer").isPlaying = false)
