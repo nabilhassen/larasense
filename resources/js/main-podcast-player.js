@@ -1,6 +1,5 @@
 import Plyr from "plyr";
 import { Alpine } from "../../vendor/livewire/livewire/dist/livewire.esm";
-import plyrSvg from "plyr/dist/plyr.svg";
 
 export const mainPodcastPlayer = () => ({
     player: {},
@@ -13,7 +12,7 @@ export const mainPodcastPlayer = () => ({
     init() {
         this.player = new Plyr("#main-podcast-player", {
             loadSprite: false,
-            iconUrl: plyrSvg,
+            iconUrl: "vendor/plyr/plyr.svg",
         });
 
         Alpine.store("mainPodcastPlayer", {

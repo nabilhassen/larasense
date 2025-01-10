@@ -1,5 +1,4 @@
 import Plyr from "plyr";
-import plyrSvg from "plyr/dist/plyr.svg";
 
 export const youtubePlayer = () => ({
     player: {},
@@ -7,7 +6,7 @@ export const youtubePlayer = () => ({
     init() {
         this.player = new Plyr(this.$el, {
             loadSprite: false,
-            iconUrl: plyrSvg,
+            iconUrl: "vendor/plyr/plyr.svg",
         });
 
         this.player.on("play", () => this.$dispatch("pause-podcast"));
