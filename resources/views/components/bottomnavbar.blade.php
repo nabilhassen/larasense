@@ -2,29 +2,53 @@
     <a
         wire:navigate
         href="{{ route('dashboard') }}"
-        class="{{ request()->routeIs('dashboard') ? 'active dark:bg-black border-t-primary' : '' }}"
+        @class([
+            'active dark:bg-black border-t-primary' => request()->routeIs('dashboard'),
+        ])
     >
-        <x-heroicon-o-home class="inline-flex size-6 {{ request()->routeIs('dashboard') ? 'stroke-primary' : 'stroke-stone-800 dark:stroke-stone-200' }}" />
+        <x-heroicon-o-home @class([
+            'inline-flex size-6',
+            'stroke-primary' => request()->routeIs('dashboard'),
+            'stroke-stone-800 dark:stroke-stone-200' => !request()->routeIs('dashboard'),
+        ]) />
     </a>
     <a
         wire:navigate
         href="{{ route('likes') }}"
-        class="{{ request()->routeIs('likes') ? 'active dark:bg-black border-t-primary' : '' }}"
+        @class([
+            'active dark:bg-black border-t-primary' => request()->routeIs('likes'),
+        ])
     >
-        <x-heroicon-o-hand-thumb-up class="inline-flex size-6 {{ request()->routeIs('likes') ? 'stroke-primary' : 'stroke-stone-800 dark:stroke-stone-200' }}" />
+        <x-heroicon-o-hand-thumb-up @class([
+            'inline-flex size-6',
+            'stroke-primary' => request()->routeIs('likes'),
+            'stroke-stone-800 dark:stroke-stone-200' => !request()->routeIs('likes'),
+        ]) />
     </a>
     <a
         wire:navigate
         href="{{ route('bookmarks') }}"
-        class="{{ request()->routeIs('bookmarks') ? 'active dark:bg-black border-t-primary' : '' }}"
+        @class([
+            'active dark:bg-black border-t-primary' => request()->routeIs('bookmarks'),
+        ])
     >
-        <x-heroicon-o-bookmark class="inline-flex size-6 {{ request()->routeIs('bookmarks') ? 'stroke-primary' : 'stroke-stone-800 dark:stroke-stone-200' }}" />
+        <x-heroicon-o-bookmark @class([
+            'inline-flex size-6',
+            'stroke-primary' => request()->routeIs('bookmarks'),
+            'stroke-stone-800 dark:stroke-stone-200' => !request()->routeIs('bookmarks'),
+        ]) />
     </a>
     <a
         wire:navigate
         href="{{ route('settings') }}"
-        class="{{ request()->routeIs('settings') ? 'active dark:bg-black border-t-primary' : '' }}"
+        @class([
+            'active dark:bg-black border-t-primary' => request()->routeIs('settings'),
+        ])
     >
-        <x-heroicon-o-cog-6-tooth class="inline-flex size-6 {{ request()->routeIs('settings') ? 'stroke-primary' : 'stroke-stone-800 dark:stroke-stone-200' }}" />
+        <x-heroicon-o-cog-6-tooth @class([
+            'inline-flex size-6',
+            'stroke-primary' => request()->routeIs('settings'),
+            'stroke-stone-800 dark:stroke-stone-200' => !request()->routeIs('settings'),
+        ]) />
     </a>
 </div>
