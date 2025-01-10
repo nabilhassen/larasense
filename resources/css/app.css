@@ -14,7 +14,7 @@ body {
 }
 
 :root:where(.dark, .dark *) {
-    --plyr-audio-controls-background: #292524 !important;
+    --plyr-audio-controls-background: #1c1917 !important;
     --plyr-audio-control-color: #ffeff0 !important;
 }
 
