@@ -4,16 +4,36 @@
     x-show="isSourceSet"
     x-on:play-podcast.window="play($event.detail)"
     x-on:pause-podcast.window="player.pause()"
-    class="lg:w-6/12 h-16 flex items-center p-4 rounded-btn bg-secondary dark:bg-stone-900"
+    class="lg:w-2/3 rounded-btn bg-accent dark:bg-stone-900 space-y-2 px-2 border-2 border-secondary"
 >
-    <figure>
-        <img
-            loading="lazy"
-            x-bind:src="thumbnail"
-            alt=""
-            class="rounded max-h-12"
-        >
-    </figure>
+    <div class="flex gap-x-2 text-xs pt-2 pl-[5.6px]">
+        <figure>
+            <img
+                loading="lazy"
+                x-bind:src="thumbnail"
+                class="rounded max-h-12"
+            >
+        </figure>
+        <div>
+            <div class="font-bold line-clamp-1">
+                The Laravel Podcast
+            </div>
+            <div class="line-clamp-1">
+                Laracon AU Update & Nightwatch Q&A
+            </div>
+            <div class="flex gap-x-1 line-clamp-1">
+                <div>
+                    Dec 23, 2024
+                </div>
+                <div>
+                    ·
+                </div>
+                <div>
+                    34m
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="main-podcast-player-container">
         <audio
             id="main-podcast-player"

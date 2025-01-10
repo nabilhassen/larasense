@@ -8,21 +8,25 @@ body {
 
 :root {
     --plyr-color-main: #ef5a6f !important;
+    --plyr-control-spacing: 0.5rem;
+    --plyr-audio-control-color: #292524;
+    --plyr-audio-controls-background: #ffeff0 !important;
 }
 
-.podcast-player {
-    --plyr-control-icon-size: 24px !important;
-    --plyr-audio-controls-background: #ffd0d2 !important;
+:root:where(.dark, .dark *) {
+    --plyr-audio-controls-background: #292524 !important;
+    --plyr-audio-control-color: #ffeff0 !important;
 }
 
-.dark .podcast-player {
-    --plyr-audio-controls-background: #1c1917 !important;
+.plyr__controls {
+    padding-left: 0px !important;
+    padding-top: 0px !important;
 }
 
-#main-podcast-player-container {
-    --plyr-audio-controls-background: #ffd0d2 !important;
+.plyr__volume input[type="range"] {
+    max-width: 60px !important;
 }
 
-.dark #main-podcast-player-container {
-    --plyr-audio-controls-background: #1c1917 !important;
+.podcast-player .plyr__controls {
+    padding-bottom: 0px !important;
 }
