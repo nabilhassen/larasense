@@ -35,7 +35,7 @@ test('bookmarks feed displays bookmarked materials only', function () {
 test('bookmarks feed can load more bookmarked materials', function () {
     Material::factory(20)->create();
 
-    foreach (Material::limit(10)->get() as $material) {
+    foreach (Material::limit(15)->get() as $material) {
         Livewire::test(Show::class, ['slug' => $material->slug])
             ->call('bookmark');
     }
@@ -43,10 +43,10 @@ test('bookmarks feed can load more bookmarked materials', function () {
     Livewire::test(Bookmarks::class)
         ->assertStatus(200)
         ->assertViewHas('materials', function ($materials) {
-            return count($materials->items()) === 6;
+            return count($materials->items()) === 12;
         })
         ->call('loadMore')
         ->assertViewHas('materials', function ($materials) {
-            return count($materials->items()) === 10;
+            return count($materials->items()) === 15;
         });
 });

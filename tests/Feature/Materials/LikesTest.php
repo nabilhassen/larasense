@@ -35,7 +35,7 @@ test('likes feed displays liked materials only', function () {
 test('likes feed can load more liked materials', function () {
     Material::factory(20)->create();
 
-    foreach (Material::limit(10)->get() as $material) {
+    foreach (Material::limit(15)->get() as $material) {
         Livewire::test(Show::class, ['slug' => $material->slug])
             ->call('like');
     }
@@ -43,10 +43,10 @@ test('likes feed can load more liked materials', function () {
     Livewire::test(Likes::class)
         ->assertStatus(200)
         ->assertViewHas('materials', function ($materials) {
-            return count($materials->items()) === 6;
+            return count($materials->items()) === 12;
         })
         ->call('loadMore')
         ->assertViewHas('materials', function ($materials) {
-            return count($materials->items()) === 10;
+            return count($materials->items()) === 15;
         });
 });

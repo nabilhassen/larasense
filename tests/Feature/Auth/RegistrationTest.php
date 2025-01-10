@@ -3,6 +3,9 @@
 namespace Tests\Feature\Auth;
 
 use App\Livewire\Auth\Register;
+use App\Models\User;
+use App\Notifications\QueueableVerifyEmailNotificaition;
+use Illuminate\Support\Facades\Notification;
 use Livewire\Livewire;
 
 test('registration screen can be rendered', function () {
@@ -11,6 +14,8 @@ test('registration screen can be rendered', function () {
 });
 
 test('new users can register', function () {
+    Notification::fake();
+
     Livewire::test(Register::class)
         ->set('name', 'Test User')
         ->set('email', 'test@example.com')
@@ -18,6 +23,11 @@ test('new users can register', function () {
         ->set('password_confirmation', 'password')
         ->call('register')
         ->assertRedirect(route('dashboard', absolute: false));
+
+    Notification::assertSentTo(
+        [User::firstWhere('email', 'test@example.com')],
+        QueueableVerifyEmailNotificaition::class
+    );
 
     $this->assertAuthenticated();
 });

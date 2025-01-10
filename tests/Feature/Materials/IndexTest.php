@@ -18,25 +18,25 @@ test('feed renders successfully', function () {
 });
 
 test('feed displays materials', function () {
-    Material::factory(10)->create();
+    Material::factory(15)->create();
 
     Livewire::test(Index::class)
         ->assertStatus(200)
         ->assertViewHas('materials', function ($materials) {
-            return count($materials->items()) === 6;
+            return count($materials->items()) === 12;
         });
 });
 
 test('feed can load more materials', function () {
-    Material::factory(10)->create();
+    Material::factory(15)->create();
 
     Livewire::test(Index::class)
         ->assertStatus(200)
         ->assertViewHas('materials', function ($materials) {
-            return count($materials->items()) === 6;
+            return count($materials->items()) === 12;
         })
         ->call('loadMore')
         ->assertViewHas('materials', function ($materials) {
-            return count($materials->items()) === 10;
+            return count($materials->items()) === 15;
         });
 });
