@@ -60,6 +60,7 @@
 
             <div class="mt-6 flex justify-end gap-x-2">
                 <button
+                    type="button"
                     x-data
                     class="btn btn-outline"
                     x-on:click="$dispatch('close')"
