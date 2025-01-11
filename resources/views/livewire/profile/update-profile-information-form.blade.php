@@ -8,7 +8,7 @@
         </h2>
     </div>
     @if (auth()->user() instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && !auth()->user()->hasVerifiedEmail())
-        <div class="rounded-md p-4 bg-secondary text-primary text-sm">
+        <div class="rounded-md p-4 bg-accent text-primary text-sm">
             @if (is_null(session('status')))
                 <p>
                     Your email address is unverified.

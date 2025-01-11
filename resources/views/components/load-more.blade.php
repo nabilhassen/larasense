@@ -14,7 +14,7 @@
             </div>
         </div>
     @elseif(filled($message))
-        <div class="flex justify-center bg-secondary dark:bg-stone-900 py-4 px-8 rounded-btn w-fit mx-auto text-primary font-bold">
+        <div class="flex justify-center bg-accent dark:bg-stone-900 py-4 px-8 rounded-btn w-fit mx-auto text-primary font-bold">
             {{ $message }}
         </div>
     @endif

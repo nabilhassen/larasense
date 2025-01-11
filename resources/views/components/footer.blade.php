@@ -12,7 +12,7 @@
             <ul class="menu menu-vertical sm:menu-horizontal">
                 <li>
                     <a
-                        class="hover:bg-secondary dark:hover:bg-stone-900 active:!bg-secondary dark:active:!bg-stone-900 focus:!bg-secondary dark:focus:!bg-stone-900 active:!text-inherit max-sm:pl-0"
+                        class="hover:bg-accent dark:hover:bg-stone-900 active:!bg-accent dark:active:!bg-stone-900 focus:!bg-accent dark:focus:!bg-stone-900 active:!text-inherit max-sm:pl-0"
                         href="{{ route('home') }}"
                         wire:navigate
                     >
@@ -21,7 +21,7 @@
                 </li>
                 <li>
                     <a
-                        class="hover:bg-secondary dark:hover:bg-stone-900 active:!bg-secondary dark:active:!bg-stone-900 focus:!bg-secondary dark:focus:!bg-stone-900 active:!text-inherit max-sm:pl-0"
+                        class="hover:bg-accent dark:hover:bg-stone-900 active:!bg-accent dark:active:!bg-stone-900 focus:!bg-accent dark:focus:!bg-stone-900 active:!text-inherit max-sm:pl-0"
                         href="{{ route('home') }}#sources"
                     >
                         Sources
@@ -29,7 +29,7 @@
                 </li>
                 <li>
                     <a
-                        class="hover:bg-secondary dark:hover:bg-stone-900 active:!bg-secondary dark:active:!bg-stone-900 focus:!bg-secondary dark:focus:!bg-stone-900 active:!text-inherit max-sm:pl-0"
+                        class="hover:bg-accent dark:hover:bg-stone-900 active:!bg-accent dark:active:!bg-stone-900 focus:!bg-accent dark:focus:!bg-stone-900 active:!text-inherit max-sm:pl-0"
                         href="{{ route('home') }}#benefits"
                     >
                         Benefits
@@ -37,7 +37,7 @@
                 </li>
                 <li>
                     <a
-                        class="hover:bg-secondary dark:hover:bg-stone-900 active:!bg-secondary dark:active:!bg-stone-900 focus:!bg-secondary dark:focus:!bg-stone-900 active:!text-inherit max-sm:pl-0"
+                        class="hover:bg-accent dark:hover:bg-stone-900 active:!bg-accent dark:active:!bg-stone-900 focus:!bg-accent dark:focus:!bg-stone-900 active:!text-inherit max-sm:pl-0"
                         href="{{ route('home') }}#faq"
                     >
                         FAQ
@@ -46,7 +46,7 @@
                 <li>
                     <a
                         wire:navigate
-                        class="hover:bg-secondary dark:hover:bg-stone-900 active:!bg-secondary dark:active:!bg-stone-900 focus:!bg-secondary dark:focus:!bg-stone-900 active:!text-inherit max-sm:pl-0"
+                        class="hover:bg-accent dark:hover:bg-stone-900 active:!bg-accent dark:active:!bg-stone-900 focus:!bg-accent dark:focus:!bg-stone-900 active:!text-inherit max-sm:pl-0"
                         href="{{ route('login') }}"
                     >
                         Login
@@ -55,7 +55,7 @@
                 <li>
                     <a
                         wire:navigate
-                        class="hover:bg-secondary dark:hover:bg-stone-900 active:!bg-secondary dark:active:!bg-stone-900 focus:!bg-secondary dark:focus:!bg-stone-900 active:!text-inherit max-sm:pl-0"
+                        class="hover:bg-accent dark:hover:bg-stone-900 active:!bg-accent dark:active:!bg-stone-900 focus:!bg-accent dark:focus:!bg-stone-900 active:!text-inherit max-sm:pl-0"
                         href="{{ route('register') }}"
                     >
                         Sign up

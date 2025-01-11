@@ -1,5 +1,5 @@
 <div class="min-h-screen flex justify-center items-center">
-    <div class="sm:max-w-sm sm:mx-auto mx-4 py-8 space-y-6 border-2 border-secondary p-8 rounded-box shadow-lg">
+    <div class="sm:max-w-sm sm:mx-auto mx-4 py-8 space-y-6 border-2 border-accent p-8 rounded-box shadow-lg">
         <figure>
             <a
                 wire:navigate
@@ -19,7 +19,7 @@
         </div>
 
         @if (session('status') === 'verification-link-sent')
-            <div class="rounded-md font-bold p-4 bg-secondary text-primary text-sm">
+            <div class="rounded-md font-bold p-4 bg-accent text-primary text-sm">
                 A new verification link has been sent to the email address you provided during registration.
             </div>
         @endif

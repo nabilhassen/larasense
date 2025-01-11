@@ -28,7 +28,7 @@
                 >
                     <li>
                         <a
-                            class="hover:bg-secondary dark:hover:bg-black active:!bg-secondary dark:active:!bg-black focus:!bg-secondary dark:focus:!bg-black active:!text-inherit"
+                            class="hover:bg-accent dark:hover:bg-black active:!bg-accent dark:active:!bg-black focus:!bg-accent dark:focus:!bg-black active:!text-inherit"
                             href="{{ route('home') }}"
                             wire:navigate
                         >
@@ -37,7 +37,7 @@
                     </li>
                     <li>
                         <a
-                            class="hover:bg-secondary dark:hover:bg-black active:!bg-secondary dark:active:!bg-black focus:!bg-secondary dark:focus:!bg-black active:!text-inherit"
+                            class="hover:bg-accent dark:hover:bg-black active:!bg-accent dark:active:!bg-black focus:!bg-accent dark:focus:!bg-black active:!text-inherit"
                             href="{{ route('home') }}#sources"
                         >
                             Sources
@@ -45,7 +45,7 @@
                     </li>
                     <li>
                         <a
-                            class="hover:bg-secondary dark:hover:bg-black active:!bg-secondary dark:active:!bg-black focus:!bg-secondary dark:focus:!bg-black active:!text-inherit"
+                            class="hover:bg-accent dark:hover:bg-black active:!bg-accent dark:active:!bg-black focus:!bg-accent dark:focus:!bg-black active:!text-inherit"
                             href="{{ route('home') }}#benefits"
                         >
                             Benefits
@@ -53,7 +53,7 @@
                     </li>
                     <li>
                         <a
-                            class="hover:bg-secondary dark:hover:bg-black active:!bg-secondary dark:active:!bg-black focus:!bg-secondary dark:focus:!bg-black active:!text-inherit"
+                            class="hover:bg-accent dark:hover:bg-black active:!bg-accent dark:active:!bg-black focus:!bg-accent dark:focus:!bg-black active:!text-inherit"
                             href="{{ route('home') }}#faq"
                         >
                             FAQ
@@ -78,7 +78,7 @@
             <ul class="menu menu-horizontal px-1 font-semibold hidden lg:flex">
                 <li>
                     <a
-                        class="hover:bg-secondary dark:hover:bg-stone-900 active:!bg-secondary dark:active:!bg-stone-900 focus:!bg-secondary dark:focus:!bg-stone-900 active:!text-inherit"
+                        class="hover:bg-accent dark:hover:bg-stone-900 active:!bg-accent dark:active:!bg-stone-900 focus:!bg-accent dark:focus:!bg-stone-900 active:!text-inherit"
                         href="{{ route('home') }}"
                         wire:navigate
                     >
@@ -87,7 +87,7 @@
                 </li>
                 <li>
                     <a
-                        class="hover:bg-secondary dark:hover:bg-stone-900 active:!bg-secondary dark:active:!bg-stone-900 focus:!bg-secondary dark:focus:!bg-stone-900 active:!text-inherit"
+                        class="hover:bg-accent dark:hover:bg-stone-900 active:!bg-accent dark:active:!bg-stone-900 focus:!bg-accent dark:focus:!bg-stone-900 active:!text-inherit"
                         href="{{ route('home') }}#sources"
                     >
                         Sources
@@ -95,7 +95,7 @@
                 </li>
                 <li>
                     <a
-                        class="hover:bg-secondary dark:hover:bg-stone-900 active:!bg-secondary dark:active:!bg-stone-900 focus:!bg-secondary dark:focus:!bg-stone-900 active:!text-inherit"
+                        class="hover:bg-accent dark:hover:bg-stone-900 active:!bg-accent dark:active:!bg-stone-900 focus:!bg-accent dark:focus:!bg-stone-900 active:!text-inherit"
                         href="{{ route('home') }}#benefits"
                     >
                         Benefits
@@ -103,7 +103,7 @@
                 </li>
                 <li>
                     <a
-                        class="hover:bg-secondary dark:hover:bg-stone-900 active:!bg-secondary dark:active:!bg-stone-900 focus:!bg-secondary dark:focus:!bg-stone-900 active:!text-inherit"
+                        class="hover:bg-accent dark:hover:bg-stone-900 active:!bg-accent dark:active:!bg-stone-900 focus:!bg-accent dark:focus:!bg-stone-900 active:!text-inherit"
                         href="{{ route('home') }}#faq"
                     >
                         FAQ

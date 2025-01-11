@@ -55,7 +55,7 @@
                     <li>
                         <a
                             wire:navigate
-                            class="hover:bg-secondary dark:hover:bg-black active:!bg-secondary dark:active:!bg-black focus:!bg-secondary dark:focus:!bg-black active:!text-inherit"
+                            class="hover:bg-accent dark:hover:bg-black active:!bg-accent dark:active:!bg-black focus:!bg-accent dark:focus:!bg-black active:!text-inherit"
                             href="{{ route('settings') }}"
                         >
                             Profile
@@ -64,7 +64,7 @@
                     <li class="lg:hidden">
                         <button
                             x-data
-                            class="hover:bg-secondary dark:hover:bg-black active:!bg-secondary dark:active:!bg-black focus:!bg-secondary dark:focus:!bg-black active:!text-inherit"
+                            class="hover:bg-accent dark:hover:bg-black active:!bg-accent dark:active:!bg-black focus:!bg-accent dark:focus:!bg-black active:!text-inherit"
                             x-on:click="$dispatch('open-source-suggestions-modal')"
                         >
                             Suggest Sources
@@ -73,7 +73,7 @@
                     <li class="lg:hidden">
                         <button
                             x-data
-                            class="hover:bg-secondary dark:hover:bg-black active:!bg-secondary dark:active:!bg-black focus:!bg-secondary dark:focus:!bg-black active:!text-inherit"
+                            class="hover:bg-accent dark:hover:bg-black active:!bg-accent dark:active:!bg-black focus:!bg-accent dark:focus:!bg-black active:!text-inherit"
                             x-on:click="$dispatch('open-bug-reports-modal')"
                         >
                             Report Bugs
@@ -82,7 +82,7 @@
                     <li class="lg:hidden">
                         <a
                             href="https://x.com/nabilhassen08"
-                            class="hover:bg-secondary dark:hover:bg-black active:!bg-secondary dark:active:!bg-black focus:!bg-secondary dark:focus:!bg-black active:!text-inherit"
+                            class="hover:bg-accent dark:hover:bg-black active:!bg-accent dark:active:!bg-black focus:!bg-accent dark:focus:!bg-black active:!text-inherit"
                             target="_blank"
                         >
                             Roadmap
@@ -92,7 +92,7 @@
                         <button
                             x-data
                             x-cloak
-                            class="hover:bg-secondary dark:hover:bg-black active:!bg-secondary dark:active:!bg-black focus:!bg-secondary dark:focus:!bg-black active:!text-inherit"
+                            class="hover:bg-accent dark:hover:bg-black active:!bg-accent dark:active:!bg-black focus:!bg-accent dark:focus:!bg-black active:!text-inherit"
                             x-text="$store.themeMode.isDark() ? 'Light Mode' : 'Dark Mode'"
                             x-on:click="$store.themeMode.toggle()"
                         ></button>
