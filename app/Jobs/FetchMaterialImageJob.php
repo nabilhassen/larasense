@@ -28,6 +28,10 @@ class FetchMaterialImageJob implements ShouldQueue
     {
         $material = Material::find($this->materialId, ['id', 'image_url']);
 
+        if (!isset(parse_url($material->image_url)['host'])) {
+            return;
+        }
+
         $response = Http::retry(3, 100)->timeout(10)->get($material->image_url);
 
         $path = $this->getPath($response->header('Content-Type'));

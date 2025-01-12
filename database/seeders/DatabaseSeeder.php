@@ -17,13 +17,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Local admin
-        User::factory()->create([
-            'name' => 'Nabil Hassen',
-            'email' => 'nabil@nabil.com',
-            'password' => Hash::make('nabilnabil'),
-        ]);
-
         Publisher::factory(5)
             ->has(
                 Source::factory(2)
