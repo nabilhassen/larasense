@@ -21,7 +21,9 @@
         "resend/resend-php": "^0.15.1",
         "romanzipp/laravel-queue-monitor": "^5.3",
         "shweshi/opengraph": "^1.1",
+        "spatie/crawler": "^8.4",
         "spatie/laravel-honeypot": "^4.5",
+        "spatie/laravel-sitemap": "^7.3",
         "spatie/livewire-filepond": "^1.4",
         "willvincent/feeds": "^2.6"
     },
