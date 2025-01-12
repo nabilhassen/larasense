@@ -27,7 +27,7 @@ return [
 
         // Accepts route group configuration
         'route' => [
-            'prefix' => 'admin/jobs',
+            'prefix' => 'JgYP2nMqmIjeBDiZ/jobs',
             'middleware' => ['web', 'auth', 'verified'],
         ],
 
