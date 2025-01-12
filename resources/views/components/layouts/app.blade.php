@@ -67,6 +67,8 @@
 
     @livewireStyles
     @vite('resources/css/app.css')
+
+    <x-layouts.gtag />
 </head>
 
 <body @class([
