@@ -11,21 +11,29 @@ use Illuminate\Validation\Rules;
 use Livewire\Attributes\Locked;
 use Livewire\Attributes\Title;
 use Livewire\Component;
+use Spatie\Honeypot\Http\Livewire\Concerns\HoneypotData;
+use Spatie\Honeypot\Http\Livewire\Concerns\UsesSpamProtection;
 
 #[Title('Reset Password')]
 class ResetPassword extends Component
 {
+    use UsesSpamProtection;
+
     #[Locked]
     public string $token = '';
     public string $email = '';
     public string $password = '';
     public string $password_confirmation = '';
 
+    public HoneypotData $extraFields;
+
     /**
      * Mount the component.
      */
     public function mount(string $token): void
     {
+        $this->extraFields = new HoneypotData();
+
         $this->token = $token;
 
         $this->email = request()->string('email');
@@ -36,6 +44,8 @@ class ResetPassword extends Component
      */
     public function resetPassword(): void
     {
+        $this->protectAgainstSpam();
+
         $this->validate([
             'token' => ['required'],
             'email' => ['required', 'string', 'email'],
@@ -68,7 +78,7 @@ class ResetPassword extends Component
 
         Session::flash('status', __($status));
 
-        $this->redirectRoute('login', navigate:true);
+        $this->redirectRoute('login', navigate: true);
     }
 
     public function render()

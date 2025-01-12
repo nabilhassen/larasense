@@ -9,20 +9,33 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
 use Livewire\Attributes\Title;
 use Livewire\Component;
+use Spatie\Honeypot\Http\Livewire\Concerns\HoneypotData;
+use Spatie\Honeypot\Http\Livewire\Concerns\UsesSpamProtection;
 
 #[Title('Sign up')]
 class Register extends Component
 {
+    use UsesSpamProtection;
+
     public string $name = '';
     public string $email = '';
     public string $password = '';
     public string $password_confirmation = '';
+
+    public HoneypotData $extraFields;
+
+    public function mount()
+    {
+        $this->extraFields = new HoneypotData();
+    }
 
     /**
      * Handle an incoming registration request.
      */
     public function register(): void
     {
+        $this->protectAgainstSpam();
+
         $validated = $this->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],

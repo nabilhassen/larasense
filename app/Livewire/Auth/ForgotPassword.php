@@ -5,17 +5,30 @@ namespace App\Livewire\Auth;
 use Illuminate\Support\Facades\Password;
 use Livewire\Attributes\Title;
 use Livewire\Component;
+use Spatie\Honeypot\Http\Livewire\Concerns\HoneypotData;
+use Spatie\Honeypot\Http\Livewire\Concerns\UsesSpamProtection;
 
 #[Title('Forgot Password')]
 class ForgotPassword extends Component
 {
+    use UsesSpamProtection;
+
     public string $email = '';
+
+    public HoneypotData $extraFields;
+
+    public function mount()
+    {
+        $this->extraFields = new HoneypotData();
+    }
 
     /**
      * Send a password reset link to the provided email address.
      */
     public function sendPasswordResetLink(): void
     {
+        $this->protectAgainstSpam();
+
         $this->validate([
             'email' => ['required', 'string', 'email'],
         ]);

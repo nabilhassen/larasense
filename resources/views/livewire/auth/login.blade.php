@@ -22,6 +22,8 @@
             wire:submit="login"
             class="space-y-2"
         >
+            <x-honeypot livewire-model="extraFields" />
+
             <label class="form-control w-full">
                 <div class="label">
                     <span>Email</span>
