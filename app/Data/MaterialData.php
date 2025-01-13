@@ -67,6 +67,8 @@ class MaterialData
 
     public static function fromPodcast(Item $item): static
     {
+        $duration = static::getItunesTags($item, 'duration')[0]['data'] ?? $item->get_enclosure()?->get_duration();
+
         return new static(
             title: $item->get_title(),
             description: $item->get_description(),
@@ -76,7 +78,7 @@ class MaterialData
             publishedAt: Carbon::parse($item->get_date())->timezone(config('app.timezone')),
             feedId: $item->get_id(true),
             imageUrl: static::getItunesTags($item, 'image')[0]['attribs']['']['href'] ?? $item->get_enclosure()?->get_thumbnail(),
-            duration: static::getItunesTags($item, 'duration')[0]['data'] ?? $item->get_enclosure()?->get_duration()
+            duration: is_int($duration) ? $duration : null
         );
     }
 
