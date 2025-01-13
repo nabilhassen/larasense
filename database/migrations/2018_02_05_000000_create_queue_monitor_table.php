@@ -21,7 +21,7 @@ class CreateQueueMonitorTable extends Migration
     {
         Schema::create(config('queue-monitor.table'), function (Blueprint $table) {
             $table->increments('id');
-            $table->uuid('job_uuid')->nullable();
+            $table->bigIncrements('job_uuid')->nullable();
 
             $table->string('job_id')->index();
             $table->string('name')->nullable();
