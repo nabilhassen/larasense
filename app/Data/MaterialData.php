@@ -78,7 +78,7 @@ class MaterialData
             publishedAt: Carbon::parse($item->get_date())->timezone(config('app.timezone')),
             feedId: $item->get_id(true),
             imageUrl: static::getItunesTags($item, 'image')[0]['attribs']['']['href'] ?? $item->get_enclosure()?->get_thumbnail(),
-            duration: is_int($duration) ? $duration : null
+            duration: is_numeric($duration) ? $duration : null
         );
     }
 

@@ -13,10 +13,10 @@ class Modal extends Component
     use HasEngagementMetrics;
 
     #[Locked]
-    public string $slug = '';
+    public ?string $slug = '';
 
     #[On('open-material-modal')]
-    public function setSlug(string $slug = ''): void
+    public function setSlug(?string $slug = ''): void
     {
         $this->slug = $slug;
     }

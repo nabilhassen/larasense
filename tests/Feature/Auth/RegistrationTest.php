@@ -18,14 +18,14 @@ test('new users can register', function () {
 
     Livewire::test(Register::class)
         ->set('name', 'Test User')
-        ->set('email', 'test@example.com')
+        ->set('email', 'test@larasense.com')
         ->set('password', 'password')
         ->set('password_confirmation', 'password')
         ->call('register')
         ->assertRedirect(route('dashboard', absolute: false));
 
     Notification::assertSentTo(
-        [User::firstWhere('email', 'test@example.com')],
+        [User::firstWhere('email', 'test@larasense.com')],
         QueueableVerifyEmailNotificaition::class
     );
 

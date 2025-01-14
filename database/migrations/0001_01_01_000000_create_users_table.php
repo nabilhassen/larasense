@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('provider')->nullable();
             $table->string('provider_id')->nullable();
-            $table->string('avatar_url')->nullable();
+            $table->text('avatar_url')->nullable();
             $table->string('timezone')->default('UTC');
             $table->rememberToken();
             $table->timestamps();
