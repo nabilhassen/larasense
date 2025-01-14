@@ -81,7 +81,7 @@ class Material extends Model
         $query->where('is_displayed', 0);
     }
 
-    public function scopeSlug(Builder $query, string $slug): void
+    public function scopeSlug(Builder $query, ?string $slug): void
     {
         $query->where('slug', $slug);
     }
