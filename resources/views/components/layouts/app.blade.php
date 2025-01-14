@@ -17,7 +17,7 @@
 
     <meta name="theme-color" />
 
-    <x-layouts.guest-meta-tags />
+    <x-layouts.guest-meta-tags :$title />
 
     <title>Larasense - {{ $title ?? '' }}</title>
 

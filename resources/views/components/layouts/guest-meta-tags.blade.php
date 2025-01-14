@@ -1,3 +1,5 @@
+@props(['title' => null])
+
 @guest
     <meta
         property="og:title"
