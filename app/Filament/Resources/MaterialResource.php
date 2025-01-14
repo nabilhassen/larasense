@@ -108,13 +108,19 @@ class MaterialResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
 
-                TextColumn::make('clicks')
+                TextColumn::make('expands')
                     ->alignCenter()
                     ->numeric()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
 
                 TextColumn::make('redirects')
+                    ->alignCenter()
+                    ->numeric()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+
+                TextColumn::make('plays')
                     ->alignCenter()
                     ->numeric()
                     ->sortable()
