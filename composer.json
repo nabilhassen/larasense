@@ -18,6 +18,7 @@
         "livewire/livewire": "^3.4",
         "maize-tech/laravel-markable": "^2.2",
         "resend/resend-php": "^0.15.1",
+        "rickdbcn/filament-email": "^1.7",
         "romanzipp/laravel-queue-monitor": "^5.3",
         "shweshi/opengraph": "^1.1",
         "spatie/crawler": "^8.4",

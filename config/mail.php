@@ -95,9 +95,7 @@ return [
             'transport' => 'failover',
             'mailers' => [
                 'resend',
-                'mailtrap',
                 'smtp',
-                'log',
             ],
         ],
 

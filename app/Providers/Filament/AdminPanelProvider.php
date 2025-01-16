@@ -77,6 +77,7 @@ class AdminPanelProvider extends PanelProvider
                         ->icon('heroicon-o-queue-list')
                         ->sort(3),
                     ]);
-            });
+            })
+            ->plugin(\RickDBCN\FilamentEmail\FilamentEmail::make());
     }
 }
