@@ -31,7 +31,7 @@ class SocialiteController
                 'provider' => $provider,
                 'provider_id' => $user->id,
             ], [
-                'name' => $user->name ?? 'N/A',
+                'name' => $user->name ?? $user->nickname ?? 'N/A',
                 'email' => $user->email,
                 'password' => Str::random(),
                 'avatar_url' => $user->avatar,
