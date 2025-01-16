@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\MaterialResource\Pages\ManageMaterials;
@@ -75,6 +74,9 @@ class MaterialResource extends Resource
     {
         return $table
             ->columns([
+                TextColumn::make('#')
+                    ->rowIndex(),
+
                 ImageColumn::make('image_url')
                     ->square()
                     ->placeholder('N/A'),

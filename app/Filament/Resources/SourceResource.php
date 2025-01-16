@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Filament\Resources;
 
 use App\Enums\SourceType;
@@ -68,6 +67,9 @@ class SourceResource extends Resource
     {
         return $table
             ->columns([
+                TextColumn::make('#')
+                    ->rowIndex(),
+
                 TextColumn::make('publisher.name')
                     ->numeric()
                     ->sortable()

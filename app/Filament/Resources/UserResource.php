@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\UserResource\Pages\ManageUsers;
@@ -74,7 +73,10 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('avatar_url')
+                TextColumn::make('#')
+                    ->rowIndex(),
+
+                ImageColumn::make('avatar')
                     ->label('Avatar')
                     ->circular(),
 

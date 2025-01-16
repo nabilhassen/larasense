@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\BugReportResource\Pages;
@@ -39,6 +38,9 @@ class BugReportResource extends Resource
     {
         return $table
             ->columns([
+                TextColumn::make('#')
+                    ->rowIndex(),
+
                 TextColumn::make('user.name')
                     ->searchable()
                     ->sortable(),

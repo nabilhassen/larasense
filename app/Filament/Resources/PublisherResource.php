@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\PublisherResource\Pages\ManagePublishers;
@@ -55,6 +54,9 @@ class PublisherResource extends Resource
     {
         return $table
             ->columns([
+                TextColumn::make('#')
+                    ->rowIndex(),
+
                 ImageColumn::make('logo')
                     ->circular(),
 
