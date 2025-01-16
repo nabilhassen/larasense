@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Livewire\Materials;
 
 use App\Livewire\Traits\HasEngagementMetrics;
@@ -13,11 +12,16 @@ class Modal extends Component
     use HasEngagementMetrics;
 
     #[Locked]
-    public ?string $slug = '';
+    public string $slug = '';
 
     #[On('open-material-modal')]
     public function setSlug(?string $slug = ''): void
     {
+        if (blank($slug)) {
+            $this->skipRender();
+            return;
+        }
+
         $this->slug = $slug;
     }
 

@@ -22,7 +22,7 @@
                 $el.blur();
             }"
             x-on:keyup.escape="isAutoCompleteVisible = false;currentMaterialIndex = 0;$el.blur()"
-            x-on:keydown.up="isAutoCompleteVisible = true;currentMaterialIndex == 0 ? currentMaterialIndex = @js($materials->count() - 1) : currentMaterialIndex--"
+            x-on:keydown.up="isAutoCompleteVisible = true;currentMaterialIndex == 0 ? (currentMaterialIndex = @js($materials->count() - 1)) : currentMaterialIndex--"
             x-on:keydown.down="isAutoCompleteVisible = true;currentMaterialIndex == @js($materials->count() - 1) ? currentMaterialIndex = 0 : currentMaterialIndex++"
         />
         <svg
