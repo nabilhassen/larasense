@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use App\Enums\SourceType;
@@ -43,7 +42,7 @@ class Material extends Model
         return [
             'is_displayed' => 'boolean',
             'published_at' => 'datetime',
-            'duration' => 'integer',
+            'duration'     => 'integer',
         ];
     }
 
@@ -60,6 +59,22 @@ class Material extends Model
                 }
 
                 return str($this->image_url)->prepend('storage/');
+            }
+        )->shouldCache();
+    }
+
+    public function urlWithUtms(): Attribute
+    {
+        return Attribute::make(
+            get: function () {
+                if ($this->isArticle()) {
+                    return str($this->url)
+                        ->append('?utm_source=larasense.com&utm_medium=referral&utm_campaign=referral')
+                        ->replaceLast('/?', '?')
+                        ->toString();
+                }
+
+                return $this->url;
             }
         )->shouldCache();
     }

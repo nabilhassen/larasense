@@ -219,7 +219,7 @@
                 >
                     <a
                         class="inline-flex"
-                        href="{{ $material->url }}"
+                        href="{{ $material->urlWithUtms }}"
                         target="_blank"
                         x-on:click="$wire.redirected()"
                     >

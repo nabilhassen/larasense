@@ -159,7 +159,7 @@
                             <div>
                                 <a
                                     class="btn max-lg:btn-sm max-lg:text-xs btn-primary btn-outline hover:!text-white"
-                                    href="{{ $material->url }}"
+                                    href="{{ $material->urlWithUtms }}"
                                     target="_blank"
                                     x-on:click="$wire.redirected('{{ $material->slug }}')"
                                 >
