@@ -56,6 +56,7 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser, Has
             'email_verified_at' => 'datetime',
             'password'          => 'hashed',
             'is_admin'          => 'boolean',
+            'last_logged_in_at' => 'datetime',
         ];
     }
 
@@ -96,5 +97,12 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser, Has
     public function isRegisteredWithProvider(): bool
     {
         return filled($this->provider) && filled($this->provider_id);
+    }
+
+    public function updateLastLoggedInAt(): void
+    {
+        $this->last_logged_in_at = now();
+
+        $this->save();
     }
 }

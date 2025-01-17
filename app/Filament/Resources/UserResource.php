@@ -100,6 +100,12 @@ class UserResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->sortable(),
 
+                TextColumn::make('last_logged_in_at')
+                    ->label('Last Login')
+                    ->dateTime()
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->sortable(),
+
                 TextColumn::make('provider_id')
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->searchable(),

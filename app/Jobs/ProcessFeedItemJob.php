@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Jobs;
 
 use App\Actions\CreateMaterial;
