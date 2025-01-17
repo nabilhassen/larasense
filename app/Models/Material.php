@@ -68,8 +68,10 @@ class Material extends Model
         return Attribute::make(
             get: function () {
                 if ($this->isArticle()) {
+                    $host = parse_url(config('app.url'), PHP_URL_HOST);
+
                     return str($this->url)
-                        ->append('?utm_source=larasense.com&utm_medium=referral&utm_campaign=referral')
+                        ->append("?utm_source={$host}&utm_medium=referral&utm_campaign=referral")
                         ->replaceLast('/?', '?')
                         ->toString();
                 }
