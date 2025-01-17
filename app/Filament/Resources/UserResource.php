@@ -9,6 +9,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
+use Filament\Support\Enums\IconPosition;
 use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\EditAction;
@@ -82,26 +83,27 @@ class UserResource extends Resource
                     ->circular(),
 
                 TextColumn::make('name')
-                    ->searchable(),
-
-                TextColumn::make('email')
-                    ->searchable(),
+                    ->searchable(['name', 'email'])
+                    ->icon(fn(User $record): ?string => $record->hasVerifiedEmail() ? 'heroicon-o-check-circle' : null)
+                    ->iconPosition(IconPosition::After)
+                    ->iconColor('primary')
+                    ->description(fn(User $record): string => $record->email),
 
                 TextColumn::make('provider')
                     ->searchable()
-                    ->placeholder('No Provider'),
+                    ->placeholder('No Provider')
+                    ->toggleable(isToggledHiddenByDefault: true),
 
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable(),
 
-                TextColumn::make('email_verified_at')
-                    ->dateTime()
-                    ->toggleable(isToggledHiddenByDefault: true)
-                    ->sortable(),
-
                 TextColumn::make('last_logged_in_at')
                     ->label('Last Login')
+                    ->dateTime()
+                    ->sortable(),
+
+                TextColumn::make('email_verified_at')
                     ->dateTime()
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->sortable(),
