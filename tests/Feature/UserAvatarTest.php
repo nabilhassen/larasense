@@ -11,7 +11,7 @@ test('user avatar is pulled from ui-avatars if user has no an avatar', function 
         ->test(UserAvatar::class)
         ->assertSeeHtmlInOrder([
             'ui-avatars.com',
-            str($user->name)->squish()->words(2),
+            str($user->name)->squish()->words(2, '')->replace(' ', '+'),
         ]);
 });
 
@@ -22,7 +22,7 @@ test('user avatar changes when the avatar is updated', function () {
         ->test(UserAvatar::class)
         ->assertSee($user->avatar);
 
-    $newImage = fake()->imageUrl();
+    $newImage         = fake()->imageUrl();
     $user->avatar_url = $newImage;
     $user->save();
     $user->refresh();
