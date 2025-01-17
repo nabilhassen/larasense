@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use App\Notifications\QueueableVerifyEmailNotificaition;
@@ -47,8 +46,8 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser, Has
     {
         return [
             'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-            'is_admin' => 'boolean',
+            'password'          => 'hashed',
+            'is_admin'          => 'boolean',
         ];
     }
 
@@ -57,7 +56,8 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser, Has
         return Attribute::make(
             get: function () {
                 if (blank($this->avatar_url)) {
-                    $name = str($this->name)->squish()->words(2);
+                    $name = str($this->name)->squish()->words(2, '')->replace(' ', '+');
+
                     return "https://ui-avatars.com/api/?name={$name}&background=ffd0d2&color=EF5A6F&rounded=true&bold=true";
                 }
 
