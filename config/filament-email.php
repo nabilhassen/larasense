@@ -10,7 +10,7 @@ return [
         'model' => Email::class,
         'cluster' => null,
         'group' => '',
-        'sort' => 4,
+        'sort' => 5,
         'icon' => null,
         'default_sort_column' => 'created_at',
         'default_sort_direction' => 'desc',

@@ -31,6 +31,14 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser, Has
      *
      * @return void
      */
+
+    protected static function booted(): void
+    {
+        static::deleted(function (User $user) {
+            DeletedUser::create($user->only(['name', 'email']));
+        });
+    }
+
     public function sendEmailVerificationNotification()
     {
         $this->notify(new QueueableVerifyEmailNotificaition);
