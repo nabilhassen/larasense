@@ -72,7 +72,7 @@ class SourceResource extends Resource
                     ->rowIndex(),
 
                 TextColumn::make('publisher.name')
-                    ->numeric()
+                    ->searchable(['publishers.name', 'url'])
                     ->sortable()
                     ->description(fn(Source $record): string => str($record->url)->limit(50)),
 
