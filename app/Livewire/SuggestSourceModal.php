@@ -18,7 +18,7 @@ class SuggestSourceModal extends Component
         $this->validate();
 
         SourceSuggestion::create([
-            'user_id' => auth()->id(),
+            'user_id' => auth()->id() ?? null,
             'url' => $this->url,
         ]);
 

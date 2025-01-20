@@ -44,7 +44,8 @@ class BugReportResource extends Resource
 
                 TextColumn::make('user.name')
                     ->searchable()
-                    ->sortable(),
+                    ->sortable()
+                    ->placeholder('N/A'),
 
                 TextColumn::make('description')
                     ->lineClamp(2)

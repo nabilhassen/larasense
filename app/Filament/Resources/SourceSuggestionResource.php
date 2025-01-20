@@ -30,7 +30,8 @@ class SourceSuggestionResource extends Resource
 
                 TextColumn::make('user.name')
                     ->searchable()
-                    ->sortable(),
+                    ->sortable()
+                    ->placeholder('N/A'),
 
                 TextColumn::make('url')
                     ->searchable(),
