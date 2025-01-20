@@ -1,16 +1,27 @@
-export const bookmarkMaterial = (slug, isBookmarked) => ({
+export const bookmarkMaterial = (slug, isBookmarked, isUserAuthenticated) => ({
     slug: null,
     isBookmarked: null,
+    isUserAuthenticated: false,
 
     init() {
         this.slug = slug;
 
         this.isBookmarked = isBookmarked;
 
+        this.isUserAuthenticated = isUserAuthenticated;
+
         this.registerEventListeners();
     },
 
     toggleBookmark() {
+        if (!this.isUserAuthenticated) {
+            this.$dispatch("open-login-required-modal", {
+                message: "To bookmark content",
+            });
+
+            return;
+        }
+
         if (this.isBookmarked) {
             this.unbookmark();
             return;

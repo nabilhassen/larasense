@@ -8,7 +8,7 @@
     <a
         class="absolute size-full inset-0"
         x-on:click="() => {
-            $wire.dispatch('open-material-modal', {
+            $dispatch('open-material-modal', {
                 slug: '{{ $material->slug }}'
             });
         }"
@@ -83,6 +83,7 @@
                 x-data="likeMaterial(
                     '{{ $material->slug }}',
                     @js($this->isLiked),
+                    @js(auth()->check()),
                     {{ $this->likesCount }}
                 )"
             >
@@ -108,7 +109,11 @@
             <div
                 class="relative lg:tooltip"
                 data-tip="Disike this post"
-                x-data="dislikeMaterial('{{ $material->slug }}', {{ $this->isDisliked }})"
+                x-data="dislikeMaterial(
+                    '{{ $material->slug }}',
+                    @js($this->isDisliked),
+                    @js(auth()->check()),
+                )"
             >
                 <button
                     class="inline-flex"
@@ -129,7 +134,8 @@
                 data-tip="Bookmark"
                 x-data="bookmarkMaterial(
                     '{{ $material->slug }}',
-                    {{ $this->isBookmarked }}
+                    @js($this->isBookmarked),
+                    @js(auth()->check()),
                 )"
             >
                 <button
@@ -204,7 +210,7 @@
                     <button
                         class="inline-flex"
                         x-on:click="() => {
-                            $wire.dispatch('open-material-modal', {
+                            $dispatch('open-material-modal', {
                                 slug: '{{ $material->slug }}'
                             });
                         }"

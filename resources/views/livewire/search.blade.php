@@ -14,7 +14,7 @@
             x-on:keyup.enter="() => {
                 if (!$el.value.trim()) return;
 
-                $wire.dispatch('open-material-modal', {
+                $dispatch('open-material-modal', {
                     slug: currentSlug
                 });
 
@@ -46,7 +46,7 @@
                     <div
                         class="flex gap-x-4 items-center p-3 lg:text-sm text-xs cursor-pointer border-b border-b-stone-200 dark:border-b-stone-950 hover:bg-stone-100 dark:hover:bg-stone-950"
                         x-on:click.prevent="() => {
-                            $wire.dispatch('open-material-modal', {
+                            $dispatch('open-material-modal', {
                                 slug: '{{ $materialItem->slug }}'
                             });
                         }"

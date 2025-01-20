@@ -33,75 +33,77 @@
                     />
                 </button>
             </div>
-            <div class="dropdown dropdown-bottom dropdown-end">
-                <div
-                    tabindex="0"
-                    role="button"
-                    class="flex items-center gap-x-2"
-                >
-                    <div class="avatar">
-                        <div class="w-8 rounded-full">
-                            <livewire:user-avatar />
+            @auth
+                <div class="dropdown dropdown-bottom dropdown-end">
+                    <div
+                        tabindex="0"
+                        role="button"
+                        class="flex items-center gap-x-2"
+                    >
+                        <div class="avatar">
+                            <div class="w-8 rounded-full">
+                                <livewire:user-avatar />
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <x-heroicon-o-chevron-down class="inline-flex size-5" />
                         </div>
                     </div>
-                    <div class="flex items-center">
-                        <x-heroicon-o-chevron-down class="inline-flex size-5" />
-                    </div>
+                    <ul
+                        tabindex="0"
+                        class="dropdown-content menu bg-stone-50 dark:bg-stone-900 rounded-box z-[1] w-52 p-2 shadow"
+                    >
+                        <li>
+                            <a
+                                wire:navigate
+                                class="hover:bg-accent dark:hover:bg-black active:!bg-accent dark:active:!bg-black focus:!bg-accent dark:focus:!bg-black active:!text-inherit"
+                                href="{{ route('settings') }}"
+                            >
+                                Profile
+                            </a>
+                        </li>
+                        <li class="lg:hidden">
+                            <button
+                                x-data
+                                class="hover:bg-accent dark:hover:bg-black active:!bg-accent dark:active:!bg-black focus:!bg-accent dark:focus:!bg-black active:!text-inherit"
+                                x-on:click="$dispatch('open-source-suggestions-modal')"
+                            >
+                                Suggest Sources
+                            </button>
+                        </li>
+                        <li class="lg:hidden">
+                            <button
+                                x-data
+                                class="hover:bg-accent dark:hover:bg-black active:!bg-accent dark:active:!bg-black focus:!bg-accent dark:focus:!bg-black active:!text-inherit"
+                                x-on:click="$dispatch('open-bug-reports-modal')"
+                            >
+                                Report Bugs
+                            </button>
+                        </li>
+                        <li class="lg:hidden">
+                            <a
+                                href="https://x.com/nabilhassen08"
+                                class="hover:bg-accent dark:hover:bg-black active:!bg-accent dark:active:!bg-black focus:!bg-accent dark:focus:!bg-black active:!text-inherit"
+                                target="_blank"
+                            >
+                                Roadmap
+                            </a>
+                        </li>
+                        <li class="lg:hidden">
+                            <button
+                                x-data
+                                x-cloak
+                                class="hover:bg-accent dark:hover:bg-black active:!bg-accent dark:active:!bg-black focus:!bg-accent dark:focus:!bg-black active:!text-inherit"
+                                x-text="$store.themeMode.isDark() ? 'Light Mode' : 'Dark Mode'"
+                                x-on:click="$store.themeMode.toggle()"
+                            ></button>
+                        </li>
+                        <li>
+                            <livewire:auth.logout-button />
+                        </li>
+                    </ul>
                 </div>
-                <ul
-                    tabindex="0"
-                    class="dropdown-content menu bg-stone-50 dark:bg-stone-900 rounded-box z-[1] w-52 p-2 shadow"
-                >
-                    <li>
-                        <a
-                            wire:navigate
-                            class="hover:bg-accent dark:hover:bg-black active:!bg-accent dark:active:!bg-black focus:!bg-accent dark:focus:!bg-black active:!text-inherit"
-                            href="{{ route('settings') }}"
-                        >
-                            Profile
-                        </a>
-                    </li>
-                    <li class="lg:hidden">
-                        <button
-                            x-data
-                            class="hover:bg-accent dark:hover:bg-black active:!bg-accent dark:active:!bg-black focus:!bg-accent dark:focus:!bg-black active:!text-inherit"
-                            x-on:click="$dispatch('open-source-suggestions-modal')"
-                        >
-                            Suggest Sources
-                        </button>
-                    </li>
-                    <li class="lg:hidden">
-                        <button
-                            x-data
-                            class="hover:bg-accent dark:hover:bg-black active:!bg-accent dark:active:!bg-black focus:!bg-accent dark:focus:!bg-black active:!text-inherit"
-                            x-on:click="$dispatch('open-bug-reports-modal')"
-                        >
-                            Report Bugs
-                        </button>
-                    </li>
-                    <li class="lg:hidden">
-                        <a
-                            href="https://x.com/nabilhassen08"
-                            class="hover:bg-accent dark:hover:bg-black active:!bg-accent dark:active:!bg-black focus:!bg-accent dark:focus:!bg-black active:!text-inherit"
-                            target="_blank"
-                        >
-                            Roadmap
-                        </a>
-                    </li>
-                    <li class="lg:hidden">
-                        <button
-                            x-data
-                            x-cloak
-                            class="hover:bg-accent dark:hover:bg-black active:!bg-accent dark:active:!bg-black focus:!bg-accent dark:focus:!bg-black active:!text-inherit"
-                            x-text="$store.themeMode.isDark() ? 'Light Mode' : 'Dark Mode'"
-                            x-on:click="$store.themeMode.toggle()"
-                        ></button>
-                    </li>
-                    <li>
-                        <livewire:auth.logout-button />
-                    </li>
-                </ul>
-            </div>
+            @endauth
         </div>
     </div>
 

@@ -77,7 +77,7 @@
     'text-stone-700' => !auth()->check(),
 ])>
 
-    @if (auth()->check() && auth()->user()->hasVerifiedEmail())
+    @if ((auth()->check() && auth()->user()->hasVerifiedEmail()) || request()->routeIs('feed'))
         <div class="container mx-auto">
             <div class="flex justify-center lg:gap-x-16 max-lg:mx-4">
                 <x-sidemenu />
@@ -102,6 +102,8 @@
     @else
         {{ $slot }}
     @endif
+
+    <x-login-required-modal />
 
     @livewireScriptConfig
     @auth

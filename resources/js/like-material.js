@@ -1,7 +1,13 @@
-export const likeMaterial = (slug, isLiked, likesCount = 0) => ({
+export const likeMaterial = (
+    slug,
+    isLiked,
+    isUserAuthenticated,
+    likesCount = 0
+) => ({
     slug: null,
     isLiked: null,
     likesCount: null,
+    isUserAuthenticated: false,
 
     init() {
         this.slug = slug;
@@ -10,10 +16,20 @@ export const likeMaterial = (slug, isLiked, likesCount = 0) => ({
 
         this.likesCount = likesCount;
 
+        this.isUserAuthenticated = isUserAuthenticated;
+
         this.registerEventListeners();
     },
 
     toggleLike() {
+        if (!this.isUserAuthenticated) {
+            this.$dispatch("open-login-required-modal", {
+                message: "To like content",
+            });
+
+            return;
+        }
+
         if (this.isLiked) {
             this.unlike();
             return;

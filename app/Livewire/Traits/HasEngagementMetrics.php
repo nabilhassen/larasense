@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Livewire\Traits;
 
 use App\Models\Material;
@@ -45,6 +44,10 @@ trait HasEngagementMetrics
     #[Renderless]
     public function like(): void
     {
+        if (! auth()->check()) {
+            return;
+        }
+
         DB::transaction(function () {
             Reaction::remove(
                 $this->material,
@@ -62,6 +65,10 @@ trait HasEngagementMetrics
     #[Renderless]
     public function unlike(): void
     {
+        if (! auth()->check()) {
+            return;
+        }
+
         Like::remove(
             $this->material,
             auth()->user()
@@ -71,6 +78,10 @@ trait HasEngagementMetrics
     #[Computed]
     public function isLiked(): bool
     {
+        if (! auth()->check()) {
+            return false;
+        }
+
         return Like::has(
             $this->material,
             auth()->user()
@@ -88,6 +99,10 @@ trait HasEngagementMetrics
     #[Renderless]
     public function dislike(): void
     {
+        if (! auth()->check()) {
+            return;
+        }
+
         DB::transaction(function () {
             Like::remove(
                 $this->material,
@@ -105,6 +120,10 @@ trait HasEngagementMetrics
     #[Renderless]
     public function undislike(): void
     {
+        if (! auth()->check()) {
+            return;
+        }
+
         Reaction::remove(
             $this->material,
             auth()->user(),
@@ -115,6 +134,10 @@ trait HasEngagementMetrics
     #[Computed]
     public function isDisliked(): bool
     {
+        if (! auth()->check()) {
+            return false;
+        }
+
         return Reaction::has(
             $this->material,
             auth()->user(),
@@ -125,6 +148,10 @@ trait HasEngagementMetrics
     #[Renderless]
     public function bookmark(): void
     {
+        if (! auth()->check()) {
+            return;
+        }
+
         Bookmark::add(
             $this->material,
             auth()->user()
@@ -134,6 +161,10 @@ trait HasEngagementMetrics
     #[Renderless]
     public function unbookmark(): void
     {
+        if (! auth()->check()) {
+            return;
+        }
+
         Bookmark::remove(
             $this->material,
             auth()->user()
@@ -143,6 +174,10 @@ trait HasEngagementMetrics
     #[Computed]
     public function isBookmarked(): bool
     {
+        if (! auth()->check()) {
+            return false;
+        }
+
         return Bookmark::has(
             $this->material,
             auth()->user()

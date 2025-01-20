@@ -1,15 +1,15 @@
 <div class="btm-nav dark:bg-black lg:hidden">
     <a
         wire:navigate
-        href="{{ route('dashboard') }}"
+        href="{{ auth()->check() ? route('dashboard') : route('feed') }}"
         @class([
-            'active dark:bg-black border-t-primary' => request()->routeIs('dashboard'),
+            'active dark:bg-black border-t-primary' => request()->routeIs(['feed', 'dashboard']),
         ])
     >
         <x-heroicon-o-home @class([
             'inline-flex size-6',
-            'stroke-primary' => request()->routeIs('dashboard'),
-            'stroke-stone-800 dark:stroke-stone-200' => !request()->routeIs('dashboard'),
+            'stroke-primary' => request()->routeIs(['feed', 'dashboard']),
+            'stroke-stone-800 dark:stroke-stone-200' => !request()->routeIs(['feed', 'dashboard']),
         ]) />
     </a>
     <a

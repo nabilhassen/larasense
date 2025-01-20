@@ -9,6 +9,9 @@ require __DIR__ . '/auth.php';
 Route::post('update-timezone', UpdateUserTimezoneController::class)
     ->name('timezone.update');
 
+Route::get('/feed', Livewire\Materials\Index::class)
+    ->name('feed');
+
 Route::middleware(['auth', 'verified'])
     ->group(function () {
         Route::get('/home', Livewire\Materials\Index::class)

@@ -17,3 +17,9 @@ test('privacy policy page is rendered successfully', function () {
         ->get(route('privacy'))
         ->assertStatus(200);
 });
+
+test('feed page is rendered successfully', function () {
+    $this
+        ->get(route('feed'))
+        ->assertStatus(200);
+});

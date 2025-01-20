@@ -86,6 +86,7 @@
                                 x-data="likeMaterial(
                                     '{{ $material->slug }}',
                                     @js($this->isLiked),
+                                    @js(auth()->check()),
                                     {{ $this->likesCount }}
                                 )"
                                 x-on:click="toggleLike"
@@ -106,7 +107,11 @@
                             </button>
                             <button
                                 class="inline-flex"
-                                x-data="dislikeMaterial('{{ $material->slug }}', {{ $this->isDisliked }})"
+                                x-data="dislikeMaterial(
+                                    '{{ $material->slug }}',
+                                    @js($this->isDisliked),
+                                    @js(auth()->check()),
+                                )"
                                 x-on:click="toggleDislike"
                             >
                                 <x-heroicon-o-hand-thumb-down
@@ -122,7 +127,8 @@
                                 class="inline-flex"
                                 x-data="bookmarkMaterial(
                                     '{{ $material->slug }}',
-                                    {{ $this->isBookmarked }}
+                                    @js($this->isBookmarked),
+                                    @js(auth()->check()),
                                 )"
                                 x-on:click="toggleBookmark"
                             >
