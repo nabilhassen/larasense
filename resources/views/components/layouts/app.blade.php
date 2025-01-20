@@ -22,9 +22,9 @@
     <title>Larasense - {{ $title ?? '' }}</title>
 
     <link
-        rel="shortcut icon"
-        href="favicon.png"
-        type="image/x-png"
+        rel="icon"
+        type="image/png"
+        href="{{ asset('favicon.png') }}"
     >
 
     <link
