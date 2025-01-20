@@ -50,14 +50,24 @@
                     Stay on top of the latest news, updates, and trends in the Laravel ecosystem with our curated content
                     from your favorite and most trusted blogs, YouTube channels, and podcasts, all presented in a simple, beautiful design.
                 </h2>
-                <a
-                    wire:navigate
-                    class="btn lg:btn-lg bg-primary font-bold text-white border-none hover:bg-primary hover:brightness-90"
-                    href="{{ route('register') }}"
-                >
-                    Falling behind? Join now, it's free
-                    <x-heroicon-o-arrow-long-right class="inline size-8" />
-                </a>
+                <div class="flex gap-x-2 justify-center">
+                    <a
+                        wire:navigate
+                        class="btn lg:btn-lg btn-outline text-primary hover:bg-primary hover:border-primary"
+                        href="{{ route('feed') }}"
+                    >
+                        <x-heroicon-o-newspaper class="inline size-8" />
+                        Feed
+                    </a>
+                    <a
+                        wire:navigate
+                        class="btn lg:btn-lg bg-primary font-bold text-white border-none hover:bg-primary hover:brightness-90"
+                        href="{{ route('register') }}"
+                    >
+                        <span class="max-sm:hidden">Falling behind?</span> Join now, it's free
+                        <x-heroicon-o-arrow-long-right class="inline size-8" />
+                    </a>
+                </div>
             </div>
         </div>
     </div>

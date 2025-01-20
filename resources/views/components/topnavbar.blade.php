@@ -3,7 +3,7 @@
         <figure class="lg:hidden">
             <a
                 wire:navigate
-                href="{{ route('dashboard') }}"
+                href="{{ auth()->check() ? route('dashboard') : route('home') }}"
             >
                 <img
                     loading="lazy"
@@ -103,6 +103,21 @@
                         </li>
                     </ul>
                 </div>
+            @else
+                <a
+                    wire:navigate
+                    class="btn btn-outline text-primary max-sm:hidden hover:bg-primary hover:border-primary"
+                    href="{{ route('login') }}"
+                >
+                    Login
+                </a>
+                <a
+                    wire:navigate
+                    class="sm:hidden"
+                    href="{{ route('login') }}"
+                >
+                    <x-heroicon-o-arrow-right-start-on-rectangle class="inline stroke-primary size-8" />
+                </a>
             @endauth
         </div>
     </div>
