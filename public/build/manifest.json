@@ -56,12 +56,12 @@
     "src": "node_modules/@fontsource/inter/files/inter-vietnamese-400-normal.woff2"
   },
   "resources/css/app.css": {
-    "file": "assets/app-BGtnVrcI.css",
+    "file": "assets/app-DZbCdorw.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
   "resources/js/app.js": {
-    "file": "assets/app-4UPW47O3.js",
+    "file": "assets/app-BFhcaD1B.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
