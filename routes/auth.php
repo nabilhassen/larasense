@@ -32,9 +32,9 @@ Route::middleware('guest')
         Route::get('reset-password/{token}', Auth\ResetPassword::class)
             ->name('password.reset');
 
-        Route::get('/auth/{provider}/redirect', [SocialiteController::class, 'redirect'])
+        Route::get('auth/{provider}/redirect', [SocialiteController::class, 'redirect'])
             ->name('socialite.redirect');
 
-        Route::get('/auth/{provider}/callback', [SocialiteController::class, 'handleCallback'])
+        Route::get('auth/{provider}/callback', [SocialiteController::class, 'handleCallback'])
             ->name('socialite.callback');
     });

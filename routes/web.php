@@ -6,15 +6,19 @@ use Illuminate\Support\Facades\Route;
 
 require __DIR__ . '/auth.php';
 
-Route::post('update-timezone', UpdateUserTimezoneController::class)
-    ->name('timezone.update');
+Route::get('/', Livewire\Home::class)->name('home')->middleware('guest');
 
-Route::get('/feed', Livewire\Materials\Index::class)
-    ->name('feed');
+Route::get('feed', Livewire\Materials\Index::class)->name('feed')->middleware('guest');
+
+Route::get('terms-and-conditions', Livewire\Legal\Terms::class)->name('terms');
+
+Route::get('privacy-policy', Livewire\Legal\PrivacyPolicy::class)->name('privacy');
+
+Route::post('update-timezone', UpdateUserTimezoneController::class)->name('timezone.update');
 
 Route::middleware(['auth', 'verified'])
     ->group(function () {
-        Route::get('/home', Livewire\Materials\Index::class)
+        Route::get('home', Livewire\Materials\Index::class)
             ->name('dashboard');
 
         Route::get('likes', Livewire\Materials\Likes::class)
@@ -26,9 +30,3 @@ Route::middleware(['auth', 'verified'])
         Route::view('settings', 'profile')
             ->name('settings');
     });
-
-Route::get('/', Livewire\Home::class)->middleware('guest')->name('home');
-
-Route::get('terms-and-conditions', Livewire\Legal\Terms::class)->name('terms');
-
-Route::get('privacy-policy', Livewire\Legal\PrivacyPolicy::class)->name('privacy');

@@ -106,9 +106,11 @@
     <x-login-required-modal />
 
     @livewireScriptConfig
+
     @auth
         @filepondScripts
     @endauth
+    
     @vite('resources/js/app.js')
     <x-update-timezone />
     @stack('scripts')
