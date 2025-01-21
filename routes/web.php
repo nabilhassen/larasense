@@ -32,4 +32,4 @@ Route::middleware(['auth', 'verified'])
     });
 
 // TEMP Solution for this error: "the server returned a "405 Method Not Allowed".
-Route::get('livewire/update', fn() => response()->json());
+Route::get('livewire/update', fn() => response()->noContent());
