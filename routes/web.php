@@ -30,3 +30,6 @@ Route::middleware(['auth', 'verified'])
         Route::view('settings', 'profile')
             ->name('settings');
     });
+
+// TEMP Solution for this error: "the server returned a "405 Method Not Allowed".
+Route::get('livewire/update', fn() => null);
