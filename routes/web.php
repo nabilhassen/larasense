@@ -2,7 +2,16 @@
 
 use App\Http\Controllers\UpdateUserTimezoneController;
 use App\Livewire as Livewire;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
+
+Log::driver('single')
+    ->debug('Request', [
+        'date'    => now(),
+        'url'     => request()->fullUrl(),
+        'method'  => request()->method(),
+        'headers' => request()->headers->all(),
+    ]);
 
 require __DIR__ . '/auth.php';
 
