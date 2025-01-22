@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 
 Log::driver('single')
-    ->debug('Request', [
+    ->info('Request', [
         'date'    => now(),
         'url'     => request()->fullUrl(),
         'method'  => request()->method(),
