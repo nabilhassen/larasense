@@ -5,10 +5,14 @@ use App\Livewire\Profile\UpdateProfileInformationForm;
 use App\Models\User;
 use Livewire\Livewire;
 
-test('profile page is displayed', function () {
-    $user = User::factory()->create();
+beforeEach(function () {
+    $this->user = User::factory()->create()->refresh();
 
-    $this->actingAs($user);
+    $this->actingAs($this->user);
+});
+
+test('profile page is displayed', function () {
+    $this->actingAs($this->user);
 
     $response = $this->get(route('settings'));
 
@@ -17,14 +21,13 @@ test('profile page is displayed', function () {
         ->assertSeeInOrder([
             'Profile Information',
             'Update Password',
+            'Email Digest Frequency',
             'Delete Account',
         ]);
 });
 
 test('profile information can be updated', function () {
-    $user = User::factory()->create();
-
-    Livewire::actingAs($user)
+    Livewire::actingAs($this->user)
         ->test(UpdateProfileInformationForm::class)
         ->set('name', 'Test User')
         ->set('email', 'test@example.com')
@@ -32,31 +35,27 @@ test('profile information can be updated', function () {
         ->assertHasNoErrors()
         ->assertNoRedirect();
 
-    $user->refresh();
+    $this->user->refresh();
 
-    $this->assertSame('Test User', $user->name);
-    $this->assertSame('test@example.com', $user->email);
-    $this->assertNull($user->email_verified_at);
+    $this->assertSame('Test User', $this->user->name);
+    $this->assertSame('test@example.com', $this->user->email);
+    $this->assertNull($this->user->email_verified_at);
 });
 
 test('email verification status is unchanged when the email address is unchanged', function () {
-    $user = User::factory()->create();
-
-    Livewire::actingAs($user)
+    Livewire::actingAs($this->user)
         ->test(UpdateProfileInformationForm::class)
         ->set('name', 'Test User')
-        ->set('email', $user->email)
+        ->set('email', $this->user->email)
         ->call('updateProfileInformation')
         ->assertHasNoErrors()
         ->assertNoRedirect();
 
-    $this->assertNotNull($user->refresh()->email_verified_at);
+    $this->assertNotNull($this->user->refresh()->email_verified_at);
 });
 
 test('user can delete their account', function () {
-    $user = User::factory()->create();
-
-    $component = Livewire::actingAs($user)
+    $component = Livewire::actingAs($this->user)
         ->test(DeleteUserForm::class)
         ->set('password', 'password')
         ->call('deleteUser')
@@ -64,18 +63,16 @@ test('user can delete their account', function () {
         ->assertRedirect('/');
 
     $this->assertGuest();
-    $this->assertNull($user->fresh());
+    $this->assertNull($this->user->fresh());
 });
 
 test('correct password must be provided to delete account', function () {
-    $user = User::factory()->create();
-
-    Livewire::actingAs($user)
+    Livewire::actingAs($this->user)
         ->test('profile.delete-user-form')
         ->set('password', 'wrong-password')
         ->call('deleteUser')
         ->assertHasErrors('password')
         ->assertNoRedirect();
 
-    $this->assertNotNull($user->fresh());
+    $this->assertNotNull($this->user->fresh());
 });

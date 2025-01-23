@@ -1,7 +1,7 @@
 <?php
 
+use App\Livewire\Materials\Card;
 use App\Livewire\Materials\Likes;
-use App\Livewire\Materials\Show;
 use App\Models\Material;
 use App\Models\User;
 use Livewire\Livewire;
@@ -22,7 +22,7 @@ test('likes feed displays liked materials only', function () {
     Material::factory(10)->create();
     $material = Material::firstOrFail();
 
-    Livewire::test(Show::class, ['slug' => $material->slug])
+    Livewire::test(Card::class, ['slug' => $material->slug])
         ->call('like');
 
     Livewire::test(Likes::class)
@@ -36,7 +36,7 @@ test('likes feed can load more liked materials', function () {
     Material::factory(20)->create();
 
     foreach (Material::limit(15)->get() as $material) {
-        Livewire::test(Show::class, ['slug' => $material->slug])
+        Livewire::test(Card::class, ['slug' => $material->slug])
             ->call('like');
     }
 

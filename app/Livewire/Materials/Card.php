@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Livewire\Materials;
 
 use App\Livewire\Traits\HasEngagementMetrics;
@@ -7,7 +6,7 @@ use App\Models\Material;
 use Livewire\Attributes\Locked;
 use Livewire\Component;
 
-class Show extends Component
+class Card extends Component
 {
     use HasEngagementMetrics;
 
@@ -16,7 +15,7 @@ class Show extends Component
 
     public function render()
     {
-        return view('livewire.materials.show', [
+        return view('livewire.materials.card', [
             'material' => Material::feedQuery()
                 ->slug($this->slug)
                 ->firstOrFail(),

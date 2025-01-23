@@ -1,7 +1,7 @@
 <?php
 
 use App\Livewire\Materials\Bookmarks;
-use App\Livewire\Materials\Show;
+use App\Livewire\Materials\Card;
 use App\Models\Material;
 use App\Models\User;
 use Livewire\Livewire;
@@ -22,7 +22,7 @@ test('bookmarks feed displays bookmarked materials only', function () {
     Material::factory(10)->create();
     $material = Material::first();
 
-    Livewire::test(Show::class, ['slug' => $material->slug])
+    Livewire::test(Card::class, ['slug' => $material->slug])
         ->call('bookmark');
 
     Livewire::test(Bookmarks::class)
@@ -36,7 +36,7 @@ test('bookmarks feed can load more bookmarked materials', function () {
     Material::factory(20)->create();
 
     foreach (Material::limit(15)->get() as $material) {
-        Livewire::test(Show::class, ['slug' => $material->slug])
+        Livewire::test(Card::class, ['slug' => $material->slug])
             ->call('bookmark');
     }
 

@@ -1,6 +1,6 @@
 <?php
 
-use App\Livewire\Materials\Show;
+use App\Livewire\Materials\Card;
 use App\Models\Material;
 use Livewire\Livewire;
 
@@ -11,12 +11,12 @@ beforeEach(function () {
 });
 
 test('material item is render successfully', function () {
-    Livewire::test(Show::class, ['slug' => $this->material->slug])
+    Livewire::test(Card::class, ['slug' => $this->material->slug])
         ->assertSet('slug', $this->material->slug);
 });
 
 test('material item views count can increment', function () {
-    Livewire::test(Show::class, ['slug' => $this->material->slug])
+    Livewire::test(Card::class, ['slug' => $this->material->slug])
         ->assertSet('slug', $this->material->slug)
         ->call('viewed')
         ->call('viewed');
@@ -25,7 +25,7 @@ test('material item views count can increment', function () {
 });
 
 test('material item expands count can increment', function () {
-    Livewire::test(Show::class, ['slug' => $this->material->slug])
+    Livewire::test(Card::class, ['slug' => $this->material->slug])
         ->assertSet('slug', $this->material->slug)
         ->call('expanded')
         ->call('expanded');
@@ -34,7 +34,7 @@ test('material item expands count can increment', function () {
 });
 
 test('material item redirects count can increment', function () {
-    Livewire::test(Show::class, ['slug' => $this->material->slug])
+    Livewire::test(Card::class, ['slug' => $this->material->slug])
         ->assertSet('slug', $this->material->slug)
         ->call('redirected')
         ->call('redirected');
@@ -43,7 +43,7 @@ test('material item redirects count can increment', function () {
 });
 
 test('material item plays count can increment', function () {
-    Livewire::test(Show::class, ['slug' => $this->material->slug])
+    Livewire::test(Card::class, ['slug' => $this->material->slug])
         ->assertSet('slug', $this->material->slug)
         ->call('played')
         ->call('played');
@@ -52,14 +52,14 @@ test('material item plays count can increment', function () {
 });
 
 test('user cannot like a material', function () {
-    Livewire::test(Show::class, ['slug' => $this->material->slug])
+    Livewire::test(Card::class, ['slug' => $this->material->slug])
         ->assertSet('slug', $this->material->slug)
         ->call('like')
         ->assertSet('isLiked', false);
 });
 
 test('user cannot unlike a material', function () {
-    Livewire::test(Show::class, ['slug' => $this->material->slug])
+    Livewire::test(Card::class, ['slug' => $this->material->slug])
         ->assertSet('slug', $this->material->slug)
         ->call('like')
         ->assertSet('isLiked', false)
@@ -68,7 +68,7 @@ test('user cannot unlike a material', function () {
 });
 
 test('user has not liked a material', function () {
-    Livewire::test(Show::class, ['slug' => $this->material->slug])
+    Livewire::test(Card::class, ['slug' => $this->material->slug])
         ->assertSet('slug', $this->material->slug)
         ->assertSet('likesCount', 0)
         ->call('like')
@@ -77,14 +77,14 @@ test('user has not liked a material', function () {
 });
 
 test('user cannot dislike a material', function () {
-    Livewire::test(Show::class, ['slug' => $this->material->slug])
+    Livewire::test(Card::class, ['slug' => $this->material->slug])
         ->assertSet('slug', $this->material->slug)
         ->call('dislike')
         ->assertSet('isDisliked', false);
 });
 
 test('user cannot undislike a material', function () {
-    Livewire::test(Show::class, ['slug' => $this->material->slug])
+    Livewire::test(Card::class, ['slug' => $this->material->slug])
         ->assertSet('slug', $this->material->slug)
         ->call('dislike')
         ->assertSet('isDisliked', false)
@@ -93,7 +93,7 @@ test('user cannot undislike a material', function () {
 });
 
 test('user cannot bookmark a material', function () {
-    Livewire::test(Show::class, ['slug' => $this->material->slug])
+    Livewire::test(Card::class, ['slug' => $this->material->slug])
         ->assertSet('slug', $this->material->slug)
         ->assertSet('isBookmarked', false)
         ->call('bookmark')
@@ -101,7 +101,7 @@ test('user cannot bookmark a material', function () {
 });
 
 test('user cannot unbookmark a material', function () {
-    Livewire::test(Show::class, ['slug' => $this->material->slug])
+    Livewire::test(Card::class, ['slug' => $this->material->slug])
         ->assertSet('slug', $this->material->slug)
         ->call('bookmark')
         ->assertSet('isBookmarked', false)
