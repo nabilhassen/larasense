@@ -1,6 +1,7 @@
 <?php
 namespace App\Models;
 
+use App\Enums\DigestFrequency;
 use App\Notifications\QueueableVerifyEmailNotificaition;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Models\Contracts\HasAvatar;
@@ -57,6 +58,7 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser, Has
             'password'          => 'hashed',
             'is_admin'          => 'boolean',
             'last_logged_in_at' => 'datetime',
+            'digest_frequency'  => DigestFrequency::class,
         ];
     }
 
