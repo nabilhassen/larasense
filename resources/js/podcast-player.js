@@ -6,7 +6,7 @@ export const podcastPlayer = () => ({
     init() {
         this.player = new Plyr(this.$el.querySelector(".player"), {
             loadSprite: false,
-            iconUrl: "vendor/plyr/plyr.svg",
+            iconUrl: `${location.origin}/vendor/plyr/plyr.svg`,
         });
 
         this.player.on("play", () => this.$dispatch("pause-podcast"));

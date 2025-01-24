@@ -81,7 +81,7 @@ export const mainPodcastPlayer = () => ({
 
         this.player = new Plyr("#main-podcast-player", {
             loadSprite: false,
-            iconUrl: "vendor/plyr/plyr.svg",
+            iconUrl: `${location.origin}/vendor/plyr/plyr.svg`,
         });
     },
 

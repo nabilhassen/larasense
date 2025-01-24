@@ -7,7 +7,8 @@
 >
     <a
         class="absolute size-full inset-0"
-        x-on:click="() => {
+        href="{{ route('materials.show', $material->slug) }}"
+        x-on:click.prevent="() => {
             $dispatch('open-material-modal', {
                 slug: '{{ $material->slug }}'
             });
