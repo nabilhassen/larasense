@@ -42,7 +42,7 @@ class Material extends Model
         return [
             'is_displayed' => 'boolean',
             'published_at' => 'datetime',
-            'duration'     => 'integer',
+            'duration' => 'integer',
         ];
     }
 
@@ -101,6 +101,32 @@ class Material extends Model
     public function scopeSlug(Builder $query, string $slug): void
     {
         $query->where('slug', $slug);
+    }
+
+    public function scopeTrending(Builder $query, ?string $period = null): void
+    {
+        $query
+            ->when(
+                $period === 'monthly',
+                fn($q) => $q->whereBetween('published_at', [now()->startOfMonth(), now()->endOfMonth()]),
+            )
+            ->when(
+                $period === 'weekly',
+                fn($q) => $q->whereBetween('published_at', [now()->startOfWeek(), now()->endOfWeek()]),
+            )
+            ->when(
+                ! in_array($period, ['monthly', 'weekly']),
+                fn($q) => $q->where('published_at', '>=', now()->subDays(2)->startOfDay())
+            )
+            ->selectRaw('
+                ((4 * plays) + (4 * redirects) + (3 * expands) + (0.5 * views)) as trend_score
+            ')
+            ->orderBy('trend_score', 'desc');
+    }
+
+    public function scopeSourceType(Builder $query, SourceType $sourceType): void
+    {
+        $query->whereRelation('source', 'type', $sourceType);
     }
 
     public function isArticle(): bool
