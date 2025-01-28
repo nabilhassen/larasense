@@ -17,8 +17,7 @@
                 ></a>
                 <figure>
                     <img
-                        loading="lazy"
-                        src="{{ $material->thumbnail }}"
+                        src="{{ asset($material->thumbnail) }}"
                         class="rounded sm:w-36 sm:h-24 w-full h-36 object-cover"
                     >
                 </figure>
@@ -35,10 +34,7 @@
                         </div>
                         <div class="avatar">
                             <div class="w-6 rounded-full">
-                                <img
-                                    loading="lazy"
-                                    src="{{ asset('storage/' . $material->source->publisher->logo) }}"
-                                />
+                                <img src="{{ asset('storage/' . $material->source->publisher->logo) }}" />
                             </div>
                         </div>
                         <div>
