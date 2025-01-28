@@ -43,6 +43,13 @@ class SendPeriodicDigestEmailCommand extends Command
                     ->orWhere('digest_frequency', DigestFrequency::All);
             })
             ->whereNotNull('email_verified_at')
+            ->when(
+                app()->isProduction(),
+                fn($q) => $q->whereIn('email', [
+                    'nabiiilo77@gmail.com',
+                    'musahassen197@gmail.com',
+                ])
+            )
             ->chunk(50, function (Collection $users) use ($period) {
                 Mail::mailer('smtp')
                     ->bcc($users)
