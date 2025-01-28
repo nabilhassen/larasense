@@ -1,3 +1,5 @@
+@use('Illuminate\Support\Facades\Vite')
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -9,7 +11,13 @@
     >
 
     @livewireStyles
-    @vite('resources/css/app.css')
+
+    <style>
+        {!! Vite::content('resources/css/app.css') !!}
+    </style>
+    <script>
+        {!! Vite::content('resources/js/app.js') !!}
+    </script>
 </head>
 
 <body class="antialiased bg-accent py-6 text-stone-800">
@@ -38,8 +46,6 @@
         </footer>
     </div>
 
-    @vite('resources/js/app.js')
-    @stack('scripts')
 </body>
 
 </html>
