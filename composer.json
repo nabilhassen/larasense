@@ -11,6 +11,7 @@
     "require": {
         "php": "^8.2",
         "blade-ui-kit/blade-heroicons": "^2.5",
+        "fedeisas/laravel-mail-css-inliner": "^5.3",
         "filament/filament": "^3.2.134",
         "intervention/image-laravel": "^1.4",
         "larabug/larabug": "^3.2",
