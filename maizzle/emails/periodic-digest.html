@@ -5,70 +5,85 @@ preheader: Digest email template
 
 <x-main>
   <div class="bg-[#ffeff0]">
-    <div class="w-[552px] max-w-full m-0 mx-auto space-y-6">
-      <x-header />
-  
-      <main
-        class="py-4 px-8 sm:px-4 bg-white space-y-8 min-h-screen"
-      >
-        <p
-          class="flex justify-center items-center text-center text-[#EF5A6F] font-bold text-lg"
-        >
-          @{{ str($period)->headline() }} Digest
-        </p>
-  
-        <div class="space-y-8">
-          <x-periodic-digests.section title="Category Champions">
-            <fill:materials>
-              @foreach(array_filter([$youtubeMaterials->first(),$articleMaterials->first(),$podcastMaterials->first()]) as $material)
-            </fill:materials>
-  
-            <fill:icon> @svg('heroicon-o-trophy') </fill:icon>
-          </x-periodic-digests.section>
-  
-          <hr class="border-2 border-dotted border-[#EF5A6F] w-2/4 mx-auto" />
-  
-          <x-periodic-digests.section title="Most Watched">
-            <fill:materials>
-              @foreach ($youtubeMaterials as $material)
-            </fill:materials>
-  
-            <fill:icon> @svg('heroicon-o-video-camera') </fill:icon>
-          </x-periodic-digests.section>
-  
-          <hr class="border-2 border-dotted border-[#EF5A6F] w-2/4 mx-auto" />
-  
-          <x-periodic-digests.section title="Most Read">
-            <fill:materials>
-              @foreach ($articleMaterials as $material)
-            </fill:materials>
-  
-            <fill:icon> @svg('heroicon-o-pencil-square') </fill:icon>
-          </x-periodic-digests.section>
-  
-          <hr class="border-2 border-dotted border-[#EF5A6F] w-2/4 mx-auto" />
-  
-          <x-periodic-digests.section title="Most Listened">
-            <fill:materials>
-              @foreach ($podcastMaterials as $material)
-            </fill:materials>
-  
-            <fill:icon> @svg('heroicon-o-microphone') </fill:icon>
-          </x-periodic-digests.section>
-        </div>
-      </main>
-  
-      <x-footer>
-        <fill:footer>
-          <div>
-            To change how often you'd like to receive these email digests, please
-            visit your
-            <a class="text-[#EF5A6F] underline" href="@{{ route('settings') }}" target="_blank"
-              >account settings</a
-            >.
-          </div>
-        </fill:footer>
-      </x-footer>
-    </div>
+    <table align="center">
+      <tr>
+        <td class="w-[552px] max-w-full m-0 mx-auto">
+          <table class="w-full">
+            <tr>
+              <td class="space-y-6">
+                <x-header />
+
+                <div class="py-4 px-8 sm:px-4 bg-white space-y-8 min-h-screen">
+                  <p class="text-center text-[#EF5A6F] font-bold text-lg">
+                    @{{ str($period)->headline() }} Digest
+                  </p>
+
+                  <div class="space-y-8">
+                    <x-periodic-digests.section title="Category Champions">
+                      <fill:materials>
+                        @foreach(array_filter([$youtubeMaterials->first(),$articleMaterials->first(),$podcastMaterials->first()])
+                        as $material)
+                      </fill:materials>
+
+                      <fill:icon> 🏆 </fill:icon>
+                    </x-periodic-digests.section>
+
+                    <hr
+                      class="border-2 border-dotted border-[#EF5A6F] w-2/4 mx-auto"
+                    />
+
+                    <x-periodic-digests.section title="Most Watched">
+                      <fill:materials>
+                        @foreach ($youtubeMaterials as $material)
+                      </fill:materials>
+
+                      <fill:icon> 🎥 </fill:icon>
+                    </x-periodic-digests.section>
+
+                    <hr
+                      class="border-2 border-dotted border-[#EF5A6F] w-2/4 mx-auto"
+                    />
+
+                    <x-periodic-digests.section title="Most Read">
+                      <fill:materials>
+                        @foreach ($articleMaterials as $material)
+                      </fill:materials>
+
+                      <fill:icon> 📝 </fill:icon>
+                    </x-periodic-digests.section>
+
+                    <hr
+                      class="border-2 border-dotted border-[#EF5A6F] w-2/4 mx-auto"
+                    />
+
+                    <x-periodic-digests.section title="Most Listened">
+                      <fill:materials>
+                        @foreach ($podcastMaterials as $material)
+                      </fill:materials>
+
+                      <fill:icon> 🎙️ </fill:icon>
+                    </x-periodic-digests.section>
+                  </div>
+                </div>
+
+                <x-footer>
+                  <fill:footer>
+                    <div>
+                      To change how often you'd like to receive these email
+                      digests, please visit your
+                      <a
+                        class="text-[#EF5A6F] underline"
+                        href="@{{ route('settings') }}"
+                        >account settings</a
+                      >.
+                    </div>
+                  </fill:footer>
+                </x-footer>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
   </div>
 </x-main>

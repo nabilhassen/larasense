@@ -4,54 +4,73 @@
   };
 </script>
 
-<section class="border-2 border-solid border-[#ffeff0] rounded p-4 space-y-8">
-  <h2 class="text-xl sm:text-sm flex justify-between items-center gap-x-2">
-    <span class="inline text-[#EF5A6F] size-8 sm:size-6"> <slot:icon /> </span>
-    <span class="opacity-90 text-[#EF5A6F]"> {{ title }} </span>
-  </h2>
+<div class="border-2 border-solid border-[#ffeff0] rounded p-4 space-y-8">
+  <table class="w-full">
+    <tr>
+      <td class="w-2/4 text-left text-3xl sm:text-2xl">
+        <div><slot:icon /></div>
+      </td>
+      <td class="w-2/4 text-right text-xl sm:text-base">
+        <div class="opacity-90 text-[#EF5A6F]">{{ title }}</div>
+      </td>
+    </tr>
+  </table>
+
   <div>
     <slot:materials />
-    <div class="relative flex sm:flex-col sm:gap-y-2 w-full gap-x-4 mt-6">
+    <div class="relative">
+      <table class="w-full mt-6">
+        <tr>
+          <th class="w-3/12 sm:w-full sm:inline-block font-normal text-left">
+            <div>
+              <img
+                src="@{{ asset($material->thumbnail) }}"
+                class="rounded w-36 h-24 sm:w-full sm:h-36 object-cover"
+              />
+            </div>
+          </th>
+          <th
+            class="w-9/12 sm:w-full sm:inline-block pl-4 sm:pl-0 align-top font-normal text-left sm:mt-2"
+          >
+            <div>
+              <div
+                class="font-bold line-clamp-2 text-sm"
+                title="{!! $material->title !!}"
+              >
+                {!! $material->title !!}
+              </div>
+              <table>
+                <tr class="opacity-70 text-sm mt-1">
+                  <td>
+                    @{{ str($material->source->type->value)->title() }} by
+                  </td>
+                  <td class="px-1">
+                    <img
+                      src="@{{ asset('storage/' . $material->source->publisher->logo) }}"
+                      class="w-6 rounded-full"
+                    />
+                  </td>
+                  <td>@{{ $material->source->publisher->name }}</td>
+                </tr>
+              </table>
+              <div class="sm:mt-4">
+                <a
+                  class="text-[#EF5A6F] underline text-sm"
+                  href="@{{ route('materials.show', $material->slug) }}"
+                  >Read more</a
+                >
+              </div>
+            </div>
+          </th>
+        </tr>
+      </table>
       <a
         class="absolute size-full inset-0"
         href="@{{ route('materials.show', $material->slug) }}"
-        target="_blank"
       ></a>
-      <div>
-        <img
-          src="@{{ asset($material->thumbnail) }}"
-          class="rounded w-36 h-24 sm:w-full sm:h-36 object-cover"
-        />
-      </div>
-      <div class="w-9/12 sm:w-full flex flex-col">
-        <div
-          class="font-bold line-clamp-2 text-sm"
-          title="{!! $material->title !!}"
-        >
-          {!! $material->title !!}
-        </div>
-        <div class="flex items-center gap-x-1 opacity-70 text-sm mt-1">
-          <div>@{{ str($material->source->type->value)->title() }} by</div>
-          <div>
-            <img
-              src="@{{ asset('storage/' . $material->source->publisher->logo) }}"
-              class="w-6 rounded-full"
-            />
-          </div>
-          <div>@{{ $material->source->publisher->name }}</div>
-        </div>
-        <div class="grow flex items-end sm:mt-4">
-          <a
-            class="text-[#EF5A6F] underline text-sm"
-            target="_blank"
-            href="@{{ route('materials.show', $material->slug) }}"
-            >Read more</a
-          >
-        </div>
-      </div>
     </div>
     @if (!$loop->last)
-    <hr class="mt-6" />
+    <hr class="mt-6 border-solid border-stone-200" />
     @endif @endforeach
   </div>
-</section>
+</div>
