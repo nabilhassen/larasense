@@ -14,9 +14,14 @@ preheader: Digest email template
                 <x-header />
 
                 <div class="py-4 px-8 sm:px-4 bg-white space-y-8 min-h-screen">
-                  <p class="text-center text-[#EF5A6F] font-bold text-lg">
-                    @{{ str($period)->headline() }} Digest
-                  </p>
+                  <div class="text-center text-[#EF5A6F] space-y-2">
+                    <div class="font-bold text-lg">
+                      @{{ str($period)->headline() }} Digest
+                    </div>
+                    <div class="text-sm underline italic">
+                      @{{ now()->toFormattedDateString() }}
+                    </div>
+                  </div>
 
                   <div class="space-y-8">
                     <x-periodic-digests.section title="Category Champions">
@@ -68,6 +73,9 @@ preheader: Digest email template
 
                 <x-footer>
                   <fill:footer>
+                    <div class="text-sm italic underline">
+                      Issued on: @{{ now()->toFormattedDateString() }}
+                    </div>
                     <div>
                       To change how often you'd like to receive these email
                       digests, please visit your

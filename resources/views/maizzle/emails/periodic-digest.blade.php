@@ -76,9 +76,14 @@
                     </tr>
                   </table>
                   <div class="sm-px-4" style="min-height: 100vw; background-color: #fffffe; padding: 16px 32px; margin-top: 24px; margin-bottom: 0">
-                    <p style="text-align: center; font-size: 18px; font-weight: 700; color: #EF5A6F">
-                      {{ str($period)->headline() }} Digest
-                    </p>
+                    <div style="text-align: center; color: #EF5A6F">
+                      <div style="font-size: 18px; font-weight: 700">
+                        {{ str($period)->headline() }} Digest
+                      </div>
+                      <div style="font-size: 14px; font-style: italic; text-decoration: underline; margin-top: 8px; margin-bottom: 0">
+                        {{ now()->toFormattedDateString() }}
+                      </div>
+                    </div>
                     <div style="margin-top: 32px; margin-bottom: 0">
                       <div style="border-radius: 4px; border: 2px solid #ffeff0; padding: 16px">
                         <table style="width: 100%" cellpadding="0" cellspacing="0" role="none">
@@ -285,7 +290,10 @@
                   <table align="center" style="width: 100%; margin-top: 24px; margin-bottom: 0" cellpadding="0" cellspacing="0" role="none">
                     <tr>
                       <td class="sm-px-4" style="padding-left: 32px; padding-right: 32px; text-align: center; font-size: 14px; color: #EF5A6F">
-                        <div>
+                        <div style="font-size: 14px; font-style: italic; text-decoration: underline">
+                          Issued on: {{ now()->toFormattedDateString() }}
+                        </div>
+                        <div style="margin-top: 8px; margin-bottom: 0">
                           To change how often you'd like to receive these email
                           digests, please visit your
                           <a href="{{ route('settings') }}" style="color: #EF5A6F; text-decoration: underline">account settings</a>.
