@@ -1,0 +1,57 @@
+<script props>
+  module.exports = {
+    title: props.title,
+  };
+</script>
+
+<section class="border-2 border-solid border-[#ffeff0] rounded p-4 space-y-8">
+  <h2 class="text-xl sm:text-sm flex justify-between items-center gap-x-2">
+    <span class="inline text-[#EF5A6F] size-8 sm:size-6"> <slot:icon /> </span>
+    <span class="opacity-90 text-[#EF5A6F]"> {{ title }} </span>
+  </h2>
+  <div>
+    <slot:materials />
+    <div class="relative flex sm:flex-col sm:gap-y-2 w-full gap-x-4 mt-6">
+      <a
+        class="absolute size-full inset-0"
+        href="@{{ route('materials.show', $material->slug) }}"
+        target="_blank"
+      ></a>
+      <div>
+        <img
+          src="@{{ asset($material->thumbnail) }}"
+          class="rounded w-36 h-24 sm:w-full sm:h-36 object-cover"
+        />
+      </div>
+      <div class="w-9/12 sm:w-full flex flex-col">
+        <div
+          class="font-bold line-clamp-2 text-sm"
+          title="{!! $material->title !!}"
+        >
+          {!! $material->title !!}
+        </div>
+        <div class="flex items-center gap-x-1 opacity-70 text-sm mt-1">
+          <div>@{{ str($material->source->type->value)->title() }} by</div>
+          <div>
+            <img
+              src="@{{ asset('storage/' . $material->source->publisher->logo) }}"
+              class="w-6 rounded-full"
+            />
+          </div>
+          <div>@{{ $material->source->publisher->name }}</div>
+        </div>
+        <div class="grow flex items-end sm:mt-4">
+          <a
+            class="text-[#EF5A6F] underline text-sm"
+            target="_blank"
+            href="@{{ route('materials.show', $material->slug) }}"
+            >Read more</a
+          >
+        </div>
+      </div>
+    </div>
+    @if (!$loop->last)
+    <hr class="mt-6" />
+    @endif @endforeach
+  </div>
+</section>

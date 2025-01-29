@@ -31,7 +31,7 @@ class PeriodicDigest extends Mailable implements ShouldQueue
     {
 
         return new Content(
-            view: 'emails.periodic-digest.index',
+            view: 'maizzle.emails.periodic-digest',
             with: [
                 'youtubeMaterials' => Material::feedQuery()->sourceType(SourceType::Youtube)->trending($this->period)->take(5)->get(),
                 'articleMaterials' => Material::feedQuery()->sourceType(SourceType::Article)->trending($this->period)->take(5)->get(),
