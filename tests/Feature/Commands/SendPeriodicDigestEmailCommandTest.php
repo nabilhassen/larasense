@@ -16,7 +16,7 @@ test('command runs successfully', function () {
     artisan('larasense:digest --period=weekly');
 
     Mail::assertQueued(PeriodicDigest::class);
-    Mail::assertQueuedCount(4);
+    Mail::assertQueuedCount(200);
 });
 
 test('users are excluded if digest_frequency is set to never', function () {
@@ -26,7 +26,7 @@ test('users are excluded if digest_frequency is set to never', function () {
     artisan('larasense:digest --period=weekly');
 
     Mail::assertQueued(PeriodicDigest::class);
-    Mail::assertQueuedCount(3);
+    Mail::assertQueuedCount(150);
 });
 
 test('users are excluded if email is not verified', function () {
@@ -36,7 +36,7 @@ test('users are excluded if email is not verified', function () {
     artisan('larasense:digest --period=weekly');
 
     Mail::assertQueued(PeriodicDigest::class);
-    Mail::assertQueuedCount(3);
+    Mail::assertQueuedCount(150);
 });
 
 test('mail is queued for users with monthly frequency only', function () {
@@ -47,7 +47,7 @@ test('mail is queued for users with monthly frequency only', function () {
     artisan('larasense:digest --period=monthly');
 
     Mail::assertQueued(PeriodicDigest::class);
-    Mail::assertQueuedCount(2);
+    Mail::assertQueuedCount(100);
 });
 
 test('nothing will be queued if period option is invalid', function () {

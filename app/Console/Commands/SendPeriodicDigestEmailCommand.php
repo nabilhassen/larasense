@@ -50,9 +50,11 @@ class SendPeriodicDigestEmailCommand extends Command
                 ])
             )
             ->chunk(50, function (Collection $users) use ($period) {
-                Mail::mailer('smtp')
-                    ->bcc($users)
-                    ->send(new PeriodicDigest($period));
+                foreach ($users as $user) {                    
+                    Mail::mailer('smtp')
+                        ->to($user)
+                        ->send(new PeriodicDigest($period));
+                }
             });
     }
 }
