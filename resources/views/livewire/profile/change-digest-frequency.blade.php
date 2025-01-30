@@ -14,8 +14,8 @@
             wire:change="change"
         >
             @foreach ($frequencies as $digestFrequency)
-                <option value="{{ $digestFrequency }}">
-                    {{ str($digestFrequency)->title() }}
+                <option value="{{ $digestFrequency->value }}">
+                    {{ $digestFrequency->label() }}
                 </option>
             @endforeach
         </select>

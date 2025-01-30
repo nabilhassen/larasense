@@ -30,7 +30,7 @@ class ChangeDigestFrequency extends Component
     public function render()
     {
         return view('livewire.profile.change-digest-frequency', [
-            'frequencies' => array_column(DigestFrequency::cases(), 'value'),
+            'frequencies' => DigestFrequency::cases(),
         ]);
     }
 }
