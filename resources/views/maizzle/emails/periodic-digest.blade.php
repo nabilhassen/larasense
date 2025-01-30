@@ -84,6 +84,13 @@
                         {{ now()->toFormattedDateString() }}
                       </div>
                     </div>
+                    <div style="font-size: 14px; font-weight: 300; line-height: 1.625; margin-top: 32px; margin-bottom: 0">
+                      Hey, hope you're doing great!
+                      <br>
+                      Your Larasense Digest is here — featuring the most popular
+                      reads, most-watch videos, and top podcasts from the Laravel
+                      world. Enjoy catching up.
+                    </div>
                     <div style="margin-top: 32px; margin-bottom: 0">
                       <div style="border-radius: 4px; border: 2px solid #ffeff0; padding: 16px">
                         <table style="width: 100%" cellpadding="0" cellspacing="0" role="none">
@@ -285,6 +292,11 @@
                           @endif @endforeach
                         </div>
                       </div>
+                    </div>
+                    <div style="font-size: 14px; font-weight: 300; line-height: 1.625; margin-top: 32px; margin-bottom: 0">
+                      That’s a wrap for this Larasense Digest! Thanks for being
+                      part of the community — see you next time with more great
+                      picks.
                     </div>
                   </div>
                   <table align="center" style="width: 100%; margin-top: 24px; margin-bottom: 0" cellpadding="0" cellspacing="0" role="none">

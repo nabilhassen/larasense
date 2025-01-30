@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\UpdateUserTimezoneController;
 use App\Livewire as Livewire;
-use App\Mail\PeriodicDigest;
 use Illuminate\Support\Facades\Route;
 
 require __DIR__ . '/auth.php';
@@ -34,7 +33,3 @@ Route::middleware(['auth', 'verified'])
         Route::view('settings', 'profile')
             ->name('settings');
     });
-
-Route::get('mail', function () {
-    return new PeriodicDigest;
-});
