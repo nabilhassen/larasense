@@ -51,14 +51,18 @@ class Material extends Model
         return Attribute::make(
             get: function () {
                 if (blank($this->image_url)) {
-                    return str($this->loadMissing('source.publisher')->source->publisher->logo)->prepend('storage/');
+                    return asset(
+                        str($this->loadMissing('source.publisher')->source->publisher->logo)->prepend('storage/')
+                    );
                 }
 
                 if ($this->isYoutube() || $this->isPodcast()) {
                     return $this->image_url;
                 }
 
-                return str($this->image_url)->prepend('storage/');
+                return asset(
+                    str($this->image_url)->prepend('storage/')
+                );
             }
         )->shouldCache();
     }

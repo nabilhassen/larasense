@@ -109,7 +109,7 @@
                               <tr>
                                 <th class="sm-w-full sm-inline-block" style="width: 25%; text-align: left; font-weight: 400">
                                   <div>
-                                    <img src="{{ asset($material->thumbnail) }}" class="sm-w-full sm-h-36" style="max-width: 100%; vertical-align: middle; height: 96px; width: 144px; border-radius: 4px; object-fit: cover" width="144" height="96" alt>
+                                    <img src="{{ $material->thumbnail }}" class="sm-w-full sm-h-36" style="max-width: 100%; vertical-align: middle; height: 96px; width: 144px; border-radius: 4px; object-fit: cover" width="144" height="96" alt>
                                   </div>
                                 </th>
                                 <th class="sm-w-full sm-inline-block sm-pl-0 sm-mt-2" style="width: 75%; padding-left: 16px; text-align: left; vertical-align: top; font-weight: 400">
@@ -159,7 +159,7 @@
                               <tr>
                                 <th class="sm-w-full sm-inline-block" style="width: 25%; text-align: left; font-weight: 400">
                                   <div>
-                                    <img src="{{ asset($material->thumbnail) }}" class="sm-w-full sm-h-36" style="max-width: 100%; vertical-align: middle; height: 96px; width: 144px; border-radius: 4px; object-fit: cover" width="144" height="96" alt>
+                                    <img src="{{ $material->thumbnail }}" class="sm-w-full sm-h-36" style="max-width: 100%; vertical-align: middle; height: 96px; width: 144px; border-radius: 4px; object-fit: cover" width="144" height="96" alt>
                                   </div>
                                 </th>
                                 <th class="sm-w-full sm-inline-block sm-pl-0 sm-mt-2" style="width: 75%; padding-left: 16px; text-align: left; vertical-align: top; font-weight: 400">
@@ -209,7 +209,7 @@
                               <tr>
                                 <th class="sm-w-full sm-inline-block" style="width: 25%; text-align: left; font-weight: 400">
                                   <div>
-                                    <img src="{{ asset($material->thumbnail) }}" class="sm-w-full sm-h-36" style="max-width: 100%; vertical-align: middle; height: 96px; width: 144px; border-radius: 4px; object-fit: cover" width="144" height="96" alt>
+                                    <img src="{{ $material->thumbnail }}" class="sm-w-full sm-h-36" style="max-width: 100%; vertical-align: middle; height: 96px; width: 144px; border-radius: 4px; object-fit: cover" width="144" height="96" alt>
                                   </div>
                                 </th>
                                 <th class="sm-w-full sm-inline-block sm-pl-0 sm-mt-2" style="width: 75%; padding-left: 16px; text-align: left; vertical-align: top; font-weight: 400">
@@ -259,7 +259,7 @@
                               <tr>
                                 <th class="sm-w-full sm-inline-block" style="width: 25%; text-align: left; font-weight: 400">
                                   <div>
-                                    <img src="{{ asset($material->thumbnail) }}" class="sm-w-full sm-h-36" style="max-width: 100%; vertical-align: middle; height: 96px; width: 144px; border-radius: 4px; object-fit: cover" width="144" height="96" alt>
+                                    <img src="{{ $material->thumbnail }}" class="sm-w-full sm-h-36" style="max-width: 100%; vertical-align: middle; height: 96px; width: 144px; border-radius: 4px; object-fit: cover" width="144" height="96" alt>
                                   </div>
                                 </th>
                                 <th class="sm-w-full sm-inline-block sm-pl-0 sm-mt-2" style="width: 75%; padding-left: 16px; text-align: left; vertical-align: top; font-weight: 400">
