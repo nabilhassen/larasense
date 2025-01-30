@@ -9,10 +9,11 @@ use Illuminate\Support\Facades\Mail;
 
 test('mailable content are rendered properly', function () {
     $period = 'weekly';
-    $subject = str('Larasense - ')->append($period, ' Digest')->headline();
+    $digestCount = fake()->randomNumber(3);
+    $subject = str('Larasense - ')->append($period, ' Digest', " #{$digestCount}")->headline();
     Material::factory(10)->create();
 
-    $mailable = new PeriodicDigest($period);
+    $mailable = new PeriodicDigest($digestCount, $period);
 
     $youtubeMaterials = Material::feedQuery()->sourceType(SourceType::Youtube)->trending($period)->take(5)->get();
     $articleMaterials = Material::feedQuery()->sourceType(SourceType::Article)->trending($period)->take(5)->get();
@@ -20,7 +21,8 @@ test('mailable content are rendered properly', function () {
     $categoryChampionMaterials = collect([$youtubeMaterials->first(), $articleMaterials->first(), $podcastMaterials->first()]);
 
     $mailable->assertSeeInOrderInHtml([
-         ...$categoryChampionMaterials->pluck('title')->toArray(),
+        "#{$digestCount}",
+        ...$categoryChampionMaterials->pluck('title')->toArray(),
         ...$youtubeMaterials->pluck('title')->toArray(),
         ...$articleMaterials->pluck('title')->toArray(),
         ...$podcastMaterials->pluck('title')->toArray(),

@@ -15,12 +15,16 @@ class PeriodicDigest extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
-    public function __construct(public string $period = 'monthly')
-    {}
+    public function __construct(
+        public int $digestCount,
+        public string $period = 'monthly',
+    ) {}
 
     public function envelope(): Envelope
     {
-        $subject = str('Larasense - ')->append($this->period, ' Digest')->headline();
+        $subject = str('Larasense - ')
+            ->append($this->period, ' Digest', " #{$this->digestCount}")
+            ->headline();
 
         return new Envelope(
             subject: $subject,

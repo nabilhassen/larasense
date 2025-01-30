@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Enums\DigestFrequency;
 use App\Mail\PeriodicDigest;
+use App\Models\Digest;
 use App\Models\User;
 use Illuminate\Console\Command;
 use Illuminate\Contracts\Database\Eloquent\Builder;
@@ -37,6 +38,12 @@ class SendPeriodicDigestEmailCommand extends Command
             return;
         }
 
+        Digest::create([
+            'frequency' => DigestFrequency::tryFrom($period),
+        ]);
+
+        $digestCount = Digest::where('frequency', DigestFrequency::tryFrom($period))->count();
+
         User::query()
             ->where(function (Builder $query) use ($period) {
                 $query->where('digest_frequency', DigestFrequency::tryFrom($period))
@@ -49,11 +56,11 @@ class SendPeriodicDigestEmailCommand extends Command
                     'nabiiilo77@gmail.com',
                 ])
             )
-            ->chunk(50, function (Collection $users) use ($period) {
-                foreach ($users as $user) {                    
+            ->chunk(50, function (Collection $users) use ($period, $digestCount) {
+                foreach ($users as $user) {
                     Mail::mailer('smtp')
                         ->to($user)
-                        ->send(new PeriodicDigest($period));
+                        ->send(new PeriodicDigest($digestCount, $period));
                 }
             });
     }

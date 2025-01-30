@@ -17,6 +17,8 @@ test('command runs successfully', function () {
 
     Mail::assertQueued(PeriodicDigest::class);
     Mail::assertQueuedCount(200);
+
+    $this->assertDatabaseCount('digests', 1);
 });
 
 test('users are excluded if digest_frequency is set to never', function () {
@@ -56,4 +58,6 @@ test('nothing will be queued if period option is invalid', function () {
     artisan('larasense:digest --period=' . fake()->word());
 
     Mail::assertNothingQueued();
+
+    $this->assertDatabaseEmpty('digests');
 });

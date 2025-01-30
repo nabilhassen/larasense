@@ -78,7 +78,7 @@
                   <div class="sm-px-4" style="min-height: 100vw; background-color: #fffffe; padding: 16px 32px; margin-top: 24px; margin-bottom: 0">
                     <div style="text-align: center; color: #EF5A6F">
                       <div style="font-size: 18px; font-weight: 700">
-                        {{ str($period)->headline() }} Digest
+                        {{ str($period)->headline() }} Digest #{{ $digestCount }}
                       </div>
                       <div style="font-size: 14px; font-style: italic; text-decoration: underline; margin-top: 8px; margin-bottom: 0">
                         {{ now()->toFormattedDateString() }}
