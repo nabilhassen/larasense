@@ -5,7 +5,6 @@ namespace App\Livewire;
 use App\Enums\SourceType;
 use App\Livewire\Traits\CanLoadMore;
 use App\Models\Material;
-use Livewire\Attributes\Title;
 use Livewire\Component;
 
 class FeedBySourceType extends Component

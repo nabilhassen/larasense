@@ -77,7 +77,7 @@
     'text-stone-700' => !auth()->check(),
 ])>
 
-    @if ((auth()->check() && auth()->user()->hasVerifiedEmail()) || request()->routeIs('feed'))
+    @if ((auth()->check() && auth()->user()->hasVerifiedEmail()) || request()->routeIs('feed') || request()->routeIs('feed.type'))
         <div class="container mx-auto">
             <div class="flex justify-center lg:gap-x-16 max-lg:mx-4">
                 <x-sidemenu />

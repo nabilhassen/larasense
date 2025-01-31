@@ -4,15 +4,10 @@ use App\Enums\SourceType;
 use App\Livewire\FeedBySourceType;
 use App\Models\Material;
 use App\Models\Source;
-use App\Models\User;
 use Livewire\Livewire;
 
 beforeEach(function () {
     Material::factory(15)->create();
-
-    $this->user = User::factory()->create();
-
-    $this->actingAs($this->user);
 });
 
 test('feed by source type component renders successfully', function () {

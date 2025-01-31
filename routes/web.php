@@ -14,6 +14,9 @@ Route::get('terms-and-conditions', Livewire\Legal\Terms::class)->name('terms');
 
 Route::get('privacy-policy', Livewire\Legal\PrivacyPolicy::class)->name('privacy');
 
+Route::get('feed/{type}', Livewire\FeedBySourceType::class)
+    ->name('feed.type');
+
 Route::post('update-timezone', UpdateUserTimezoneController::class)->name('timezone.update');
 
 Route::middleware(['auth', 'verified'])
@@ -32,9 +35,6 @@ Route::middleware(['auth', 'verified'])
 
         Route::view('settings', 'profile')
             ->name('settings');
-
-        Route::get('feed/{type}', Livewire\FeedBySourceType::class)
-            ->name('feed.type');
 
         Route::get('publishers/{slug}', Livewire\Publishers\Show::class)
             ->name('publishers.show');
