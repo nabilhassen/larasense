@@ -1,6 +1,11 @@
 <div class="space-y-8">
     <div class="flex justify-between items-center">
         <div class="avatar">
+            <a
+                class="absolute size-full inset-0"
+                href="{{ route('publishers.show', $material->source->publisher->slug) }}"
+                wire:navigate
+            ></a>
             <div class="w-12 rounded-full">
                 <img
                     loading="lazy"
@@ -8,7 +13,12 @@
                 />
             </div>
         </div>
-        <div>
+        <div class="relative">
+            <a
+                class="absolute size-full inset-0"
+                href="{{ route('feed.type', $material->source->type) }}"
+                wire:navigate
+            ></a>
             @if ($material->isArticle())
                 <span class="inline-flex items-center justify-center mx-0 size-12 rounded-full bg-stone-700">
                     <x-heroicon-o-pencil-square class="inline size-6 stroke-white" />
