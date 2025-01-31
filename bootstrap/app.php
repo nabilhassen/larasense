@@ -15,6 +15,8 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->appendToGroup('web', [
             UpdateUserLastLoginDateTime::class,
         ]);
+
+        $middleware->redirectUsersTo(fn() => route('materials.index'));
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

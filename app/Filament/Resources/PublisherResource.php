@@ -33,6 +33,7 @@ class PublisherResource extends Resource
         return $form
             ->schema([
                 TextInput::make('name')
+                    ->unique(ignoreRecord: true)
                     ->required(),
 
                 FileUpload::make('logo')

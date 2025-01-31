@@ -93,13 +93,13 @@ class Material extends Model
     public function scopeDisplayed(Builder $query): void
     {
         $query
-            ->where('is_displayed', 1)
+            ->where('materials.is_displayed', 1)
             ->whereHas('source', fn(Builder $q) => $q->displayed());
     }
 
     public function scopeNotDisplayed(Builder $query): void
     {
-        $query->where('is_displayed', 0);
+        $query->where('materials.is_displayed', 0);
     }
 
     public function scopeSlug(Builder $query, string $slug): void
@@ -167,7 +167,7 @@ class Material extends Model
             ])
             ->with([
                 'source:id,publisher_id,type' => [
-                    'publisher:id,name,logo',
+                    'publisher:id,name,slug,logo',
                 ],
             ]);
     }

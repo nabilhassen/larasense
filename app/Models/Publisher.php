@@ -13,6 +13,13 @@ class Publisher extends Model
     /** @use HasFactory<\Database\Factories\PublisherFactory> */
     use HasFactory;
 
+    protected static function booted(): void
+    {
+        static::creating(function (Publisher $publisher) {
+            $publisher->slug = str($publisher->name)->slug();
+        });
+    }
+
     protected function casts(): array
     {
         return [
@@ -33,22 +40,22 @@ class Publisher extends Model
 
     public function scopeTracked(Builder $query): void
     {
-        $query->where('is_tracked', 1);
+        $query->where('publishers.is_tracked', 1);
     }
 
     public function scopeNotTracked(Builder $query): void
     {
-        $query->where('is_tracked', 0);
+        $query->where('publishers.is_tracked', 0);
     }
 
     public function scopeDisplayed(Builder $query): void
     {
-        $query->where('is_displayed', 1);
+        $query->where('publishers.is_displayed', 1);
     }
 
     public function scopeNotDisplayed(Builder $query): void
     {
-        $query->where('is_displayed', 0);
+        $query->where('publishers.is_displayed', 0);
     }
 
     public function untrack(): void
@@ -56,5 +63,10 @@ class Publisher extends Model
         $this->is_tracked = 0;
 
         $this->save();
+    }
+
+    public function isDisplayed(): bool
+    {
+        return $this->is_displayed;
     }
 }

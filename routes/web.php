@@ -35,4 +35,7 @@ Route::middleware(['auth', 'verified'])
 
         Route::get('feed/{type}', Livewire\FeedBySourceType::class)
             ->name('feed.type');
+
+        Route::get('publishers/{slug}', Livewire\Publishers\Show::class)
+            ->name('publishers.show');
     });

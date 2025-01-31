@@ -17,6 +17,11 @@
     <div class="flex flex-col h-full space-y-4">
         <div class="flex justify-between items-center">
             <div class="avatar">
+                <a
+                    class="absolute size-full inset-0"
+                    href="{{ route('publishers.show', $material->source->publisher->slug) }}"
+                    wire:navigate
+                ></a>
                 <div class="w-8 rounded-full">
                     <img
                         loading="lazy"
