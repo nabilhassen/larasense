@@ -24,7 +24,12 @@
                     />
                 </div>
             </div>
-            <div>
+            <div class="relative">
+                <a
+                    class="absolute size-full inset-0"
+                    href="{{ route('feed.type', $material->source->type) }}"
+                    wire:navigate
+                ></a>
                 @if ($material->isArticle())
                     <span class="inline-flex items-center justify-center mx-0 size-8 rounded-full bg-stone-700">
                         <x-heroicon-o-pencil-square class="inline size-4 stroke-white" />

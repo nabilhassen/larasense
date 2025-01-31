@@ -21,7 +21,7 @@ Route::middleware(['auth', 'verified'])
         Route::get('home', Livewire\Materials\Index::class)
             ->name('dashboard');
 
-        Route::get('/m/{slug}', Livewire\Materials\Show::class)
+        Route::get('m/{slug}', Livewire\Materials\Show::class)
             ->name('materials.show');
 
         Route::get('likes', Livewire\Materials\Likes::class)
@@ -32,4 +32,7 @@ Route::middleware(['auth', 'verified'])
 
         Route::view('settings', 'profile')
             ->name('settings');
+
+        Route::get('feed/{type}', Livewire\FeedBySourceType::class)
+            ->name('feed.type');
     });
