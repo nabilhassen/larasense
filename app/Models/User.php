@@ -76,7 +76,7 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser, Has
                     return $this->avatar_url;
                 }
 
-                return str($this->avatar_url)->prepend('storage/');
+                return asset(str($this->avatar_url)->prepend('storage/'));
             }
         )->shouldCache();
     }
