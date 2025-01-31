@@ -13,7 +13,7 @@
             '!text-inherit': location.href !== '{{ route('materials.index') }}' && location.href !== '{{ route('feed') }}'
         }"
     >
-        Home
+        All
     </a>
 
     @foreach ($sourceTypes as $type)
