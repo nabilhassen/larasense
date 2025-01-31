@@ -1,9 +1,9 @@
 <?php
 
-use App\Livewire\Materials\Bookmarks;
+use App\Livewire\Bookmarks;
+use App\Livewire\Likes;
 use App\Livewire\Materials\Card;
 use App\Livewire\Materials\Index;
-use App\Livewire\Materials\Likes;
 use App\Livewire\Materials\Modal;
 use App\Livewire\Materials\Show;
 use App\Livewire\Traits\CanLoadMore;

@@ -1,7 +1,7 @@
 <?php
 
+use App\Livewire\Likes;
 use App\Livewire\Materials\Card;
-use App\Livewire\Materials\Likes;
 use App\Models\Material;
 use App\Models\User;
 use Livewire\Livewire;

@@ -1,23 +1,23 @@
 <?php
 
-namespace App\Livewire\Materials;
+namespace App\Livewire;
 
 use App\Livewire\Traits\CanLoadMore;
 use App\Models\Material;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-#[Title('Bookmarks')]
-class Bookmarks extends Component
+#[Title('Likes')]
+class Likes extends Component
 {
     use CanLoadMore;
 
     public function render()
     {
-        return view('livewire.materials.bookmarks', [
+        return view('livewire.materials.likes', [
             'materials' => Material::displayed()
                 ->latest('published_at')
-                ->whereHasBookmark(auth()->user())
+                ->whereHasLike(auth()->user())
                 ->select([
                     'id',
                     'slug',

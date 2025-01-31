@@ -24,10 +24,10 @@ Route::middleware(['auth', 'verified'])
         Route::get('m/{slug}', Livewire\Materials\Show::class)
             ->name('materials.show');
 
-        Route::get('likes', Livewire\Materials\Likes::class)
+        Route::get('likes', Livewire\Likes::class)
             ->name('likes');
 
-        Route::get('bookmarks', Livewire\Materials\Bookmarks::class)
+        Route::get('bookmarks', Livewire\Bookmarks::class)
             ->name('bookmarks');
 
         Route::view('settings', 'profile')

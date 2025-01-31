@@ -1,6 +1,6 @@
 <?php
 
-use App\Livewire\Materials\Bookmarks;
+use App\Livewire\Bookmarks;
 use App\Livewire\Materials\Card;
 use App\Models\Material;
 use App\Models\User;
