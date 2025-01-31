@@ -1,14 +1,29 @@
 <div>
     <div class="lg:w-8/12">
-        <a
-            x-on:click.prevent="history.back()"
-            class="inline-flex items-center gap-x-2 cursor-pointer"
-        >
-            <x-heroicon-o-arrow-left class="inline size-6 stroke-primary" />
-            <span>
-                Back
-            </span>
-        </a>
+        <div class="breadcrumbs text-sm mb-4 pt-0">
+            <ul>
+                <li>
+                    <a
+                        href="{{ route('home') }}"
+                        wire:navigate
+                    >
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="{{ route('materials.show', $material->slug) }}"
+                        wire:navigate
+                        @class([
+                            'text-primary' => request()->routeIs(['materials.show']),
+                        ])
+                    >
+                        {!! $material->title !!}
+                    </a>
+                </li>
+            </ul>
+        </div>
+
         @include('livewire.materials.partials.detail')
     </div>
 </div>
