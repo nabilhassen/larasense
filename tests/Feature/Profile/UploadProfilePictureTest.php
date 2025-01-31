@@ -17,7 +17,7 @@ test('user can upload a profile picture', function () {
         ->assertReturned(true)
         ->assertDispatched('update-user-profile-picture');
 
-    Storage::disk('public')->assertExists($user->refresh()->avatar_url);
+    Storage::disk('public')->assertExists($user->fresh()->avatar_url);
 
     expect($user->avatar)->not->toBe($user->refresh()->avatar);
 });
