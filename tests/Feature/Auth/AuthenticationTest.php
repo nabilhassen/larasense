@@ -21,7 +21,7 @@ test('users can authenticate using the login screen', function () {
 
     $component
         ->assertHasNoErrors()
-        ->assertRedirect(route('dashboard', absolute: false));
+        ->assertRedirect(route('materials.index', absolute: false));
 
     $this->assertAuthenticated();
 });

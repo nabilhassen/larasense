@@ -21,7 +21,7 @@ test('password can be confirmed', function () {
         ->test(ConfirmPassword::class)
         ->set('password', 'password')
         ->call('confirmPassword')
-        ->assertRedirect(route('dashboard', absolute: false))
+        ->assertRedirect(route('materials.index', absolute: false))
         ->assertHasNoErrors();
 });
 

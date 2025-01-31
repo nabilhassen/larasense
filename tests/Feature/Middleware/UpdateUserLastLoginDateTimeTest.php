@@ -7,13 +7,13 @@ test('user last login time is being updated', function () {
 
     expect($this->user->fresh()->last_logged_in_at)->toBeNull();
 
-    $this->actingAs($this->user)->get(route('dashboard'));
+    $this->actingAs($this->user)->get(route('materials.index'));
 
     expect($this->user->fresh()->last_logged_in_at->isCurrentSecond())->toBeTrue();
 
     $this->travel(5)->seconds();
 
-    $this->actingAs($this->user)->get(route('dashboard'));
+    $this->actingAs($this->user)->get(route('materials.index'));
 
     expect($this->user->fresh()->last_logged_in_at->isCurrentSecond())->toBeTrue();
 });

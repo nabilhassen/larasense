@@ -53,7 +53,7 @@ class UpdateProfileInformationForm extends Component
         $user = Auth::user();
 
         if ($user->hasVerifiedEmail()) {
-            $this->redirectIntended(default:route('dashboard', absolute: false));
+            $this->redirectIntended(default:route('materials.index', absolute: false));
 
             return;
         }

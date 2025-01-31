@@ -36,7 +36,7 @@ class Login extends Component
 
         Session::regenerate();
 
-        $this->redirectIntended(default:route('dashboard', absolute: false));
+        $this->redirectIntended(default:route('materials.index', absolute: false));
     }
 
     public function render()

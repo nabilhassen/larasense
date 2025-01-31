@@ -12,7 +12,7 @@ beforeEach(function () {
 });
 
 test('feed renders successfully', function () {
-    $response = $this->get(route('dashboard'));
+    $response = $this->get(route('materials.index'));
 
     $response->assertStatus(200);
 });

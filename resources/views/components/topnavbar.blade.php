@@ -3,7 +3,7 @@
         <figure class="lg:hidden">
             <a
                 wire:navigate
-                href="{{ auth()->check() ? route('dashboard') : route('home') }}"
+                href="{{ auth()->check() ? route('materials.index') : route('home') }}"
             >
                 <img
                     loading="lazy"

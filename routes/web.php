@@ -19,7 +19,7 @@ Route::post('update-timezone', UpdateUserTimezoneController::class)->name('timez
 Route::middleware(['auth', 'verified'])
     ->group(function () {
         Route::get('home', Livewire\Materials\Index::class)
-            ->name('dashboard');
+            ->name('materials.index');
 
         Route::get('m/{slug}', Livewire\Materials\Show::class)
             ->name('materials.show');

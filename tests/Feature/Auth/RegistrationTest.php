@@ -22,7 +22,7 @@ test('new users can register', function () {
         ->set('password', 'password')
         ->set('password_confirmation', 'password')
         ->call('register')
-        ->assertRedirect(route('dashboard', absolute: false));
+        ->assertRedirect(route('materials.index', absolute: false));
 
     Notification::assertSentTo(
         [User::firstWhere('email', 'test@larasense.com')],

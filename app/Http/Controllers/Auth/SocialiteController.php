@@ -41,14 +41,14 @@ class SocialiteController
             return redirect()->intended(route('login'))->with('socialite_error', 'This email is already taken.');
         }
 
-        if (!$user->hasVerifiedEmail()) {
+        if (! $user->hasVerifiedEmail()) {
             $user->markEmailAsVerified();
             event(new Verified($user));
         }
 
         Auth::login($user, true);
 
-        return redirect(route('dashboard'));
+        return redirect(route('materials.index'));
     }
 
     protected function validate(array $data): void

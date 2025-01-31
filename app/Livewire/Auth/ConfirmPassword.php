@@ -21,7 +21,7 @@ class ConfirmPassword extends Component
             'password' => ['required', 'string'],
         ]);
 
-        if (!Auth::guard('web')->validate([
+        if (! Auth::guard('web')->validate([
             'email' => Auth::user()->email,
             'password' => $this->password,
         ])) {
@@ -32,7 +32,7 @@ class ConfirmPassword extends Component
 
         session(['auth.password_confirmed_at' => time()]);
 
-        $this->redirectIntended(default:route('dashboard', absolute: false));
+        $this->redirectIntended(default:route('materials.index', absolute: false));
     }
 
     public function render()

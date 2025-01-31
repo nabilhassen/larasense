@@ -46,7 +46,7 @@ test('handles callback from auth provider and creates a user', function () {
 
     $this
         ->get(route('socialite.callback', $provider))
-        ->assertRedirect(route('dashboard'));
+        ->assertRedirect(route('materials.index'));
 
     Event::assertDispatched(Verified::class);
 
@@ -109,7 +109,7 @@ test('user will login and will not be created again if already regisitered with 
 
     $this
         ->get(route('socialite.callback', $user->provider))
-        ->assertRedirect(route('dashboard'));
+        ->assertRedirect(route('materials.index'));
 
     $this
         ->assertAuthenticated()

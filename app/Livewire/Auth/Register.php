@@ -49,7 +49,7 @@ class Register extends Component
 
         Auth::login($user);
 
-        $this->redirect(route('dashboard', absolute: false));
+        $this->redirect(route('materials.index', absolute: false));
     }
 
     public function render()

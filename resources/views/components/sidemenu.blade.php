@@ -3,7 +3,7 @@
         <figure class="h-12 flex items-center">
             <a
                 wire:navigate
-                href="{{ auth()->check() ? route('dashboard') : route('home') }}"
+                href="{{ auth()->check() ? route('materials.index') : route('home') }}"
             >
                 <img
                     loading="lazy"
@@ -16,11 +16,15 @@
         <div class="space-y-4">
             <a
                 wire:navigate
-                href="{{ auth()->check() ? route('dashboard') : route('feed') }}"
+                href="{{ auth()->check() ? route('materials.index') : route('feed') }}"
                 @class([
                     'flex items-center gap-x-3 p-3 font-semibold',
-                    'bg-primary text-white rounded-btn' => request()->routeIs(['feed', 'dashboard']),
-                    'hover:bg-accent dark:hover:bg-stone-900 hover:rounded' => !request()->routeIs(['feed', 'dashboard']),
+                    'bg-primary text-white rounded-btn' => request()->routeIs([
+                        'feed',
+                        'materials.index',
+                    ]),
+                    'hover:bg-accent dark:hover:bg-stone-900 hover:rounded' => !request()->routeIs(
+                        ['feed', 'materials.index']),
                 ])
             >
                 <x-heroicon-o-home class="inline-block size-6" />
