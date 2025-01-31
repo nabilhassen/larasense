@@ -3,7 +3,7 @@
         <ul>
             <li>
                 <a
-                    href="{{ route('home') }}"
+                    href="{{ route('materials.index') }}"
                     wire:navigate
                 >
                     Home
