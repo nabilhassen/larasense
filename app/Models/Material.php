@@ -93,13 +93,13 @@ class Material extends Model
     public function scopeDisplayed(Builder $query): void
     {
         $query
-            ->where('materials.is_displayed', 1)
+            ->where("{$this->getTable()}.is_displayed", 1)
             ->whereHas('source', fn(Builder $q) => $q->displayed());
     }
 
     public function scopeNotDisplayed(Builder $query): void
     {
-        $query->where('materials.is_displayed', 0);
+        $query->where("{$this->getTable()}.is_displayed", 0);
     }
 
     public function scopeSlug(Builder $query, string $slug): void

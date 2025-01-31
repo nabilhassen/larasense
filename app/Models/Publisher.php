@@ -40,22 +40,22 @@ class Publisher extends Model
 
     public function scopeTracked(Builder $query): void
     {
-        $query->where('publishers.is_tracked', 1);
+        $query->where("{$this->getTable()}.is_tracked", 1);
     }
 
     public function scopeNotTracked(Builder $query): void
     {
-        $query->where('publishers.is_tracked', 0);
+        $query->where("{$this->getTable()}.is_tracked", 0);
     }
 
     public function scopeDisplayed(Builder $query): void
     {
-        $query->where('publishers.is_displayed', 1);
+        $query->where("{$this->getTable()}.is_displayed", 1);
     }
 
     public function scopeNotDisplayed(Builder $query): void
     {
-        $query->where('publishers.is_displayed', 0);
+        $query->where("{$this->getTable()}.is_displayed", 0);
     }
 
     public function untrack(): void

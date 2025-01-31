@@ -24,6 +24,9 @@ test('feed by source type component renders successfully', function () {
 
     Livewire::test(FeedBySourceType::class, ['type' => SourceType::Youtube])
         ->assertStatus(200);
+
+    $this->get(route('feed.type', SourceType::Youtube->value))
+        ->assertStatus(200);
 });
 
 test('feed by source type component only renders materials of a specific source type', function () {
