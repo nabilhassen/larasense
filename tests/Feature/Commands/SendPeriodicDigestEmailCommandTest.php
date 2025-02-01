@@ -41,9 +41,35 @@ test('users are excluded if email is not verified', function () {
     Mail::assertQueuedCount(150);
 });
 
-test('mail is queued for users with monthly frequency only', function () {
+test('monthly digest mail is queued for users with monthly frequency selected', function () {
     User::query()->update(['digest_frequency' => DigestFrequency::Never]);
-    User::query()->limit(100)->update(['digest_frequency' => DigestFrequency::Monthly]);
+    User::query()->limit(50)->update(['digest_frequency' => DigestFrequency::Weekly]);
+    User::query()->offset(50)->limit(50)->update(['digest_frequency' => DigestFrequency::Monthly]);
+    Mail::fake();
+
+    artisan('larasense:digest --period=monthly');
+
+    Mail::assertQueued(PeriodicDigest::class);
+    Mail::assertQueuedCount(50);
+});
+
+test('monthly digest mail is queued for users with all frequency selected', function () {
+    User::query()->update(['digest_frequency' => DigestFrequency::Never]);
+    User::query()->limit(50)->update(['digest_frequency' => DigestFrequency::Weekly]);
+    User::query()->offset(50)->limit(50)->update(['digest_frequency' => DigestFrequency::All]);
+    Mail::fake();
+
+    artisan('larasense:digest --period=monthly');
+
+    Mail::assertQueued(PeriodicDigest::class);
+    Mail::assertQueuedCount(50);
+});
+
+test('monthly digest mail is queued for users with monthly or all frequencies selected', function () {
+    User::query()->update(['digest_frequency' => DigestFrequency::Never]);
+    User::query()->limit(50)->update(['digest_frequency' => DigestFrequency::Monthly]);
+    User::query()->offset(50)->limit(50)->update(['digest_frequency' => DigestFrequency::Weekly]);
+    User::query()->offset(100)->limit(50)->update(['digest_frequency' => DigestFrequency::All]);
     Mail::fake();
 
     artisan('larasense:digest --period=monthly');

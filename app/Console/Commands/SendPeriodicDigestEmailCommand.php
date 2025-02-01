@@ -7,7 +7,6 @@ use App\Mail\PeriodicDigest;
 use App\Models\Digest;
 use App\Models\User;
 use Illuminate\Console\Command;
-use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Mail;
 
@@ -45,18 +44,8 @@ class SendPeriodicDigestEmailCommand extends Command
         $digestCount = Digest::where('frequency', DigestFrequency::tryFrom($period))->count();
 
         User::query()
-            ->where(function (Builder $query) use ($period) {
-                $query->where('digest_frequency', DigestFrequency::tryFrom($period))
-                    ->orWhere('digest_frequency', DigestFrequency::All);
-            })
+            ->whereIn('digest_frequency', [DigestFrequency::tryFrom($period), DigestFrequency::All])
             ->whereNotNull('email_verified_at')
-            ->when(
-                app()->isProduction(),
-                fn($q) => $q->whereIn('email', [
-                    'nabiiilo77@gmail.com',
-                    'musahassen197@gmail.com',
-                ])
-            )
             ->chunk(50, function (Collection $users) use ($period, $digestCount) {
                 foreach ($users as $user) {
                     Mail::mailer('smtp')
