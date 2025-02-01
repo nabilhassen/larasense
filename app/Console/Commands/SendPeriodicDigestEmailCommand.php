@@ -54,6 +54,7 @@ class SendPeriodicDigestEmailCommand extends Command
                 app()->isProduction(),
                 fn($q) => $q->whereIn('email', [
                     'nabiiilo77@gmail.com',
+                    'musahassen197@gmail.com',
                 ])
             )
             ->chunk(50, function (Collection $users) use ($period, $digestCount) {
