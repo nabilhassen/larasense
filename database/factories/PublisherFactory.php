@@ -17,7 +17,7 @@ class PublisherFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->company(),
+            'name' => $this->faker->unique()->company(),
             'logo' => 'https://picsum.photos/600/480',
             'is_displayed' => 1,
             'is_tracked' => 1,
