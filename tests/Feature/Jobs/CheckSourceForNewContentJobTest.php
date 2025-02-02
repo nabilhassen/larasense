@@ -25,7 +25,7 @@ test('new feed item is queued for processing', function () {
         $mock->shouldReceive('get_items')->andReturn([$item]);
     });
 
-    FeedsFacade::shouldReceive('make')->with([$source->url], 20, true)->andReturn($feedItems);
+    FeedsFacade::shouldReceive('make')->with([$source->url], 20)->andReturn($feedItems);
 
     CheckSourceForNewContentJob::dispatch($source->id);
 
@@ -49,7 +49,7 @@ test('old feed item is not queued for processing', function () {
         $mock->shouldReceive('get_items')->andReturn([$item]);
     });
 
-    FeedsFacade::shouldReceive('make')->with([$source->url], 20, true)->andReturn($feedItems);
+    FeedsFacade::shouldReceive('make')->with([$source->url], 20)->andReturn($feedItems);
 
     CheckSourceForNewContentJob::dispatch($source->id);
 
