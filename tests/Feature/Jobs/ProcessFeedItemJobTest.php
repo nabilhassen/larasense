@@ -81,7 +81,7 @@ test('duplicate article feed item will not be stored', function () {
     $this->assertDatabaseCount('materials', 1);
 
     $source = Source::factory()->create([
-        'url' => 'https://www.reddit.com/r/laravel.rss',
+        'url' => 'https://archive.nytimes.com/www.nytimes.com/services/xml/rss/index.html?mcubz=0',
         'type' => SourceType::Article,
         'last_checked_at' => now()->subDay(),
     ]);
