@@ -14,7 +14,7 @@ class CheckSourceForNewContentAction
     {
         $source = Source::find($sourceId, ['id', 'url']);
 
-        $items = FeedsFacade::make([$source->url], 20, true)->get_items();
+        $items = FeedsFacade::make([$source->url], 20)->get_items();
 
         $latestMaterialBySourcePublishedAt = $source->latestMaterial?->published_at;
 

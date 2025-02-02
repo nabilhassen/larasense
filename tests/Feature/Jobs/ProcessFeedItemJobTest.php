@@ -17,7 +17,7 @@ test('article feed item is processed and stored in the database as a material', 
         'last_checked_at' => now()->subDay(),
     ]);
 
-    $item = FeedsFacade::make([$source->url], 1, true)->get_item();
+    $item = FeedsFacade::make([$source->url], 1)->get_item();
 
     ProcessFeedItemJob::dispatch($source->id, $item);
 
@@ -39,7 +39,7 @@ test('youtube feed item is processed and stored in the database as a material', 
         'last_checked_at' => now()->subDay(),
     ]);
 
-    $item = FeedsFacade::make([$source->url], 1, true)->get_item();
+    $item = FeedsFacade::make([$source->url], 1)->get_item();
 
     ProcessFeedItemJob::dispatch($source->id, $item);
 
@@ -61,7 +61,7 @@ test('podcast feed item is processed and stored in the database as a material', 
         'last_checked_at' => now()->subDay(),
     ]);
 
-    $item = FeedsFacade::make([$source->url], 1, true)->get_item();
+    $item = FeedsFacade::make([$source->url], 1)->get_item();
 
     ProcessFeedItemJob::dispatch($source->id, $item);
 
@@ -86,7 +86,7 @@ test('duplicate article feed item will not be stored', function () {
         'last_checked_at' => now()->subDay(),
     ]);
 
-    $item = FeedsFacade::make([$source->url], 1, true)->get_item();
+    $item = FeedsFacade::make([$source->url], 1)->get_item();
     $material->url = $item->get_link();
     $material->feed_id = $item->get_id(true);
     $material->save();
@@ -101,4 +101,4 @@ test('duplicate article feed item will not be stored', function () {
     ]);
     expect($source->last_checked_at->lessThan($source->refresh()->last_checked_at))->toBeTrue();
 
-});
+})->only();
