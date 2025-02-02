@@ -46,10 +46,6 @@ class SendPeriodicDigestEmailCommand extends Command
         User::query()
             ->whereIn('digest_frequency', [DigestFrequency::tryFrom($period), DigestFrequency::All])
             ->whereNotNull('email_verified_at')
-            ->when(
-                app()->isProduction(),
-                fn($q) => $q->where('email', 'nabiiilo77@gmail.com')
-            )
             ->chunk(50, function (Collection $users) use ($period, $digestCount) {
                 foreach ($users as $user) {
                     Mail::mailer('smtp')
