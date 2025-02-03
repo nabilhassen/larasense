@@ -14,15 +14,19 @@ class CheckSourceForNewContentAction
     {
         $source = Source::find($sourceId, ['id', 'url']);
 
-        $items = FeedsFacade::make([$source->url], 20)->get_items();
+        $feed = FeedsFacade::make([$source->url], 20, true);
+
+        if (filled($feed->error())) {
+            $feed = FeedsFacade::make([$source->url], 20);
+        }
 
         $latestMaterialBySourcePublishedAt = $source->latestMaterial?->published_at;
 
-        foreach ($items as $item) {
+        foreach ($feed->get_items() as $item) {
             $itemPublishedAt = Carbon::parse($item->get_date())->timezone(config('app.timezone'));
 
             if (
-                !is_null($latestMaterialBySourcePublishedAt) &&
+                ! is_null($latestMaterialBySourcePublishedAt) &&
                 $latestMaterialBySourcePublishedAt->greaterThanOrEqualTo($itemPublishedAt)
             ) {
                 $source->updateLastCheckedAt();

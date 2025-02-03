@@ -101,4 +101,4 @@ test('duplicate article feed item will not be stored', function () {
     ]);
     expect($source->last_checked_at->lessThan($source->refresh()->last_checked_at))->toBeTrue();
 
-})->only();
+});
