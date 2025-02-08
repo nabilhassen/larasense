@@ -14,6 +14,8 @@ test('command runs successfully', function () {
     Mail::fake();
 
     artisan('larasense:digest --period=weekly');
+    artisan('larasense:digest --period=weekly');
+    artisan('larasense:digest --period=weekly');
 
     Mail::assertQueued(PeriodicDigest::class);
     Mail::assertQueuedCount(200);
@@ -26,6 +28,8 @@ test('users are excluded if digest_frequency is set to never', function () {
     Mail::fake();
 
     artisan('larasense:digest --period=weekly');
+    artisan('larasense:digest --period=weekly');
+    artisan('larasense:digest --period=weekly');
 
     Mail::assertQueued(PeriodicDigest::class);
     Mail::assertQueuedCount(150);
@@ -35,6 +39,8 @@ test('users are excluded if email is not verified', function () {
     User::query()->limit(50)->update(['email_verified_at' => null]);
     Mail::fake();
 
+    artisan('larasense:digest --period=weekly');
+    artisan('larasense:digest --period=weekly');
     artisan('larasense:digest --period=weekly');
 
     Mail::assertQueued(PeriodicDigest::class);
@@ -48,6 +54,8 @@ test('monthly digest mail is queued for users with monthly frequency selected', 
     Mail::fake();
 
     artisan('larasense:digest --period=monthly');
+    artisan('larasense:digest --period=monthly');
+    artisan('larasense:digest --period=monthly');
 
     Mail::assertQueued(PeriodicDigest::class);
     Mail::assertQueuedCount(50);
@@ -59,6 +67,8 @@ test('monthly digest mail is queued for users with all frequency selected', func
     User::query()->offset(50)->limit(50)->update(['digest_frequency' => DigestFrequency::All]);
     Mail::fake();
 
+    artisan('larasense:digest --period=monthly');
+    artisan('larasense:digest --period=monthly');
     artisan('larasense:digest --period=monthly');
 
     Mail::assertQueued(PeriodicDigest::class);
@@ -72,6 +82,8 @@ test('monthly digest mail is queued for users with monthly or all frequencies se
     User::query()->offset(100)->limit(50)->update(['digest_frequency' => DigestFrequency::All]);
     Mail::fake();
 
+    artisan('larasense:digest --period=monthly');
+    artisan('larasense:digest --period=monthly');
     artisan('larasense:digest --period=monthly');
 
     Mail::assertQueued(PeriodicDigest::class);

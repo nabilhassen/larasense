@@ -10,6 +10,7 @@ Schedule::command('larasense:bot')->withoutOverlapping()->everyTenMinutes();
 
 Schedule::command('queue:work --tries=2 --stop-when-empty')->withoutOverlapping()->everySecond();
 
-Schedule::command('larasense:digest --period=weekly')->weekly();
+Schedule::command('larasense:digest --period=weekly')->sundays()->hourly();
 
-Schedule::command('larasense:digest --period=monthly')->lastDayOfMonth();
+$lastDayOfMonth = now()->endOfMonth()->day;
+Schedule::command('larasense:digest --period=monthly')->cron("0 * {$lastDayOfMonth} * *");
