@@ -36,6 +36,8 @@ test('mail is queued', function () {
     Mail::fake();
 
     artisan('larasense:digest --period=weekly');
+    artisan('larasense:digest --period=weekly');
+    artisan('larasense:digest --period=weekly');
 
     Mail::assertQueued(PeriodicDigest::class);
     Mail::assertQueuedCount(200);
