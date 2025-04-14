@@ -48,7 +48,7 @@ class SocialiteController
 
         Auth::login($user, true);
 
-        return redirect(route('materials.index'));
+        return redirect()->intended(route('materials.index'));
     }
 
     protected function validate(array $data): void

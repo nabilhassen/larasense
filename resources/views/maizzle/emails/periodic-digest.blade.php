@@ -115,7 +115,9 @@
                                 <th class="sm-w-full sm-inline-block sm-pl-0 sm-mt-2" style="width: 75%; padding-left: 16px; text-align: left; vertical-align: top; font-weight: 400">
                                   <div>
                                     <div title="{!! $material->title !!}" style="overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; font-size: 14px; font-weight: 700">
-                                      {!! $material->title !!}
+                                      <a href="{{ route('materials.show', $material->slug) }}" style="color: inherit; text-decoration: none">
+                                        {!! $material->title !!}
+                                      </a>
                                     </div>
                                     <table cellpadding="0" cellspacing="0" role="none">
                                       <tr style="margin-top: 4px; font-size: 14px; opacity: 0.7">
@@ -165,7 +167,9 @@
                                 <th class="sm-w-full sm-inline-block sm-pl-0 sm-mt-2" style="width: 75%; padding-left: 16px; text-align: left; vertical-align: top; font-weight: 400">
                                   <div>
                                     <div title="{!! $material->title !!}" style="overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; font-size: 14px; font-weight: 700">
-                                      {!! $material->title !!}
+                                      <a href="{{ route('materials.show', $material->slug) }}" style="color: inherit; text-decoration: none">
+                                        {!! $material->title !!}
+                                      </a>
                                     </div>
                                     <table cellpadding="0" cellspacing="0" role="none">
                                       <tr style="margin-top: 4px; font-size: 14px; opacity: 0.7">
@@ -215,7 +219,9 @@
                                 <th class="sm-w-full sm-inline-block sm-pl-0 sm-mt-2" style="width: 75%; padding-left: 16px; text-align: left; vertical-align: top; font-weight: 400">
                                   <div>
                                     <div title="{!! $material->title !!}" style="overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; font-size: 14px; font-weight: 700">
-                                      {!! $material->title !!}
+                                      <a href="{{ route('materials.show', $material->slug) }}" style="color: inherit; text-decoration: none">
+                                        {!! $material->title !!}
+                                      </a>
                                     </div>
                                     <table cellpadding="0" cellspacing="0" role="none">
                                       <tr style="margin-top: 4px; font-size: 14px; opacity: 0.7">
@@ -265,7 +271,9 @@
                                 <th class="sm-w-full sm-inline-block sm-pl-0 sm-mt-2" style="width: 75%; padding-left: 16px; text-align: left; vertical-align: top; font-weight: 400">
                                   <div>
                                     <div title="{!! $material->title !!}" style="overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; font-size: 14px; font-weight: 700">
-                                      {!! $material->title !!}
+                                      <a href="{{ route('materials.show', $material->slug) }}" style="color: inherit; text-decoration: none">
+                                        {!! $material->title !!}
+                                      </a>
                                     </div>
                                     <table cellpadding="0" cellspacing="0" role="none">
                                       <tr style="margin-top: 4px; font-size: 14px; opacity: 0.7">

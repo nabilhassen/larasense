@@ -37,7 +37,12 @@
                 class="font-bold line-clamp-2 text-sm"
                 title="{!! $material->title !!}"
               >
-                {!! $material->title !!}
+                <a
+                  href="@{{ route('materials.show', $material->slug) }}"
+                  class="text-inherit no-underline"
+                >
+                  {!! $material->title !!}
+                </a>
               </div>
               <table>
                 <tr class="opacity-70 text-sm mt-1">
