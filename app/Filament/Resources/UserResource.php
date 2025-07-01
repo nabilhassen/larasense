@@ -103,10 +103,6 @@ class UserResource extends Resource
                     ->dateTime()
                     ->sortable(),
 
-                TextColumn::make('digest_frequency')
-                    ->searchable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-
                 TextColumn::make('email_verified_at')
                     ->dateTime()
                     ->toggleable(isToggledHiddenByDefault: true)

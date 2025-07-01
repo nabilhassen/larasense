@@ -20,10 +20,6 @@
                 <hr class="dark:border-stone-900">
             @endif
             <div>
-                <livewire:profile.change-digest-frequency />
-            </div>
-            <hr class="dark:border-stone-900">
-            <div>
                 <livewire:profile.delete-user-form />
             </div>
         </div>

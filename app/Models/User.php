@@ -1,7 +1,6 @@
 <?php
 namespace App\Models;
 
-use App\Enums\DigestFrequency;
 use App\Notifications\QueueableVerifyEmailNotificaition;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Models\Contracts\HasAvatar;
@@ -33,13 +32,6 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser, Has
      * @return void
      */
 
-    protected static function booted(): void
-    {
-        static::deleted(function (User $user) {
-            DeletedUser::create($user->only(['name', 'email']));
-        });
-    }
-
     public function sendEmailVerificationNotification()
     {
         $this->notify(new QueueableVerifyEmailNotificaition);
@@ -58,7 +50,6 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser, Has
             'password'          => 'hashed',
             'is_admin'          => 'boolean',
             'last_logged_in_at' => 'datetime',
-            'digest_frequency'  => DigestFrequency::class,
         ];
     }
 
