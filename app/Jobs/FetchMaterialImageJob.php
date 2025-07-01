@@ -9,11 +9,10 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Laravel\Facades\Image;
-use romanzipp\QueueMonitor\Traits\IsMonitored;
 
 class FetchMaterialImageJob implements ShouldQueue
 {
-    use Queueable, IsMonitored;
+    use Queueable;
 
     /**
      * Create a new job instance.
@@ -60,10 +59,5 @@ class FetchMaterialImageJob implements ShouldQueue
             ->append(Str::random())
             ->append($imageExtension)
             ->toString();
-    }
-
-    public static function keepMonitorOnSuccess(): bool
-    {
-        return false;
     }
 }

@@ -7,12 +7,11 @@ use App\Models\Source;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
 use Illuminate\Support\Facades\DB;
-use romanzipp\QueueMonitor\Traits\IsMonitored;
 use SimplePie\Item;
 
 class ProcessFeedItemJob implements ShouldQueue
 {
-    use Queueable, IsMonitored;
+    use Queueable;
 
     /**
      * Create a new job instance.
@@ -35,10 +34,5 @@ class ProcessFeedItemJob implements ShouldQueue
 
             $source->updateLastCheckedAt();
         });
-    }
-
-    public static function keepMonitorOnSuccess(): bool
-    {
-        return false;
     }
 }

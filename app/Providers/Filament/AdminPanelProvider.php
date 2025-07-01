@@ -9,7 +9,6 @@ use Filament\Navigation\NavigationItem;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
-use Filament\Support\Colors\Color;
 use Filament\Widgets;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
@@ -69,15 +68,7 @@ class AdminPanelProvider extends PanelProvider
                         ->url(url(config('pulse.path')), shouldOpenInNewTab: true)
                         ->icon('heroicon-o-chart-bar-square')
                         ->sort(2),
-                    ])
-                    ->navigationItems([
-                        NavigationItem::make('Queue Monitor')
-                        ->group('Performance')
-                        ->url(route('queue-monitor::index'), shouldOpenInNewTab: true)
-                        ->icon('heroicon-o-queue-list')
-                        ->sort(3),
                     ]);
-            })
-            ->plugin(\RickDBCN\FilamentEmail\FilamentEmail::make());
+            });
     }
 }

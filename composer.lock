@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8839ec127a55197f1cce16e859197e5d",
+    "content-hash": "1af5b3ddd0a17d881d398ce12e9b8e6b",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -3866,72 +3866,6 @@
             "time": "2025-03-28T18:54:24+00:00"
         },
         {
-            "name": "malzariey/filament-daterangepicker-filter",
-            "version": "3.4.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/malzariey/filament-daterangepicker-filter.git",
-                "reference": "d25acec4fb0c0b0dafd84aebf59e4a33f0f28140"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/malzariey/filament-daterangepicker-filter/zipball/d25acec4fb0c0b0dafd84aebf59e4a33f0f28140",
-                "reference": "d25acec4fb0c0b0dafd84aebf59e4a33f0f28140",
-                "shasum": ""
-            },
-            "require": {
-                "filament/filament": "^3.0",
-                "illuminate/contracts": "^8.0|^9.0|^10.0|^11.0|^11.0|^12.0",
-                "spatie/laravel-package-tools": "^1.16.4"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "aliases": {
-                        "FilamentDaterangepickerFilter": "Malzariey\\FilamentDaterangepickerFilter\\Facades\\FilamentDaterangepickerFilter"
-                    },
-                    "providers": [
-                        "Malzariey\\FilamentDaterangepickerFilter\\FilamentDaterangepickerFilterServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Malzariey\\FilamentDaterangepickerFilter\\": "src",
-                    "Malzariey\\FilamentDaterangepickerFilter\\Database\\Factories\\": "database/factories"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Majid Al-Zariey",
-                    "email": "malzariey@gmail.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "This package uses daterangepciker library to filter date by a range or predefined date ranges (Today , Yesterday ...etc)",
-            "homepage": "https://github.com/malzariey/filament-daterangepicker-filter",
-            "keywords": [
-                "Malzariey",
-                "filament-daterangepicker-filter",
-                "laravel"
-            ],
-            "support": {
-                "issues": "https://github.com/malzariey/filament-daterangepicker-filter/issues",
-                "source": "https://github.com/malzariey/filament-daterangepicker-filter/tree/3.4.3"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/Malzariey",
-                    "type": "github"
-                }
-            ],
-            "time": "2025-06-12T08:50:07+00:00"
-        },
-        {
             "name": "masterminds/html5",
             "version": "2.9.0",
             "source": {
@@ -5742,149 +5676,6 @@
                 "source": "https://github.com/resend/resend-php/tree/v0.15.2"
             },
             "time": "2025-03-14T05:34:18+00:00"
-        },
-        {
-            "name": "rickdbcn/filament-email",
-            "version": "v1.10.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/RickDBCN/filament-email.git",
-                "reference": "92e533d7cb1ddfe9592d55648763c53ad7aa505a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/RickDBCN/filament-email/zipball/92e533d7cb1ddfe9592d55648763c53ad7aa505a",
-                "reference": "92e533d7cb1ddfe9592d55648763c53ad7aa505a",
-                "shasum": ""
-            },
-            "require": {
-                "filament/filament": "^3.0",
-                "illuminate/contracts": "^10.0|^11.0|^12.0",
-                "laravel/framework": "^10.0|^11.0|^12.0",
-                "malzariey/filament-daterangepicker-filter": "^3.0",
-                "php": "^8.1",
-                "spatie/laravel-package-tools": "^1.14.0"
-            },
-            "require-dev": {
-                "laravel/pint": "^1.0",
-                "nunomaduro/collision": "^7.9|^8.0",
-                "orchestra/testbench": "^8.0|^9.0|^10.0",
-                "pestphp/pest": "^2.0|^3.7",
-                "pestphp/pest-plugin-arch": "^2.0|^3.0",
-                "pestphp/pest-plugin-laravel": "^2.0|^3.1",
-                "pestphp/pest-plugin-livewire": "^2.1|^3.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "aliases": {
-                        "FilamentEmail": "RickDBCN\\FilamentEmail\\Facades\\FilamentEmail"
-                    },
-                    "providers": [
-                        "RickDBCN\\FilamentEmail\\FilamentEmailServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "RickDBCN\\FilamentEmail\\": "src/",
-                    "RickDBCN\\FilamentEmail\\Database\\Factories\\": "database/factories/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Rick de Boer",
-                    "email": "rickdb@calvintijd.nl",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Log all outbound emails you send through your Filament application",
-            "homepage": "https://github.com/rickdbcn/filament-email",
-            "keywords": [
-                "RickDBCN",
-                "filament-email",
-                "laravel",
-                "marcogermani87"
-            ],
-            "support": {
-                "issues": "https://github.com/RickDBCN/filament-email/issues",
-                "source": "https://github.com/RickDBCN/filament-email/tree/v1.10.1"
-            },
-            "time": "2025-06-04T21:40:52+00:00"
-        },
-        {
-            "name": "romanzipp/laravel-queue-monitor",
-            "version": "5.4.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/romanzipp/Laravel-Queue-Monitor.git",
-                "reference": "3b0ce4eb0375364b3d3afcca9e49796939443404"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/romanzipp/Laravel-Queue-Monitor/zipball/3b0ce4eb0375364b3d3afcca9e49796939443404",
-                "reference": "3b0ce4eb0375364b3d3afcca9e49796939443404",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "ext-mbstring": "*",
-                "illuminate/database": ">=5.5",
-                "illuminate/queue": ">=5.5",
-                "illuminate/support": ">=5.5",
-                "nesbot/carbon": "^2.0|^3.0",
-                "php": "^8.0"
-            },
-            "require-dev": {
-                "doctrine/dbal": "^3.1|^4.2",
-                "friendsofphp/php-cs-fixer": "^3.0",
-                "laravel/framework": ">=5.5",
-                "mockery/mockery": "^1.3.2",
-                "orchestra/testbench": ">=3.8",
-                "phpstan/phpstan": "^0.12.99|^1.0|^2.1",
-                "phpunit/phpunit": ">=8.5.23",
-                "romanzipp/php-cs-fixer-config": "^3.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "romanzipp\\QueueMonitor\\Providers\\QueueMonitorProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "romanzipp\\QueueMonitor\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "romanzipp",
-                    "email": "ich@ich.wtf",
-                    "homepage": "https://ich.wtf"
-                }
-            ],
-            "description": "Queue Monitoring for Laravel Database Job Queue",
-            "support": {
-                "issues": "https://github.com/romanzipp/Laravel-Queue-Monitor/issues",
-                "source": "https://github.com/romanzipp/Laravel-Queue-Monitor/tree/5.4.1"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/romanzipp",
-                    "type": "github"
-                }
-            ],
-            "time": "2025-05-13T04:38:30+00:00"
         },
         {
             "name": "ryangjchandler/blade-capture-directive",
@@ -12870,7 +12661,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.2"
+        "php": "^8.3"
     },
     "platform-dev": {},
     "plugin-api-version": "2.6.0"
