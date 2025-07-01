@@ -3,8 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use romanzipp\QueueMonitor\Enums\MonitorStatus;
-
 class CreateQueueMonitorTable extends Migration
 {
     /**
@@ -14,12 +12,12 @@ class CreateQueueMonitorTable extends Migration
      */
     public function getConnection()
     {
-        return config('queue-monitor.connection');
+        return null;
     }
 
     public function up()
     {
-        Schema::create(config('queue-monitor.table'), function (Blueprint $table) {
+        Schema::create('queue_monitor', function (Blueprint $table) {
             $table->increments('id');
             $table->string('job_uuid')->nullable();
 
@@ -27,7 +25,7 @@ class CreateQueueMonitorTable extends Migration
             $table->string('name')->nullable();
             $table->string('queue')->nullable();
 
-            $table->unsignedInteger('status')->default(MonitorStatus::RUNNING);
+            $table->unsignedInteger('status')->default('running');
 
             $table->dateTime('queued_at')->nullable();
             $table->timestamp('started_at')->nullable()->index();
@@ -50,6 +48,6 @@ class CreateQueueMonitorTable extends Migration
 
     public function down()
     {
-        Schema::drop(config('queue-monitor.table'));
+        Schema::drop('queue_monitor');
     }
 }
