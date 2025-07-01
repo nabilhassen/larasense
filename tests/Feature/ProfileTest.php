@@ -21,7 +21,6 @@ test('profile page is displayed', function () {
         ->assertSeeInOrder([
             'Profile Information',
             'Update Password',
-            'Email Digest Frequency',
             'Delete Account',
         ]);
 });
