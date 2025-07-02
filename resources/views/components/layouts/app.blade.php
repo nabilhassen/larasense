@@ -51,17 +51,23 @@
     @endif
 
     <script>
-        document.addEventListener('livewire:navigated', () => {
-            const isThemeDark = () => localStorage.getItem('themeMode') === 'dark' || (!('themeMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        function toggleDarkMode(params) {
+            const isThemeDark = localStorage.getItem('themeMode') === 'dark' || (!('themeMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
 
-            document.documentElement.classList.toggle('dark', isThemeDark());
+            document.documentElement.classList.toggle('dark', isThemeDark);
 
             document
                 .querySelector('meta[name="theme-color"]')
                 .setAttribute(
                     "content",
-                    isThemeDark() ? 'black' : '#EF5A6F'
+                    isThemeDark ? 'black' : '#EF5A6F'
                 );
+        }
+
+        toggleDarkMode();
+
+        document.addEventListener('livewire:navigated', () => {
+            toggleDarkMode();
         });
     </script>
 
