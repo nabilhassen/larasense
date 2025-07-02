@@ -51,11 +51,11 @@
     @endif
 
     <script>
-        const isThemeDark = () => localStorage.getItem('themeMode') === 'dark' || (!('themeMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
-
-        document.documentElement.classList.toggle('dark', isThemeDark());
-
         document.addEventListener('livewire:navigated', () => {
+            const isThemeDark = () => localStorage.getItem('themeMode') === 'dark' || (!('themeMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+            document.documentElement.classList.toggle('dark', isThemeDark());
+
             document
                 .querySelector('meta[name="theme-color"]')
                 .setAttribute(
@@ -110,7 +110,7 @@
     @auth
         @filepondScripts
     @endauth
-    
+
     @vite('resources/js/app.js')
     <x-update-timezone />
     @stack('scripts')
