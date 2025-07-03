@@ -54,7 +54,7 @@
                     <a
                         wire:navigate
                         class="btn lg:btn-lg btn-outline text-primary hover:bg-primary hover:border-primary"
-                        href="{{ route('feed') }}"
+                        href="{{ route('materials.index') }}"
                     >
                         <x-heroicon-o-newspaper class="inline size-8" />
                         Feed

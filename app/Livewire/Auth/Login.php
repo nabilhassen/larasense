@@ -4,12 +4,14 @@ namespace App\Livewire\Auth;
 
 use App\Livewire\Forms\LoginForm;
 use Illuminate\Support\Facades\Session;
+use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Spatie\Honeypot\Http\Livewire\Concerns\HoneypotData;
 use Spatie\Honeypot\Http\Livewire\Concerns\UsesSpamProtection;
 
 #[Title('Login')]
+#[Layout('components.layouts.guest')]
 class Login extends Component
 {
     use UsesSpamProtection;
@@ -36,7 +38,7 @@ class Login extends Component
 
         Session::regenerate();
 
-        $this->redirectIntended(default:route('materials.index', absolute: false));
+        $this->redirectIntended(default: route('materials.index', absolute: false));
     }
 
     public function render()

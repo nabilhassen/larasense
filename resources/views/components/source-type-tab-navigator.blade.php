@@ -5,12 +5,12 @@
 >
     <a
         role="tab"
-        href="{{ auth()->check() ? route('materials.index') : route('feed') }}"
+        href="{{ route('materials.index') }}"
         wire:navigate
         class="tab"
         x-bind:class="{
-            'tab-active !text-white': location.href === '{{ route('materials.index') }}' || location.href === '{{ route('feed') }}',
-            '!text-inherit': location.href !== '{{ route('materials.index') }}' && location.href !== '{{ route('feed') }}'
+            'tab-active !text-white': location.href === '{{ route('materials.index') }}',
+            '!text-inherit': location.href !== '{{ route('materials.index') }}'
         }"
     >
         All

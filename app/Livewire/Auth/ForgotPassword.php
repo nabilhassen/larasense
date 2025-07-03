@@ -3,12 +3,14 @@
 namespace App\Livewire\Auth;
 
 use Illuminate\Support\Facades\Password;
+use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Spatie\Honeypot\Http\Livewire\Concerns\HoneypotData;
 use Spatie\Honeypot\Http\Livewire\Concerns\UsesSpamProtection;
 
 #[Title('Forgot Password')]
+#[Layout('components.layouts.guest')]
 class ForgotPassword extends Component
 {
     use UsesSpamProtection;

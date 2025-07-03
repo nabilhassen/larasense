@@ -8,7 +8,7 @@ require __DIR__ . '/auth.php';
 
 Route::get('/', Livewire\Home::class)->name('home')->middleware('guest');
 
-Route::get('feed', Livewire\Materials\Index::class)->name('feed')->middleware('guest');
+Route::get('home', Livewire\Materials\Index::class)->name('materials.index');
 
 Route::get('terms-and-conditions', Livewire\Legal\Terms::class)->name('terms');
 
@@ -21,9 +21,6 @@ Route::post('update-timezone', UpdateUserTimezoneController::class)->name('timez
 
 Route::middleware(['auth', 'verified'])
     ->group(function () {
-        Route::get('home', Livewire\Materials\Index::class)
-            ->name('materials.index');
-
         Route::get('m/{slug}', Livewire\Materials\Show::class)
             ->name('materials.show');
 

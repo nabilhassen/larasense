@@ -16,7 +16,7 @@
         <div class="space-y-4">
             <a
                 wire:navigate
-                href="{{ auth()->check() ? route('materials.index') : route('feed') }}"
+                href="{{ route('materials.index') }}"
                 @class([
                     'flex items-center gap-x-3 p-3 font-semibold',
                     'bg-primary text-white rounded-btn' => request()->routeIs([

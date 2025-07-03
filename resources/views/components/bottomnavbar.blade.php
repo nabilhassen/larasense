@@ -1,7 +1,7 @@
 <div class="btm-nav dark:bg-black lg:hidden">
     <a
         wire:navigate
-        href="{{ auth()->check() ? route('materials.index') : route('feed') }}"
+        href="{{ route('materials.index') }}"
         @class([
             'active dark:bg-black border-t-primary' => request()->routeIs([
                 'feed',
