@@ -12,6 +12,13 @@ class Index extends Component
 {
     use CanLoadMore;
 
+    public function mount()
+    {
+        if (auth()->check() && ! auth()->user()->hasVerifiedEmail()) {
+            $this->redirect(route('verification.notice', absolute: false));
+        }        
+    }
+
     public function render()
     {
         return view('livewire.materials.index', [
