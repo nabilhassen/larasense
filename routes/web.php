@@ -6,13 +6,13 @@ use Illuminate\Support\Facades\Route;
 
 require __DIR__ . '/auth.php';
 
-Route::get('/', Livewire\Home::class)->name('home')->middleware('guest');
+Route::get('/', Livewire\Marketing\Home\Index::class)->name('home')->middleware('guest');
 
 Route::get('home', Livewire\Materials\Index::class)->name('materials.index');
 
-Route::get('terms-and-conditions', Livewire\Legal\Terms::class)->name('terms');
+Route::get('terms-and-conditions', Livewire\Marketing\Terms::class)->name('terms');
 
-Route::get('privacy-policy', Livewire\Legal\PrivacyPolicy::class)->name('privacy');
+Route::get('privacy-policy', Livewire\Marketing\PrivacyPolicy::class)->name('privacy');
 
 Route::get('feed/{type}', Livewire\FeedBySourceType::class)
     ->name('feed.type');
@@ -30,7 +30,7 @@ Route::middleware(['auth', 'verified'])
         Route::get('bookmarks', Livewire\Bookmarks::class)
             ->name('bookmarks');
 
-        Route::view('settings', 'profile')
+        Route::get('settings', Livewire\Profile\Index::class)
             ->name('settings');
 
         Route::get('publishers/{slug}', Livewire\Publishers\Show::class)

@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Livewire\Legal;
+namespace App\Livewire\Marketing\Home;
 
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-#[Title('Terms and Conditions')]
+#[Title('Your Hub for Laravel News, Trends & Updates')]
 #[Layout('components.layouts.guest')]
-class Terms extends Component
+class Index extends Component
 {
     public function render()
     {
-        return view('livewire.legal.terms');
+        return view('livewire.marketing.home.index');
     }
 }

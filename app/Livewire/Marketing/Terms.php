@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Livewire\Legal;
+namespace App\Livewire\Marketing;
 
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-#[Title('Privacy Policy')]
+#[Title('Terms and Conditions')]
 #[Layout('components.layouts.guest')]
-class PrivacyPolicy extends Component
+class Terms extends Component
 {
     public function render()
     {
-        return view('livewire.legal.privacy-policy');
+        return view('livewire.marketing.terms');
     }
 }
