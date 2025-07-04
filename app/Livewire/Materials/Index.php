@@ -15,7 +15,7 @@ class Index extends Component
     public function mount()
     {
         if (auth()->check() && ! auth()->user()->hasVerifiedEmail()) {
-            $this->redirect(route('verification.notice', absolute: false));
+            $this->redirect(route('verification.notice', absolute: false), navigate:true);
         }        
     }
 

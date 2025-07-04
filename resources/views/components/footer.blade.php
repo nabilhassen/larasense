@@ -79,6 +79,7 @@
                 <ul class="flex space-x-4">
                     <li>
                         <a
+                            wire:navigate
                             class="link link-hover"
                             href="{{ route('terms') }}"
                         >
@@ -87,6 +88,7 @@
                     </li>
                     <li>
                         <a
+                            wire:navigate
                             class="link link-hover"
                             href="{{ route('privacy') }}"
                         >

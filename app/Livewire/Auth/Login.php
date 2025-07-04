@@ -38,7 +38,7 @@ class Login extends Component
 
         Session::regenerate();
 
-        $this->redirectIntended(default: route('materials.index', absolute: false));
+        $this->redirectIntended(default: route('materials.index', absolute: false), navigate:true);
     }
 
     public function render()

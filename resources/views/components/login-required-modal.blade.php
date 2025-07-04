@@ -18,6 +18,7 @@
         </div>
         <div class="text-sm items-start">
             <span x-text="message"></span>, please <a
+                wire:navigate
                 class="link text-primary"
                 href="{{ route('login') }}"
             >Login</a> first.
