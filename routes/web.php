@@ -10,9 +10,9 @@ Route::view('/', 'home')->name('home')->middleware('guest');
 
 Route::get('home', Livewire\Materials\Index::class)->name('materials.index');
 
-Route::get('terms-and-conditions', Livewire\Marketing\Terms::class)->name('terms');
+Route::view('terms-and-conditions', 'terms')->name('terms');
 
-Route::get('privacy-policy', Livewire\Marketing\PrivacyPolicy::class)->name('privacy');
+Route::view('privacy-policy', 'privacy-policy')->name('privacy');
 
 Route::get('feed/{type}', Livewire\FeedBySourceType::class)
     ->name('feed.type');
