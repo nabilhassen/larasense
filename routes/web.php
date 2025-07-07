@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 require __DIR__ . '/auth.php';
 
-Route::get('/', Livewire\Marketing\Home\Index::class)->name('home')->middleware('guest');
+Route::view('/', 'home')->name('home')->middleware('guest');
 
 Route::get('home', Livewire\Materials\Index::class)->name('materials.index');
 
@@ -30,7 +30,7 @@ Route::middleware(['auth', 'verified'])
         Route::get('bookmarks', Livewire\Bookmarks::class)
             ->name('bookmarks');
 
-        Route::get('settings', Livewire\Profile\Index::class)
+        Route::view('settings', 'profile')
             ->name('settings');
 
         Route::get('publishers/{slug}', Livewire\Publishers\Show::class)
