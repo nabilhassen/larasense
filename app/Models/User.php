@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Uri;
 
 class User extends Authenticatable implements MustVerifyEmail, FilamentUser, HasAvatar
 {
@@ -47,8 +48,8 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser, Has
     {
         return [
             'email_verified_at' => 'datetime',
-            'password'          => 'hashed',
-            'is_admin'          => 'boolean',
+            'password' => 'hashed',
+            'is_admin' => 'boolean',
             'last_logged_in_at' => 'datetime',
         ];
     }
@@ -56,14 +57,19 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser, Has
     public function avatar(): Attribute
     {
         return Attribute::make(
-            get: function () {
+            get: function (): string {
                 if (blank($this->avatar_url)) {
-                    $name = str($this->name)->squish()->words(2, '')->replace(' ', '+');
-
-                    return "https://ui-avatars.com/api/?name={$name}&background=ffd0d2&color=EF5A6F&rounded=true&bold=true";
+                    return Uri::of('https://ui-avatars.com/api/')
+                        ->withQuery([
+                            'name' => str($this->name)->squish()->words(2, '')->replace(' ', '+'),
+                            'background' => 'ffd0d2',
+                            'color' => 'EF5A6F',
+                            'rounded' => 'true',
+                            'bold' => 'true',
+                        ])->value();
                 }
 
-                if (isset(parse_url($this->avatar_url)['host'])) {
+                if (filled(parse_url($this->avatar_url, PHP_URL_HOST))) {
                     return $this->avatar_url;
                 }
 

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Str;
+use Illuminate\Support\Uri;
 use Maize\Markable\Markable;
 use Maize\Markable\Models\Bookmark;
 use Maize\Markable\Models\Like;
@@ -49,7 +50,7 @@ class Material extends Model
     public function thumbnail(): Attribute
     {
         return Attribute::make(
-            get: function () {
+            get: function (): string {
                 if (blank($this->image_url)) {
                     return asset(
                         str($this->loadMissing('source.publisher')->source->publisher->logo)->prepend('storage/')
@@ -70,14 +71,15 @@ class Material extends Model
     public function urlWithUtms(): Attribute
     {
         return Attribute::make(
-            get: function () {
+            get: function (): string {
                 if ($this->isArticle()) {
-                    $host = parse_url(config('app.url'), PHP_URL_HOST);
+                    return Uri::of($this->url)
+                        ->withQuery([
+                            'utm_source' => parse_url(config('app.url'), PHP_URL_HOST),
+                            'utm_medium' => 'referral',
+                            'utm_campaign' => 'referral',
 
-                    return str($this->url)
-                        ->append("?utm_source={$host}&utm_medium=referral&utm_campaign=referral")
-                        ->replaceLast('/?', '?')
-                        ->toString();
+                        ])->value();
                 }
 
                 return $this->url;
