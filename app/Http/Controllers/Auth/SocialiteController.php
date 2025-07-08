@@ -9,6 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use Illuminate\Validation\ValidationException;
 use Laravel\Socialite\Facades\Socialite;
 
 class SocialiteController
@@ -38,7 +39,9 @@ class SocialiteController
                 'timezone' => session()->get('timezone', 'UTC'),
             ]);
         } catch (UniqueConstraintViolationException $exception) {
-            return redirect()->intended(route('login'))->with('socialite_error', 'This email is already taken.');
+            throw ValidationException::withMessages([
+                'email' => 'This email is already taken.',
+            ]);
         }
 
         if (! $user->hasVerifiedEmail()) {

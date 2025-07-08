@@ -17,8 +17,7 @@ class UpdateUserTimezoneController
         ]);
 
         if (auth()->check()) {
-            auth()->user()->timezone = $validated['timezone'];
-            auth()->user()->save();
+            auth()->user()->update(['timezone' => $validated['timezone']]);
         } else {
             session()->put('timezone', $validated['timezone']);
         }
