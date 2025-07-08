@@ -34,9 +34,10 @@ class MaterialData
 
     public static function fromArticle(Item $item): static
     {
-        $openGraphData = OpenGraphFacade::fetch($item->get_link(), true);
-
-        $openGraphData = Arr::where($openGraphData, fn($value, $key) => filled($value));
+        $openGraphData = Arr::where(
+            OpenGraphFacade::fetch($item->get_link(), true),
+            fn($value, $key): bool => filled($value)
+        );
 
         return new static(
             title: $item->get_title(),
@@ -46,7 +47,7 @@ class MaterialData
             url: $item->get_link(),
             publishedAt: Carbon::parse($item->get_date())->timezone(config('app.timezone')),
             feedId: $item->get_id(true),
-            imageUrl: $openGraphData['image:secure_url'] ?? $openGraphData['image'] ?? $openGraphData['twitter:image'] ?? $item->get_enclosure()?->get_thumbnail() ?? str($item->get_content())->betweenFirst('img src="', '"')->toString(),
+            imageUrl: static::getImageUrlForArticle($openGraphData, $item),
         );
     }
 
@@ -100,5 +101,16 @@ class MaterialData
     protected static function getItunesTags(Item $item, string $tag): array
     {
         return $item->get_item_tags(SimplePie::NAMESPACE_ITUNES, $tag) ?? [];
+    }
+
+    protected static function getImageUrlForArticle(mixed $openGraphData, Item $item): ?string
+    {
+        $imageUrl = $openGraphData['image:secure_url'] ?? $openGraphData['image'] ?? $openGraphData['twitter:image'] ?? null;
+
+        if (blank($imageUrl)) {
+            $imageUrl = $item->get_enclosure()?->get_thumbnail() ?? str($item->get_content())->betweenFirst('img src="', '"')->toString();
+        }
+
+        return $imageUrl ?? null;
     }
 }
