@@ -1,14 +1,14 @@
 <?php
 namespace App\Livewire\Materials;
 
-use App\Livewire\Traits\HasEngagementMetrics;
+use App\Livewire\Traits\InteractWithMaterial;
 use App\Models\Material;
 use Livewire\Attributes\Locked;
 use Livewire\Component;
 
 class Card extends Component
 {
-    use HasEngagementMetrics;
+    use InteractWithMaterial;
 
     #[Locked]
     public string $slug;

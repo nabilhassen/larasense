@@ -9,7 +9,7 @@ use Maize\Markable\Models\Bookmark;
 use Maize\Markable\Models\Like;
 use Maize\Markable\Models\Reaction;
 
-trait HasEngagementMetrics
+trait InteractWithMaterial
 {
     #[Computed]
     public function material(): Material
