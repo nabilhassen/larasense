@@ -17,8 +17,7 @@ class FetchAndUpdateMaterialImage implements ShouldQueue
     /**
      * Create a new job instance.
      */
-    public function __construct(public Material $material)
-    {}
+    public function __construct(public Material $material) {}
 
     /**
      * Execute the job.

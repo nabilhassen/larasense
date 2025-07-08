@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\Auth\VerifyEmailController;
-use App\Livewire\Auth as Auth;
+use App\Livewire\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')

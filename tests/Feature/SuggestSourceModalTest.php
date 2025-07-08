@@ -22,7 +22,7 @@ test('auth user can suggest sources', function () {
         ->assertSet('isSubmitted', true);
 
     $this->assertDatabaseHas('source_suggestions', [
-        'url'     => $sourceSuggestion->url,
+        'url' => $sourceSuggestion->url,
         'user_id' => $this->user->id,
     ]);
 });
@@ -39,7 +39,7 @@ test('guest user can suggest sources', function () {
         ->assertSet('isSubmitted', true);
 
     $this->assertDatabaseHas('source_suggestions', [
-        'url'     => $sourceSuggestion->url,
+        'url' => $sourceSuggestion->url,
         'user_id' => null,
     ]);
 });

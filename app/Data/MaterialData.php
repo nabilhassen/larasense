@@ -36,7 +36,7 @@ class MaterialData
     {
         $openGraphData = Arr::where(
             OpenGraphFacade::fetch($item->get_link(), true),
-            fn($value, $key): bool => filled($value)
+            fn ($value, $key): bool => filled($value)
         );
 
         return new static(

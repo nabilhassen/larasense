@@ -23,7 +23,7 @@ test('auth user can report bugs', function () {
 
     $this->assertDatabaseHas('bug_reports', [
         'description' => $bugReport->description,
-        'user_id'     => $this->user->id,
+        'user_id' => $this->user->id,
     ]);
 });
 
@@ -40,7 +40,7 @@ test('guest user can report bugs', function () {
 
     $this->assertDatabaseHas('bug_reports', [
         'description' => $bugReport->description,
-        'user_id'     => null,
+        'user_id' => null,
     ]);
 });
 

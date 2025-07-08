@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 use App\Enums\SourceType;
@@ -96,7 +97,7 @@ class Material extends Model
     {
         $query
             ->where("{$this->getTable()}.is_displayed", 1)
-            ->whereHas('source', fn(Builder $q) => $q->displayed());
+            ->whereHas('source', fn (Builder $q) => $q->displayed());
     }
 
     public function scopeNotDisplayed(Builder $query): void

@@ -64,10 +64,10 @@ class AdminPanelProvider extends PanelProvider
                 $panel
                     ->navigationItems([
                         NavigationItem::make('Pulse')
-                        ->group('Performance')
-                        ->url(url(config('pulse.path')), shouldOpenInNewTab: true)
-                        ->icon('heroicon-o-chart-bar-square')
-                        ->sort(2),
+                            ->group('Performance')
+                            ->url(url(config('pulse.path')), shouldOpenInNewTab: true)
+                            ->icon('heroicon-o-chart-bar-square')
+                            ->sort(2),
                     ]);
             });
     }

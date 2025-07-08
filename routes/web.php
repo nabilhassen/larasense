@@ -1,10 +1,10 @@
 <?php
 
 use App\Http\Controllers\UpdateUserTimezoneController;
-use App\Livewire as Livewire;
+use App\Livewire;
 use Illuminate\Support\Facades\Route;
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';
 
 Route::view('/', 'home')->name('home')->middleware('guest');
 

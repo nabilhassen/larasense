@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             ->count(5)
             ->has(
                 Source::factory(2)
-                ->has(Material::factory()->count(5))
+                    ->has(Material::factory()->count(5))
             )
             ->create();
     }

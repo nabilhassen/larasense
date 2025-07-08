@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\MaterialResource\Pages\ManageMaterials;
@@ -84,14 +85,14 @@ class MaterialResource extends Resource
 
                 TextColumn::make('source.publisher.name')
                     ->searchable()
-                    ->description(fn(Material $record): string => str($record->url)->limit(50))
+                    ->description(fn (Material $record): string => str($record->url)->limit(50))
                     ->toggleable(isToggledHiddenByDefault: true),
 
                 TextColumn::make('title')
                     ->searchable()
                     ->words(5)
                     ->html()
-                    ->tooltip(fn(Material $record): string => $record->title),
+                    ->tooltip(fn (Material $record): string => $record->title),
 
                 ToggleColumn::make('is_displayed')
                     ->alignCenter()

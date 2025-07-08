@@ -11,6 +11,7 @@ use Livewire\Component;
 class UpdateProfileInformationForm extends Component
 {
     public string $name = '';
+
     public string $email = '';
 
     /**
@@ -53,7 +54,7 @@ class UpdateProfileInformationForm extends Component
         $user = Auth::user();
 
         if ($user->hasVerifiedEmail()) {
-            $this->redirectIntended(default:route('materials.index', absolute: false), navigate:true);
+            $this->redirectIntended(default: route('materials.index', absolute: false), navigate: true);
 
             return;
         }

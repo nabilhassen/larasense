@@ -36,7 +36,7 @@ class GenerateSitemapCommand extends Command
                 // Links present on the contact page won't be added to the
                 // sitemap unless they are present on a crawlable page.
 
-                return !str($url->getPath())
+                return ! str($url->getPath())
                     ->contains([
                         '/auth',
                         'password',

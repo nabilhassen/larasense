@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Filament\Resources;
 
 use App\Enums\SourceType;
@@ -74,7 +75,7 @@ class SourceResource extends Resource
                 TextColumn::make('publisher.name')
                     ->searchable(['publishers.name', 'url'])
                     ->sortable()
-                    ->description(fn(Source $record): string => str($record->url)->limit(50)),
+                    ->description(fn (Source $record): string => str($record->url)->limit(50)),
 
                 ToggleColumn::make('is_tracked')
                     ->alignCenter()

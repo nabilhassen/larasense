@@ -20,15 +20,18 @@ class Register extends Component
     use UsesSpamProtection;
 
     public string $name = '';
+
     public string $email = '';
+
     public string $password = '';
+
     public string $password_confirmation = '';
 
     public HoneypotData $extraFields;
 
     public function mount()
     {
-        $this->extraFields = new HoneypotData();
+        $this->extraFields = new HoneypotData;
     }
 
     /**
@@ -40,7 +43,7 @@ class Register extends Component
 
         $validated = $this->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email:rfc,dns,spoof', 'max:255', 'unique:' . User::class],
+            'email' => ['required', 'string', 'lowercase', 'email:rfc,dns,spoof', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'string', 'confirmed', Password::defaults()],
         ]);
 
@@ -51,7 +54,7 @@ class Register extends Component
 
         Auth::login($user);
 
-        $this->redirect(route('materials.index', absolute: false), navigate:true);
+        $this->redirect(route('materials.index', absolute: false), navigate: true);
     }
 
     public function render()

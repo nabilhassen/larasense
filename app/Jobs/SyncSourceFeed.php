@@ -2,7 +2,6 @@
 
 namespace App\Jobs;
 
-use App\Jobs\ProcessFeedItem;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
 use Illuminate\Support\Carbon;
@@ -15,8 +14,7 @@ class SyncSourceFeed implements ShouldQueue
     /**
      * Create a new job instance.
      */
-    public function __construct(public Source $source)
-    {}
+    public function __construct(public Source $source) {}
 
     /**
      * Execute the job.

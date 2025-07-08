@@ -32,7 +32,7 @@ class CreateAdminUserCommand extends Command
 
         $this->newLine();
 
-        $this->info('Email: ' . $user->email);
+        $this->info('Email: '.$user->email);
 
         $this->info('Password: password');
     }

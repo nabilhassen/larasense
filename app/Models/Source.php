@@ -42,7 +42,7 @@ class Source extends Model
 
     public function scopeTracked(Builder $query): void
     {
-        $query->where("{$this->getTable()}.is_tracked", 1)->whereHas('publisher', fn(Builder $q) => $q->tracked());
+        $query->where("{$this->getTable()}.is_tracked", 1)->whereHas('publisher', fn (Builder $q) => $q->tracked());
     }
 
     public function scopeNotTracked(Builder $query): void
@@ -52,7 +52,7 @@ class Source extends Model
 
     public function scopeDisplayed(Builder $query): void
     {
-        $query->where("{$this->getTable()}.is_displayed", 1)->whereHas('publisher', fn(Builder $q) => $q->displayed());
+        $query->where("{$this->getTable()}.is_displayed", 1)->whereHas('publisher', fn (Builder $q) => $q->displayed());
     }
 
     public function scopeNotDisplayed(Builder $query): void

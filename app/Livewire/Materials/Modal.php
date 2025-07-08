@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Livewire\Materials;
 
 use App\Livewire\Traits\InteractWithMaterial;
@@ -19,6 +20,7 @@ class Modal extends Component
     {
         if (blank($slug)) {
             $this->skipRender();
+
             return;
         }
 

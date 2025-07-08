@@ -21,7 +21,7 @@ class ForgotPassword extends Component
 
     public function mount()
     {
-        $this->extraFields = new HoneypotData();
+        $this->extraFields = new HoneypotData;
     }
 
     /**

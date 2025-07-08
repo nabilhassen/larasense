@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\UserResource\Pages\ManageUsers;
@@ -40,7 +41,7 @@ class UserResource extends Resource
 
                 TextInput::make('password')
                     ->password()
-                    ->required(fn(string $operation) => $operation === 'create')
+                    ->required(fn (string $operation) => $operation === 'create')
                     ->maxLength(255)
                     ->revealable()
                     ->dehydrateStateUsing(static function (?string $state, ?User $record) {
@@ -84,10 +85,10 @@ class UserResource extends Resource
 
                 TextColumn::make('name')
                     ->searchable(['name', 'email'])
-                    ->icon(fn(User $record): ?string => $record->hasVerifiedEmail() ? 'heroicon-o-check-circle' : null)
+                    ->icon(fn (User $record): ?string => $record->hasVerifiedEmail() ? 'heroicon-o-check-circle' : null)
                     ->iconPosition(IconPosition::After)
                     ->iconColor('primary')
-                    ->description(fn(User $record): string => $record->email),
+                    ->description(fn (User $record): string => $record->email),
 
                 TextColumn::make('provider')
                     ->searchable()

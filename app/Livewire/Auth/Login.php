@@ -22,7 +22,7 @@ class Login extends Component
 
     public function mount()
     {
-        $this->extraFields = new HoneypotData();
+        $this->extraFields = new HoneypotData;
     }
 
     /**
@@ -38,7 +38,7 @@ class Login extends Component
 
         Session::regenerate();
 
-        $this->redirectIntended(default: route('materials.index', absolute: false), navigate:true);
+        $this->redirectIntended(default: route('materials.index', absolute: false), navigate: true);
     }
 
     public function render()

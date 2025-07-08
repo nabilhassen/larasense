@@ -22,7 +22,7 @@ test('user avatar changes when the avatar is updated', function () {
         ->test(UserAvatar::class)
         ->assertSee($user->avatar);
 
-    $newImage         = fake()->imageUrl();
+    $newImage = fake()->imageUrl();
     $user->avatar_url = $newImage;
     $user->save();
     $user->refresh();

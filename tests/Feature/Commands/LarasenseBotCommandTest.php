@@ -2,8 +2,9 @@
 
 use App\Jobs\CheckSourceForNewContentJob;
 use App\Models\Source;
-use function Pest\Laravel\artisan;
 use Illuminate\Support\Facades\Queue;
+
+use function Pest\Laravel\artisan;
 
 test('sources are queued for new content checking', function () {
     Queue::fake();

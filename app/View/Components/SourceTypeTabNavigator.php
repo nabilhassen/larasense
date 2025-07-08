@@ -9,7 +9,7 @@ use Illuminate\View\Component;
 
 class SourceTypeTabNavigator extends Component
 {
-    public function render(): View | Closure | string
+    public function render(): View|Closure|string
     {
         return view('components.source-type-tab-navigator', [
             'sourceTypes' => SourceType::cases(),

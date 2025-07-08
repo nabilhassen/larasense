@@ -23,8 +23,11 @@ class ResetPassword extends Component
 
     #[Locked]
     public string $token = '';
+
     public string $email = '';
+
     public string $password = '';
+
     public string $password_confirmation = '';
 
     public HoneypotData $extraFields;
@@ -34,7 +37,7 @@ class ResetPassword extends Component
      */
     public function mount(string $token): void
     {
-        $this->extraFields = new HoneypotData();
+        $this->extraFields = new HoneypotData;
 
         $this->token = $token;
 

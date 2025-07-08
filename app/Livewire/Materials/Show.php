@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Livewire\Materials;
 
 use App\Livewire\Traits\InteractWithMaterial;

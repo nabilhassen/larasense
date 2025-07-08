@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 use App\Notifications\QueueableVerifyEmailNotificaition;
@@ -12,7 +13,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Uri;
 
-class User extends Authenticatable implements MustVerifyEmail, FilamentUser, HasAvatar
+class User extends Authenticatable implements FilamentUser, HasAvatar, MustVerifyEmail
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
@@ -32,7 +33,6 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser, Has
      *
      * @return void
      */
-
     public function sendEmailVerificationNotification()
     {
         $this->notify(new QueueableVerifyEmailNotificaition);
@@ -43,7 +43,6 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser, Has
      *
      * @return array<string, string>
      */
-
     protected function casts(): array
     {
         return [

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Livewire\Traits;
 
 use App\Models\Material;

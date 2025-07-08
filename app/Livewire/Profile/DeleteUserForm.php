@@ -17,7 +17,7 @@ class DeleteUserForm extends Component
     public function deleteUser(Logout $logout): void
     {
         $this->validate([
-            'password' => [Rule::requiredIf(!auth()->user()->isRegisteredWithProvider()), 'string', 'current_password'],
+            'password' => [Rule::requiredIf(! auth()->user()->isRegisteredWithProvider()), 'string', 'current_password'],
         ]);
 
         tap(Auth::user(), $logout(...))->delete();
