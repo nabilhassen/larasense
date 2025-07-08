@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Jobs\CheckSourceForNewContentJob;
+use App\Jobs\SyncSourceFeed;
 use App\Models\Source;
 use Illuminate\Console\Command;
 
@@ -27,8 +27,8 @@ class LarasenseBotCommand extends Command
      */
     public function handle()
     {
-        foreach (Source::tracked()->pluck('id') as $sourceId) {
-            CheckSourceForNewContentJob::dispatch($sourceId);
+        foreach (Source::tracked()->get() as $source) {
+            SyncSourceFeed::dispatch($source);
         }
     }
 }
