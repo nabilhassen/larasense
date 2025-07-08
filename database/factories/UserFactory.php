@@ -51,4 +51,11 @@ class UserFactory extends Factory
             'provider_id' => fake()->randomNumber(3),
         ]);
     }
+
+    public function admin(): static
+    {
+        return $this->state(fn(array $attributes) => [
+            'is_admin' => 1,
+        ]);
+    }
 }

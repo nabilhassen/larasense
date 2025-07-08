@@ -26,21 +26,14 @@ class CreateAdminUserCommand extends Command
      */
     public function handle()
     {
-        User::firstOrCreate([
-            'email' => 'admin@larasense.com',
-        ], [
-            'name' => 'Nabil Hassen (Admin)',
-            'is_admin' => 1,
-            'email_verified_at' => now(),
-            'password' => 'nabilhassen',
-        ]);
+        $user = User::factory()->admin()->create();
 
         $this->info('Admin user created. Credentials:');
 
         $this->newLine();
 
-        $this->info('Email: admin@larasense.com');
+        $this->info('Email: ' . $user->email);
 
-        $this->info('Password: nabilhassen');
+        $this->info('Password: password');
     }
 }
