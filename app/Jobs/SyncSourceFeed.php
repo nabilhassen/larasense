@@ -2,7 +2,7 @@
 
 namespace App\Jobs;
 
-use App\Jobs\ProcessFeedItemJob;
+use App\Jobs\ProcessFeedItem;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
 use Illuminate\Support\Carbon;
@@ -38,7 +38,7 @@ class SyncSourceFeed implements ShouldQueue
                 break;
             }
 
-            ProcessFeedItemJob::dispatch($this->source, $item);
+            ProcessFeedItem::dispatch($this->source, $item);
         }
 
         $this->source->updateLastCheckedAt();

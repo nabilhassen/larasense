@@ -6,36 +6,37 @@ use App\Data\MaterialData;
 use App\Jobs\FetchMaterialImageJob;
 use App\Models\Material;
 use App\Models\Source;
+use Illuminate\Support\Facades\DB;
 
 class CreateMaterial
 {
-    public function handle(int $sourceId, MaterialData $materialData): Material
+    public function handle(Source $source, MaterialData $materialData): Material
     {
-        $source = Source::find($sourceId, ['id']);
-
         if ($material = Material::where('url', $materialData->url)->first()) {
             return $material;
         }
 
-        $material = $source
-            ->materials()
-            ->create([
-                'title' => $materialData->title,
-                'description' => $materialData->description,
-                'body' => $materialData->body,
-                'author' => $materialData->author,
-                'published_at' => $materialData->publishedAt,
-                'feed_id' => $materialData->feedId,
-                'duration' => $materialData->duration,
-                'is_displayed' => $materialData->isDisplayed,
-                'url' => $materialData->url,
-                'image_url' => $materialData->imageUrl,
-            ]);
+        return DB::transaction(function () use ($source, $materialData): Material {
+            $material = $source
+                ->materials()
+                ->create([
+                    'title' => $materialData->title,
+                    'description' => $materialData->description,
+                    'body' => $materialData->body,
+                    'author' => $materialData->author,
+                    'published_at' => $materialData->publishedAt,
+                    'feed_id' => $materialData->feedId,
+                    'duration' => $materialData->duration,
+                    'is_displayed' => $materialData->isDisplayed,
+                    'url' => $materialData->url,
+                    'image_url' => $materialData->imageUrl,
+                ]);
 
-        if (filled($material->image_url) && $material->isArticle()) {
-            FetchMaterialImageJob::dispatch($material->id)->afterCommit();
-        }
+            if (filled($material->image_url) && $material->isArticle()) {
+                FetchMaterialImageJob::dispatch($material)->afterCommit();
+            }
 
-        return $material;
+            return $material;
+        });
     }
 }
