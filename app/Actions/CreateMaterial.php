@@ -3,7 +3,7 @@
 namespace App\Actions;
 
 use App\Data\MaterialData;
-use App\Jobs\FetchMaterialImageJob;
+use App\Jobs\FetchAndUpdateMaterialImage;
 use App\Models\Material;
 use App\Models\Source;
 use Illuminate\Support\Facades\DB;
@@ -33,7 +33,7 @@ class CreateMaterial
                 ]);
 
             if (filled($material->image_url) && $material->isArticle()) {
-                FetchMaterialImageJob::dispatch($material)->afterCommit();
+                FetchAndUpdateMaterialImage::dispatch($material)->afterCommit();
             }
 
             return $material;

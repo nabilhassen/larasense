@@ -10,14 +10,14 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Laravel\Facades\Image;
 
-class FetchMaterialImageJob implements ShouldQueue
+class FetchAndUpdateMaterialImage implements ShouldQueue
 {
     use Queueable;
 
     /**
      * Create a new job instance.
      */
-    public function __construct(public int $materialId)
+    public function __construct(public Material $material)
     {}
 
     /**
@@ -25,30 +25,26 @@ class FetchMaterialImageJob implements ShouldQueue
      */
     public function handle(): void
     {
-        $material = Material::find($this->materialId, ['id', 'image_url']);
-
-        if (!isset(parse_url($material->image_url)['host'])) {
+        if (! parse_url($this->material->image_url, PHP_URL_HOST)) {
             return;
         }
 
-        $response = Http::retry(3, 100)->timeout(10)->get($material->image_url);
+        $response = Http::retry(3, 100)->timeout(10)->get($this->material->image_url);
 
-        $path = $this->getPath($response->header('Content-Type'));
+        $path = $this->generatePath($response->header('Content-Type'));
 
         Storage::disk('public')->put($path, $response->body());
 
-        $material->image_url = $path;
+        $this->material->update(['image_url' => $path]);
 
-        $material->save();
-
-        $image = Image::read(Storage::disk('public')->path($material->image_url));
+        $image = Image::read(Storage::disk('public')->path($this->material->image_url));
 
         $image->scale(height: 160);
 
         $image->save();
     }
 
-    protected function getPath(string $contentType): string
+    protected function generatePath(string $contentType): string
     {
         $imageExtension = str($contentType)
             ->afterLast('/')
