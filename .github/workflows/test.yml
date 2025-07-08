@@ -41,7 +41,7 @@ jobs:
           npm run build --if-present
 
       - name: Execute tests
-        run: composer test:ci
+        run: composer test
 
       - name: Deploy to Server
         uses: appleboy/ssh-action@v1.1.0

@@ -74,9 +74,14 @@
             "Composer\\Config::disableProcessTimeout",
             "npx concurrently -c \"#93c5fd,#fdba74\" \"php artisan serve\" \"npm run dev\" --names=server,vite"
         ],
-        "test": "pest",
-        "test:dirty": "@test --dirty",
-        "test:ci": "@test --ci"
+        "pest": "pest",
+        "pint": "pint",
+        "test:dirty": "@pest --dirty",
+        "test:pint": "@pint --test",
+        "test": [
+            "@test:pint",
+            "@pest"
+        ]
     },
     "extra": {
         "laravel": {
