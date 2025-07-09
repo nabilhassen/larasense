@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Livewire\Profile\DeleteUserForm;
 use App\Livewire\Profile\UpdateProfileInformationForm;
 use App\Models\User;

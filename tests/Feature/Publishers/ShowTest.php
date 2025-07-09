@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Livewire\Publishers\Show;
 use App\Models\Material;
 use App\Models\Publisher;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 use Illuminate\Contracts\Database\Eloquent\Builder;
@@ -12,21 +14,6 @@ class Publisher extends Model
 {
     /** @use HasFactory<\Database\Factories\PublisherFactory> */
     use HasFactory;
-
-    protected static function booted(): void
-    {
-        static::creating(function (Publisher $publisher) {
-            $publisher->slug = str($publisher->name)->slug();
-        });
-    }
-
-    protected function casts(): array
-    {
-        return [
-            'is_tracked' => 'boolean',
-            'is_displayed' => 'boolean',
-        ];
-    }
 
     public function sources(): HasMany
     {
@@ -68,5 +55,20 @@ class Publisher extends Model
     public function isDisplayed(): bool
     {
         return $this->is_displayed;
+    }
+
+    protected static function booted(): void
+    {
+        static::creating(function (Publisher $publisher) {
+            $publisher->slug = str($publisher->name)->slug();
+        });
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'is_tracked' => 'boolean',
+            'is_displayed' => 'boolean',
+        ];
     }
 }

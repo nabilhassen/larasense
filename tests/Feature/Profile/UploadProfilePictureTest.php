@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Livewire\Profile\UploadProfilePicture;
 use App\Models\User;
 use Illuminate\Http\UploadedFile;

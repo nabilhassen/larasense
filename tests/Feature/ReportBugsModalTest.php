@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Livewire\ReportBugsModal;
 use App\Models\BugReport;
 use App\Models\User;

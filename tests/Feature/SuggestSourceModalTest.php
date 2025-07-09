@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Livewire\SuggestSourceModal;
 use App\Models\SourceSuggestion;
 use App\Models\User;

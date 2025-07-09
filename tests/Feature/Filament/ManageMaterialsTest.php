@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Filament\Resources\MaterialResource\Pages\ManageMaterials;
 use App\Models\Material;
 use Filament\Actions\CreateAction;

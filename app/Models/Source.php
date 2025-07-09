@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 use App\Enums\SourceType;
@@ -14,16 +16,6 @@ class Source extends Model
 {
     /** @use HasFactory<\Database\Factories\SourceFactory> */
     use HasFactory;
-
-    protected function casts(): array
-    {
-        return [
-            'is_tracked' => 'boolean',
-            'is_displayed' => 'boolean',
-            'type' => SourceType::class,
-            'last_checked_at' => 'datetime',
-        ];
-    }
 
     public function publisher(): BelongsTo
     {
@@ -65,5 +57,15 @@ class Source extends Model
         $this->last_checked_at = now();
 
         $this->save();
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'is_tracked' => 'boolean',
+            'is_displayed' => 'boolean',
+            'type' => SourceType::class,
+            'last_checked_at' => 'datetime',
+        ];
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 use App\Notifications\QueueableVerifyEmailNotificaition;
@@ -36,21 +38,6 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, MustVerif
     public function sendEmailVerificationNotification()
     {
         $this->notify(new QueueableVerifyEmailNotificaition);
-    }
-
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-            'is_admin' => 'boolean',
-            'last_logged_in_at' => 'datetime',
-        ];
     }
 
     public function avatar(): Attribute
@@ -102,5 +89,20 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, MustVerif
         $this->last_logged_in_at = now();
 
         $this->save();
+    }
+
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+            'is_admin' => 'boolean',
+            'last_logged_in_at' => 'datetime',
+        ];
     }
 }

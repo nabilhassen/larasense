@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\LogoutButton;
 use App\Models\User;

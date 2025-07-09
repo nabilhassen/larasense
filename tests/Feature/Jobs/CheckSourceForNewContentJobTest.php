@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Jobs\CheckSourceForNewContentJob;
 use App\Jobs\ProcessFeedItemJob;
 use App\Models\Material;

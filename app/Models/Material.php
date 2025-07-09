@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 use App\Enums\SourceType;
@@ -20,6 +22,8 @@ class Material extends Model
     /** @use HasFactory<\Database\Factories\MaterialFactory> */
     use HasFactory, Markable;
 
+    public const DISLIKE_REACTION = 'material.dislike';
+
     protected $appends = [
         'thumbnail',
     ];
@@ -30,22 +34,28 @@ class Material extends Model
         Reaction::class,
     ];
 
-    public const DISLIKE_REACTION = 'material.dislike';
-
-    protected static function booted(): void
+    public static function feedQuery(): Builder
     {
-        static::creating(function (Material $material) {
-            $material->slug = Str::random();
-        });
-    }
-
-    protected function casts(): array
-    {
-        return [
-            'is_displayed' => 'boolean',
-            'published_at' => 'datetime',
-            'duration' => 'integer',
-        ];
+        return static::query()
+            ->displayed()
+            ->latest('published_at')
+            ->select([
+                'id',
+                'source_id',
+                'title',
+                'description',
+                'body',
+                'slug',
+                'url',
+                'image_url',
+                'published_at',
+                'duration',
+            ])
+            ->with([
+                'source:id,publisher_id,type' => [
+                    'publisher:id,name,slug,logo',
+                ],
+            ]);
     }
 
     public function thumbnail(): Attribute
@@ -130,27 +140,19 @@ class Material extends Model
         return $this->source->type === SourceType::Podcast;
     }
 
-    public static function feedQuery(): Builder
+    protected static function booted(): void
     {
-        return static::query()
-            ->displayed()
-            ->latest('published_at')
-            ->select([
-                'id',
-                'source_id',
-                'title',
-                'description',
-                'body',
-                'slug',
-                'url',
-                'image_url',
-                'published_at',
-                'duration',
-            ])
-            ->with([
-                'source:id,publisher_id,type' => [
-                    'publisher:id,name,slug,logo',
-                ],
-            ]);
+        static::creating(function (Material $material) {
+            $material->slug = Str::random();
+        });
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'is_displayed' => 'boolean',
+            'published_at' => 'datetime',
+            'duration' => 'integer',
+        ];
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Enums\SourceType;
 use App\Livewire\FeedBySourceType;
 use App\Models\Material;

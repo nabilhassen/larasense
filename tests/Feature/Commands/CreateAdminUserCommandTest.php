@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use function Pest\Laravel\artisan;
 
 test('command can create admin user', function () {
