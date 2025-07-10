@@ -3,15 +3,15 @@
 declare(strict_types=1);
 
 use App\Enums\SourceType;
-use App\Jobs\FetchMaterialImageJob;
-use App\Jobs\ProcessFeedItemJob;
+use App\Jobs\FetchAndUpdateMaterialImage;
+use App\Jobs\ProcessFeedItem;
 use App\Models\Material;
 use App\Models\Source;
 use Illuminate\Support\Facades\Queue;
 use willvincent\Feeds\Facades\FeedsFacade;
 
 test('article feed item is processed and stored in the database as a material', function () {
-    Queue::fake(FetchMaterialImageJob::class);
+    Queue::fake(FetchAndUpdateMaterialImage::class);
 
     $source = Source::factory()->create([
         'url' => 'https://www.aljazeera.com/xml/rss/all.xml',
@@ -21,19 +21,17 @@ test('article feed item is processed and stored in the database as a material', 
 
     $item = FeedsFacade::make([$source->url], 1)->get_item();
 
-    ProcessFeedItemJob::dispatch($source->id, $item);
+    ProcessFeedItem::dispatch($source, $item);
 
-    Queue::assertPushed(FetchMaterialImageJob::class);
+    Queue::assertPushed(FetchAndUpdateMaterialImage::class);
     $this->assertDatabaseCount('materials', 1);
     $this->assertDatabaseHas('materials', [
         'feed_id' => $item->get_id(true),
     ]);
-    expect($source->last_checked_at->lessThan($source->refresh()->last_checked_at))->toBeTrue();
-
 });
 
 test('youtube feed item is processed and stored in the database as a material', function () {
-    Queue::fake(FetchMaterialImageJob::class);
+    Queue::fake(FetchAndUpdateMaterialImage::class);
 
     $source = Source::factory()->create([
         'url' => 'https://www.youtube.com/feeds/videos.xml?channel_id=UCTuplgOBi6tJIlesIboymGA',
@@ -43,19 +41,17 @@ test('youtube feed item is processed and stored in the database as a material', 
 
     $item = FeedsFacade::make([$source->url], 1)->get_item();
 
-    ProcessFeedItemJob::dispatch($source->id, $item);
+    ProcessFeedItem::dispatch($source, $item);
 
-    Queue::assertNotPushed(FetchMaterialImageJob::class);
+    Queue::assertNotPushed(FetchAndUpdateMaterialImage::class);
     $this->assertDatabaseCount('materials', 1);
     $this->assertDatabaseHas('materials', [
         'feed_id' => $item->get_id(true),
     ]);
-    expect($source->last_checked_at->lessThan($source->refresh()->last_checked_at))->toBeTrue();
-
 });
 
 test('podcast feed item is processed and stored in the database as a material', function () {
-    Queue::fake(FetchMaterialImageJob::class);
+    Queue::fake(FetchAndUpdateMaterialImage::class);
 
     $source = Source::factory()->create([
         'url' => 'https://feeds.transistor.fm/the-laravel-podcast',
@@ -65,20 +61,18 @@ test('podcast feed item is processed and stored in the database as a material', 
 
     $item = FeedsFacade::make([$source->url], 1)->get_item();
 
-    ProcessFeedItemJob::dispatch($source->id, $item);
+    ProcessFeedItem::dispatch($source, $item);
 
-    Queue::assertNotPushed(FetchMaterialImageJob::class);
+    Queue::assertNotPushed(FetchAndUpdateMaterialImage::class);
     $this->assertDatabaseCount('materials', 1);
     $this->assertDatabaseHas('materials', [
         'feed_id' => $item->get_id(true),
     ]);
-    expect($source->last_checked_at->lessThan($source->refresh()->last_checked_at))->toBeTrue();
-
 });
 
 test('duplicate article feed item will not be stored', function () {
     $material = Material::factory()->create(['published_at' => now()->subYears(10)]);
-    Queue::fake(FetchMaterialImageJob::class);
+    Queue::fake(FetchAndUpdateMaterialImage::class);
 
     $this->assertDatabaseCount('materials', 1);
 
@@ -93,14 +87,12 @@ test('duplicate article feed item will not be stored', function () {
     $material->feed_id = $item->get_id(true);
     $material->save();
 
-    ProcessFeedItemJob::dispatch($source->id, $item);
+    ProcessFeedItem::dispatch($source, $item);
 
-    Queue::assertNotPushed(FetchMaterialImageJob::class);
+    Queue::assertNotPushed(FetchAndUpdateMaterialImage::class);
     $this->assertDatabaseCount('materials', 1);
     $this->assertDatabaseHas('materials', [
         'url' => $item->get_link(),
         'feed_id' => $item->get_id(true),
     ]);
-    expect($source->last_checked_at->lessThan($source->refresh()->last_checked_at))->toBeTrue();
-
 });

@@ -15,7 +15,7 @@ class YoutubeMaterialData extends MaterialData
             title: $item->get_title(),
             description: $item->get_enclosure()?->get_description() ?? $item->get_description(),
             body: $item->get_content(),
-            author: $item->get_author(),
+            author: $item->get_author()?->get_name(),
             url: $item->get_link(),
             publishedAt: Carbon::parse($item->get_date())->timezone(config('app.timezone')),
             feedId: $item->get_id(true),

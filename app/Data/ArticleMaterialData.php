@@ -19,7 +19,7 @@ class ArticleMaterialData extends MaterialData
             title: $item->get_title(),
             description: static::getDescription($openGraph, $item),
             body: $item->get_content(),
-            author: $item->get_author(),
+            author: $item->get_author()?->get_name(),
             url: $item->get_link(),
             publishedAt: Carbon::parse($item->get_date())->timezone(config('app.timezone')),
             feedId: $item->get_id(true),

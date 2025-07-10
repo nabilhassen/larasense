@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use App\Enums\SourceType;
-use App\Jobs\FetchMaterialImageJob;
+use App\Jobs\FetchAndUpdateMaterialImage;
 use App\Models\Material;
 use App\Models\Source;
 use Illuminate\Support\Facades\Storage;
@@ -18,7 +18,7 @@ test('article material images are fetched and stored in disk', function () {
         )
         ->create();
 
-    FetchMaterialImageJob::dispatch($material->id);
+    FetchAndUpdateMaterialImage::dispatch($material);
 
     Storage::disk('public')->assertExists($material->fresh()->image_url);
 });
