@@ -1,16 +1,16 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types = 1);
 
 namespace App\Livewire\Materials;
 
-use App\Livewire\Traits\InteractWithMaterial;
+use App\Livewire\Traits\InteractsWithMaterial;
 use App\Models\Material;
 use Livewire\Component;
 
 class Show extends Component
 {
-    use InteractWithMaterial;
+    use InteractsWithMaterial;
 
     public string $slug;
 

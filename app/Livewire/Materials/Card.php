@@ -1,17 +1,17 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types = 1);
 
 namespace App\Livewire\Materials;
 
-use App\Livewire\Traits\InteractWithMaterial;
+use App\Livewire\Traits\InteractsWithMaterial;
 use App\Models\Material;
 use Livewire\Attributes\Locked;
 use Livewire\Component;
 
 class Card extends Component
 {
-    use InteractWithMaterial;
+    use InteractsWithMaterial;
 
     #[Locked]
     public string $slug;

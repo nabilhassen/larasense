@@ -1,13 +1,13 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types = 1);
 
-use App\Livewire\Bookmarks;
 use App\Livewire\FeedBySourceType;
-use App\Livewire\Likes;
+use App\Livewire\Materials\Bookmarks;
 use App\Livewire\Materials\Index;
+use App\Livewire\Materials\Likes;
 use App\Livewire\Traits\CanLoadMore;
-use App\Livewire\Traits\HasEngagementMetrics;
+use App\Livewire\Traits\InteractsWithMaterial;
 
 arch()
     ->preset()
@@ -25,11 +25,13 @@ arch()
     ->preset()
     ->php();
 
-arch('material components uses HasEngagementMetrics trait')
+arch('material components uses InteractsWithMaterial trait')
     ->expect('App\Livewire\Materials')
-    ->toUseTrait(HasEngagementMetrics::class)
+    ->toUseTrait(InteractsWithMaterial::class)
     ->ignoring([
+        Bookmarks::class,
         Index::class,
+        Likes::class,
     ]);
 
 arch('components uses CanLoadMore trait')
