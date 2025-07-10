@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Jobs\CheckSourceForNewContentJob;
+use App\Jobs\SyncSourceFeed;
 use App\Models\Source;
 use Illuminate\Support\Facades\Queue;
 
@@ -15,7 +15,7 @@ test('sources are queued for new content checking', function () {
 
     artisan('larasense:bot');
 
-    Queue::assertPushed(CheckSourceForNewContentJob::class, 5);
+    Queue::assertPushed(SyncSourceFeed::class, 5);
 });
 
 test('untracked sources are not queued for new content checking', function () {
@@ -26,7 +26,7 @@ test('untracked sources are not queued for new content checking', function () {
 
     artisan('larasense:bot');
 
-    Queue::assertPushed(CheckSourceForNewContentJob::class, 4);
+    Queue::assertPushed(SyncSourceFeed::class, 4);
 });
 
 test('untracked publishers sources are not queued for new content checking', function () {
@@ -37,5 +37,5 @@ test('untracked publishers sources are not queued for new content checking', fun
 
     artisan('larasense:bot');
 
-    Queue::assertPushed(CheckSourceForNewContentJob::class, 4);
+    Queue::assertPushed(SyncSourceFeed::class, 4);
 });
