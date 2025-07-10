@@ -13,7 +13,7 @@ test('user avatar is pulled from ui-avatars if user has no an avatar', function 
         ->test(UserAvatar::class)
         ->assertSeeHtmlInOrder([
             'ui-avatars.com',
-            ...str($user->name)->squish()->words(2, '')->explode(' ')->toArray()
+            ...str($user->name)->squish()->words(2, '')->explode(' ')->toArray(),
         ]);
 });
 

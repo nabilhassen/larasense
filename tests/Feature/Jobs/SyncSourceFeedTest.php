@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use App\Jobs\SyncSourceFeed;
 use App\Jobs\ProcessFeedItem;
+use App\Jobs\SyncSourceFeed;
 use App\Models\Material;
 use App\Models\Source;
 use Illuminate\Support\Facades\Context;

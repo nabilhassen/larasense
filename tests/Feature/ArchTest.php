@@ -1,6 +1,6 @@
 <?php
 
-declare (strict_types = 1);
+declare(strict_types=1);
 
 use App\Livewire\FeedBySourceType;
 use App\Livewire\Materials\Bookmarks;
