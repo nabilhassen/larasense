@@ -5,14 +5,17 @@ declare(strict_types=1);
 namespace App\Data;
 
 use App\Enums\SourceType;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Carbon;
-use shweshi\OpenGraph\Facades\OpenGraphFacade;
 use SimplePie\Item;
-use SimplePie\SimplePie;
 
 class MaterialData
 {
+    public static $classes = [
+        'article' => ArticleMaterialData::class,
+        'podcast' => PodcastMaterialData::class,
+        'youtube' => YoutubeMaterialData::class,
+    ];
+
     public function __construct(
         public string $title,
         public string $url,
@@ -29,60 +32,9 @@ class MaterialData
 
     public static function create(SourceType $sourceType, Item $item): static
     {
-        $method = str('from')->append($sourceType->name)->toString();
+        $class = static::$classes[$sourceType->value];
 
-        return call_user_func([static::class, $method], $item);
-    }
-
-    public static function fromArticle(Item $item): static
-    {
-        $openGraphData = Arr::where(
-            OpenGraphFacade::fetch($item->get_link(), true),
-            fn ($value, $key): bool => filled($value)
-        );
-
-        return new static(
-            title: $item->get_title(),
-            description: $openGraphData['description'] ?? $openGraphData['og:description'] ?? $item->get_description(),
-            body: $item->get_content(),
-            author: $item->get_author(),
-            url: $item->get_link(),
-            publishedAt: Carbon::parse($item->get_date())->timezone(config('app.timezone')),
-            feedId: $item->get_id(true),
-            imageUrl: static::getImageUrlForArticle($openGraphData, $item),
-        );
-    }
-
-    public static function fromYoutube(Item $item): static
-    {
-        return new static(
-            title: $item->get_title(),
-            description: $item->get_enclosure()?->get_description() ?? $item->get_description(),
-            body: $item->get_content(),
-            author: $item->get_author(),
-            url: $item->get_link(),
-            publishedAt: Carbon::parse($item->get_date())->timezone(config('app.timezone')),
-            feedId: $item->get_id(true),
-            imageUrl: $item->get_enclosure()?->get_thumbnail(),
-            duration: $item->get_enclosure()?->get_duration()
-        );
-    }
-
-    public static function fromPodcast(Item $item): static
-    {
-        $duration = static::getItunesTags($item, 'duration')[0]['data'] ?? $item->get_enclosure()?->get_duration();
-
-        return new static(
-            title: $item->get_title(),
-            description: $item->get_description(),
-            body: $item->get_content(),
-            author: static::getItunesTags($item, 'author')[0]['data'] ?? $item->get_author(),
-            url: $item->get_enclosure()?->get_link() ?? $item->get_link(),
-            publishedAt: Carbon::parse($item->get_date())->timezone(config('app.timezone')),
-            feedId: $item->get_id(true),
-            imageUrl: static::getItunesTags($item, 'image')[0]['attribs']['']['href'] ?? $item->get_enclosure()?->get_thumbnail(),
-            duration: is_numeric($duration) ? $duration : null
-        );
+        return call_user_func([$class, 'from'], $item);
     }
 
     public static function fromRequest(array $data): static
@@ -98,21 +50,5 @@ class MaterialData
             duration: $data['duration'],
             isDisplayed: $data['is_displayed'],
         );
-    }
-
-    protected static function getItunesTags(Item $item, string $tag): array
-    {
-        return $item->get_item_tags(SimplePie::NAMESPACE_ITUNES, $tag) ?? [];
-    }
-
-    protected static function getImageUrlForArticle(mixed $openGraphData, Item $item): ?string
-    {
-        $imageUrl = $openGraphData['image:secure_url'] ?? $openGraphData['image'] ?? $openGraphData['twitter:image'] ?? null;
-
-        if (blank($imageUrl)) {
-            $imageUrl = $item->get_enclosure()?->get_thumbnail() ?? str($item->get_content())->betweenFirst('img src="', '"')->toString();
-        }
-
-        return $imageUrl ?? null;
     }
 }
