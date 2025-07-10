@@ -65,7 +65,7 @@ test('handles callback from auth provider and creates a user', function () {
         ->assertTrue(User::firstWhere('email', $user->email)->hasVerifiedEmail());
 });
 
-test('user will not be created if already regisitered via registration form', function () {
+test('user will not be created if already registered via registration form', function () {
     $provider = Arr::random(['github', 'google']);
     $user = User::factory()->create();
     $this->assertDatabaseCount('users', 1);
@@ -85,12 +85,14 @@ test('user will not be created if already regisitered via registration form', fu
 
     $this
         ->get(route('socialite.callback', $provider))
-        ->assertSessionHas('socialite_error', 'This email is already taken.');
+        ->assertInvalid([
+            'email' => 'This email is already taken.',
+        ]);
 
     $this->assertDatabaseCount('users', 1);
 });
 
-test('user will login and will not be created again if already regisitered with the same socialite', function () {
+test('user will login and will not be created again if already registered with the same socialite', function () {
     $user = User::factory()->viaSocialite()->create();
     $newName = fake()->name();
 
@@ -125,7 +127,7 @@ test('user will login and will not be created again if already regisitered with 
         ]);
 });
 
-test('user will not be created if already regisitered with another socialite', function () {
+test('user will not be created if already registered with another socialite', function () {
     $user = User::factory()->viaSocialite()->create();
     $provider = collect(['google', 'github'])->diff([$user->provider])->random();
     $this->assertDatabaseCount('users', 1);
@@ -145,7 +147,9 @@ test('user will not be created if already regisitered with another socialite', f
 
     $this
         ->get(route('socialite.callback', $provider))
-        ->assertSessionHas('socialite_error', 'This email is already taken.');
+        ->assertInvalid([
+            'email' => 'This email is already taken.',
+        ]);
 
     $this->assertDatabaseCount('users', 1);
 });
