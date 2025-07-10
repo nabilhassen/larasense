@@ -47,7 +47,7 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, MustVerif
                 if (blank($this->avatar_url)) {
                     return Uri::of('https://ui-avatars.com/api/')
                         ->withQuery([
-                            'name' => str($this->name)->squish()->words(2, '')->replace(' ', '+'),
+                            'name' => str($this->name)->squish()->words(2, '')->replace(' ', '+')->toString(),
                             'background' => 'ffd0d2',
                             'color' => 'EF5A6F',
                             'rounded' => 'true',
