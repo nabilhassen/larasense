@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Data;
 use App\Livewire\FeedBySourceType;
 use App\Livewire\Materials\Bookmarks;
 use App\Livewire\Materials\Index;
@@ -42,3 +43,11 @@ arch('components uses CanLoadMore trait')
         Likes::class,
     ])
     ->toUseTrait(CanLoadMore::class);
+
+arch('material data classes extend base material data class')
+    ->expect([
+        Data\ArticleMaterialData::class,
+        Data\PodcastMaterialData::class,
+        Data\YoutubeMaterialData::class,
+    ])
+    ->toExtend(Data\MaterialData::class);
