@@ -77,7 +77,7 @@ class SourceResource extends Resource
                 TextColumn::make('publisher.name')
                     ->searchable(['publishers.name', 'url'])
                     ->sortable()
-                    ->description(fn (Source $record): string => str($record->url)->limit(50)),
+                    ->description(fn (Source $record): string => str($record->url)->limit(50)->toString()),
 
                 ToggleColumn::make('is_tracked')
                     ->alignCenter()

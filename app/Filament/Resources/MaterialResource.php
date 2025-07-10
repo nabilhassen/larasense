@@ -87,7 +87,7 @@ class MaterialResource extends Resource
 
                 TextColumn::make('source.publisher.name')
                     ->searchable()
-                    ->description(fn (Material $record): string => str($record->url)->limit(50))
+                    ->description(fn (Material $record): string => str($record->url)->limit(50)->toString())
                     ->toggleable(isToggledHiddenByDefault: true),
 
                 TextColumn::make('title')

@@ -27,7 +27,7 @@ class ArticleMaterialData extends MaterialData
         );
     }
 
-    private static function getOpenGraph(string $link): mixed
+    private static function getOpenGraph(string $link): array
     {
         return Arr::where(
             OpenGraphFacade::fetch($link, true),
@@ -35,12 +35,12 @@ class ArticleMaterialData extends MaterialData
         );
     }
 
-    private static function getDescription(mixed $openGraph, Item $item): string
+    private static function getDescription(array $openGraph, Item $item): string
     {
         return $openGraph['description'] ?? $openGraph['og:description'] ?? $item->get_description();
     }
 
-    private static function getImageUrl(mixed $openGraph, Item $item): ?string
+    private static function getImageUrl(array $openGraph, Item $item): ?string
     {
         $imageUrl = $openGraph['image:secure_url'] ?? $openGraph['image'] ?? $openGraph['twitter:image'] ?? null;
 

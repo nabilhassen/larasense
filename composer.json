@@ -79,7 +79,7 @@
         "test:pint": "@pint --test",
         "test": [
             "@test:pint",
-            "@pest"
+            "@pest --parallel"
         ]
     },
     "extra": {

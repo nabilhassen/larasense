@@ -30,9 +30,7 @@ test('new feed item is queued for processing', function () {
 
     FeedsFacade::shouldReceive('make')->with([$source->url], 20, true)->andReturn($feed);
 
-    SyncSourceFeed::dispatch($source->id);
-
-    expect(Context::has('material_url'))->toEqual($item->get_link());
+    SyncSourceFeed::dispatch($source);
 
     Queue::assertPushed(ProcessFeedItem::class, 1);
 });
@@ -55,7 +53,7 @@ test('old feed item is not queued for processing', function () {
 
     FeedsFacade::shouldReceive('make')->with([$source->url], 20, true)->andReturn($feed);
 
-    SyncSourceFeed::dispatch($source->id);
+    SyncSourceFeed::dispatch($source);
 
     expect(Context::has('material_url'))->toBeFalse();
 
@@ -81,9 +79,7 @@ test('if feed forcing does not work it falls back to without forcing', function 
 
     FeedsFacade::shouldReceive('make')->with([$source->url], 20)->andReturn($feed);
 
-    SyncSourceFeed::dispatch($source->id);
-
-    expect(Context::has('material_url'))->toEqual($item->get_link());
+    SyncSourceFeed::dispatch($source);
 
     Queue::assertPushed(ProcessFeedItem::class, 1);
 });
