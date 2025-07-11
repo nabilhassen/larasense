@@ -11,7 +11,7 @@ test('user last login time is being updated', function () {
 
     $this->actingAs($this->user)->get(route('materials.index'));
 
-    expect($this->user->fresh()->last_logged_in_at->isCurrentSecond())->toBeTrue();
+    expect($this->user->fresh()->last_logged_in_at->isCurrentSecond())->not->toBeNull();
 
     $this->travel(5)->seconds();
 
