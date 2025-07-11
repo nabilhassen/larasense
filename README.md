@@ -1,10 +1,12 @@
 <p align="center">
-    <img src="https://larasense.com/img/logo.png" width="70%" alt="Larasense logo">
+    <a href="https://larasense.com" target="_blank"><img src="https://larasense.com/img/logo.png" width="70%" alt="Larasense logo"></a>
+</p>
+
+<p align="center">
+<a href="https://github.com/nabilhassen/larasense/actions"><img src="https://github.com/nabilhassen/larasense/actions/workflows/test.yml/badge.svg" alt="Test Status"></a>
 </p>
 
 ## About
-
-[![test](https://github.com/nabilhassen/larasense/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/nabilhassen/larasense/actions/workflows/test.yml)
 
 [larasense.com's](https://larasense.com) website source code.
 
@@ -24,7 +26,7 @@
 
 ```bash
 git clone https://github.com/nabilhassen/larasense.git
-cd larasense.com
+cd larasense
 composer install
 npm install
 cp .env.example .env
