@@ -16,8 +16,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup PHP
-        uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
         with:
           php-version: "8.3"
 
@@ -39,58 +39,23 @@ jobs:
       - name: Directory Permissions
         run: chmod -R 777 storage bootstrap/cache
 
-      - name: Install and Build Frontend Dependencies
+      - name: Install NPM dependencies and compile assets
         run: |
-          npm install
+          npm ci
           npm run build --if-present
 
       - name: Execute tests
         run: composer test
 
-  build:
-    needs: test
-    runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'push' }}
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup PHP
-        uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
-        with:
-          php-version: "8.3"
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "latest"
-          cache: "npm"
-
-      - name: Install PHP Dependencies
-        run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
-
-      - name: Install and Build Frontend Dependencies
-        run: |
-          npm install
-          npm run build --if-present
-
-      - name: Commit bundled frontend assets
+      - name: Commit compiled assets
         uses: stefanzweifel/git-auto-commit-action@v5
+        if: ${{ github.event_name == 'push' }}
         with:
-          commit_message: Build frontend
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'push' }}
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+          commit_message: Compile assets
 
       - name: Deploy to Server
         uses: appleboy/ssh-action@v1.1.0
+        if: ${{ github.event_name == 'push' }}
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
