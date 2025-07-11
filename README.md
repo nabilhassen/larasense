@@ -41,8 +41,8 @@ composer install
 npm install
 cp .env.example .env
 php artisan key:generate
-php artisan migrate --seed
-php artisan make:admin
+php artisan migrate --graceful
+php artisan storage:link
 ```
 
 ## Run Development Servers
@@ -51,9 +51,27 @@ php artisan make:admin
 composer run dev
 ```
 
+## Usage
+
+1.  Create an admin user `php artisan make:admin`.
+2.  Use the credentials from step 1 and login to filament admin panel at the `/admin` path.
+3.  From the sidebar, go to publishers and create a publisher.
+4.  Again, from the sidebar, go to sources and create a source for the publisher you already created.
+5.  Run `php artisan queue:listen` in a separate terminal.
+6.  Run `php artisan larasense:bot`, which will push jobs to the queue to pull content from the source(s) you created.
+7.  Now, go to `/home` path to see the content.
+
 ## Testing
 
 ```bash
+# Run the test suite
+composer pest
+
+# Run pint to fix code style
+composer pint
+composer test:pint
+
+# Run all tests
 composer test
 ```
 
@@ -63,4 +81,4 @@ Pull requests are welcome! Please write tests for new features.
 
 ## License
 
-WIP
+Larasense is an open-sourced software licensed under the **[GNU Affero General Public License](LICENSE.md)**
