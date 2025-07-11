@@ -6,19 +6,29 @@
 <a href="https://github.com/nabilhassen/larasense/actions"><img src="https://github.com/nabilhassen/larasense/actions/workflows/test.yml/badge.svg" alt="Test Status"></a>
 </p>
 
-## About
+## 🚀 About Larasense
 
-[larasense.com's](https://larasense.com) website source code.
+Larasense is a dedicated, Laravel-focused content aggregator designed for developers who want to stay informed on everything happening in the Laravel ecosystem. It curates the latest articles, YouTube videos, and podcasts from credible sources we know and love, bringing official Laravel news, top community blogs, YouTube channels, and podcasts into one distraction-free hub. Browse and bookmark high-quality Laravel content without juggling tabs or sifting through social media.
 
-## Features
+## ✨ Features
 
--   WIP
+-   Curated content from handpicked sources
+-   Browse feed by content type: articles, youtube videos, or podcasts
+-   Browse feed by sources
+-   Watch YouTube videos
+-   Listen Podcasts
+-   Distraction-free UI
+-   Search functionality
+-   Interact with content; like, dislike, bookmark
+-   Frequent content update
+-   Free to use
+-   Social login; Google, GitHub
 
 ## Requirements
 
 -   PHP >= 8.3
--   Node.js 18+
--   NPM
+-   Node.js >= 22
+-   NPM > 10.9
 -   SQLite
 -   [PHP extensions required by Laravel](https://laravel.com/docs/12.x/deployment#server-requirements)
 
