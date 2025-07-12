@@ -13,7 +13,6 @@
         "blade-ui-kit/blade-heroicons": "^2.6",
         "filament/filament": "^3.3.29",
         "intervention/image-laravel": "^1.5.6",
-        "larabug/larabug": "^3.3",
         "laravel/framework": "^12.19.3",
         "laravel/pulse": "^1.4.2",
         "laravel/socialite": "^5.21",
