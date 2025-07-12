@@ -21,7 +21,7 @@ Larasense is a dedicated, Laravel-focused content aggregator designed for develo
 -   Quickly find what you’re looking for with built-in search functionality.
 -   Interact with content by liking, disliking, or bookmarking content for later.
 -   Social login support. Sign in with Google or GitHub for a faster, secure experience.
--   Free to use
+-   Free to use.
 
 ## Requirements
 
@@ -64,7 +64,7 @@ composer run dev
 1.  Start by creating an admin user by running: `php artisan make:admin`.
 2.  Navigate to `/admin` path and use the credentials from step 1 to login to filament admin panel.
 3.  Once logged in, navigate to the Publishers section in the sidebar and create a new publisher.
-4.  Next, go to the Sources section and create a source associated with the publisher you just added (One source is enough).
+4.  Next, go to the Sources section and create a source associated with the publisher you just added (one source is enough).
     -   Source 1 - Type: Article, RSS URL: https://nabilhassen.com/feed
     -   Source 2 - Type: Youtube, RSS URL: https://www.youtube.com/feeds/videos.xml?channel_id=UC5vAu93DnzOS6LLDnHA9SfQ
 5.  In a separate terminal, start the queue worker: `php artisan queue:listen`
@@ -91,9 +91,9 @@ Pull requests are welcome! Please write tests for new features. You may start wi
 
 ## Roadmap
 
-[] Upgrade to Tailwind 4 and daisyUI 5
-[] Predefined Date Range filtering: today, yesterday, this week, this month.
-[] PWA capability
+-   [] Upgrade to Tailwind 4 and daisyUI 5
+-   [] Predefined Date Range filtering: today, yesterday, this week, this month.
+-   [] PWA capability
 
 ## License
 
