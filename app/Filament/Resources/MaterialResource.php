@@ -4,14 +4,18 @@ declare(strict_types=1);
 
 namespace App\Filament\Resources;
 
+use App\Enums\SourceType;
 use App\Filament\Resources\MaterialResource\Pages\ManageMaterials;
 use App\Models\Material;
+use App\Models\Source;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
+use Filament\Forms\Get;
+use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Actions\BulkActionGroup;
@@ -39,7 +43,11 @@ class MaterialResource extends Resource
             ->schema([
                 Select::make('source_id')
                     ->required()
-                    ->relationship('source', 'url'),
+                    ->relationship('source', 'url')
+                    ->live()
+                    ->afterStateUpdated(function (Set $set): void {
+                        $set('duration', null);
+                    }),
 
                 TextInput::make('title')
                     ->required(),
@@ -62,10 +70,12 @@ class MaterialResource extends Resource
 
                 TextInput::make('duration')
                     ->integer()
-                    ->default(0),
+                    ->hint('In Seconds')
+                    ->hidden(function (Get $get): bool {
+                        return Source::find($get('source_id'))?->type !== SourceType::Podcast;
+                    }),
 
-                TextInput::make('image_url')
-                    ->url(),
+                TextInput::make('image_url'),
 
                 DateTimePicker::make('published_at')
                     ->required(),

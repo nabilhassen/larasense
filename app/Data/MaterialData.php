@@ -47,7 +47,7 @@ class MaterialData
             url: $data['url'],
             publishedAt: Carbon::parse($data['published_at'])->timezone(config('app.timezone')),
             imageUrl: $data['image_url'],
-            duration: $data['duration'],
+            duration: isset($data['duration']) ? (int) $data['duration'] : null,
             isDisplayed: $data['is_displayed'],
         );
     }
