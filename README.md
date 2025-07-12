@@ -78,7 +78,7 @@ composer run dev
 7.  Navigate to `/home` path in your browser to explore the collected content.
 
 > [!NOTE]
-> If you encounter any issues while installing or running Larasense locally, please open an issue, we'll be happy to take a look and help resolve it.
+> If you run into any issues installing or running Larasense locally, feel free to open an issue or submit a pull request.
 
 ## Testing
 
