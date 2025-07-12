@@ -45,11 +45,13 @@ class PublisherResource extends Resource
 
                 Toggle::make('is_displayed')
                     ->label('Allow Publisher')
-                    ->required(),
+                    ->required()
+                    ->default(true),
 
                 Toggle::make('is_tracked')
                     ->label('Track Publisher')
-                    ->required(),
+                    ->required()
+                    ->default(true),
 
             ]);
     }

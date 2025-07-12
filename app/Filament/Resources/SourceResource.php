@@ -7,7 +7,6 @@ namespace App\Filament\Resources;
 use App\Enums\SourceType;
 use App\Filament\Resources\SourceResource\Pages\ManageSources;
 use App\Models\Source;
-use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -55,13 +54,13 @@ class SourceResource extends Resource
 
                 Toggle::make('is_tracked')
                     ->label('Track Source')
-                    ->required(),
+                    ->required()
+                    ->default(true),
 
                 Toggle::make('is_displayed')
                     ->label('Allow Source')
-                    ->required(),
-
-                DateTimePicker::make('last_checked_at'),
+                    ->required()
+                    ->default(true),
 
             ]);
     }

@@ -64,7 +64,7 @@ composer run dev
 1.  Start by creating an admin user by running: `php artisan make:admin`.
 2.  Navigate to `/admin` path and use the credentials from step 1 to login to filament admin panel.
 3.  Once logged in, navigate to the Publishers page in the sidebar and create a new publisher.
-    -   **Make sure you turn ON the "Allow Publisher" and "Track Publisher" toggles.**
+    -   **Make sure the "Allow Publisher" and "Track Publisher" toggles are turned ON.**
 4.  Next, go to the Sources page in the sidebar and create a source associated with the publisher you just added **(one source is enough)**.
     -   Example Source 1:
         -   RSS URL: https://nabilhassen.com/feed
@@ -72,7 +72,7 @@ composer run dev
     -   Example Source 2:
         -   RSS URL: https://www.youtube.com/feeds/videos.xml?channel_id=UC5vAu93DnzOS6LLDnHA9SfQ
         -   Type: Youtube
-    -   **Make sure you turn ON the "Track Source" and "Allow Source" toggles.**
+    -   **Make sure the "Track Source" and "Allow Source" toggles are turned ON.**
 5.  In a separate terminal, trigger the content collection bot by running: `php artisan larasense:bot`. It pushes jobs to the queue to pull content from the source(s) you created.
 6.  Start the queue worker: `php artisan queue:listen`
 7.  Navigate to `/home` path in your browser to explore the collected content.
@@ -101,7 +101,7 @@ Pull requests are welcome! Please write tests for new features. You may start wi
 ## Roadmap
 
 -   [ ] Upgrade to Tailwind 4 and daisyUI 5
--   [ ] Predefined Date Range filtering: today, yesterday, this week, this month.
+-   [ ] Filter feed by predefined date range (daisyUI dropdown): today, yesterday, this week, this month.
 -   [ ] PWA capability
 
 ## License
