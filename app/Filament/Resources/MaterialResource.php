@@ -8,6 +8,7 @@ use App\Enums\SourceType;
 use App\Filament\Resources\MaterialResource\Pages\ManageMaterials;
 use App\Models\Material;
 use App\Models\Source;
+use Carbon\CarbonInterval;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
@@ -114,7 +115,12 @@ class MaterialResource extends Resource
                     ->numeric()
                     ->sortable()
                     ->placeholder('N/A')
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->state(function (Material $record): ?string {
+                        return filled($record->duration)
+                        ? CarbonInterval::seconds($record->duration)->cascade()->forHumans(['short' => true])
+                        : null;
+                    }),
 
                 TextColumn::make('author')
                     ->searchable()
