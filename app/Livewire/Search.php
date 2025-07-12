@@ -7,14 +7,25 @@ namespace App\Livewire;
 use App\Models\Material;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
+use Livewire\Attributes\Rule;
 use Livewire\Component;
 
 class Search extends Component
 {
+    #[Rule(('nullable|string'))]
     public ?string $query = '';
 
-    public function getMaterials(): Collection
+    public function render()
     {
+        return view('livewire.search', [
+            'materials' => $this->getMaterials(),
+        ]);
+    }
+
+    protected function getMaterials(): Collection
+    {
+        $this->validate();
+
         $searchQuery = str($this->query)->squish()->replace(' ', '%%');
 
         if (blank($searchQuery)) {
@@ -46,12 +57,5 @@ class Search extends Component
             })
             ->limit(6)
             ->get();
-    }
-
-    public function render()
-    {
-        return view('livewire.search', [
-            'materials' => $this->getMaterials(),
-        ]);
     }
 }
