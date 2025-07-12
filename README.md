@@ -63,13 +63,22 @@ composer run dev
 
 1.  Start by creating an admin user by running: `php artisan make:admin`.
 2.  Navigate to `/admin` path and use the credentials from step 1 to login to filament admin panel.
-3.  Once logged in, navigate to the Publishers section in the sidebar and create a new publisher.
-4.  Next, go to the Sources section and create a source associated with the publisher you just added (one source is enough).
-    -   Source 1 - Type: Article, RSS URL: https://nabilhassen.com/feed
-    -   Source 2 - Type: Youtube, RSS URL: https://www.youtube.com/feeds/videos.xml?channel_id=UC5vAu93DnzOS6LLDnHA9SfQ
-5.  In a separate terminal, start the queue worker: `php artisan queue:listen`
-6.  Trigger the content collection bot by running: `php artisan larasense:bot`. It pushes jobs to the queue to pull content from the source(s) you created.
+3.  Once logged in, navigate to the Publishers page in the sidebar and create a new publisher.
+    -   **Make sure you turn ON the "Allow Publisher" and "Track Publisher" toggles.**
+4.  Next, go to the Sources page in the sidebar and create a source associated with the publisher you just added **(one source is enough)**.
+    -   Example Source 1:
+        -   RSS URL: https://nabilhassen.com/feed
+        -   Type: Article
+    -   Example Source 2:
+        -   RSS URL: https://www.youtube.com/feeds/videos.xml?channel_id=UC5vAu93DnzOS6LLDnHA9SfQ
+        -   Type: Youtube
+    -   **Make sure you turn ON the "Track Source" and "Allow Source" toggles.**
+5.  In a separate terminal, trigger the content collection bot by running: `php artisan larasense:bot`. It pushes jobs to the queue to pull content from the source(s) you created.
+6.  Start the queue worker: `php artisan queue:listen`
 7.  Navigate to `/home` path in your browser to explore the collected content.
+
+> [!NOTE]
+> If you encounter any issues while installing or running Larasense locally, please open an issue, we'll be happy to take a look and help resolve it.
 
 ## Testing
 
@@ -91,9 +100,9 @@ Pull requests are welcome! Please write tests for new features. You may start wi
 
 ## Roadmap
 
--   [] Upgrade to Tailwind 4 and daisyUI 5
--   [] Predefined Date Range filtering: today, yesterday, this week, this month.
--   [] PWA capability
+-   [ ] Upgrade to Tailwind 4 and daisyUI 5
+-   [ ] Predefined Date Range filtering: today, yesterday, this week, this month.
+-   [ ] PWA capability
 
 ## License
 
