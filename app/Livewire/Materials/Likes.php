@@ -23,6 +23,7 @@ class Likes extends Component
                 ->select([
                     'id',
                     'slug',
+                    'published_at',
                 ])
                 ->cursorPaginate($this->perPage),
         ]);

@@ -24,6 +24,7 @@ class FeedBySourceType extends Component
                 ->select([
                     'id',
                     'slug',
+                    'published_at',
                 ])
                 ->cursorPaginate($this->perPage),
         ])->title(str($this->type->value)->headline());

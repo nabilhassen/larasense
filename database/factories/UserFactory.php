@@ -33,6 +33,9 @@ class UserFactory extends Factory
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
             'avatar_url' => 'https://picsum.photos/600/480',
+            'timezone' => config('app.timezone'),
+            'provider' => null,
+            'provider_id' => null,
         ];
     }
 
