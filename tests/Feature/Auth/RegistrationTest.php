@@ -6,7 +6,7 @@ namespace Tests\Feature\Auth;
 
 use App\Livewire\Auth\Register;
 use App\Models\User;
-use App\Notifications\QueueableVerifyEmailNotificaition;
+use App\Notifications\QueueableVerifyEmailNotification;
 use Illuminate\Support\Facades\Notification;
 use Livewire\Livewire;
 
@@ -28,7 +28,7 @@ test('new users can register', function () {
 
     Notification::assertSentTo(
         [User::firstWhere('email', 'test@larasense.com')],
-        QueueableVerifyEmailNotificaition::class
+        QueueableVerifyEmailNotification::class
     );
 
     $this->assertAuthenticated();
