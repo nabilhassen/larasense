@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Notifications\QueueableVerifyEmailNotificaition;
+use App\Notifications\QueueableVerifyEmailNotification;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Models\Contracts\HasAvatar;
 use Filament\Panel;
@@ -37,7 +37,7 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, MustVerif
      */
     public function sendEmailVerificationNotification()
     {
-        $this->notify(new QueueableVerifyEmailNotificaition);
+        $this->notify(new QueueableVerifyEmailNotification);
     }
 
     public function avatar(): Attribute
