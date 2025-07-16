@@ -29,6 +29,7 @@ class Show extends Component
                 ->cursorPaginate($this->perPage, [
                     'materials.id',
                     'materials.slug',
+                    'materials.published_at',
                 ]),
         ])->title($this->publisher->name);
     }
