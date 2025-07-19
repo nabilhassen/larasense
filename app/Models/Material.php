@@ -68,7 +68,7 @@ class Material extends Model
                     );
                 }
 
-                if ($this->isYoutube() || $this->isPodcast()) {
+                if (str($this->image_url)->isUrl()) {
                     return $this->image_url;
                 }
 
