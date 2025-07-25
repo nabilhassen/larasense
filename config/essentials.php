@@ -77,7 +77,7 @@ return [
     |
     */
 
-    NunoMaduro\Essentials\Configurables\ImmutableDates::class => false,
+    NunoMaduro\Essentials\Configurables\ImmutableDates::class => true,
 
     /*
     |--------------------------------------------------------------------------
