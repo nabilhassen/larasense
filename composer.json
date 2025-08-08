@@ -9,7 +9,7 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^8.3",
+        "php": "^8.2",
         "blade-ui-kit/blade-heroicons": "^2.6",
         "filament/filament": "^3.3.35",
         "intervention/image-laravel": "^1.5.6",
