@@ -11,9 +11,9 @@
     "require": {
         "php": "^8.3",
         "blade-ui-kit/blade-heroicons": "^2.6",
-        "filament/filament": "^3.3.33",
+        "filament/filament": "^3.3.35",
         "intervention/image-laravel": "^1.5.6",
-        "laravel/framework": "^12.21.0",
+        "laravel/framework": "^12.22.1",
         "laravel/pulse": "^1.4.3",
         "laravel/socialite": "^5.23",
         "laravel/tinker": "^2.10.1",
