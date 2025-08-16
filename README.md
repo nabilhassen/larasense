@@ -25,7 +25,7 @@ Larasense is a dedicated, Laravel-focused content aggregator designed for develo
 
 ## Requirements
 
--   PHP 8.3+
+-   PHP 8.2
 -   Node.js 16+
 -   SQLite
 -   [PHP extensions required by Laravel](https://laravel.com/docs/12.x/deployment#server-requirements)
