@@ -83,17 +83,46 @@ class Material extends Model
     {
         return Attribute::make(
             get: function (): string {
-                if ($this->isArticle()) {
-                    return Uri::of($this->url)
+                return match ($this->source->type) {
+                    SourceType::Article => Uri::of($this->url)
                         ->withQuery([
                             'utm_source' => parse_url(config('app.url'), PHP_URL_HOST),
                             'utm_medium' => 'referral',
                             'utm_campaign' => 'referral',
 
-                        ])->value();
-                }
+                        ])->value(),
+                    default => $this->url,
+                };
+            }
+        )->shouldCache();
+    }
 
-                return $this->url;
+    public function urlForEmbed(): Attribute
+    {
+        return Attribute::make(
+            get: function (): string {
+                return match ($this->source->type) {
+                    SourceType::Youtube => Uri::of('https://www.youtube.com/embed/'.str($this->url)->replace('shorts/', 'watch?v=')->afterLast('?v='))
+                        ->withQuery([
+                            'autoplay' => 0,
+                            'controls' => 0,
+                            'disablekb' => 1,
+                            'playsinline' => 1,
+                            'cc_load_policy' => 1,
+                            'cc_lang_pref' => 'auto',
+                            'widget_referrer' => 'https://plyr.io/#youtube',
+                            'rel' => 0,
+                            'showinfo' => 0,
+                            'iv_load_policy' => 3,
+                            'modestbranding' => 1,
+                            'customControls' => true,
+                            'noCookie' => false,
+                            'enablejsapi' => 1,
+                            'origin' => 'https://plyr.io',
+                            'widgetid' => 1,
+                        ])->value(),
+                    default => $this->url,
+                };
             }
         )->shouldCache();
     }

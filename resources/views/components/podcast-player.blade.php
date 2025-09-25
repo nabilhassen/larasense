@@ -50,7 +50,7 @@
                     controls
                     x-on:play.once="$wire.played('{{ $material->slug }}')"
                 >
-                    <source src="{{ $material->url }}" />
+                    <source src="{{ $material->urlForEmbed }}" />
                 </audio>
             </div>
         </div>

@@ -190,25 +190,25 @@
                     <button
                         class="inline-flex"
                         x-on:click="() => {
-                            $dispatch('play-podcast', { 
-                                url: '{{ $material->url }}',
+                            $dispatch('play-podcast', {
+                                url: '{{ $material->urlForEmbed }}',
                                 thumbnail: '{{ $material->thumbnail }}',
                                 publisherName: '{{ $material->source->publisher->name }}',
                                 materialTitle: @js($material->title),
                                 publishedAt: '{{ $material->published_at->inUserTimezone()->toFormattedDateString() }}',
                                 duration: '{{ Carbon\CarbonInterval::seconds($material->duration)->cascade()->forHumans(['short' => true]) }}',
                             });
-                            
+
                             $wire.played();
                         }"
-                        x-show="$store.mainPodcastPlayer.url !== '{{ $material->url }}' || !$store.mainPodcastPlayer.isPlaying"
+                        x-show="$store.mainPodcastPlayer.url !== '{{ $material->urlForEmbed }}' || !$store.mainPodcastPlayer.isPlaying"
                     >
                         <x-heroicon-o-play class="inline-flex size-6 hover:stroke-primary stroke-stone-800 dark:stroke-stone-300" />
                     </button>
                     <button
                         class="inline-flex"
                         x-on:click="$dispatch('pause-podcast')"
-                        x-show="$store.mainPodcastPlayer.url === '{{ $material->url }}' && $store.mainPodcastPlayer.isPlaying"
+                        x-show="$store.mainPodcastPlayer.url === '{{ $material->urlForEmbed }}' && $store.mainPodcastPlayer.isPlaying"
                     >
                         <x-heroicon-o-pause class="inline-flex size-6 hover:stroke-primary stroke-stone-800 dark:stroke-stone-300" />
                     </button>
