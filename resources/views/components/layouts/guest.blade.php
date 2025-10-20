@@ -9,6 +9,8 @@
 </head>
 
 <body class="antialiased dark:bg-black dark:text-stone-300 text-stone-700">
+    <x-aiddio-top-banner />
+
     {{ $slot }}
 
     @livewireScriptConfig
