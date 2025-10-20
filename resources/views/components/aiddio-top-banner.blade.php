@@ -16,8 +16,11 @@
     const observer = new MutationObserver((mutationList, observer) => {
         for (const mutation of mutationList) {
             if (mutation.type === "childList") {
-                targetNode.parentElement.classList.remove('hidden');
-                observer.disconnect();
+                targetNode.parentElement.classList.toggle('hidden');
+
+                let topnavbarElement = document.getElementById("topnavbar");
+                topnavbarElement.classList.toggle('top-0');
+                topnavbarElement.classList.toggle('top-[72px]');
             }
         }
     });
