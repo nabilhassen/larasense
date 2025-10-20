@@ -9,6 +9,7 @@
 </head>
 
 <body class="antialiased dark:bg-black dark:text-stone-300 text-stone-800 min-h-screen">
+    <x-aiddio-top-banner />
 
     <div class="container mx-auto">
         <div class="flex justify-center lg:gap-x-16 max-lg:mx-4">
