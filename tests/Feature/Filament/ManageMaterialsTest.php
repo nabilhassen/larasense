@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Filament\Resources\MaterialResource\Pages\ManageMaterials;
+use App\Filament\Resources\Materials\Pages\ManageMaterials;
 use App\Models\Material;
 use Filament\Actions\CreateAction;
 use Illuminate\Support\Facades\Queue;

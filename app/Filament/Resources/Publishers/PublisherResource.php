@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Filament\Resources;
+namespace App\Filament\Resources\Publishers;
 
 use Filament\Schemas\Schema;
-use App\Filament\Resources\PublisherResource\Pages\ManagePublishers;
+use App\Filament\Resources\Publishers\Pages\ManagePublishers;
 use App\Models\Publisher;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;

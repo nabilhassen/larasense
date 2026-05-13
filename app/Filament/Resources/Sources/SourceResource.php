@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Filament\Resources;
+namespace App\Filament\Resources\Sources;
 
 use Filament\Schemas\Schema;
 use App\Enums\SourceType;
-use App\Filament\Resources\SourceResource\Pages\ManageSources;
+use App\Filament\Resources\Sources\Pages\ManageSources;
 use App\Models\Source;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;

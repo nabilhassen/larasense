@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Filament\Resources\MaterialResource\Pages;
+namespace App\Filament\Resources\Materials\Pages;
 
 use App\Actions\CreateMaterial;
 use App\Data\MaterialData;
-use App\Filament\Resources\MaterialResource;
+use App\Filament\Resources\Materials\MaterialResource;
 use App\Models\Material;
 use App\Models\Source;
 use Filament\Actions\CreateAction;

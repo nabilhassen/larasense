@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Filament\Resources\SourceSuggestionResource\Pages;
+namespace App\Filament\Resources\SourceSuggestions\Pages;
 
-use App\Filament\Resources\SourceSuggestionResource;
+use App\Filament\Resources\SourceSuggestions\SourceSuggestionResource;
 use Filament\Resources\Pages\ManageRecords;
 
 class ManageSourceSuggestions extends ManageRecords

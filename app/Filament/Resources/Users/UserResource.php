@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Filament\Resources;
+namespace App\Filament\Resources\Users;
 
 use Filament\Schemas\Schema;
-use App\Filament\Resources\UserResource\Pages\ManageUsers;
+use App\Filament\Resources\Users\Pages\ManageUsers;
 use App\Models\User;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\FileUpload;

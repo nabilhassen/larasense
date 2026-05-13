@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Filament\Resources\BugReportResource\Pages;
+namespace App\Filament\Resources\BugReports\Pages;
 
-use App\Filament\Resources\BugReportResource;
+use App\Filament\Resources\BugReports\BugReportResource;
 use Filament\Resources\Pages\ManageRecords;
 
 class ManageBugReports extends ManageRecords

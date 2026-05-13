@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Filament\Resources;
+namespace App\Filament\Resources\BugReports;
 
 use Filament\Schemas\Schema;
-use App\Filament\Resources\BugReportResource\Pages\ManageBugReports;
+use App\Filament\Resources\BugReports\Pages\ManageBugReports;
 use App\Filament\Resources\BugReportResource\Pages;
 use App\Models\BugReport;
 use Filament\Forms\Components\RichEditor;

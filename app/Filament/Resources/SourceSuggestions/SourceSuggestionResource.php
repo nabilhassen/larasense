@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Filament\Resources;
+namespace App\Filament\Resources\SourceSuggestions;
 
-use App\Filament\Resources\SourceSuggestionResource\Pages\ManageSourceSuggestions;
+use App\Filament\Resources\SourceSuggestions\Pages\ManageSourceSuggestions;
 use App\Filament\Resources\SourceSuggestionResource\Pages;
 use App\Models\SourceSuggestion;
 use Filament\Resources\Resource;

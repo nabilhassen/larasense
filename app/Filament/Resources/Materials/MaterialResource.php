@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Filament\Resources;
+namespace App\Filament\Resources\Materials;
 
 use Filament\Schemas\Schema;
 use App\Enums\SourceType;
-use App\Filament\Resources\MaterialResource\Pages\ManageMaterials;
+use App\Filament\Resources\Materials\Pages\ManageMaterials;
 use App\Models\Material;
 use App\Models\Source;
 use Carbon\CarbonInterval;
