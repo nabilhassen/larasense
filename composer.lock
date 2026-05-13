@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "477416f98d25ebab87840ff5e8322539",
+    "content-hash": "7d210147473e13560477f0ed65a1b879",
     "packages": [
         {
             "name": "blade-ui-kit/blade-heroicons",
@@ -10225,53 +10225,6 @@
             "time": "2025-08-14T07:29:31+00:00"
         },
         {
-            "name": "filament/upgrade",
-            "version": "v4.11.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/filamentphp/upgrade.git",
-                "reference": "bc3a18e869fe60c2f9ba62011331e4835e4d9ab2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/upgrade/zipball/bc3a18e869fe60c2f9ba62011331e4835e4d9ab2",
-                "reference": "bc3a18e869fe60c2f9ba62011331e4835e4d9ab2",
-                "shasum": ""
-            },
-            "require": {
-                "nunomaduro/termwind": "^2.0",
-                "php": "^8.2",
-                "rector/rector": "^2.0"
-            },
-            "bin": [
-                "bin/filament-v4"
-            ],
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Filament\\Upgrade\\UpgradeServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Filament\\Upgrade\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Upgrade Filament v3 code to Filament v4.",
-            "homepage": "https://github.com/filamentphp/filament",
-            "support": {
-                "issues": "https://github.com/filamentphp/filament/issues",
-                "source": "https://github.com/filamentphp/filament"
-            },
-            "time": "2026-02-20T12:25:06+00:00"
-        },
-        {
             "name": "filp/whoops",
             "version": "2.18.4",
             "source": {
@@ -11778,59 +11731,6 @@
             "time": "2026-01-25T14:56:51+00:00"
         },
         {
-            "name": "phpstan/phpstan",
-            "version": "2.1.54",
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/8be50c3992107dc837b17da4d140fbbdf9a5c5bd",
-                "reference": "8be50c3992107dc837b17da4d140fbbdf9a5c5bd",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.4|^8.0"
-            },
-            "conflict": {
-                "phpstan/phpstan-shim": "*"
-            },
-            "bin": [
-                "phpstan",
-                "phpstan.phar"
-            ],
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "bootstrap.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "PHPStan - PHP Static Analysis Tool",
-            "keywords": [
-                "dev",
-                "static analysis"
-            ],
-            "support": {
-                "docs": "https://phpstan.org/user-guide/getting-started",
-                "forum": "https://github.com/phpstan/phpstan/discussions",
-                "issues": "https://github.com/phpstan/phpstan/issues",
-                "security": "https://github.com/phpstan/phpstan/security/policy",
-                "source": "https://github.com/phpstan/phpstan-src"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/ondrejmirtes",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/phpstan",
-                    "type": "github"
-                }
-            ],
-            "time": "2026-04-29T13:31:09+00:00"
-        },
-        {
             "name": "phpunit/php-code-coverage",
             "version": "11.0.12",
             "source": {
@@ -12285,66 +12185,6 @@
                 }
             ],
             "time": "2026-01-27T05:59:18+00:00"
-        },
-        {
-            "name": "rector/rector",
-            "version": "2.4.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/rectorphp/rector.git",
-                "reference": "891824c6c59f02a56a5dd58ea8edc44e6c0ece29"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/891824c6c59f02a56a5dd58ea8edc44e6c0ece29",
-                "reference": "891824c6c59f02a56a5dd58ea8edc44e6c0ece29",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.4|^8.0",
-                "phpstan/phpstan": "^2.1.48"
-            },
-            "conflict": {
-                "rector/rector-doctrine": "*",
-                "rector/rector-downgrade-php": "*",
-                "rector/rector-phpunit": "*",
-                "rector/rector-symfony": "*"
-            },
-            "suggest": {
-                "ext-dom": "To manipulate phpunit.xml via the custom-rule command"
-            },
-            "bin": [
-                "bin/rector"
-            ],
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "bootstrap.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Instant Upgrade and Automated Refactoring of any PHP code",
-            "homepage": "https://getrector.com/",
-            "keywords": [
-                "automation",
-                "dev",
-                "migration",
-                "refactoring"
-            ],
-            "support": {
-                "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/2.4.3"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/tomasvotruba",
-                    "type": "github"
-                }
-            ],
-            "time": "2026-05-12T11:17:24+00:00"
         },
         {
             "name": "sebastian/cli-parser",

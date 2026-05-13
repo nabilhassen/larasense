@@ -30,7 +30,6 @@
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.16.0",
         "fakerphp/faker": "^1.24.1",
-        "filament/upgrade": "^4.0",
         "laravel/breeze": "^2.3.8",
         "laravel/pail": "^1.2.3",
         "laravel/pint": "^1.24.0",
