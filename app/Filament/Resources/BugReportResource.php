@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Filament\Resources;
 
+use Filament\Schemas\Schema;
+use App\Filament\Resources\BugReportResource\Pages\ManageBugReports;
 use App\Filament\Resources\BugReportResource\Pages;
 use App\Models\BugReport;
 use Filament\Forms\Components\RichEditor;
@@ -21,14 +23,14 @@ class BugReportResource extends Resource
 {
     protected static ?string $model = BugReport::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-exclamation-circle';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-exclamation-circle';
 
     protected static ?int $navigationSort = 4;
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
+        return $schema
+            ->components([
                 Select::make('user_id')
                     ->relationship('user', 'name'),
 
@@ -63,13 +65,13 @@ class BugReportResource extends Resource
                     ->sortable(),
 
             ])
-            ->actions([
-                ViewAction::make(),
-                DeleteAction::make(),
+            ->recordActions([
+                \Filament\Actions\ViewAction::make(),
+                \Filament\Actions\DeleteAction::make(),
             ])
-            ->bulkActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
+            ->toolbarActions([
+                \Filament\Actions\BulkActionGroup::make([
+                    \Filament\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
     }
@@ -77,7 +79,7 @@ class BugReportResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ManageBugReports::route('/'),
+            'index' => ManageBugReports::route('/'),
         ];
     }
 }

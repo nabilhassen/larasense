@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Filament\Resources;
 
+use App\Filament\Resources\SourceSuggestionResource\Pages\ManageSourceSuggestions;
 use App\Filament\Resources\SourceSuggestionResource\Pages;
 use App\Models\SourceSuggestion;
 use Filament\Resources\Resource;
@@ -17,9 +18,9 @@ class SourceSuggestionResource extends Resource
 {
     protected static ?string $model = SourceSuggestion::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-folder';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-folder';
 
-    protected static ?string $navigationGroup = 'Content';
+    protected static string | \UnitEnum | null $navigationGroup = 'Content';
 
     protected static ?int $navigationSort = 4;
 
@@ -47,12 +48,12 @@ class SourceSuggestionResource extends Resource
                     ->dateTime()
                     ->sortable(),
             ])
-            ->actions([
-                DeleteAction::make(),
+            ->recordActions([
+                \Filament\Actions\DeleteAction::make(),
             ])
-            ->bulkActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
+            ->toolbarActions([
+                \Filament\Actions\BulkActionGroup::make([
+                    \Filament\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
     }
@@ -60,7 +61,7 @@ class SourceSuggestionResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ManageSourceSuggestions::route('/'),
+            'index' => ManageSourceSuggestions::route('/'),
         ];
     }
 }

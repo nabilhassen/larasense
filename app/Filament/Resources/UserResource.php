@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Filament\Resources;
 
+use Filament\Schemas\Schema;
 use App\Filament\Resources\UserResource\Pages\ManageUsers;
 use App\Models\User;
 use Filament\Forms\Components\DateTimePicker;
@@ -25,14 +26,14 @@ class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-users';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-users';
 
     protected static ?int $navigationSort = 2;
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
+        return $schema
+            ->components([
                 TextInput::make('name')
                     ->required(),
 
@@ -125,10 +126,10 @@ class UserResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
 
             ])
-            ->actions([
-                ActionGroup::make([
-                    EditAction::make(),
-                    DeleteAction::make(),
+            ->recordActions([
+                \Filament\Actions\ActionGroup::make([
+                    \Filament\Actions\EditAction::make(),
+                    \Filament\Actions\DeleteAction::make(),
                 ]),
 
             ]);

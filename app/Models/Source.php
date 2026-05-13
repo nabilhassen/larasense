@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use Database\Factories\SourceFactory;
 use App\Enums\SourceType;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -14,7 +15,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Source extends Model
 {
-    /** @use HasFactory<\Database\Factories\SourceFactory> */
+    /** @use HasFactory<SourceFactory> */
     use HasFactory;
 
     public function publisher(): BelongsTo

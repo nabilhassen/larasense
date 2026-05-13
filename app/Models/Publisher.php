@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use Database\Factories\PublisherFactory;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -12,7 +13,7 @@ use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 class Publisher extends Model
 {
-    /** @use HasFactory<\Database\Factories\PublisherFactory> */
+    /** @use HasFactory<PublisherFactory> */
     use HasFactory;
 
     public function sources(): HasMany

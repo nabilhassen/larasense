@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Filament\Resources;
 
+use Filament\Schemas\Schema;
 use App\Enums\SourceType;
 use App\Filament\Resources\SourceResource\Pages\ManageSources;
 use App\Models\Source;
@@ -25,16 +26,16 @@ class SourceResource extends Resource
 {
     protected static ?string $model = Source::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rss';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-rss';
 
-    protected static ?string $navigationGroup = 'Content';
+    protected static string | \UnitEnum | null $navigationGroup = 'Content';
 
     protected static ?int $navigationSort = 2;
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
+        return $schema
+            ->components([
                 Select::make('publisher_id')
                     ->required()
                     ->relationship('publisher', 'name'),
@@ -111,16 +112,16 @@ class SourceResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
 
             ])
-            ->actions([
-                ActionGroup::make([
-                    EditAction::make(),
-                    DeleteAction::make(),
+            ->recordActions([
+                \Filament\Actions\ActionGroup::make([
+                    \Filament\Actions\EditAction::make(),
+                    \Filament\Actions\DeleteAction::make(),
                 ]),
 
             ])
-            ->bulkActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
+            ->toolbarActions([
+                \Filament\Actions\BulkActionGroup::make([
+                    \Filament\Actions\DeleteBulkAction::make(),
 
                 ]),
 

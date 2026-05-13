@@ -11,7 +11,7 @@
     "require": {
         "php": "^8.2",
         "blade-ui-kit/blade-heroicons": "^2.6",
-        "filament/filament": "^3.3.35",
+        "filament/filament": "~4.0",
         "intervention/image-laravel": "^1.5.6",
         "laravel/framework": "^12.22.1",
         "laravel/pulse": "^1.4.3",
@@ -30,6 +30,7 @@
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.16.0",
         "fakerphp/faker": "^1.24.1",
+        "filament/upgrade": "^4.0",
         "laravel/breeze": "^2.3.8",
         "laravel/pail": "^1.2.3",
         "laravel/pint": "^1.24.0",

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Filament\Resources;
 
+use Filament\Schemas\Schema;
 use App\Enums\SourceType;
 use App\Filament\Resources\MaterialResource\Pages\ManageMaterials;
 use App\Models\Material;
@@ -32,21 +33,21 @@ class MaterialResource extends Resource
 {
     protected static ?string $model = Material::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-newspaper';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-newspaper';
 
-    protected static ?string $navigationGroup = 'Content';
+    protected static string | \UnitEnum | null $navigationGroup = 'Content';
 
     protected static ?int $navigationSort = 1;
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
+        return $schema
+            ->components([
                 Select::make('source_id')
                     ->required()
                     ->relationship('source', 'url')
                     ->live()
-                    ->afterStateUpdated(function (Set $set): void {
+                    ->afterStateUpdated(function (\Filament\Schemas\Components\Utilities\Set $set): void {
                         $set('duration', null);
                     }),
 
@@ -72,7 +73,7 @@ class MaterialResource extends Resource
                 TextInput::make('duration')
                     ->integer()
                     ->hint('In Seconds')
-                    ->hidden(function (Get $get): bool {
+                    ->hidden(function (\Filament\Schemas\Components\Utilities\Get $get): bool {
                         return Source::find($get('source_id'))?->type !== SourceType::Podcast;
                     }),
 
@@ -167,16 +168,16 @@ class MaterialResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
 
             ])
-            ->actions([
-                ActionGroup::make([
-                    EditAction::make(),
-                    DeleteAction::make(),
+            ->recordActions([
+                \Filament\Actions\ActionGroup::make([
+                    \Filament\Actions\EditAction::make(),
+                    \Filament\Actions\DeleteAction::make(),
                 ]),
 
             ])
-            ->bulkActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
+            ->toolbarActions([
+                \Filament\Actions\BulkActionGroup::make([
+                    \Filament\Actions\DeleteBulkAction::make(),
 
                 ]),
 

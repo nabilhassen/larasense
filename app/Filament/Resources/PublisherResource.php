@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Filament\Resources;
 
+use Filament\Schemas\Schema;
 use App\Filament\Resources\PublisherResource\Pages\ManagePublishers;
 use App\Models\Publisher;
 use Filament\Forms\Components\FileUpload;
@@ -25,16 +26,16 @@ class PublisherResource extends Resource
 {
     protected static ?string $model = Publisher::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-building-office';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-building-office';
 
-    protected static ?string $navigationGroup = 'Content';
+    protected static string | \UnitEnum | null $navigationGroup = 'Content';
 
     protected static ?int $navigationSort = 3;
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
+        return $schema
+            ->components([
                 TextInput::make('name')
                     ->unique(ignoreRecord: true)
                     ->required(),
@@ -88,16 +89,16 @@ class PublisherResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
 
             ])
-            ->actions([
-                ActionGroup::make([
-                    EditAction::make(),
-                    DeleteAction::make(),
+            ->recordActions([
+                \Filament\Actions\ActionGroup::make([
+                    \Filament\Actions\EditAction::make(),
+                    \Filament\Actions\DeleteAction::make(),
                 ]),
 
             ])
-            ->bulkActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
+            ->toolbarActions([
+                \Filament\Actions\BulkActionGroup::make([
+                    \Filament\Actions\DeleteBulkAction::make(),
 
                 ]),
 
