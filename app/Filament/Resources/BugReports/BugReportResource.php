@@ -4,18 +4,13 @@ declare(strict_types=1);
 
 namespace App\Filament\Resources\BugReports;
 
-use Filament\Schemas\Schema;
 use App\Filament\Resources\BugReports\Pages\ManageBugReports;
-use App\Filament\Resources\BugReportResource\Pages;
 use App\Models\BugReport;
+use BackedEnum;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Tables\Actions\BulkActionGroup;
-use Filament\Tables\Actions\DeleteAction;
-use Filament\Tables\Actions\DeleteBulkAction;
-use Filament\Tables\Actions\ViewAction;
+use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -23,7 +18,7 @@ class BugReportResource extends Resource
 {
     protected static ?string $model = BugReport::class;
 
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-exclamation-circle';
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-exclamation-circle';
 
     protected static ?int $navigationSort = 4;
 

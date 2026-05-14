@@ -5,22 +5,20 @@ declare(strict_types=1);
 namespace App\Filament\Resources\SourceSuggestions;
 
 use App\Filament\Resources\SourceSuggestions\Pages\ManageSourceSuggestions;
-use App\Filament\Resources\SourceSuggestionResource\Pages;
 use App\Models\SourceSuggestion;
+use BackedEnum;
 use Filament\Resources\Resource;
-use Filament\Tables\Actions\BulkActionGroup;
-use Filament\Tables\Actions\DeleteAction;
-use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class SourceSuggestionResource extends Resource
 {
     protected static ?string $model = SourceSuggestion::class;
 
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-folder';
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-folder';
 
-    protected static string | \UnitEnum | null $navigationGroup = 'Content';
+    protected static string|UnitEnum|null $navigationGroup = 'Content';
 
     protected static ?int $navigationSort = 4;
 
