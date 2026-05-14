@@ -37,10 +37,11 @@ class PublisherResource extends Resource
         return $schema
             ->components([
                 TextInput::make('name')
-                    ->unique(ignoreRecord: true)
+                    ->unique()
                     ->required(),
 
                 FileUpload::make('logo')
+                    ->disk('public')
                     ->directory('publishers')
                     ->required(),
 
@@ -60,6 +61,7 @@ class PublisherResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->defaultKeySort(false)
             ->defaultSort('created_at', 'desc')
             ->columns([
                 TextColumn::make('#')

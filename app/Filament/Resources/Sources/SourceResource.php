@@ -47,7 +47,6 @@ class SourceResource extends Resource
 
                 Select::make('type')
                     ->required()
-                    ->enum(SourceType::class)
                     ->options(SourceType::class),
 
                 TextInput::make('default_author')
@@ -69,6 +68,7 @@ class SourceResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->defaultKeySort(false)
             ->defaultSort('created_at', 'desc')
             ->columns([
                 TextColumn::make('#')

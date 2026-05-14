@@ -40,7 +40,7 @@ class UserResource extends Resource
                 TextInput::make('email')
                     ->email()
                     ->required()
-                    ->unique(ignoreRecord: true),
+                    ->unique(),
 
                 TextInput::make('password')
                     ->password()
@@ -63,6 +63,7 @@ class UserResource extends Resource
                     ->requiredWith('provider'),
 
                 FileUpload::make('avatar_url')
+                    ->disk('public')
                     ->label('Avatar')
                     ->avatar()
                     ->alignCenter(),
@@ -77,6 +78,7 @@ class UserResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->defaultKeySort(false)
             ->defaultSort('created_at', 'desc')
             ->columns([
                 TextColumn::make('#')

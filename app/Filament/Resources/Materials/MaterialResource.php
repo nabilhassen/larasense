@@ -68,7 +68,7 @@ class MaterialResource extends Resource
                     ->label('URL')
                     ->url()
                     ->required()
-                    ->unique(ignoreRecord: true),
+                    ->unique(),
 
                 TextInput::make('duration')
                     ->integer()
@@ -88,6 +88,7 @@ class MaterialResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->defaultKeySort(false)
             ->defaultSort('created_at', 'desc')
             ->columns([
                 TextColumn::make('#')
