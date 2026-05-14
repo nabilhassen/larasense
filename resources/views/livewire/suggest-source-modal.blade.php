@@ -19,7 +19,7 @@
             x-show="!$wire.isSubmitted"
         >
             <div>
-                <label class="form-control w-full">
+                <label class="w-full">
                     <div class="label">
                         Source URL
                     </div>
@@ -28,7 +28,7 @@
                         wire:model="url"
                         type="text"
                         placeholder="blog.laravel.com"
-                        class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
+                        class="input focus:outline-hidden focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
                     />
                 </label>
                 @error('url')
@@ -65,7 +65,7 @@
     </div>
     <form
         method="dialog"
-        class="modal-backdrop backdrop-blur-sm"
+        class="modal-backdrop backdrop-blur-xs"
     >
         <button>close</button>
     </form>

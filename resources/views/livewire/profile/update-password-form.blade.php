@@ -11,7 +11,7 @@
         wire:submit="updatePassword"
         class="space-y-2"
     >
-        <label class="form-control w-full">
+        <label class="w-full">
             <div class="label">
                 <span>Current Password</span>
             </div>
@@ -20,7 +20,7 @@
                 id="update_password_current_password"
                 name="current_password"
                 type="password"
-                class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
+                class="input focus:outline-hidden focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
                 autocomplete="current-password"
             />
             @error('current_password')
@@ -30,7 +30,7 @@
             @enderror
         </label>
 
-        <label class="form-control w-full">
+        <label class="w-full">
             <div class="label">
                 <span>New Password</span>
             </div>
@@ -39,7 +39,7 @@
                 id="update_password_password"
                 name="password"
                 type="password"
-                class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
+                class="input focus:outline-hidden focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
                 autocomplete="new-password"
             />
             @error('password')
@@ -49,7 +49,7 @@
             @enderror
         </label>
 
-        <label class="form-control w-full">
+        <label class="w-full">
             <div class="label">
                 <span>Confirm Password</span>
             </div>
@@ -58,7 +58,7 @@
                 id="update_password_password_confirmation"
                 name="password_confirmation"
                 type="password"
-                class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
+                class="input focus:outline-hidden focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
                 autocomplete="new-password"
             />
             @error('password_confirmation')
@@ -68,7 +68,7 @@
             @enderror
         </label>
 
-        <div class="flex items-center gap-4 !mt-8">
+        <div class="flex items-center gap-4 mt-8!">
             <button class="btn bg-primary text-white hover:bg-primary border-none hover:brightness-90 disabled:bg-primary disabled:opacity-70 disabled:text-white">
                 Save
             </button>

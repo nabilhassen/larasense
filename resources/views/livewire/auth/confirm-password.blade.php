@@ -26,14 +26,14 @@
                 wire:submit="confirmPassword"
                 class="space-y-2"
             >
-                <label class="form-control w-full">
+                <label class="w-full">
                     <div class="label">
                         <span>Password</span>
                     </div>
                     <input
                         wire:model="password"
                         id="password"
-                        class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
+                        class="input focus:outline-hidden focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
                         type="password"
                         name="password"
                         required
@@ -46,7 +46,7 @@
                     @enderror
                 </label>
 
-                <div class="flex items-center justify-end !mt-8">
+                <div class="flex items-center justify-end mt-8!">
                     <button class="btn bg-primary border-none text-white hover:bg-primary hover:brightness-90 w-full disabled:bg-primary disabled:opacity-70 disabled:text-white">
                         Confirm
                     </button>

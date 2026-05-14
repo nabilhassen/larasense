@@ -1,5 +1,5 @@
 <nav class="container mx-auto pt-4">
-    <div class="navbar bg-white dark:bg-black rounded-box w-auto max-sm:mx-4 shadow-sm shadow-primary/30">
+    <div class="navbar bg-white dark:bg-black rounded-box w-auto max-sm:mx-4 shadow-xs shadow-primary/30">
         <div class="navbar-start">
             <div class="dropdown">
                 <div
@@ -24,11 +24,11 @@
                 </div>
                 <ul
                     tabindex="0"
-                    class="menu menu-sm dropdown-content bg-stone-50 dark:bg-stone-900 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+                    class="menu menu-sm dropdown-content bg-stone-50 dark:bg-stone-900 rounded-box z-1 mt-3 w-52 p-2 shadow-sm"
                 >
                     <li>
                         <a
-                            class="hover:bg-accent dark:hover:bg-black active:!bg-accent dark:active:!bg-black focus:!bg-accent dark:focus:!bg-black active:!text-inherit"
+                            class="hover:bg-accent dark:hover:bg-black active:!bg-accent dark:active:bg-black! focus:!bg-accent dark:focus:bg-black! active:text-inherit!"
                             href="{{ route('home') }}"
                             wire:navigate
                         >
@@ -37,7 +37,7 @@
                     </li>
                     <li>
                         <a
-                            class="hover:bg-accent dark:hover:bg-black active:!bg-accent dark:active:!bg-black focus:!bg-accent dark:focus:!bg-black active:!text-inherit"
+                            class="hover:bg-accent dark:hover:bg-black active:!bg-accent dark:active:bg-black! focus:!bg-accent dark:focus:bg-black! active:text-inherit!"
                             href="{{ route('home') }}#sources"
                         >
                             Sources
@@ -45,7 +45,7 @@
                     </li>
                     <li>
                         <a
-                            class="hover:bg-accent dark:hover:bg-black active:!bg-accent dark:active:!bg-black focus:!bg-accent dark:focus:!bg-black active:!text-inherit"
+                            class="hover:bg-accent dark:hover:bg-black active:!bg-accent dark:active:bg-black! focus:!bg-accent dark:focus:bg-black! active:text-inherit!"
                             href="{{ route('home') }}#benefits"
                         >
                             Benefits
@@ -53,7 +53,7 @@
                     </li>
                     <li>
                         <a
-                            class="hover:bg-accent dark:hover:bg-black active:!bg-accent dark:active:!bg-black focus:!bg-accent dark:focus:!bg-black active:!text-inherit"
+                            class="hover:bg-accent dark:hover:bg-black active:!bg-accent dark:active:bg-black! focus:!bg-accent dark:focus:bg-black! active:text-inherit!"
                             href="{{ route('home') }}#faq"
                         >
                             FAQ
@@ -64,7 +64,7 @@
             <a
                 wire:navigate
                 href="{{ route('home') }}"
-                class="btn btn-ghost text-xl hover:!bg-inherit max-lg:hidden"
+                class="btn btn-ghost text-xl hover:bg-inherit! max-lg:hidden"
             >
                 <img
                     loading="lazy"
@@ -78,7 +78,7 @@
             <ul class="menu menu-horizontal px-1 font-semibold hidden lg:flex">
                 <li>
                     <a
-                        class="hover:bg-accent dark:hover:bg-stone-900 active:!bg-accent dark:active:!bg-stone-900 focus:!bg-accent dark:focus:!bg-stone-900 active:!text-inherit"
+                        class="hover:bg-accent dark:hover:bg-stone-900 active:!bg-accent dark:active:bg-stone-900! focus:!bg-accent dark:focus:bg-stone-900! active:text-inherit!"
                         href="{{ route('home') }}"
                         wire:navigate
                     >
@@ -87,7 +87,7 @@
                 </li>
                 <li>
                     <a
-                        class="hover:bg-accent dark:hover:bg-stone-900 active:!bg-accent dark:active:!bg-stone-900 focus:!bg-accent dark:focus:!bg-stone-900 active:!text-inherit"
+                        class="hover:bg-accent dark:hover:bg-stone-900 active:!bg-accent dark:active:bg-stone-900! focus:!bg-accent dark:focus:bg-stone-900! active:text-inherit!"
                         href="{{ route('home') }}#sources"
                     >
                         Sources
@@ -95,7 +95,7 @@
                 </li>
                 <li>
                     <a
-                        class="hover:bg-accent dark:hover:bg-stone-900 active:!bg-accent dark:active:!bg-stone-900 focus:!bg-accent dark:focus:!bg-stone-900 active:!text-inherit"
+                        class="hover:bg-accent dark:hover:bg-stone-900 active:!bg-accent dark:active:bg-stone-900! focus:!bg-accent dark:focus:bg-stone-900! active:text-inherit!"
                         href="{{ route('home') }}#benefits"
                     >
                         Benefits
@@ -103,7 +103,7 @@
                 </li>
                 <li>
                     <a
-                        class="hover:bg-accent dark:hover:bg-stone-900 active:!bg-accent dark:active:!bg-stone-900 focus:!bg-accent dark:focus:!bg-stone-900 active:!text-inherit"
+                        class="hover:bg-accent dark:hover:bg-stone-900 active:!bg-accent dark:active:bg-stone-900! focus:!bg-accent dark:focus:bg-stone-900! active:text-inherit!"
                         href="{{ route('home') }}#faq"
                     >
                         FAQ
@@ -113,7 +113,7 @@
             <a
                 wire:navigate
                 href="{{ route('home') }}"
-                class="btn btn-ghost text-xl hover:!bg-inherit lg:hidden"
+                class="btn btn-ghost text-xl hover:bg-inherit! lg:hidden"
             >
                 <img
                     loading="lazy"

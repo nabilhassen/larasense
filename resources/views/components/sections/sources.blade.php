@@ -117,7 +117,7 @@
             <div class="flex">
                 <img
                     loading="lazy"
-                    class="w-40 rounded"
+                    class="w-40 rounded-sm"
                     src="{{ asset('sources/codecourse.png') }}"
                     alt="codecourse's logo"
                 >

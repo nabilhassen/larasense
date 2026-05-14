@@ -9,7 +9,7 @@
             <img
                 loading="lazy"
                 x-bind:src="thumbnail"
-                class="rounded max-h-12"
+                class="rounded-sm max-h-12"
             >
         </figure>
         <div>

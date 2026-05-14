@@ -33,7 +33,7 @@
         wire:submit="updateProfileInformation"
         class="space-y-2"
     >
-        <label class="form-control w-full">
+        <label class="w-full">
             <div class="label">
                 <span>Name</span>
             </div>
@@ -42,7 +42,7 @@
                 id="name"
                 name="name"
                 type="text"
-                class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
+                class="input focus:outline-hidden focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
                 required
                 autofocus
                 autocomplete="name"
@@ -54,14 +54,14 @@
             @enderror
         </label>
 
-        <label class="form-control w-full">
+        <label class="w-full">
             <div class="label">
                 <span>Email</span>
             </div>
             <input
                 wire:model="email"
                 id="email"
-                class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
+                class="input focus:outline-hidden focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
                 type="email"
                 name="email"
                 required
@@ -75,7 +75,7 @@
             @enderror
         </label>
 
-        <div class="flex items-center gap-4 !mt-8">
+        <div class="flex items-center gap-4 mt-8!">
             <button class="btn bg-primary text-white hover:bg-primary border-none hover:brightness-90 disabled:bg-primary disabled:opacity-70 disabled:text-white">
                 Save
             </button>

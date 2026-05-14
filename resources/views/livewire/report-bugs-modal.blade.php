@@ -19,7 +19,7 @@
             x-show="!$wire.isSubmitted"
         >
             <div>
-                <label class="form-control w-full">
+                <label class="w-full">
                     <div class="label">
                         Description
                     </div>
@@ -29,7 +29,7 @@
                         type="text"
                         placeholder="Describe the bug here ..."
                         rows="3"
-                        class="textarea textarea-bordered focus:outline-none focus:border-2 focus:border-primary dark:bg-stone-900"
+                        class="textarea focus:outline-hidden focus:border-2 focus:border-primary dark:bg-stone-900"
                     ></textarea>
                 </label>
                 @error('description')
@@ -66,7 +66,7 @@
     </div>
     <form
         method="dialog"
-        class="modal-backdrop backdrop-blur-sm"
+        class="modal-backdrop backdrop-blur-xs"
     >
         <button>close</button>
     </form>

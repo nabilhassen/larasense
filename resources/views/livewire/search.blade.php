@@ -3,7 +3,7 @@
     'currentMaterialIndex': 0,
     'currentSlug': null,
 }">
-    <label class="relative input input-bordered flex items-center gap-2 bg-stone-50 dark:bg-stone-900 border-stone-50 dark:border-stone-900 focus-within:border-stone-200 dark:focus-within:border-stone-800 !outline-none">
+    <label class="relative input input-bordered flex items-center gap-2 bg-stone-50 dark:bg-stone-900 border-stone-50 dark:border-stone-900 focus-within:border-stone-200 dark:focus-within:border-stone-800 outline-hidden!">
         <input
             type="text"
             class="grow"
@@ -57,7 +57,7 @@
                             <img
                                 loading="lazy"
                                 src="{{ $materialItem->thumbnail }}"
-                                class="h-10 w-full object-cover rounded"
+                                class="h-10 w-full object-cover rounded-sm"
                             >
                         </figure>
                         <div class="w-full">

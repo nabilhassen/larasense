@@ -1,7 +1,7 @@
 <div
     x-data
     role="tablist"
-    class="tabs tabs-boxed border border-primary bg-transparent w-fit mb-6 items-center justify-center"
+    class="tabs tabs-box border border-primary bg-transparent w-fit mb-6 items-center justify-center"
 >
     <a
         role="tab"
@@ -9,8 +9,8 @@
         wire:navigate
         class="tab"
         x-bind:class="{
-            'tab-active !text-white': location.href === '{{ route('materials.index') }}',
-            '!text-inherit': location.href !== '{{ route('materials.index') }}'
+            'tab-active text-white!': location.href === '{{ route('materials.index') }}',
+            'text-inherit!': location.href !== '{{ route('materials.index') }}'
         }"
     >
         All
@@ -23,8 +23,8 @@
             wire:navigate
             class="tab"
             x-bind:class="{
-                'tab-active !text-white': location.href === '{{ route('feed.type', $type) }}',
-                '!text-inherit': location.href !== '{{ route('feed.type', $type) }}'
+                'tab-active text-white!': location.href === '{{ route('feed.type', $type) }}',
+                'text-inherit!': location.href !== '{{ route('feed.type', $type) }}'
             }"
         >
             {{ str($type->value)->title() }}

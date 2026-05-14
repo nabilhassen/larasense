@@ -21,7 +21,7 @@
                     <img
                         loading="lazy"
                         src="{{ $material->thumbnail }}"
-                        class="rounded max-h-14"
+                        class="rounded-sm max-h-14"
                     >
                 </figure>
                 <div>

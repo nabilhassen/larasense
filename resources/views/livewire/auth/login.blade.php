@@ -24,14 +24,14 @@
         >
             <x-honeypot livewire-model="extraFields" />
 
-            <label class="form-control w-full">
+            <label class="w-full">
                 <div class="label">
                     <span>Email</span>
                 </div>
                 <input
                     wire:model="form.email"
                     id="email"
-                    class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
+                    class="input focus:outline-hidden focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
                     type="email"
                     name="email"
                     required
@@ -45,14 +45,14 @@
                 @enderror
             </label>
 
-            <label class="form-control w-full">
+            <label class="w-full">
                 <div class="label">
                     <span>Password</span>
                 </div>
                 <input
                     wire:model="form.password"
                     id="password"
-                    class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
+                    class="input focus:outline-hidden focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
                     type="password"
                     name="password"
                     required
@@ -65,7 +65,7 @@
                 @enderror
             </label>
 
-            <div class="flex items-center justify-between !mt-4">
+            <div class="flex items-center justify-between mt-4!">
                 <label
                     for="remember"
                     class="inline-flex items-center"
@@ -90,7 +90,7 @@
                     </a>
                 @endif
             </div>
-            <div class="flex items-center justify-end !mt-8">
+            <div class="flex items-center justify-end mt-8!">
                 <button class="btn bg-primary border-none text-white hover:bg-primary hover:brightness-90 w-full disabled:bg-primary disabled:opacity-70 disabled:text-white">
                     Login
                 </button>

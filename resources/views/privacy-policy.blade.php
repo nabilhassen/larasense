@@ -1,6 +1,6 @@
 <x-layouts.guest>
     <x-slot:title>Privacy Policy</x-slot>
-    <div class="bg-gradient-to-b from-secondary dark:from-stone-900 space-y-20">
+    <div class="bg-linear-to-b from-secondary dark:from-stone-900 space-y-20">
         <x-navbar />
         <div class="container mx-auto">
             <div class="sm:max-w-3xl sm:mx-auto mx-4 space-y-8">

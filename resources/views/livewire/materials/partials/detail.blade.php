@@ -146,7 +146,7 @@
         @if ($material->isArticle())
             <div>
                 <a
-                    class="btn max-lg:btn-sm max-lg:text-xs btn-primary btn-outline hover:!text-white"
+                    class="btn max-lg:btn-sm max-lg:text-xs btn-primary btn-outline hover:text-white!"
                     href="{{ $material->urlWithUtms }}"
                     target="_blank"
                     x-on:click="$wire.redirected('{{ $material->slug }}')"
@@ -160,7 +160,7 @@
         @endif
     </div>
     @if ($material->isArticle())
-        <hr class="!my-12">
+        <hr class="my-12!">
         <figure>
             <img
                 loading="lazy"
@@ -177,5 +177,5 @@
     @elseif ($material->isPodcast())
         <x-podcast-player :material="$material" />
     @endif
-    <hr class="!my-12">
+    <hr class="my-12!">
 </div>
