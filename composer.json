@@ -1,13 +1,11 @@
 {
-    "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/laravel",
+    "name": "nabilhassen/larasense",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
+    "description": "A dedicated, Laravel-focused content aggregator.",
     "keywords": [
         "laravel",
         "framework"
     ],
-    "license": "MIT",
     "require": {
         "php": "^8.2",
         "blade-ui-kit/blade-heroicons": "^2.6",
