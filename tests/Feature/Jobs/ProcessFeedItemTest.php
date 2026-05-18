@@ -34,7 +34,7 @@ test('youtube feed item is processed and stored in the database as a material', 
     Queue::fake(FetchAndUpdateMaterialImage::class);
 
     $source = Source::factory()->create([
-        'url' => 'https://www.youtube.com/feeds/videos.xml?channel_id=UCTuplgOBi6tJIlesIboymGA',
+        'url' => 'https://www.youtube.com/feeds/videos.xml?channel_id=UCfO2GiQwb-cwJTb1CuRSkwg',
         'type' => SourceType::Youtube,
         'last_checked_at' => now()->subDay(),
     ]);
