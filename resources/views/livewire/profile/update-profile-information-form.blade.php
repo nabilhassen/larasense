@@ -33,35 +33,31 @@
         wire:submit="updateProfileInformation"
         class="space-y-2"
     >
-        <label class="w-full">
-            <div class="label">
-                <span>Name</span>
-            </div>
+        <fieldset class="fieldset">
+            <label class="label text-base">Name</label>
             <input
                 wire:model="name"
                 id="name"
                 name="name"
                 type="text"
-                class="input focus:outline-hidden focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
+                class="input shadow-none focus:outline-hidden focus:border-2 focus:border-primary h-10 dark:bg-stone-900 w-full"
                 required
                 autofocus
                 autocomplete="name"
             />
             @error('name')
-                <div class="text-sm text-red-500 mt-2">
+                <p class="label text-red-500">
                     {{ $message }}
-                </div>
+                </p>
             @enderror
-        </label>
+        </fieldset>
 
-        <label class="w-full">
-            <div class="label">
-                <span>Email</span>
-            </div>
+        <fieldset class="fieldset">
+            <label class="label text-base">Email</label>
             <input
                 wire:model="email"
                 id="email"
-                class="input focus:outline-hidden focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
+                class="input shadow-none focus:outline-hidden focus:border-2 focus:border-primary h-10 dark:bg-stone-900 w-full"
                 type="email"
                 name="email"
                 required
@@ -69,14 +65,14 @@
                 @readonly(auth()->user()->isRegisteredWithProvider())
             />
             @error('email')
-                <div class="text-sm text-red-500 mt-2">
+                <p class="label text-red-500">
                     {{ $message }}
-                </div>
+                </p>
             @enderror
-        </label>
+        </fieldset>
 
         <div class="flex items-center gap-4 mt-8!">
-            <button class="btn bg-primary text-white hover:bg-primary border-none hover:brightness-90 disabled:bg-primary disabled:opacity-70 disabled:text-white">
+            <button class="btn shadow-none bg-primary text-white hover:bg-primary border-none hover:brightness-90 disabled:bg-primary disabled:opacity-70 disabled:text-white">
                 Save
             </button>
             <x-action-message
