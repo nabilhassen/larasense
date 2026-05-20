@@ -2,7 +2,7 @@
 
 <div
     wire:ignore
-    x-bind:class="{ 'overflow-hidden rounded-btn aspect-video cursor-pointer': true }"
+    x-bind:class="{ 'overflow-hidden rounded-box aspect-video cursor-pointer': true }"
     x-data="youtubePlayer"
     x-on:close-youtube-modal.window="player.pause()"
     x-init="$nextTick(() => { player.once('play', () => $wire.played('{{ $material->slug }}')) })"

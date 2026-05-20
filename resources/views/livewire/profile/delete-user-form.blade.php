@@ -1,4 +1,4 @@
-<section class="space-y-4 border border-black dark:border-stone-50 p-4 rounded-btn">
+<section class="space-y-4 border border-black dark:border-stone-50 p-4 rounded-box">
     <div>
         <h2 class="font-semibold">
             Delete Account

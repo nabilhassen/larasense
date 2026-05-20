@@ -39,7 +39,7 @@
         </svg>
         @if (filled($query))
             <div
-                class="absolute inset-x-0 z-10 top-full max-h-fit overflow-y-auto mt-2 rounded-btn bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800"
+                class="absolute inset-x-0 z-10 top-full max-h-fit overflow-y-auto mt-2 rounded-box bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800"
                 x-bind:class="{ 'hidden': !isAutoCompleteVisible }"
             >
                 @forelse ($materials as $materialItem)
