@@ -93,13 +93,6 @@
             >
                 Report bugs
             </button>
-            <a
-                href="https://x.com/nabilhassen08"
-                class="btn btn-sm btn-primary btn-link"
-                target="_blank"
-            >
-                Roadmap
-            </a>
         </div>
     </div>
 </div>
