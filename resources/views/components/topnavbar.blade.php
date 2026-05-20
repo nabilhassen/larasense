@@ -22,6 +22,7 @@
                     x-cloak
                     x-data
                     x-on:click="$store.themeMode.toggle()"
+                    class="cursor-pointer"
                 >
                     <x-heroicon-o-sun
                         x-show="$store.themeMode.isDark()"
@@ -38,7 +39,7 @@
                     <div
                         tabindex="0"
                         role="button"
-                        class="flex items-center gap-x-2"
+                        class="flex items-center gap-x-2 cursor-pointer"
                     >
                         <div class="avatar">
                             <div class="w-8 rounded-full">

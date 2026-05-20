@@ -9,7 +9,7 @@
         wire:navigate
         class="tab"
         x-bind:class="{
-            'tab-active text-white!': location.href === '{{ route('materials.index') }}',
+            'active text-white bg-primary!': location.href === '{{ route('materials.index') }}',
             'text-inherit!': location.href !== '{{ route('materials.index') }}'
         }"
     >
@@ -23,7 +23,7 @@
             wire:navigate
             class="tab"
             x-bind:class="{
-                'tab-active text-white!': location.href === '{{ route('feed.type', $type) }}',
+                'active text-white bg-primary!': location.href === '{{ route('feed.type', $type) }}',
                 'text-inherit!': location.href !== '{{ route('feed.type', $type) }}'
             }"
         >

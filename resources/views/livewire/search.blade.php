@@ -3,7 +3,7 @@
     'currentMaterialIndex': 0,
     'currentSlug': null,
 }">
-    <label class="relative input input-bordered flex items-center gap-2 bg-stone-50 dark:bg-stone-900 border-stone-50 dark:border-stone-900 focus-within:border-stone-200 dark:focus-within:border-stone-800 outline-hidden!">
+    <label class="relative input input-bordered flex items-center gap-2 bg-stone-50 dark:bg-stone-900 border-stone-50 dark:border-stone-900 focus-within:border-stone-200 dark:focus-within:border-stone-800 outline-hidden! w-full shadow-none">
         <input
             type="text"
             class="grow"

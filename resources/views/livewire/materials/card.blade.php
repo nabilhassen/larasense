@@ -127,7 +127,7 @@
                 )"
             >
                 <button
-                    class="inline-flex"
+                    class="inline-flex cursor-pointer"
                     x-on:click="toggleDislike"
                 >
                     <x-heroicon-o-hand-thumb-down
@@ -150,7 +150,7 @@
                 )"
             >
                 <button
-                    class="inline-flex"
+                    class="inline-flex cursor-pointer"
                     x-on:click="toggleBookmark"
                 >
                     <x-heroicon-o-bookmark
@@ -170,7 +170,7 @@
                 x-data="copyLink('{{ $material->url }}')"
             >
                 <button
-                    class="inline-flex"
+                    class="inline-flex cursor-pointer"
                     x-on:click="copy"
                 >
                     <x-heroicon-o-link
@@ -188,7 +188,7 @@
                     data-tip="Play/Pause"
                 >
                     <button
-                        class="inline-flex"
+                        class="inline-flex cursor-pointer"
                         x-on:click="() => {
                             $dispatch('play-podcast', {
                                 url: '{{ $material->urlForEmbed }}',
@@ -206,7 +206,7 @@
                         <x-heroicon-o-play class="inline-flex size-6 hover:stroke-primary stroke-stone-800 dark:stroke-stone-300" />
                     </button>
                     <button
-                        class="inline-flex"
+                        class="inline-flex cursor-pointer"
                         x-on:click="$dispatch('pause-podcast')"
                         x-show="$store.mainPodcastPlayer.url === '{{ $material->urlForEmbed }}' && $store.mainPodcastPlayer.isPlaying"
                     >
@@ -219,7 +219,7 @@
                     data-tip="Play"
                 >
                     <button
-                        class="inline-flex"
+                        class="inline-flex cursor-pointer"
                         x-on:click="() => {
                             $dispatch('open-material-modal', {
                                 slug: '{{ $material->slug }}'
@@ -235,7 +235,7 @@
                     data-tip="Redirect to source"
                 >
                     <a
-                        class="inline-flex"
+                        class="inline-flex cursor-pointer"
                         href="{{ $material->urlWithUtms }}"
                         target="_blank"
                         x-on:click="$wire.redirected()"
