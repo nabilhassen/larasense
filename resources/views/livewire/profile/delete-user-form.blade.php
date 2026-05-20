@@ -10,7 +10,7 @@
 
     <button
         x-data
-        class="btn bg-stone-700 dark:bg-white hover:bg-stone-900 dark:hover:bg-stone-200 text-white dark:text-stone-900"
+        class="btn shadow-none bg-black text-white dark:bg-white dark:text-black dark:hover:bg-white/80 hover:bg-black/80"
         x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')"
     >
         Delete Account
@@ -62,13 +62,13 @@
                 <button
                     type="button"
                     x-data
-                    class="btn btn-outline"
+                    class="btn shadow-none btn-outline"
                     x-on:click="$dispatch('close')"
                 >
                     {{ __('Cancel') }}
                 </button>
 
-                <button class="btn bg-stone-700 hover:bg-stone-900 text-white">
+                <button class="btn shadow-none bg-black text-white dark:bg-white dark:text-black dark:hover:bg-white/80 hover:bg-black/80">
                     {{ __('Delete Account') }}
                 </button>
             </div>

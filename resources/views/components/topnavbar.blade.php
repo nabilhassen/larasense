@@ -107,7 +107,7 @@
             @else
                 <a
                     wire:navigate
-                    class="btn btn-outline text-primary max-sm:hidden hover:bg-primary hover:border-primary"
+                    class="btn shadow-none btn-outline text-primary max-sm:hidden hover:bg-primary hover:border-primary"
                     href="{{ route('login') }}"
                 >
                     Login
