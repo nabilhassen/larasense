@@ -1,7 +1,7 @@
 <div
     x-data
     role="tablist"
-    class="tabs tabs-box border border-primary bg-transparent w-fit mb-6 items-center justify-center"
+    class="tabs tabs-box border border-primary bg-transparent w-fit mb-6"
 >
     <a
         role="tab"
@@ -9,7 +9,7 @@
         wire:navigate
         class="tab"
         x-bind:class="{
-            'active text-white bg-primary!': location.href === '{{ route('materials.index') }}',
+            'tab-active text-white bg-primary!': location.href === '{{ route('materials.index') }}',
             'text-inherit!': location.href !== '{{ route('materials.index') }}'
         }"
     >
@@ -23,7 +23,7 @@
             wire:navigate
             class="tab"
             x-bind:class="{
-                'active text-white bg-primary!': location.href === '{{ route('feed.type', $type) }}',
+                'tab-active text-white bg-primary!': location.href === '{{ route('feed.type', $type) }}',
                 'text-inherit!': location.href !== '{{ route('feed.type', $type) }}'
             }"
         >
