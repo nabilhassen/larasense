@@ -24,14 +24,12 @@
         >
             <x-honeypot livewire-model="extraFields" />
 
-            <label class="form-control w-full">
-                <div class="label">
-                    <span>Email</span>
-                </div>
+            <fieldset class="fieldset">
+                <label class="label text-base">Email</label>
                 <input
                     wire:model="form.email"
                     id="email"
-                    class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
+                    class="input shadow-none focus:outline-hidden focus:border-2 focus:border-primary h-10 dark:bg-stone-900 w-full"
                     type="email"
                     name="email"
                     required
@@ -39,33 +37,31 @@
                     autocomplete="username"
                 />
                 @error('form.email')
-                    <div class="text-sm text-red-500 mt-2">
+                    <p class="label text-red-500">
                         {{ $message }}
-                    </div>
+                    </p>
                 @enderror
-            </label>
+            </fieldset>
 
-            <label class="form-control w-full">
-                <div class="label">
-                    <span>Password</span>
-                </div>
+            <fieldset class="fieldset">
+                <label class="label text-base">Password</label>
                 <input
                     wire:model="form.password"
                     id="password"
-                    class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
+                    class="input shadow-none focus:outline-hidden focus:border-2 focus:border-primary h-10 dark:bg-stone-900 w-full"
                     type="password"
                     name="password"
                     required
                     autocomplete="current-password"
                 />
                 @error('form.password')
-                    <div class="text-sm text-red-500 mt-2">
+                    <p class="label text-red-500">
                         {{ $message }}
-                    </div>
+                    </p>
                 @enderror
-            </label>
+            </fieldset>
 
-            <div class="flex items-center justify-between !mt-4">
+            <div class="flex items-center justify-between mt-4!">
                 <label
                     for="remember"
                     class="inline-flex items-center"
@@ -90,8 +86,8 @@
                     </a>
                 @endif
             </div>
-            <div class="flex items-center justify-end !mt-8">
-                <button class="btn bg-primary border-none text-white hover:bg-primary hover:brightness-90 w-full disabled:bg-primary disabled:opacity-70 disabled:text-white">
+            <div class="flex items-center justify-end mt-8!">
+                <button class="btn shadow-none bg-primary border-none text-white hover:bg-primary hover:brightness-90 w-full disabled:bg-primary disabled:opacity-70 disabled:text-white">
                     Login
                 </button>
             </div>

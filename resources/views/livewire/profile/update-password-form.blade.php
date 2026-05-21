@@ -11,65 +11,59 @@
         wire:submit="updatePassword"
         class="space-y-2"
     >
-        <label class="form-control w-full">
-            <div class="label">
-                <span>Current Password</span>
-            </div>
+        <fieldset class="fieldset">
+            <label class="label text-base">Current Password</label>
             <input
                 wire:model="current_password"
                 id="update_password_current_password"
                 name="current_password"
                 type="password"
-                class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
+                class="input shadow-none focus:outline-hidden focus:border-2 focus:border-primary h-10 dark:bg-stone-900 w-full"
                 autocomplete="current-password"
             />
             @error('current_password')
-                <div class="text-sm text-red-500 mt-2">
+                <p class="label text-red-500">
                     {{ $message }}
-                </div>
+                </p>
             @enderror
-        </label>
+        </fieldset>
 
-        <label class="form-control w-full">
-            <div class="label">
-                <span>New Password</span>
-            </div>
+        <fieldset class="fieldset">
+            <label class="label text-base">New Password</label>
             <input
                 wire:model="password"
                 id="update_password_password"
                 name="password"
                 type="password"
-                class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
+                class="input shadow-none focus:outline-hidden focus:border-2 focus:border-primary h-10 dark:bg-stone-900 w-full"
                 autocomplete="new-password"
             />
             @error('password')
-                <div class="text-sm text-red-500 mt-2">
+                <p class="label text-red-500">
                     {{ $message }}
-                </div>
+                </p>
             @enderror
-        </label>
+        </fieldset>
 
-        <label class="form-control w-full">
-            <div class="label">
-                <span>Confirm Password</span>
-            </div>
+        <fieldset class="fieldset">
+            <label class="label text-base">Confirm Password</label>
             <input
                 wire:model="password_confirmation"
                 id="update_password_password_confirmation"
                 name="password_confirmation"
                 type="password"
-                class="input input-bordered focus:outline-none focus:border-2 focus:border-primary h-10 dark:bg-stone-900"
+                class="input shadow-none focus:outline-hidden focus:border-2 focus:border-primary h-10 dark:bg-stone-900 w-full"
                 autocomplete="new-password"
             />
             @error('password_confirmation')
-                <div class="text-sm text-red-500 mt-2">
+                <p class="label text-red-500">
                     {{ $message }}
-                </div>
+                </p>
             @enderror
-        </label>
+        </fieldset>
 
-        <div class="flex items-center gap-4 !mt-8">
-            <button class="btn bg-primary text-white hover:bg-primary border-none hover:brightness-90 disabled:bg-primary disabled:opacity-70 disabled:text-white">
+        <div class="flex items-center gap-4 mt-8!">
+            <button class="btn shadow-none bg-primary text-white hover:bg-primary border-none hover:brightness-90 disabled:bg-primary disabled:opacity-70 disabled:text-white">
                 Save
             </button>
             <x-action-message

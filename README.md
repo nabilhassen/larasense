@@ -96,13 +96,7 @@ composer test
 
 ## Contributing
 
-Pull requests are welcome! Please write tests for new features. You may start with the [Roadmap](#roadmap).
-
-## Roadmap
-
--   [ ] Upgrade to Tailwind 4 and daisyUI 5
--   [ ] Filter feed by predefined date range (daisyUI dropdown): today, yesterday, this week, this month.
--   [ ] PWA capability
+Pull requests are welcome! Please write tests for new features.
 
 ## License
 

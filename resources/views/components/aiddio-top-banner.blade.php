@@ -1,7 +1,7 @@
 @persist('banner')
     <div class="hidden mt-[72px]">
         <div
-            class="fixed inset-x-0 top-0 z-[60]"
+            class="fixed inset-x-0 top-0 z-60"
             id="bb-banner-container"
         ></div>
     </div>

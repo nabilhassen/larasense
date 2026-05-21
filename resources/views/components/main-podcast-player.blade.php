@@ -2,14 +2,14 @@
     x-cloak
     x-data="mainPodcastPlayer"
     x-show="isSourceSet"
-    class="lg:w-2/3 rounded-btn bg-accent dark:bg-stone-900 space-y-2 px-2 border-2 border-secondary"
+    class="lg:w-2/3 rounded-box bg-accent dark:bg-stone-900 space-y-2 px-2 border-2 border-secondary"
 >
     <div class="flex gap-x-2 text-xs pt-2 pl-[5.6px]">
         <figure>
             <img
                 loading="lazy"
                 x-bind:src="thumbnail"
-                class="rounded max-h-12"
+                class="rounded-sm max-h-12"
             >
         </figure>
         <div>

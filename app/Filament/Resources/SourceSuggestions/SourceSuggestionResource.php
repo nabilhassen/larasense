@@ -1,0 +1,66 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Filament\Resources\SourceSuggestions;
+
+use App\Filament\Resources\SourceSuggestions\Pages\ManageSourceSuggestions;
+use App\Models\SourceSuggestion;
+use BackedEnum;
+use Filament\Resources\Resource;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Table;
+use UnitEnum;
+
+class SourceSuggestionResource extends Resource
+{
+    protected static ?string $model = SourceSuggestion::class;
+
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-folder';
+
+    protected static string|UnitEnum|null $navigationGroup = 'Content';
+
+    protected static ?int $navigationSort = 4;
+
+    public static function table(Table $table): Table
+    {
+        return $table
+            ->defaultKeySort(false)
+            ->defaultSort('created_at', 'desc')
+            ->columns([
+                TextColumn::make('#')
+                    ->rowIndex(),
+
+                TextColumn::make('user.name')
+                    ->searchable()
+                    ->sortable()
+                    ->placeholder('N/A'),
+
+                TextColumn::make('url')
+                    ->searchable(),
+
+                TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable(),
+
+                TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable(),
+            ])
+            ->recordActions([
+                \Filament\Actions\DeleteAction::make(),
+            ])
+            ->toolbarActions([
+                \Filament\Actions\BulkActionGroup::make([
+                    \Filament\Actions\DeleteBulkAction::make(),
+                ]),
+            ]);
+    }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => ManageSourceSuggestions::route('/'),
+        ];
+    }
+}

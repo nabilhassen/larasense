@@ -5,7 +5,7 @@
     x-cloak
     x-data="podcastPlayer"
     x-on:close-podcast-modal.window="continueOnMainPodcastPlayer($event.detail)"
-    class="rounded-btn bg-accent dark:bg-stone-900 p-2 lg:p-4 border-2 border-secondary"
+    class="rounded-box bg-accent dark:bg-stone-900 p-2 lg:p-4 border-2 border-secondary"
 >
     <div class="flex gap-x-2 text-xs lg:text-sm">
         <figure class="w-1/5 hidden lg:block">
@@ -21,7 +21,7 @@
                     <img
                         loading="lazy"
                         src="{{ $material->thumbnail }}"
-                        class="rounded max-h-14"
+                        class="rounded-sm max-h-14"
                     >
                 </figure>
                 <div>

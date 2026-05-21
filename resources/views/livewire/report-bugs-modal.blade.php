@@ -18,28 +18,24 @@
             wire:submit="submit"
             x-show="!$wire.isSubmitted"
         >
-            <div>
-                <label class="form-control w-full">
-                    <div class="label">
-                        Description
-                    </div>
-                    <textarea
-                        autofocus
-                        wire:model="description"
-                        type="text"
-                        placeholder="Describe the bug here ..."
-                        rows="3"
-                        class="textarea textarea-bordered focus:outline-none focus:border-2 focus:border-primary dark:bg-stone-900"
-                    ></textarea>
-                </label>
+            <fieldset class="fieldset">
+                <label class="label text-base">Description</label>
+                <textarea
+                    autofocus
+                    wire:model="description"
+                    type="text"
+                    placeholder="Describe the bug here ..."
+                    rows="3"
+                    class="textarea shadow-none focus:outline-hidden focus:border-2 focus:border-primary dark:bg-stone-900 w-full"
+                ></textarea>
                 @error('description')
-                    <div class="text-sm text-primary mt-2">
+                    <p class="label text-red-500">
                         {{ $message }}
-                    </div>
+                    </p>
                 @enderror
-            </div>
+            </fieldset>
             <div class="modal-action">
-                <button class="btn bg-primary font-bold text-white border-none hover:bg-primary hover:brightness-90">
+                <button class="btn shadow-none bg-primary font-bold text-white border-none hover:bg-primary hover:brightness-90">
                     Report
                 </button>
             </div>
@@ -66,7 +62,7 @@
     </div>
     <form
         method="dialog"
-        class="modal-backdrop backdrop-blur-sm"
+        class="modal-backdrop backdrop-blur-xs"
     >
         <button>close</button>
     </form>

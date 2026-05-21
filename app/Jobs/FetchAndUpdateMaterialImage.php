@@ -38,7 +38,7 @@ class FetchAndUpdateMaterialImage implements ShouldQueue
 
         $this->material->update(['image_url' => $path]);
 
-        $image = Image::read(Storage::disk('public')->path($this->material->image_url));
+        $image = Image::decode(Storage::disk('public')->path($this->material->image_url));
 
         $image->scale(height: 160);
 

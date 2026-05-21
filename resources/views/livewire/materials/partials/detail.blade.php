@@ -64,7 +64,7 @@
     <div class="flex justify-between items-center">
         <div class="flex items-center gap-x-2 lg:gap-x-6">
             <button
-                class="inline-flex items-center gap-x-1"
+                class="inline-flex items-center gap-x-1 cursor-pointer"
                 x-data="likeMaterial(
                     '{{ $material->slug }}',
                     @js($this->isLiked),
@@ -88,7 +88,7 @@
                 </span>
             </button>
             <button
-                class="inline-flex"
+                class="inline-flex cursor-pointer"
                 x-data="dislikeMaterial(
                     '{{ $material->slug }}',
                     @js($this->isDisliked),
@@ -106,7 +106,7 @@
                 />
             </button>
             <button
-                class="inline-flex"
+                class="inline-flex cursor-pointer"
                 x-data="bookmarkMaterial(
                     '{{ $material->slug }}',
                     @js($this->isBookmarked),
@@ -130,7 +130,7 @@
                 x-data="copyLink('{{ $material->url }}')"
             >
                 <button
-                    class="flex items-center"
+                    class="flex items-center cursor-pointer"
                     x-on:click="copy"
                 >
                     <x-heroicon-o-link
@@ -146,7 +146,7 @@
         @if ($material->isArticle())
             <div>
                 <a
-                    class="btn max-lg:btn-sm max-lg:text-xs btn-primary btn-outline hover:!text-white"
+                    class="btn max-lg:btn-sm max-lg:text-xs btn-primary btn-outline hover:text-white!"
                     href="{{ $material->urlWithUtms }}"
                     target="_blank"
                     x-on:click="$wire.redirected('{{ $material->slug }}')"
@@ -160,7 +160,7 @@
         @endif
     </div>
     @if ($material->isArticle())
-        <hr class="!my-12">
+        <hr class="my-12!">
         <figure>
             <img
                 loading="lazy"
@@ -177,5 +177,5 @@
     @elseif ($material->isPodcast())
         <x-podcast-player :material="$material" />
     @endif
-    <hr class="!my-12">
+    <hr class="my-12!">
 </div>

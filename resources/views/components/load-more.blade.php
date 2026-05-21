@@ -1,4 +1,4 @@
-@props(['paginator', 'perPage', 'message' => null])
+@props(['paginator', 'perPage'])
 
 <div class="py-8">
     @if ($paginator->hasMorePages() && $perPage < 100)
@@ -13,9 +13,9 @@
                 <x-heroicon-o-arrow-path class="size-6 animate-spin stroke-primary" />
             </div>
         </div>
-    @elseif(filled($message))
-        <div class="flex justify-center bg-accent dark:bg-stone-900 py-4 px-8 rounded-btn w-fit mx-auto text-primary font-bold">
-            {{ $message }}
+    @else
+        <div class="flex justify-center bg-accent dark:bg-stone-900 py-4 px-8 rounded-box w-fit mx-auto text-primary font-bold">
+            No {{ $paginator->count() ? 'more' : '' }} content available.
         </div>
     @endif
 </div>

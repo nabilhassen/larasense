@@ -1,4 +1,4 @@
-<section class="space-y-4 border border-black dark:border-stone-50 p-4 rounded-btn">
+<section class="space-y-4 border border-black dark:border-stone-50 p-4 rounded-box">
     <div>
         <h2 class="font-semibold">
             Delete Account
@@ -10,7 +10,7 @@
 
     <button
         x-data
-        class="btn bg-stone-700 dark:bg-white hover:bg-stone-900 dark:hover:bg-stone-200 text-white dark:text-stone-900"
+        class="btn shadow-none bg-black text-white dark:bg-white dark:text-black dark:hover:bg-white/80 hover:bg-black/80"
         x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')"
     >
         Delete Account
@@ -26,11 +26,11 @@
             class="p-6"
         >
 
-            <h2 class="text-lg font-medium text-gray-900">
+            <h2 class="text-lg font-medium text-gray-900 dark:text-stone-100">
                 {{ __('Are you sure you want to delete your account?') }}
             </h2>
 
-            <p class="mt-1 text-sm text-gray-600">
+            <p class="mt-1 text-sm text-gray-600 dark:text-stone-300">
                 {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.') }}
             </p>
 
@@ -62,13 +62,13 @@
                 <button
                     type="button"
                     x-data
-                    class="btn btn-outline"
+                    class="btn shadow-none btn-outline"
                     x-on:click="$dispatch('close')"
                 >
                     {{ __('Cancel') }}
                 </button>
 
-                <button class="btn bg-stone-700 hover:bg-stone-900 text-white">
+                <button class="btn shadow-none bg-black text-white dark:bg-white dark:text-black dark:hover:bg-white/80 hover:bg-black/80">
                     {{ __('Delete Account') }}
                 </button>
             </div>

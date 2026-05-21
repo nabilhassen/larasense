@@ -22,6 +22,7 @@
                     x-cloak
                     x-data
                     x-on:click="$store.themeMode.toggle()"
+                    class="cursor-pointer"
                 >
                     <x-heroicon-o-sun
                         x-show="$store.themeMode.isDark()"
@@ -38,7 +39,7 @@
                     <div
                         tabindex="0"
                         role="button"
-                        class="flex items-center gap-x-2"
+                        class="flex items-center gap-x-2 cursor-pointer"
                     >
                         <div class="avatar">
                             <div class="w-8 rounded-full">
@@ -51,12 +52,12 @@
                     </div>
                     <ul
                         tabindex="0"
-                        class="dropdown-content menu bg-stone-50 dark:bg-stone-900 rounded-box z-[1] w-52 p-2 shadow"
+                        class="dropdown-content menu bg-stone-50 dark:bg-stone-900 rounded-box z-1 w-52 p-2 shadow-sm"
                     >
                         <li>
                             <a
                                 wire:navigate
-                                class="hover:bg-accent dark:hover:bg-black active:!bg-accent dark:active:!bg-black focus:!bg-accent dark:focus:!bg-black active:!text-inherit"
+                                class="hover:bg-accent dark:hover:bg-black active:bg-accent! dark:active:bg-black! focus:bg-accent! dark:focus:bg-black! active:text-inherit!"
                                 href="{{ route('settings') }}"
                             >
                                 Profile
@@ -65,7 +66,7 @@
                         <li class="lg:hidden">
                             <button
                                 x-data
-                                class="hover:bg-accent dark:hover:bg-black active:!bg-accent dark:active:!bg-black focus:!bg-accent dark:focus:!bg-black active:!text-inherit"
+                                class="hover:bg-accent dark:hover:bg-black active:bg-accent! dark:active:bg-black! focus:bg-accent! dark:focus:bg-black! active:text-inherit!"
                                 x-on:click="$dispatch('open-source-suggestions-modal')"
                             >
                                 Suggest Sources
@@ -74,26 +75,17 @@
                         <li class="lg:hidden">
                             <button
                                 x-data
-                                class="hover:bg-accent dark:hover:bg-black active:!bg-accent dark:active:!bg-black focus:!bg-accent dark:focus:!bg-black active:!text-inherit"
+                                class="hover:bg-accent dark:hover:bg-black active:bg-accent! dark:active:bg-black! focus:bg-accent! dark:focus:bg-black! active:text-inherit!"
                                 x-on:click="$dispatch('open-bug-reports-modal')"
                             >
                                 Report Bugs
                             </button>
                         </li>
                         <li class="lg:hidden">
-                            <a
-                                href="https://x.com/nabilhassen08"
-                                class="hover:bg-accent dark:hover:bg-black active:!bg-accent dark:active:!bg-black focus:!bg-accent dark:focus:!bg-black active:!text-inherit"
-                                target="_blank"
-                            >
-                                Roadmap
-                            </a>
-                        </li>
-                        <li class="lg:hidden">
                             <button
                                 x-data
                                 x-cloak
-                                class="hover:bg-accent dark:hover:bg-black active:!bg-accent dark:active:!bg-black focus:!bg-accent dark:focus:!bg-black active:!text-inherit"
+                                class="hover:bg-accent dark:hover:bg-black active:bg-accent! dark:active:bg-black! focus:bg-accent! dark:focus:bg-black! active:text-inherit!"
                                 x-text="$store.themeMode.isDark() ? 'Light Mode' : 'Dark Mode'"
                                 x-on:click="$store.themeMode.toggle()"
                             ></button>
@@ -106,7 +98,7 @@
             @else
                 <a
                     wire:navigate
-                    class="btn btn-outline text-primary max-sm:hidden hover:bg-primary hover:border-primary"
+                    class="btn shadow-none btn-outline text-primary max-sm:hidden hover:bg-primary hover:border-primary"
                     href="{{ route('login') }}"
                 >
                     Login

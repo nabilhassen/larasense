@@ -15,7 +15,7 @@
                         }
                     }"
                 >
-                    <div class="flex items-center gap-x-1 rounded-btn w-fit py-2 px-3 border border-primary text-primary text-xs font-semibold">
+                    <div class="flex items-center gap-x-1 rounded-box w-fit py-2 px-3 border border-primary text-primary text-xs font-semibold">
                         <x-heroicon-s-microphone
                             class="size-4"
                             x-bind:class="{ 'animate-pulse': types[currentTypeIndex] === 'podcast' }"
@@ -24,7 +24,7 @@
                             Listen Podcasts
                         </span>
                     </div>
-                    <div class="flex items-center gap-x-1 rounded-btn w-fit py-2 px-3 border border-primary text-primary text-xs font-semibold">
+                    <div class="flex items-center gap-x-1 rounded-box w-fit py-2 px-3 border border-primary text-primary text-xs font-semibold">
                         <x-heroicon-s-video-camera
                             class="size-4"
                             x-bind:class="{ 'animate-pulse': types[currentTypeIndex] === 'youtube' }"
@@ -33,7 +33,7 @@
                             Watch YouTube
                         </span>
                     </div>
-                    <div class="flex items-center gap-x-1 rounded-btn w-fit py-2 px-3 border border-primary text-primary text-xs font-semibold">
+                    <div class="flex items-center gap-x-1 rounded-box w-fit py-2 px-3 border border-primary text-primary text-xs font-semibold">
                         <x-heroicon-s-pencil-square
                             class="size-4"
                             x-bind:class="{ 'animate-pulse': types[currentTypeIndex] === 'article' }"
@@ -43,7 +43,7 @@
                         </span>
                     </div>
                 </div>
-                <h1 class="max-w-4xl sm:text-6xl text-5xl font-bold !mt-4 dark:text-primary">
+                <h1 class="max-w-4xl sm:text-6xl text-5xl font-bold mt-4! dark:text-primary">
                     Stay informed. Stay ahead. Laravel news all in one place.
                 </h1>
                 <h2 class="max-w-3xl mx-auto">
@@ -53,15 +53,15 @@
                 <div class="flex gap-x-2 justify-center">
                     <a
                         wire:navigate
-                        class="btn lg:btn-lg btn-outline text-primary hover:bg-primary hover:border-primary"
+                        class="btn lg:btn-lg btn-outline shadow-none text-primary hover:text-white hover:bg-primary hover:border-primary"
                         href="{{ route('materials.index') }}"
                     >
-                        <x-heroicon-o-newspaper class="inline size-8" />
+                        <x-heroicon-o-newspaper class="inline size-6" />
                         Feed
                     </a>
                     <a
                         wire:navigate
-                        class="btn lg:btn-lg bg-primary font-bold text-white border-none hover:bg-primary hover:brightness-90"
+                        class="btn lg:btn-lg bg-primary shadow-none font-bold text-white border-none hover:bg-primary hover:brightness-90"
                         href="{{ route('register') }}"
                     >
                         <span class="max-sm:hidden">Falling behind?</span> Join now, it's free

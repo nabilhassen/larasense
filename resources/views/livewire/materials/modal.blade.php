@@ -32,7 +32,7 @@
             </div>
             <form
                 method="dialog"
-                class="modal-backdrop backdrop-blur-sm"
+                class="modal-backdrop backdrop-blur-xs"
             >
                 <button>close</button>
             </form>

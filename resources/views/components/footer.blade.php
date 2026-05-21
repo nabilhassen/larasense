@@ -9,59 +9,61 @@
                     alt="Larasense logo"
                 >
             </figure>
-            <ul class="menu menu-vertical sm:menu-horizontal">
-                <li>
-                    <a
-                        class="hover:bg-accent dark:hover:bg-stone-900 active:!bg-accent dark:active:!bg-stone-900 focus:!bg-accent dark:focus:!bg-stone-900 active:!text-inherit max-sm:pl-0"
-                        href="{{ route('home') }}"
-                        wire:navigate
-                    >
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <a
-                        class="hover:bg-accent dark:hover:bg-stone-900 active:!bg-accent dark:active:!bg-stone-900 focus:!bg-accent dark:focus:!bg-stone-900 active:!text-inherit max-sm:pl-0"
-                        href="{{ route('home') }}#sources"
-                    >
-                        Sources
-                    </a>
-                </li>
-                <li>
-                    <a
-                        class="hover:bg-accent dark:hover:bg-stone-900 active:!bg-accent dark:active:!bg-stone-900 focus:!bg-accent dark:focus:!bg-stone-900 active:!text-inherit max-sm:pl-0"
-                        href="{{ route('home') }}#benefits"
-                    >
-                        Benefits
-                    </a>
-                </li>
-                <li>
-                    <a
-                        class="hover:bg-accent dark:hover:bg-stone-900 active:!bg-accent dark:active:!bg-stone-900 focus:!bg-accent dark:focus:!bg-stone-900 active:!text-inherit max-sm:pl-0"
-                        href="{{ route('home') }}#faq"
-                    >
-                        FAQ
-                    </a>
-                </li>
-                <li>
-                    <a
-                        wire:navigate
-                        class="hover:bg-accent dark:hover:bg-stone-900 active:!bg-accent dark:active:!bg-stone-900 focus:!bg-accent dark:focus:!bg-stone-900 active:!text-inherit max-sm:pl-0"
-                        href="{{ route('login') }}"
-                    >
-                        Login
-                    </a>
-                </li>
-                <li>
-                    <a
-                        wire:navigate
-                        class="hover:bg-accent dark:hover:bg-stone-900 active:!bg-accent dark:active:!bg-stone-900 focus:!bg-accent dark:focus:!bg-stone-900 active:!text-inherit max-sm:pl-0"
-                        href="{{ route('register') }}"
-                    >
-                        Sign up
-                    </a>
-                </li>
-            </ul>
+            <div>
+                <ul class="menu menu-vertical sm:menu-horizontal w-full">
+                    <li>
+                        <a
+                            class="hover:bg-accent dark:hover:bg-stone-900 active:bg-accent! dark:active:bg-stone-900! focus:bg-accent! dark:focus:bg-stone-900! active:text-inherit! max-sm:pl-0"
+                            href="{{ route('home') }}"
+                            wire:navigate
+                        >
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            class="hover:bg-accent dark:hover:bg-stone-900 active:bg-accent! dark:active:bg-stone-900! focus:bg-accent! dark:focus:bg-stone-900! active:text-inherit! max-sm:pl-0"
+                            href="{{ route('home') }}#sources"
+                        >
+                            Sources
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            class="hover:bg-accent dark:hover:bg-stone-900 active:bg-accent! dark:active:bg-stone-900! focus:bg-accent! dark:focus:bg-stone-900! active:text-inherit! max-sm:pl-0"
+                            href="{{ route('home') }}#benefits"
+                        >
+                            Benefits
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            class="hover:bg-accent dark:hover:bg-stone-900 active:bg-accent! dark:active:bg-stone-900! focus:bg-accent! dark:focus:bg-stone-900! active:text-inherit! max-sm:pl-0"
+                            href="{{ route('home') }}#faq"
+                        >
+                            FAQ
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            wire:navigate
+                            class="hover:bg-accent dark:hover:bg-stone-900 active:bg-accent! dark:active:bg-stone-900! focus:bg-accent! dark:focus:bg-stone-900! active:text-inherit! max-sm:pl-0"
+                            href="{{ route('login') }}"
+                        >
+                            Login
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            wire:navigate
+                            class="hover:bg-accent dark:hover:bg-stone-900 active:bg-accent! dark:active:bg-stone-900! focus:bg-accent! dark:focus:bg-stone-900! active:text-inherit! max-sm:pl-0"
+                            href="{{ route('register') }}"
+                        >
+                            Sign up
+                        </a>
+                    </li>
+                </ul>
+            </div>
             <div class="font-bold max-sm:text-center max-sm:my-4">
                 support@larasense.com
             </div>

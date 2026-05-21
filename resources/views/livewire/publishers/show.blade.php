@@ -35,6 +35,5 @@
     <x-load-more
         :paginator="$materials"
         :$perPage
-        message="No more content available."
     />
 </div>

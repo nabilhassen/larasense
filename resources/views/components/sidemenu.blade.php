@@ -19,11 +19,11 @@
                 href="{{ route('materials.index') }}"
                 @class([
                     'flex items-center gap-x-3 p-3 font-semibold',
-                    'bg-primary text-white rounded-btn' => request()->routeIs([
+                    'bg-primary text-white rounded-box' => request()->routeIs([
                         'feed',
                         'materials.index',
                     ]),
-                    'hover:bg-accent dark:hover:bg-stone-900 hover:rounded' => !request()->routeIs(
+                    'hover:bg-accent dark:hover:bg-stone-900 hover:rounded-sm' => !request()->routeIs(
                         ['feed', 'materials.index']),
                 ])
             >
@@ -37,8 +37,8 @@
                 href="{{ route('likes') }}"
                 @class([
                     'flex items-center gap-x-3 p-3 font-semibold',
-                    'bg-primary text-white rounded-btn' => request()->routeIs('likes'),
-                    'hover:bg-accent dark:hover:bg-stone-900 hover:rounded' => !request()->routeIs(
+                    'bg-primary text-white rounded-box' => request()->routeIs('likes'),
+                    'hover:bg-accent dark:hover:bg-stone-900 hover:rounded-sm' => !request()->routeIs(
                         'likes'),
                 ])
             >
@@ -52,8 +52,8 @@
                 href="{{ route('bookmarks') }}"
                 @class([
                     'flex items-center gap-x-3 p-3 font-semibold',
-                    'bg-primary text-white rounded-btn' => request()->routeIs('bookmarks'),
-                    'hover:bg-accent dark:hover:bg-stone-900 hover:rounded' => !request()->routeIs(
+                    'bg-primary text-white rounded-box' => request()->routeIs('bookmarks'),
+                    'hover:bg-accent dark:hover:bg-stone-900 hover:rounded-sm' => !request()->routeIs(
                         'bookmarks'),
                 ])
             >
@@ -67,8 +67,8 @@
                 href="{{ route('settings') }}"
                 @class([
                     'flex items-center gap-x-3 p-3 font-semibold',
-                    'bg-primary text-white rounded-btn' => request()->routeIs('settings'),
-                    'hover:bg-accent dark:hover:bg-stone-900 hover:rounded' => !request()->routeIs(
+                    'bg-primary text-white rounded-box' => request()->routeIs('settings'),
+                    'hover:bg-accent dark:hover:bg-stone-900 hover:rounded-sm' => !request()->routeIs(
                         'settings'),
                 ])
             >
@@ -93,13 +93,6 @@
             >
                 Report bugs
             </button>
-            <a
-                href="https://x.com/nabilhassen08"
-                class="btn btn-sm btn-primary btn-link"
-                target="_blank"
-            >
-                Roadmap
-            </a>
         </div>
     </div>
 </div>

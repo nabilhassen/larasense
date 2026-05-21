@@ -8,7 +8,7 @@
             <div> Asked </div>
             <div class="text-primary"> Questions </div>
         </h2>
-        <aside class="space-y-6 sm:!mt-3 max-sm:mx-2">
+        <aside class="space-y-6 sm:mt-3! max-sm:mx-2">
             <div
                 x-data="{ 'isActive': true }"
                 x-on:click="isActive = !isActive"

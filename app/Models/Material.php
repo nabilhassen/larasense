@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Enums\SourceType;
+use Database\Factories\MaterialFactory;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -19,7 +20,7 @@ use Maize\Markable\Models\Reaction;
 
 class Material extends Model
 {
-    /** @use HasFactory<\Database\Factories\MaterialFactory> */
+    /** @use HasFactory<MaterialFactory> */
     use HasFactory, Markable;
 
     public const DISLIKE_REACTION = 'material.dislike';
