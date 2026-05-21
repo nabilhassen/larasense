@@ -7,6 +7,7 @@ use App\Jobs\FetchAndUpdateMaterialImage;
 use App\Jobs\ProcessFeedItem;
 use App\Models\Material;
 use App\Models\Source;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Queue;
 use willvincent\Feeds\Facades\FeedsFacade;
 
@@ -48,7 +49,7 @@ test('youtube feed item is processed and stored in the database as a material', 
     $this->assertDatabaseHas('materials', [
         'feed_id' => $item->get_id(true),
     ]);
-});
+})->skip(Http::get('https://www.youtube.com/feeds/videos.xml?channel_id=UCfO2GiQwb-cwJTb1CuRSkwg')->clientError());
 
 test('podcast feed item is processed and stored in the database as a material', function () {
     Queue::fake(FetchAndUpdateMaterialImage::class);
