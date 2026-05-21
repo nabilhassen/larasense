@@ -1,5 +1,5 @@
 <nav class="container mx-auto pt-4">
-    <div class="navbar bg-white dark:bg-black rounded-box w-auto max-sm:mx-4 shadow-xs shadow-primary/30 px-6">
+    <div class="navbar bg-white dark:bg-black rounded-box w-auto max-sm:mx-4 shadow-xs shadow-primary/30 lg:px-6">
         <div class="navbar-start">
             <div class="dropdown">
                 <div

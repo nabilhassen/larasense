@@ -82,15 +82,6 @@
                             </button>
                         </li>
                         <li class="lg:hidden">
-                            <a
-                                href="https://x.com/nabilhassen08"
-                                class="hover:bg-accent dark:hover:bg-black active:bg-accent! dark:active:bg-black! focus:bg-accent! dark:focus:bg-black! active:text-inherit!"
-                                target="_blank"
-                            >
-                                Roadmap
-                            </a>
-                        </li>
-                        <li class="lg:hidden">
                             <button
                                 x-data
                                 x-cloak

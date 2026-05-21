@@ -3,7 +3,7 @@
         wire:navigate
         href="{{ route('materials.index') }}"
         @class([
-            'dock-active dark:bg-black border-t-primary' => request()->routeIs([
+            'dock-active dark:bg-black after:bg-primary after:text-primary' => request()->routeIs([
                 'feed',
                 'materials.index',
             ]),
@@ -22,7 +22,7 @@
         wire:navigate
         href="{{ route('likes') }}"
         @class([
-            'dock-active dark:bg-black border-t-primary' => request()->routeIs('likes'),
+            'dock-active dark:bg-black after:bg-primary after:text-primary' => request()->routeIs('likes'),
         ])
     >
         <x-heroicon-o-hand-thumb-up @class([
@@ -35,7 +35,7 @@
         wire:navigate
         href="{{ route('bookmarks') }}"
         @class([
-            'dock-active dark:bg-black border-t-primary' => request()->routeIs('bookmarks'),
+            'dock-active dark:bg-black after:bg-primary after:text-primary' => request()->routeIs('bookmarks'),
         ])
     >
         <x-heroicon-o-bookmark @class([
@@ -49,7 +49,7 @@
         wire:navigate
         href="{{ route('settings') }}"
         @class([
-            'dock-active dark:bg-black border-t-primary' => request()->routeIs('settings'),
+            'dock-active dark:bg-black after:bg-primary after:text-primary' => request()->routeIs('settings'),
         ])
     >
         <x-heroicon-o-cog-6-tooth @class([
