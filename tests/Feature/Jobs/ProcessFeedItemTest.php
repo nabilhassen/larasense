@@ -49,7 +49,7 @@ test('youtube feed item is processed and stored in the database as a material', 
     $this->assertDatabaseHas('materials', [
         'feed_id' => $item->get_id(true),
     ]);
-})->skip(Http::get('https://www.youtube.com/feeds/videos.xml?channel_id=UCfO2GiQwb-cwJTb1CuRSkwg')->clientError());
+})->skip(fn (): bool => Http::get('https://www.youtube.com/feeds/videos.xml?channel_id=UCfO2GiQwb-cwJTb1CuRSkwg')->failed());
 
 test('podcast feed item is processed and stored in the database as a material', function () {
     Queue::fake(FetchAndUpdateMaterialImage::class);
