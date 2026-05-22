@@ -7,6 +7,7 @@ namespace App\Providers;
 use App\Models\User;
 use Carbon\CarbonImmutable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Sleep;
 use Illuminate\Validation\Rules\Password;
+use Opcodes\LogViewer\Facades\LogViewer;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -38,6 +40,10 @@ class AppServiceProvider extends ServiceProvider
 
         Gate::define('viewPulse', function (User $user) {
             return $user->isAdmin();
+        });
+
+        LogViewer::auth(function (Request $request) {
+            return $request->user()?->isAdmin();
         });
 
         $this->configureVite();

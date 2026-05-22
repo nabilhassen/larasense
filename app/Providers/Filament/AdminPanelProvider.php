@@ -71,6 +71,11 @@ class AdminPanelProvider extends PanelProvider
                             ->url(url(config('pulse.path')), shouldOpenInNewTab: true)
                             ->icon('heroicon-o-chart-bar-square')
                             ->sort(2),
+                        NavigationItem::make('Logs')
+                            ->group('Performance')
+                            ->url(url(config('log-viewer.route_path')), shouldOpenInNewTab: true)
+                            ->icon('heroicon-o-document-text')
+                            ->sort(2),
                     ]);
             });
     }

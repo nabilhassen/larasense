@@ -17,6 +17,7 @@
         "laravel/tinker": "^3.0.2",
         "livewire/livewire": "^4.3",
         "maize-tech/laravel-markable": "^3.0",
+        "opcodesio/log-viewer": "^3.24",
         "resend/resend-php": "^1.3",
         "shweshi/opengraph": "dev-laravel-13",
         "spatie/crawler": "^9.3",
