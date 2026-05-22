@@ -64,6 +64,7 @@ class PublisherResource extends Resource
                     ->rowIndex(),
 
                 ImageColumn::make('logo')
+                    ->disk('public')
                     ->circular(),
 
                 TextColumn::make('name')
