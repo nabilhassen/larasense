@@ -99,7 +99,7 @@
                 )"
             >
                 <button
-                    class="inline-flex items-center gap-x-1"
+                    class="inline-flex items-center gap-x-1 cursor-pointer"
                     x-on:click="toggleLike"
                 >
                     <x-heroicon-o-hand-thumb-up
