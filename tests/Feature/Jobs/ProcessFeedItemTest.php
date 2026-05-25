@@ -34,12 +34,8 @@ test('article feed item is processed and stored in the database as a material', 
 test('youtube feed item is processed and stored in the database as a material', function () {
     Queue::fake(FetchAndUpdateMaterialImage::class);
 
-    $url = 'https://www.youtube.com/feeds/videos.xml?channel_id=UCfO2GiQwb-cwJTb1CuRSkwg';
-
-    $this->skip(Http::get($url)->failed());
-
     $source = Source::factory()->create([
-        'url' => $url,
+        'url' => 'https://www.youtube.com/feeds/videos.xml?channel_id=UCfO2GiQwb-cwJTb1CuRSkwg',
         'type' => SourceType::Youtube,
         'last_checked_at' => now()->subDay(),
     ]);
@@ -53,7 +49,7 @@ test('youtube feed item is processed and stored in the database as a material', 
     $this->assertDatabaseHas('materials', [
         'feed_id' => $item->get_id(true),
     ]);
-});
+})->skip(fn (): bool => Http::get('https://www.youtube.com/feeds/videos.xml?channel_id=UCfO2GiQwb-cwJTb1CuRSkwg')->failed());
 
 test('podcast feed item is processed and stored in the database as a material', function () {
     Queue::fake(FetchAndUpdateMaterialImage::class);
