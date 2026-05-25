@@ -6,6 +6,7 @@ use App\Jobs\ProcessFeedItem;
 use App\Jobs\SyncSourceFeed;
 use App\Models\Material;
 use App\Models\Source;
+use Carbon\CarbonInterface;
 use Illuminate\Support\Facades\Context;
 use Illuminate\Support\Facades\Queue;
 use Mockery\MockInterface;
@@ -77,7 +78,7 @@ test('if feed forcing does not work it falls back to without forcing', function 
     Queue::assertPushed(ProcessFeedItem::class, 1);
 });
 
-function mockFeedItem(mixed $publishedAt): Item
+function mockFeedItem(CarbonInterface $publishedAt): Item
 {
     $author = Mockery::mock(Author::class, function (MockInterface $mock) {
         $mock->shouldReceive('get_name')->andReturn(fake()->name());
