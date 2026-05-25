@@ -53,7 +53,7 @@ test('old feed item is not queued for processing', function () {
 
     expect(Context::has('material_url'))->toBeFalse();
 
-    Queue::assertPushed(ProcessFeedItem::class, 0);
+    Queue::assertNotPushed(ProcessFeedItem::class);
 });
 
 test('if feed forcing does not work it falls back to without forcing', function () {
