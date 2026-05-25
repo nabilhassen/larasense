@@ -9,6 +9,8 @@ use App\Models\Source;
 use Illuminate\Support\Facades\Context;
 use Illuminate\Support\Facades\Queue;
 use Mockery\MockInterface;
+use SimplePie\Author;
+use SimplePie\Enclosure;
 use SimplePie\Item;
 use SimplePie\SimplePie;
 use willvincent\Feeds\Facades\FeedsFacade;
@@ -18,10 +20,7 @@ test('new feed item is queued for processing', function () {
 
     $source = Source::factory()->create();
 
-    $item = $this->mock(Item::class, function (MockInterface $mock) {
-        $mock->shouldReceive('get_link')->andReturn(fake()->url());
-        $mock->shouldReceive('get_date')->andReturn(now());
-    });
+    $item = mockFeedItemForMaterialData(now());
 
     $feed = $this->mock(SimplePie::class, function (MockInterface $mock) use ($item) {
         $mock->shouldReceive('error')->andReturnNull();
@@ -41,10 +40,7 @@ test('old feed item is not queued for processing', function () {
     $source = Source::factory()->create();
     Material::factory()->for($source)->create();
 
-    $item = $this->mock(Item::class, function (MockInterface $mock) {
-        $mock->shouldReceive('get_link')->andReturn(fake()->url());
-        $mock->shouldReceive('get_date')->andReturn(now()->subHours(5));
-    });
+    $item = mockFeedItemForMaterialData(now()->subHours(5));
 
     $feed = $this->mock(SimplePie::class, function (MockInterface $mock) use ($item) {
         $mock->shouldReceive('error')->andReturnNull();
@@ -65,10 +61,7 @@ test('if feed forcing does not work it falls back to without forcing', function 
 
     $source = Source::factory()->create();
 
-    $item = $this->mock(Item::class, function (MockInterface $mock) {
-        $mock->shouldReceive('get_link')->andReturn(fake()->url());
-        $mock->shouldReceive('get_date')->andReturn(now());
-    });
+    $item = mockFeedItemForMaterialData(now());
 
     $feed = $this->mock(SimplePie::class, function (MockInterface $mock) use ($item) {
         $mock->shouldReceive('error')->andReturn(fake()->sentence());
@@ -83,3 +76,31 @@ test('if feed forcing does not work it falls back to without forcing', function 
 
     Queue::assertPushed(ProcessFeedItem::class, 1);
 });
+
+function mockFeedItemForMaterialData(mixed $publishedAt): Item
+{
+    $author = Mockery::mock(Author::class, function (MockInterface $mock) {
+        $mock->shouldReceive('get_name')->andReturn(fake()->name());
+    });
+
+    $enclosure = Mockery::mock(Enclosure::class, function (MockInterface $mock) {
+        $mock->shouldReceive('get_description')->andReturn(fake()->paragraph());
+        $mock->shouldReceive('get_duration')->andReturn(fake()->numberBetween(60, 3600));
+        $mock->shouldReceive('get_link')->andReturn(fake()->url());
+        $mock->shouldReceive('get_thumbnail')->andReturn(fake()->imageUrl());
+    });
+
+    return Mockery::mock(Item::class, function (MockInterface $mock) use ($author, $enclosure, $publishedAt) {
+        $mock->shouldReceive('get_author')->andReturn($author);
+        $mock->shouldReceive('get_content')->andReturn(fake()->paragraph());
+        $mock->shouldReceive('get_date')->andReturn($publishedAt);
+        $mock->shouldReceive('get_description')->andReturn(fake()->paragraph());
+        $mock->shouldReceive('get_enclosure')->andReturn($enclosure);
+        $mock->shouldReceive('get_id')->with(true)->andReturn(fake()->uuid());
+        $mock->shouldReceive('get_item_tags')->with(SimplePie::NAMESPACE_ITUNES, 'author')->andReturn([]);
+        $mock->shouldReceive('get_item_tags')->with(SimplePie::NAMESPACE_ITUNES, 'duration')->andReturn([]);
+        $mock->shouldReceive('get_item_tags')->with(SimplePie::NAMESPACE_ITUNES, 'image')->andReturn([]);
+        $mock->shouldReceive('get_link')->andReturn(fake()->url());
+        $mock->shouldReceive('get_title')->andReturn(fake()->sentence());
+    });
+}
