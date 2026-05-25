@@ -90,7 +90,7 @@ class MaterialResource extends Resource
 
                 ImageColumn::make('image_url')
                     ->square()
-                    ->disk(fn (Material $record): string => str($record->url)->isUrl() ? '' : 'public')
+                    ->disk('public')
                     ->placeholder('N/A'),
 
                 TextColumn::make('source.publisher.name')
