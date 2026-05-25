@@ -66,12 +66,13 @@ class SourceResource extends Resource
         return $table
             ->defaultKeySort(false)
             ->defaultSort('created_at', 'desc')
+            ->searchable(['url'])
             ->columns([
                 TextColumn::make('#')
                     ->rowIndex(),
 
                 TextColumn::make('publisher.name')
-                    ->searchable(['publishers.name', 'url'])
+                    ->searchable()
                     ->sortable()
                     ->description(fn (Source $record): string => str($record->url)->limit(50)->toString()),
 
