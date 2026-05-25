@@ -21,7 +21,6 @@ use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
-use Illuminate\Support\Uri;
 use UnitEnum;
 
 class MaterialResource extends Resource
@@ -91,7 +90,7 @@ class MaterialResource extends Resource
 
                 ImageColumn::make('image_url')
                     ->square()
-                    ->disk(fn(Material $record): string => str($record->url)->isUrl() ? '': 'public')
+                    ->disk(fn (Material $record): string => str($record->url)->isUrl() ? '' : 'public')
                     ->placeholder('N/A'),
 
                 TextColumn::make('source.publisher.name')
