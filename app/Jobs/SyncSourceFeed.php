@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Jobs;
 
+use App\Data\MaterialData;
 use App\Models\Source;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
@@ -39,7 +40,10 @@ class SyncSourceFeed implements ShouldQueue
                 break;
             }
 
-            ProcessFeedItem::dispatch($this->source, $item);
+            ProcessFeedItem::dispatch(
+                $this->source,
+                MaterialData::create($this->source->type, $item)
+            );
         }
 
         $this->source->updateLastCheckedAt();

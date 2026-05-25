@@ -9,7 +9,6 @@ use App\Data\MaterialData;
 use App\Models\Source;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
-use SimplePie\Item;
 
 class ProcessFeedItem implements ShouldQueue
 {
@@ -20,7 +19,7 @@ class ProcessFeedItem implements ShouldQueue
      */
     public function __construct(
         public Source $source,
-        public Item $item
+        public MaterialData $materialData
     ) {}
 
     /**
@@ -30,7 +29,7 @@ class ProcessFeedItem implements ShouldQueue
     {
         $createMaterial->handle(
             $this->source,
-            MaterialData::create($this->source->type, $this->item),
+            $this->materialData
         );
     }
 }

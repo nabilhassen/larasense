@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Data\MaterialData;
 use App\Enums\SourceType;
 use App\Jobs\FetchAndUpdateMaterialImage;
 use App\Jobs\ProcessFeedItem;
@@ -22,7 +23,7 @@ test('article feed item is processed and stored in the database as a material', 
 
     $item = FeedsFacade::make([$source->url], 1)->get_item();
 
-    ProcessFeedItem::dispatch($source, $item);
+    ProcessFeedItem::dispatch($source, MaterialData::create($source->type, $item));
 
     Queue::assertPushed(FetchAndUpdateMaterialImage::class);
     $this->assertDatabaseCount('materials', 1);
@@ -42,7 +43,7 @@ test('youtube feed item is processed and stored in the database as a material', 
 
     $item = FeedsFacade::make([$source->url], 1)->get_item();
 
-    ProcessFeedItem::dispatch($source, $item);
+    ProcessFeedItem::dispatch($source, MaterialData::create($source->type, $item));
 
     Queue::assertNotPushed(FetchAndUpdateMaterialImage::class);
     $this->assertDatabaseCount('materials', 1);
@@ -62,7 +63,7 @@ test('podcast feed item is processed and stored in the database as a material', 
 
     $item = FeedsFacade::make([$source->url], 1)->get_item();
 
-    ProcessFeedItem::dispatch($source, $item);
+    ProcessFeedItem::dispatch($source, MaterialData::create($source->type, $item));
 
     Queue::assertNotPushed(FetchAndUpdateMaterialImage::class);
     $this->assertDatabaseCount('materials', 1);
@@ -88,7 +89,7 @@ test('duplicate article feed item will not be stored', function () {
     $material->feed_id = $item->get_id(true);
     $material->save();
 
-    ProcessFeedItem::dispatch($source, $item);
+    ProcessFeedItem::dispatch($source, MaterialData::create($source->type, $item));
 
     Queue::assertNotPushed(FetchAndUpdateMaterialImage::class);
     $this->assertDatabaseCount('materials', 1);
