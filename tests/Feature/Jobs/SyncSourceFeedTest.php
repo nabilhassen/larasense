@@ -20,7 +20,7 @@ test('new feed item is queued for processing', function () {
 
     $source = Source::factory()->create();
 
-    $item = mockFeedItemForMaterialData(now());
+    $item = mockFeedItem(now());
 
     $feed = $this->mock(SimplePie::class, function (MockInterface $mock) use ($item) {
         $mock->shouldReceive('error')->andReturnNull();
@@ -40,7 +40,7 @@ test('old feed item is not queued for processing', function () {
     $source = Source::factory()->create();
     Material::factory()->for($source)->create();
 
-    $item = mockFeedItemForMaterialData(now()->subHours(5));
+    $item = mockFeedItem(now()->subHours(5));
 
     $feed = $this->mock(SimplePie::class, function (MockInterface $mock) use ($item) {
         $mock->shouldReceive('error')->andReturnNull();
@@ -61,7 +61,7 @@ test('if feed forcing does not work it falls back to without forcing', function 
 
     $source = Source::factory()->create();
 
-    $item = mockFeedItemForMaterialData(now());
+    $item = mockFeedItem(now());
 
     $feed = $this->mock(SimplePie::class, function (MockInterface $mock) use ($item) {
         $mock->shouldReceive('error')->andReturn(fake()->sentence());
@@ -77,7 +77,7 @@ test('if feed forcing does not work it falls back to without forcing', function 
     Queue::assertPushed(ProcessFeedItem::class, 1);
 });
 
-function mockFeedItemForMaterialData(mixed $publishedAt): Item
+function mockFeedItem(mixed $publishedAt): Item
 {
     $author = Mockery::mock(Author::class, function (MockInterface $mock) {
         $mock->shouldReceive('get_name')->andReturn(fake()->name());
