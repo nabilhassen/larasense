@@ -56,7 +56,7 @@
     "src": "node_modules/@fontsource/inter/files/inter-vietnamese-400-normal.woff2"
   },
   "resources/css/app.css": {
-    "file": "assets/app-Dx1Bhl_i.css",
+    "file": "assets/app-B-lf_Aky.css",
     "name": "app",
     "names": [
       "app.css"
@@ -65,7 +65,7 @@
     "isEntry": true
   },
   "resources/js/app.js": {
-    "file": "assets/app-Caqjkka3.js",
+    "file": "assets/app-CeSzIkAC.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
