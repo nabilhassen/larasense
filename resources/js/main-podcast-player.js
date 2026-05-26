@@ -21,9 +21,31 @@ export const mainPodcastPlayer = () => ({
 
     initMainPodcastPlayerStore() {
         Alpine.store("mainPodcastPlayer", {
-            isPlaying: this.player.playing,
+            isPlaying: Boolean(this.player.playing),
             url: this.url,
         });
+    },
+
+    close() {
+        if (this.player?.pause) {
+            this.player.pause();
+        }
+
+        if (this.player?.destroy) {
+            this.player.destroy();
+        }
+
+        this.isSourceSet = false;
+        this.url = "";
+        this.thumbnail = "";
+        this.publisherName = "";
+        this.materialTitle = "";
+        this.publishedAt = "";
+        this.duration = "";
+        this.player = {};
+
+        Alpine.store("mainPodcastPlayer").isPlaying = false;
+        Alpine.store("mainPodcastPlayer").url = "";
     },
 
     play({
