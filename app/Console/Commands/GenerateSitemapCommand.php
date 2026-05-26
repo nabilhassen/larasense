@@ -36,7 +36,7 @@ class GenerateSitemapCommand extends Command
             ->shouldCrawl(function (string $url): bool {
                 return str(Uri::of($url)->path())
                     ->doesntContain([
-                        '/auth',
+                        'auth',
                         'password',
                     ]);
             })
