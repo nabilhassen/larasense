@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use Psr\Http\Message\UriInterface;
 use Spatie\Sitemap\SitemapGenerator;
 
 class GenerateSitemapCommand extends Command
@@ -33,7 +32,7 @@ class GenerateSitemapCommand extends Command
     {
 
         SitemapGenerator::create(config('app.url'))
-            ->shouldCrawl(function (UriInterface $url) {
+            ->shouldCrawl(function (string $url): bool {
                 // All pages will be crawled, except the contact page.
                 // Links present on the contact page won't be added to the
                 // sitemap unless they are present on a crawlable page.
